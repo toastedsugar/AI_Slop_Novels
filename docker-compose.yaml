@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  novelgen:
+    build: .
+    container_name: NovelGen
+
+    volumes:
+      - .:/app
+      - ./outputs:/app/outputs
+      - ./manuscripts:/app/manuscripts
+
+    environment:
+      - PYTHONPATH=/app/src
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+
+    command: python main.py
