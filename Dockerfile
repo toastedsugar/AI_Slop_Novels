@@ -17,4 +17,4 @@ COPY . .
 ENV PYTHONPATH=/app/src
 
 # Default command (can override in docker-compose)
-CMD ["python", "scripts/run_generation.py"]
+CMD ["python", "src/main.py"]
