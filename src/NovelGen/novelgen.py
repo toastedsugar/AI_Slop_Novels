@@ -1,4 +1,4 @@
-from blueprint import Blueprint
+from src.blueprint import Blueprint
 
 class NovelGen:
     def __init__(self, blueprint:Blueprint):

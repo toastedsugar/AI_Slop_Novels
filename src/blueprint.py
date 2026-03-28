@@ -10,8 +10,7 @@ def yaml_include(loader, node):
     with open(file_name, 'r') as f:
         return yaml.safe_load(f)
 
-# Register the tag '!include' with the SafeLoader
-yaml.SafeLoader.add_constructor('!include', yaml_include)
+
 
 
 @dataclass
@@ -25,20 +24,22 @@ class Metadata:
 class Blueprint:
     def __init__(self):
         # Before importing the data, validate that the data is correct and all fields are as they should be
-        self.Check_Blueprint()
+        self.check_blueprint()
 
         # Register the custom tag once when the class is created
         yaml.SafeLoader.add_constructor('!include', self._yaml_include)
 
-
-
+        print(f"Current Working Directory: {os.getcwd()}")
+        print(f"Looking for file at: {os.path.abspath('../Blueprints/Romantasy/main.yaml')}")
+        
+        path = 'Blueprints/Romantasy/main.yaml'
 
         # Import blueprint data
-        with open('../Blueprints/Romantasy/main.yaml', 'r') as f:
+        with open(path, 'r') as f:
             # Use the Loader we modified above
             full_blueprint = yaml.load(f, Loader=yaml.SafeLoader)
 
-        print(full_blueprint['characters'][0]['name']) # Output: Alice
+        print(full_blueprint['characters'][0]['name'])
         print("Imported Blueprint")
     
 
@@ -49,18 +50,27 @@ class Blueprint:
 
 
 
-    def yaml_include(loader, node):
+    # This is the logic that 'main.yaml' will trigger
+    @staticmethod
+    def _yaml_include(loader, node):
         file_name = loader.construct_scalar(node)
         
-        # Get the directory of the file currently being parsed
+        # loader.name is inherited from the 'with open' call below
         base_dir = os.path.dirname(loader.name) 
         full_path = os.path.join(base_dir, file_name)
         
         with open(full_path, 'r') as f:
-            return yaml.safe_load(f)
+            return yaml.load(f, Loader=yaml.SafeLoader)
     
 
+    # 3. This is your main execution method
+    def get_blueprint(self, path):
+        with open(path, 'r') as f:
+            # When this runs, PyYAML uses the constructor we registered in __init__
+            return yaml.load(f, Loader=yaml.SafeLoader)
+        
+
     # Do error checking to make sure blueprint is valid
-    def Check_Blueprint(self):
+    def check_blueprint(self):
         print("Checking Blueprint")
 

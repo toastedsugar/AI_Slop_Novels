@@ -11,7 +11,7 @@ services:
       - ./manuscripts:/app/manuscripts
 
     environment:
-      - PYTHONPATH=/app/src
+      - PYTHONPATH=/app
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
 
