@@ -1,0 +1,27 @@
+# Story metadata
+title: Almost Morning
+author: Slopworm
+genres:
+  - Romance
+  - Fantasy
+  - Romantic Comedy
+  - Drama
+tone: 
+  - dark
+  - steamy
+
+# The greater-than sign is used when you want to write in a way that’s easy to read in your text editor (with short lines), but you want the final computer output to be a single continuous paragraph.
+summary: > 
+  A princess from a warm, corrupt kingdom is abducted by the dark prince of a cold one. She is kind without agenda, brave without deliberation, and carrying a grief she hasn't examined — her mother's suspicious death, her father's passive failures, three simultaneous betrothals to men she doesn't want, and a concrete specific dream for her life she has never said out loud. Her magic has been deliberately suppressed and mismeasured by someone with a reason to do so. She doesn't know this.
+  The dark prince took her for reasons connected to a prophecy everyone has gotten wrong. He is the product of a father who had his mother killed, a war he ended at seventeen through something he cannot take back, a betrayal by the first person he trusted after, and a curse that has empirical evidence behind it. He keeps a ledger of his own damage that is internally consistent and factually wrong. He has never encountered goodness without an agenda and does not know what to do with her. He finds out slowly, against his will, across two acts.
+  Their magic — her Dawn, his Dusk — is theoretically catastrophic in combination. The one rule everyone knows is that they cannot be combined. The bond that formed at their first contact is an involuntary Threshold event, the magic returning to what it was before it was divided. He has been researching this privately. She doesn't know enough to know something is anomalous. The prophecy the interpreter thought was about war is about this moment. The villain has also figured this out and is attempting to force it for the wrong reasons.
+  The story moves through captivity, coexistence, acceleration, a break, a separation in which she returns to a kingdom that now fits her worse than his does, and a return on her own terms. The climax is the Threshold — they attempt the impossible combination, it works, the villain is defeated, the prophecy closes. The resolution is domestic and specific: he finally has someone whose goodness is not contingent, she finally has a room where she doesn't have to perform anything, and the candles burn at a height that is neither his normal nor hers. She says the thing she wanted out loud for the first time. He says yes.
+
+
+# Import data from other files
+characters: !include characters.yaml
+chapters: !include chapters.yaml
+character_relationships: !include character_relationships.yaml
+
+
+
