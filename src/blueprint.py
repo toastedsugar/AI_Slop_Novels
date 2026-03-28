@@ -3,22 +3,18 @@ import yaml
 import os
 
 
-def yaml_include(loader, node):
-    # Get the filename from the YAML node
-    file_name = loader.construct_scalar(node)
-    
-    with open(file_name, 'r') as f:
-        return yaml.safe_load(f)
-
-
-
 
 @dataclass
-class Metadata:
+class Noveldata:
     title:str
-    # A mutable object like a list cannot be used as a default value directly
-    # Must use field and default_factory
-    genres: list[str] = field(default_factory=list)
+    author:str
+    genres: list[str]
+    tone: list[str]
+    summary: str
+    characters: list[str]
+    chapters: list[str]
+    character_relationships: list[str]
+
 
 
 class Blueprint:
@@ -31,23 +27,22 @@ class Blueprint:
 
         print(f"Current Working Directory: {os.getcwd()}")
         print(f"Looking for file at: {os.path.abspath('../Blueprints/Romantasy/main.yaml')}")
-        
+
         path = 'Blueprints/Romantasy/main.yaml'
 
-        # Import blueprint data
+        """ # Import blueprint data
         with open(path, 'r') as f:
             # Use the Loader we modified above
-            full_blueprint = yaml.load(f, Loader=yaml.SafeLoader)
+            self.full_blueprint = yaml.load(f, Loader=yaml.SafeLoader)
 
-        print(full_blueprint['characters'][0]['name'])
-        print("Imported Blueprint")
-    
+        self.print_blueprint()
+ """
+        # Get the blueprint data and inject it into the dataclass
+        #self.full_blueprint = Noveldata(**self.get_blueprint(path))
 
+        self.full_blueprint = self.get_blueprint(path)
 
-
-
-
-
+        self.print_blueprint()
 
 
     # This is the logic that 'main.yaml' will trigger
@@ -66,11 +61,18 @@ class Blueprint:
     # 3. This is your main execution method
     def get_blueprint(self, path):
         with open(path, 'r') as f:
-            # When this runs, PyYAML uses the constructor we registered in __init__
-            return yaml.load(f, Loader=yaml.SafeLoader)
+            raw_dict = yaml.load(f, Loader=yaml.SafeLoader)
+        
+        # Store the object directly in the class attribute
+        self.full_blueprint = Noveldata(**raw_dict)
+        
+        # Return it just in case you want to use it elsewhere
+        return self.full_blueprint
         
 
     # Do error checking to make sure blueprint is valid
     def check_blueprint(self):
         print("Checking Blueprint")
 
+    def print_blueprint(self):
+        print(self.full_blueprint)
