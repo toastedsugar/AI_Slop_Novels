@@ -3,19 +3,37 @@ import yaml
 import os
 
 
-
 @dataclass
 class Noveldata:
     title:str
     author:str
+    target_word_count: int
+    target_word_count_minimum: int
+    target_word_count_maximum: int
+    perspective: str
+    tense: str
+
     genres: list[str]
     tone: list[str]
     summary: str
     characters: list[str]
     chapters: list[str]
     character_relationships: list[str]
+    chapters: list[str]
 
+@dataclass
+class Character:
+    name: str
+    role: str
+    personality: list[str]
 
+@dataclass
+class Chapter:
+    name: str
+
+@dataclass
+class Character_Relationships:
+    name: str
 
 class Blueprint:
     def __init__(self):
@@ -30,19 +48,8 @@ class Blueprint:
 
         path = 'Blueprints/Romantasy/main.yaml'
 
-        """ # Import blueprint data
-        with open(path, 'r') as f:
-            # Use the Loader we modified above
-            self.full_blueprint = yaml.load(f, Loader=yaml.SafeLoader)
-
-        self.print_blueprint()
- """
-        # Get the blueprint data and inject it into the dataclass
-        #self.full_blueprint = Noveldata(**self.get_blueprint(path))
-
         self.full_blueprint = self.get_blueprint(path)
-
-        self.print_blueprint()
+        print("Blueprint Loaded")
 
 
     # This is the logic that 'main.yaml' will trigger

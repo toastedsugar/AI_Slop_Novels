@@ -1,6 +1,8 @@
 .env
 ./venv
 
+venv
+
 
 src/__pycache__
 src/NovelGen/__pycache__

@@ -1,9 +1,27 @@
 version: "3.9"
 
 services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - novel-net
+
+
   novelgen:
     build: .
     container_name: NovelGen
+    depends_on:
+      - ollama
 
     volumes:
       - .:/app
@@ -14,5 +32,17 @@ services:
       - PYTHONPATH=/app
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OLLAMA_HOST=http://ollama:11434
+
+    networks:
+      - novel-net
 
     command: python src/main.py
+
+
+networks:
+  novel-net:
+    driver: bridge
+
+volumes:
+  ollama_data:

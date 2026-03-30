@@ -1,6 +1,12 @@
 # Story metadata
 title: Almost Morning
 author: Slopworm
+target_word_count: 75000
+target_word_count_minimum: 70000
+target_word_count_maximum: 80000
+
+perspective: Third-person limited
+tense: past
 genres:
   - Romance
   - Fantasy
@@ -20,8 +26,11 @@ summary: >
 
 # Import data from other files
 characters: !include characters.yaml
-chapters: !include chapters.yaml
+
 character_relationships: !include character_relationships.yaml
 
+# Each chapter is its own file inside the Chapters folder
+chapters: 
+  - !include chapters/1.yaml
 
 

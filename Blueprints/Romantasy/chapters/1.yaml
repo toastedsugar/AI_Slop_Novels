@@ -1,0 +1,283 @@
+beat:
+  # ============================================================
+  # METADATA
+  # ============================================================
+  id: "beat_01"
+  title: "The Betrothal Party"
+  act: "act_1"
+  sequence: 1
+  word_count:
+    target: 1500
+    min: 1200
+    max: 1800
+
+  # ============================================================
+  # POV
+  # ============================================================
+  pov:
+    character: "mia_dunmore"
+    person: "first"
+    tense: "present"
+    voice:
+      style: "intimate stream of observation"
+      intelligence: "genuinely limited, confident in incorrect conclusions"
+      humor: "present, unintentional, she does not know she is funny"
+      interiority: "states incorrect theories as established fact, instincts correct, reasoning wrong"
+      prohibited:
+        - "self awareness about her own reasoning failures"
+        - "meta commentary on her own intelligence"
+        - "purple prose"
+        - "overwrought metaphor"
+        - "editorializing emotional states"
+        - "stating what can be shown"
+
+  # ============================================================
+  # CHARACTERS
+  # ============================================================
+  characters:
+    - id: "mia_dunmore"
+      role: "protagonist"
+      age: 23
+      presence: "full scene"
+      state:
+        physical: "dressed in ballgown, performing composure"
+        emotional: "performing contentment, something is wrong, she cannot correctly identify what"
+        arc_position: "pre-kidnapping, at peak of performance, about to lose the context that requires it"
+      function: "establish who she is before everything changes"
+
+    - id: "mia_father"
+      role: "supporting"
+      presence: "full scene"
+      state:
+        physical: "hosting, pleased with himself"
+        emotional: "loving, weak, genuinely believes he has resolved something"
+      function: "establish paternal failure mode, warm corruption"
+
+    - id: "mia_stepmother"
+      role: "supporting"
+      presence: "full scene peripheral"
+      state:
+        physical: "managing the evening"
+        emotional: "controlled, operational"
+      function: "establish quiet redirection of resources and attention"
+
+    - id: "servant_friend"
+      role: "supporting"
+      presence: "brief"
+      state:
+        physical: "present at party in service capacity"
+        emotional: "warm, slightly cautious about mia"
+      function: "establish the friendship, establish mia's one genuine connection"
+
+    - id: "betrothed_one"
+      role: "minor"
+      presence: "peripheral"
+      description: "man she liked once, watched curdle, charming publicly"
+      function: "establish first betrothal, the one that has evidence she cannot locate yet"
+
+    - id: "betrothed_three"
+      role: "minor"
+      presence: "present, the focus of the evening"
+      description: "stepmother's contribution, charming publicly"
+      function: "establish third betrothal, tonight's announcement subject"
+
+    - id: "betrothed_two_emissary"
+      role: "minor"
+      presence: "peripheral"
+      description: "representative of the second betrothed, older man, cordial"
+      function: "establish second betrothal, the indifferent one"
+
+    - id: "marcus_vander"
+      role: "male_lead"
+      age: 37
+      presence: "not visible, already in position"
+      function: "absence only, he is there but she does not clock him"
+
+  # ============================================================
+  # SETTING
+  # ============================================================
+  setting:
+    location: "dunmore_palace_ballroom"
+    kingdom: "dunmore"
+    time_of_day: "evening"
+    atmosphere:
+      - "warm light"
+      - "formally dressed crowd"
+      - "music present"
+      - "kingdom warmth that is also its corruption"
+    visual_details:
+      - "ballgown on mia, increasingly symbolic"
+      - "three men or their representatives present simultaneously"
+      - "her father at the center, pleased"
+      - "stepmother at the edges, managing"
+    prohibited_atmosphere:
+      - "ominous"
+      - "foreboding"
+      - "dramatic foreshadowing"
+      - "explicit darkness"
+
+  # ============================================================
+  # TONE
+  # ============================================================
+  tone:
+    primary: "warm surface, wrong underneath"
+    secondary: "mia's specific brand of confident incorrectness"
+    tertiary: "gentle comedy of her misreads"
+    register: "literary accessible"
+    prohibited:
+      - "melodramatic"
+      - "self pitying"
+      - "overtly comedic"
+      - "winking at the reader"
+      - "whimsical"
+
+  # ============================================================
+  # BEAT STRUCTURE
+  # ============================================================
+  beats:
+    - sequence: 1
+      title: "mia in performance"
+      description: >
+        Mia working the party. Remembering names, stopping for children,
+        giving something away she was supposed to keep. The court is
+        embarrassed by her. She finds this baffling and has a theory about
+        why they are embarrassed that is wrong. She explains something to
+        a diplomat who knows more than she does.
+      pov_state: "performing contentment, surface competence, underlying misread"
+      function: "establish constitutive kindness, establish incorrect reasoning pattern"
+      prohibited: "make her incompetent socially, she is socially functional, just wrong underneath"
+
+    - sequence: 2
+      title: "the three men"
+      description: >
+        She clocks all three betrothals or their representatives. Her theory
+        about the situation is wrong in the geometry and correct in the
+        conclusion. She knows something is wrong. She cannot correctly
+        identify what. She has decided it is probably coming next month.
+        It is coming tonight.
+      pov_state: "confident in incorrect theory, correct instinct underneath"
+      function: "establish the three betrothals, establish the geopolitical setup through her flawed lens"
+      prohibited: "make her fully understand the situation, she does not"
+
+    - sequence: 3
+      title: "servant friend exchange"
+      description: >
+        Brief warm exchange. The servant friend is the only person who has
+        gently indicated mia's reasoning is occasionally unsound. Mia has
+        never absorbed this. She has filed it as her friend being cautious.
+      pov_state: "warm, genuine, slightly not listening"
+      function: "establish the friendship, establish the one real connection"
+      prohibited: "sentimentalize, over extend, make it a scene rather than a beat"
+
+    - sequence: 4
+      title: "father and stepmother"
+      description: >
+        Her father loving and weak and pleased with himself. The stepmother
+        managing. Mia has a theory about the stepmother that is wrong about
+        the method and correct about the conclusion. Her father has not
+        achieved the resolution he believes he has achieved.
+      pov_state: "affectionate toward father, wary of stepmother, both readings partially wrong"
+      function: "establish paternal failure mode, establish stepmother's quiet management"
+      prohibited: "make father a villain, make stepmother overtly sinister"
+
+    - sequence: 5
+      title: "marcus not clocked"
+      description: >
+        She clocks someone else entirely as suspicious and is wrong. Marcus
+        is already in position. She does not see him. She sees someone
+        completely benign and is alarmed. This is the last beat before
+        the abduction.
+      pov_state: "performing contentment, wrong alarm, unaware"
+      function: "establish her threat assessment is inverted, set up abduction"
+      prohibited: "ominous atmosphere, foreshadowing, she should have no sense of what is coming"
+
+  # ============================================================
+  # ESTABLISHES
+  # ============================================================
+  establishes:
+    character:
+      - attribute: "constitutive kindness"
+        method: "demonstrated, unwitnessed, automatic"
+      - attribute: "incorrect reasoning pattern"
+        method: "demonstrated through her theories and misreads"
+      - attribute: "correct instincts"
+        method: "she arrives at right conclusions through wrong geometry"
+      - attribute: "performance of contentment"
+        method: "she is doing it at maximum elaboration"
+      - attribute: "the want"
+        method: "implied only, present as absence, not named"
+      - attribute: "intelligence limits"
+        method: "demonstrated not stated"
+    world:
+      - attribute: "kingdom warmth and corruption as single thing"
+        method: "party atmosphere, father's pleased incompetence"
+      - attribute: "three betrothals"
+        method: "all three present or represented simultaneously"
+      - attribute: "geopolitical stakes"
+        method: "present in background, not explained"
+      - attribute: "her position as diplomatic object"
+        method: "implied through the party's function"
+
+  # ============================================================
+  # MAGIC
+  # ============================================================
+  magic:
+    present: false
+    notes: "mia has no conscious access to her magic, it does not appear"
+
+  # ============================================================
+  # CONTINUITY INPUTS
+  # ============================================================
+  continuity_inputs:
+    required_established_facts: []
+    required_character_states: []
+    required_open_threads: []
+
+  # ============================================================
+  # CONTINUITY OUTPUTS
+  # ============================================================
+  continuity_outputs:
+    locks:
+      - "ballgown color and description"
+      - "servant friend name"
+      - "betrothed one name and appearance"
+      - "betrothed three name and appearance"
+      - "father name and appearance"
+      - "stepmother name and appearance"
+      - "kingdom name confirmed: dunmore"
+    opens:
+      - "three betrothals unresolved"
+      - "mia's want unnamed"
+      - "marcus in position unclocked"
+    character_state_updates:
+      mia_dunmore:
+        performing_contentment: true
+        knows_true_power: false
+        want_stated_aloud: false
+        refers_to_marcus_as: null
+
+  # ============================================================
+  # PROHIBITED
+  # ============================================================
+  prohibited:
+    plot: "no plot events beyond the party itself"
+    character: "do not make mia self aware about her reasoning failures"
+    atmosphere: "no ominous foreshadowing, no sense of ending"
+    prose:
+      - "purple prose"
+      - "overwrought metaphor"
+      - "adverb clusters"
+      - "stating what can be shown"
+      - "generic fantasy description"
+
+  # ============================================================
+  # GENERATION NOTES
+  # ============================================================
+  generation_notes: >
+    The party should feel like any other evening in her life. The reader
+    should feel what she does not. She is at peak performance in a context
+    that is about to be removed entirely. The comedy of her misreads should
+    be present but not played for laughs — the narrative does not wink. Her
+    incorrectness is simply true and the reader observes it. The warmth of
+    the kingdom is real. The corruption is the warmth. These are not in
+    conflict. That is the point.
