@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   ollama:
     image: ollama/ollama:latest
@@ -30,19 +28,19 @@ services:
 
     environment:
       - PYTHONPATH=/app
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - OLLAMA_HOST=http://ollama:11434
+      - OLLAMA_HOST={$OLLAMA_HOST:-http://ollama:11434}
+      - OLLAMA_MODEL={$OLLAMA_MODEL:-llama3}
 
     networks:
       - novel-net
 
     command: python src/main.py
 
-
+# Allow python app to talk to ollama
 networks:
   novel-net:
     driver: bridge
 
+# Persist ollama data so it doesnt have to be redownloaded or rebuilt
 volumes:
   ollama_data:

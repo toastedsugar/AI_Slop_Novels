@@ -1,12 +1,13 @@
 # Story metadata
-title: Almost Morning
-author: Slopworm
-target_word_count: 75000
-target_word_count_minimum: 70000
-target_word_count_maximum: 80000
+metadata:
+  title: Almost Morning
+  author: Slopworm
+  target_word_count: 75000
+  target_word_count_minimum: 70000
+  target_word_count_maximum: 80000
+  perspective: Third-person limited
+  tense: past
 
-perspective: Third-person limited
-tense: past
 genres:
   - Romance
   - Fantasy

@@ -5,6 +5,18 @@ import os
 
 @dataclass
 class Noveldata:
+
+    metadata: list[str]
+    genres: list[str]
+    tone: list[str]
+    summary: str
+    characters: list[str]
+    chapters: list[str]
+    character_relationships: list[str]
+    chapters: list[str]
+
+@dataclass
+class Metadata:
     title:str
     author:str
     target_word_count: int
@@ -13,13 +25,7 @@ class Noveldata:
     perspective: str
     tense: str
 
-    genres: list[str]
-    tone: list[str]
-    summary: str
-    characters: list[str]
-    chapters: list[str]
-    character_relationships: list[str]
-    chapters: list[str]
+
 
 @dataclass
 class Character:
@@ -51,6 +57,14 @@ class Blueprint:
         self.full_blueprint = self.get_blueprint(path)
         print("Blueprint Loaded")
 
+        self.get_metadata()
+        self.get_genres()
+        self.get_tone()
+        self.get_summary()
+        self.get_characters()
+        self.get_character_relationships()
+        self.get_chapters() 
+
 
     # This is the logic that 'main.yaml' will trigger
     @staticmethod
@@ -77,9 +91,33 @@ class Blueprint:
         return self.full_blueprint
         
 
+
     # Do error checking to make sure blueprint is valid
     def check_blueprint(self):
         print("Checking Blueprint")
 
     def print_blueprint(self):
         print(self.full_blueprint)
+
+
+
+    def get_metadata(self):
+        print(self.full_blueprint.metadata)
+    
+    def get_genres(self):
+        print(self.full_blueprint.genres)
+
+    def get_tone(self):
+        print(self.full_blueprint.tone)
+
+    def get_summary(self):
+        print(self.full_blueprint.summary)
+
+    def get_characters(self):
+        print(self.full_blueprint.characters)
+
+    def get_character_relationships(self):
+        print(self.full_blueprint.character_relationships)
+
+    def get_chapters(self):
+        print(self.full_blueprint.chapters)
