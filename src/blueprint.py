@@ -57,6 +57,7 @@ class Blueprint:
         self.full_blueprint = self.get_blueprint(path)
         print("Blueprint Loaded")
 
+        '''
         self.get_metadata()
         self.get_genres()
         self.get_tone()
@@ -64,6 +65,7 @@ class Blueprint:
         self.get_characters()
         self.get_character_relationships()
         self.get_chapters() 
+        '''
 
 
     # This is the logic that 'main.yaml' will trigger
