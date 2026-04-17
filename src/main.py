@@ -13,10 +13,4 @@ novel = novelgen.NovelGen(blueprint)
 
 
 
-OLLAMA_BASE_URL  = "http://localhost:11434"
-
-novel.run(OLLAMA_BASE_URL)
-
-
-
 

@@ -4,7 +4,8 @@
 venv
 
 
-src/__pycache__
-src/NovelGen/__pycache__
+**/__pycache__/
+*.pyc
+*.pyo
 
 

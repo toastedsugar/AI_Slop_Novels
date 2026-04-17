@@ -1,0 +1,211 @@
+{#- ============================================================
+    Character System Prompt Template
+    Schema version: 0.3
+    Input: a single character dict
+    Usage: template.render(character=characters[i])
+
+    Notes on whitespace:
+      - trim_blocks=True and lstrip_blocks=True at Environment level
+      - Use explicit blank lines between sections
+      - `sentence_case` macro replaces Jinja's built-in `capitalize`,
+        which destructively lowercases every character after the first
+        and breaks proper nouns (Cal -> cal, Samuel -> samuel).
+    ============================================================ -#}
+{% macro sentence_case(text) -%}
+{{- text[0] | upper }}{{ text[1:] -}}
+{% endmacro -%}
+# Character System Prompt — {{ character.name_full }}
+
+You are writing the character of **{{ character.name_full }}**{% if character.name_display != character.name_full %} (called **{{ character.name_display }}**){% endif %} in a romantasy novelette set in the Pacific Northwest in the 1890s. Every line of prose, dialogue, and interiority involving this character must conform to the following. Treat this as a hard contract, not a style suggestion.
+
+---
+
+## Identity
+
+{{ sentence_case(character.name_display) }} is a{% if character.species[0] in 'aeiou' %}n{% endif %} {{ character.species }}{% if character.age is number %}, {{ character.age }} years old{% elif character.age %}, {{ character.age }}{% endif %}. {{ sentence_case(character.pronouns) }} pronouns.{% if character.occupation %} Occupation: {{ character.occupation }}.{% endif %}{% if character.apparent_age %} Apparent age reads as {{ character.apparent_age }}.{% endif %} Role in the story: {{ character.role | replace('_', ' ') }}.
+
+Refer to this character as **{{ character.name_display }}** in narration by default.
+{% if character.name_full != character.name_display %}
+The full name **{{ character.name_full }}** should be reserved for moments of formality, intimacy, or revelation — it should land with weight whenever it appears.
+{% endif %}
+
+---
+
+## Physical Presence
+
+{% if character.physical.description %}
+Render the following as accumulated detail across scenes rather than a single descriptive block. Each item below is a fact about the body that narration can draw on when the scene calls for it:
+
+{% for item in character.physical.description %}
+- {{ item }}
+{% endfor %}
+
+{% else %}
+This character's physical appearance is deliberately unspecified. Do not invent distinctive features. Render them as a presence rather than a portrait.
+
+{% endif %}
+{% if character.physical.alternate_form %}
+**Alternate form.** This character has a form beyond their default presentation. It should be rendered as physically real, not metaphorical — the change is something another character could see, photograph, or flinch from. The alternate form's features:
+
+{% for item in character.physical.alternate_form %}
+- {{ item }}
+{% endfor %}
+
+When this form appears, treat it as a threshold event in the scene. It is never casual.
+
+{% else %}
+**No alternate form.** This character does not shift, glamour, or transform. They are only ever what they appear to be. This absence is itself a character fact: when the prose wants to suggest hiddenness, the signals must be behavioral — silence, stillness, careful not-looking — rather than physical or supernatural.
+
+{% endif %}
+{% if character.physical.tells %}
+**Tells.** These are the small physical signals that betray something beneath the surface. They should appear sparingly and work silently — a reader who is paying attention will notice them; a reader who is not will feel the unease without being able to name the source:
+
+{% for item in character.physical.tells %}
+- {{ item }}
+{% endfor %}
+
+{% else %}
+**No physical tells.** What this character is hiding, if anything, is hidden by behavior rather than by body. Do not invent glimmers, shimmers, or giveaways where none are specified.
+
+{% endif %}
+---
+
+## Voice
+
+{% if character.voice.cadence or character.voice.register_default or character.voice.register_under_duress %}
+{% if character.voice.cadence %}
+**Cadence.** {{ sentence_case(character.voice.cadence) }}. Hold this cadence in every line of dialogue. Period-specific but never period-costume — do not pastiche.
+
+{% endif %}
+{% if character.voice.register_default %}
+**Default register.** {{ sentence_case(character.voice.register_default) }}. This is how this character speaks when nothing is pressing on them.
+
+{% endif %}
+{% if character.voice.register_under_duress %}
+**Register under duress.** {{ sentence_case(character.voice.register_under_duress) }}. Notice whether this is an escalation or a contraction from the default — many characters get louder under pressure, but some get quieter, more formal, or more fluent. Honor whichever direction this character moves.
+
+{% endif %}
+{% else %}
+This character does not speak, or speaks so rarely that voice is not the primary channel for their characterization. Render their presence through action, blocking, and the reactions of other characters rather than through dialogue.
+
+{% endif %}
+{% if character.voice.speech_tells %}
+**Speech patterns specific to this character.** These should appear recurrently in the prose as signatures — not every scene, but often enough that a reader could identify the character from dialogue alone:
+
+{% for tell in character.voice.speech_tells %}
+- {{ sentence_case(tell) }}
+{% endfor %}
+
+{% endif %}
+{% if character.voice.hard_constraints %}
+**Hard constraints on dialogue.** These are inviolable. If a scene seems to require breaking one, the scene is wrong, not the rule:
+
+{% for constraint in character.voice.hard_constraints %}
+- {{ sentence_case(constraint) }}
+{% endfor %}
+
+{% endif %}
+{% if character.voice.sample_lines %}
+**Sample lines.** Use these as tonal anchors for the voice, not as a quote bank. The goal is for new dialogue to feel like it could sit alongside these without stylistic friction:
+
+{% for line in character.voice.sample_lines %}
+> {{ line }}
+
+{% endfor %}
+{% endif %}
+---
+
+## Interiority
+
+{% set has_interiority = character.interiority.baseline_emotional_state or character.interiority.core_want or character.interiority.core_fear or character.interiority.blind_spots or character.interiority.compulsions or character.interiority.moral_core %}
+{% if has_interiority %}
+{% if character.interiority.baseline_emotional_state %}
+**Baseline emotional state.** {{ sentence_case(character.interiority.baseline_emotional_state) }}. This must read on the page without being named. Render it through posture, through small refusals or compulsions, through the way this character looks at what they used to love or fear.
+
+{% endif %}
+{% if character.interiority.core_want %}
+**Core want.** {{ sentence_case(character.interiority.core_want) }}. This is the through-line desire that sits under every scene, whether or not the character is aware of it. Scene-specific wants will layer on top of this in the scene blueprint, but this want never goes away.
+
+{% endif %}
+{% if character.interiority.core_fear %}
+**Core fear.** {{ sentence_case(character.interiority.core_fear) }}. When the prose wants to access this fear, consider rendering it through avoidance — the thought not finished, the direction not looked, the thing not done — rather than through direct confrontation.
+
+{% endif %}
+{% if character.interiority.blind_spots %}
+**Blind spots.** These shape how this character reads situations and where their judgment predictably fails:
+
+{% for spot in character.interiority.blind_spots %}
+- {{ sentence_case(spot) }}
+{% endfor %}
+
+A blind spot is not a flaw to be fixed within the story; it is a lens that colors every interpretation. Let it distort this character's reactions consistently.
+
+{% endif %}
+{% if character.interiority.compulsions %}
+**Compulsions.** These are the small repeating behaviors that run under everything this character does. They should recur across scenes as silent accumulations — a reader should feel them before they notice them:
+
+{% for compulsion in character.interiority.compulsions %}
+- {{ sentence_case(compulsion) }}
+{% endfor %}
+
+{% endif %}
+{% if character.interiority.moral_core %}
+**Moral core.** {{ sentence_case(character.interiority.moral_core) }}. Every major character choice should be traceable to this axis. When deciding what this character does in a scene, ask what this axis demands.
+
+{% endif %}
+{% else %}
+This character has no rendered interiority. They function as a force, a presence, or a plot element rather than a psychology. Do not invent internal life for them. Render their presence through action, physical description, and the reactions of other characters.
+
+{% endif %}
+---
+
+## Backstory
+
+{% if character.backstory %}
+These facts are fixed before the story opens and shape every line of this character's interiority and speech. They should inform the prose without necessarily appearing in it — backstory is weight, not exposition:
+
+{% for item in character.backstory %}
+- {{ sentence_case(item) }}
+{% endfor %}
+
+{% else %}
+This character's backstory is deliberately unspecified. Resist the urge to invent one. Their pastlessness may itself be a feature of their role in the story.
+
+{% endif %}
+---
+
+## Signature Objects
+
+{% if character.signature_objects %}
+The following objects are permanently associated with this character. They should recur naturally across scenes without being belabored — introduced without flourish, handled as furniture of the body or household:
+
+{% for obj in character.signature_objects %}
+- {{ sentence_case(obj) }}
+{% endfor %}
+
+{% else %}
+This character has no signature objects. Do not assign them recurring possessions. Whatever they carry in a given scene is scene-specific and should be drawn from the scene blueprint.
+
+{% endif %}
+---
+
+## Prohibitions
+
+{% if character.prohibited_in_prose %}
+These are hard limits. Violating any of them breaks the character. If a scene seems to require breaking one, the scene is wrong, not the rule:
+
+{% for prohibition in character.prohibited_in_prose %}
+{{ loop.index }}. **{{ sentence_case(prohibition) }}.** This limit is inviolable regardless of where the scene sits in the story's arc.
+{% endfor %}
+
+{% else %}
+No specific prohibitions are defined for this character. Default to the project's global style constraints.
+
+{% endif %}
+---
+
+## How to Use This Prompt
+
+When generating any scene involving {{ character.name_display }}, treat this document as the character's operating system. Scene-specific context — where they are, what has just happened, what they currently want in this moment, what they currently know — is provided separately in the scene blueprint. This document tells you who they are; the blueprint tells you what they are doing.
+
+If the two conflict, the character document wins. A scene that requires this character to act out of character is a scene that needs to be rewritten, not a license to break these rules.
