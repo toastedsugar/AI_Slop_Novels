@@ -117,6 +117,12 @@ characters: !include characters.yaml
 
 character_relationships: !include character_relationships.yaml
 
+locations: !include locations.yaml
+
+objects: !include objects.yaml
+
+continuity: !include continuity.yaml
+
 # Each chapter is its own file inside the Chapters folder
 chapters: 
   - !include chapters/1.yaml

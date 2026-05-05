@@ -1,311 +1,151 @@
-beat:
-  # ============================================================
-  # METADATA
-  # ============================================================
-  id: "beat_01"
-  title: "The Man Who Apologized to the Tree"
-  act: "act_1"
-  sequence: 1
-  word_count:
-    target: 3000
-    min: 2500
-    max: 3500
+chapter:
+  id: ch01
+  number: 1
+  title: "The Mother's Voice"
+  word_count_target: 800
 
-  # ============================================================
-  # POV
-  # ============================================================
+  narrative_function: establish_protagonist_and_world
+  arc_position: opening
+  story_structure_role: >
+    Introduces Thistle in her unbreached world and plants the rupture
+    (distant cry) that propels her toward Cal's story.
+
   pov:
-    character: "thistle"
-    person: "third_limited"
-    tense: "past"
-    distance: "close"
-    voice:
-      style: "formal interiority, precise observation, archaic register"
-      intelligence: "ancient, lateral, reads humans as foreign text she is still learning"
-      humor: "absent; wonder substitutes"
-      interiority: >
-        She thinks in categories she has no modern names for. What she feels
-        is rendered in sensation and observation, not named emotion. She does
-        not know she is lonely. She notices she has been watching him for three
-        days.
-      prohibited:
-        - "modern emotional vocabulary"
-        - "self-awareness about her own feelings"
-        - "contractions in formal register"
-        - "named emotion (loneliness, attraction, grief)"
-        - "ironic distance from her own nature"
+    mode: single
+    character: thistle
 
-  # ============================================================
-  # CHARACTERS
-  # ============================================================
-  characters:
-    - id: "thistle"
-      role: "protagonist"
-      presence: "full scene"
-      state:
-        physical: "in glamour; human-appearing, barefoot, too-lightly dressed for autumn"
-        emotional: "alert, compelled, breaking a rule she has kept for two hundred years"
-        arc_position: "pre-connection; the moment before she crosses a line she cannot uncross"
-      function: "establish who she is by what she is willing to violate"
+  setting_summary:
+    time_of_year: autumn_1897
+    time_of_day: golden_hour
 
-    - id: "cal"
-      role: "male_lead"
-      presence: "full scene"
-      state:
-        physical: "pinned under a fallen branch, leg injured, not in immediate mortal danger but cannot free himself"
-        emotional: "calm, not panicking; apologizing to the tree, quietly, as if he expects no one to hear"
-        arc_position: "pre-connection; does not know she exists yet"
-      function: "establish his moral core through behavior when he believes he is alone"
+  locations_present:
+    - heart_tree_clearing
 
-    - id: "bract"
-      role: "companion"
-      presence: "present, peripheral"
-      state:
-        physical: "near Cal, watchful, not panicked"
-        emotional: "steady"
-      function: "establish Cal's relationship with living things; Bract's steadiness mirrors Cal's"
+  locations_referenced:
+    - greenwood_eastern_edge
+    - millers_cut
 
-  # ============================================================
-  # SETTING
-  # ============================================================
-  setting:
-    location: "the Greenwood, approximately a quarter-mile from the heart-tree"
-    time_of_day: "late afternoon, light going"
-    season: "early autumn, 1897"
-    atmosphere:
-      - "the kind of quiet that has weight"
-      - "gold light through canopy, going orange"
-      - "the smell of pine resin and turned earth"
-      - "a branch — large, recently fallen — across Cal's lower leg"
-      - "Bract nearby, sitting, ears up"
-    visual_details:
-      - "Cal's axe out of reach"
-      - "his hat on the ground where it fell"
-      - "his hands are still; he is not thrashing"
-      - "he has already apologized twice to the tree"
-    prohibited_atmosphere:
-      - "ominous"
-      - "fairy-tale whimsy"
-      - "foreboding magic"
-      - "glowing or sparkly rendering of fae presence"
+  characters_present:
+    - thistle
+    - morrow           # arrives mid-chapter, crow then half-form
+    - the_mother       # non-speaking presence
 
-  # ============================================================
-  # TONE
-  # ============================================================
-  tone:
-    primary: "quiet wonder, the moment before"
-    secondary: "Thistle's precise, alien attention"
-    tertiary: "Cal's wordless decency under pressure"
-    register: "literary, lush on nature, spare on interiority"
-    prohibited:
-      - "melodrama"
-      - "whimsy"
-      - "irony"
-      - "comic beats"
-      - "stated magic"
+  characters_referenced:
+    - cal              # the distant cry; unnamed in this chapter
+    - thomas           # Morrow's lost mate
+    - miller_men       # off-page threat
 
-  # ============================================================
-  # BEAT STRUCTURE
-  # ============================================================
+  objects_present:
+    - hollow_collection_brass_button
+    - hollow_collection_child_bootlace
+    - hollow_collection_tin_whistle
+    - rain_basin
+
+  objects_referenced:
+    - miller_stakes
+
+  emotional_register: reverent_then_unsettled
+
+  themes_active:
+    - custodianship
+    - the_pull_of_human_things
+    - warning_delivered_and_overridden
+
+  voices_introduced:
+    - thistle_formal_cadence      # dominant register
+    - thistle_steel_voice         # first appearance, single line at threat-to-Mother
+
+  plants_for_later:
+    tin_whistle: ch10_samuels_whistle
+    morrow_thomas_reference: ch09_morrows_blessing
+    formal_cadence: recurring_through_ch09
+    steel_voice: recurring_at_threats_to_mother
+
+  continuity_out:
+    thistle_state: "Moving east on foot toward an unknown human cry. Tin whistle left on the Mother's roots."
+    location_end: "Greenwood interior, moving toward the eastern edge."
+    unresolved: "Morrow's warning accepted intellectually, overridden in practice."
+
   beats:
-    - sequence: 1
-      title: "she has been watching"
-      description: >
-        Thistle has been watching Cal work for three days. This is established
-        as background, not in a flashback — she notes it to herself the way
-        she would note that a particular bird has been nesting in the same
-        branch all week. She has taken something from him already: a bootlace.
-        She does not examine why. She is examining the fallen branch from a
-        distance, trying to determine if it is the forest's accident or her
-        failure of attention.
-      pov_state: "watchful, slightly guilty, not yet alarmed"
-      function: "establish her habit of watching him, the collection, the bootlace"
-      prohibited: "named attraction, explained motivation"
+    - id: ch01_b01
+      title: "Report to the Mother"
+      approx_words: 300
+      opens_on: >
+        Thistle already at the heart tree, palm flat against the Mother's
+        bark. No arrival shown — the reader meets her mid-ritual, as though
+        this is something she has done ten thousand times.
+      action_sequence:
+        - "Thistle reports the day's tending in her formal cadence: a vixen's den reinforced at the west seep, a blight of rot on the north slope turned back with hand and song. She names each thing precisely. The Mother does not answer in words, but the bark warms under her palm, and she inclines her head as though having been answered."
+        - "She walks three slow steps to the rain basin at the clearing's edge — a shallow stone hollow, glass-still. She kneels to drink. Her reflection is the vehicle for her appearance: freckles in the scatter-pattern of birch bark, eyes the precise green of sun filtered through young leaves, ash-blonde hair loose past her shoulders. She is human-sized in glamour. The wings are not shown — only the absence of them is felt, a held breath."
+        - "She returns to the Mother's base and crouches at a hollow between two buttress roots. From it she draws her collection one piece at a time: a brass button (green with age), a child's bootlace still knotted at one end, a tin whistle dulled by weather. She turns each over in her palm. She sets them back carefully, in order. The narrative interior makes clear she has taken these from the forest's edge over years — that humans leave things, and she cannot help gathering them, and she does not fully understand why."
+      beat_function: >
+        Establish Thistle's role (custodian), her register (formal, reverent),
+        her appearance (via basin-reflection, not narrator description), and
+        the crack in her otherwise-complete world (the hollow of human things).
+      prose_directives:
+        - "Open in medias res. No 'once upon a time' framing."
+        - "The formal cadence must be present from her first spoken line — she does not warm into it."
+        - "The collection is described tenderly, not comically. It is the chapter's first foreshadow."
+      closes_on: >
+        The tin whistle set back in the hollow last, her fingers lingering
+        on it a half-second longer than the others.
 
-    - sequence: 2
-      title: "he apologizes to the tree"
-      description: >
-        Cal, pinned, speaks to the tree. Not a prayer, not a curse — an
-        apology. He says he knows the tree did not mean it. He says sorry
-        for the language. Thistle, from the shadows, becomes very still.
-        She has heard two hundred years of humans in this forest. None of
-        them has done this. She does not understand what it does to her.
-        She will not understand for several more chapters.
-      pov_state: "arrested, still, something shifted that she has no name for"
-      function: "the inciting moment — the thing that makes her act"
-      prohibited: >
-        sentimentality, explained significance, named emotion in Thistle,
-        making the apology seem performative or self-conscious in Cal
+    - id: ch01_b02
+      title: "Morrow's Warning"
+      approx_words: 250
+      opens_on: >
+        A shadow passes over the clearing. A crow drops onto a low cedar
+        branch with a weight that is wrong for a bird — heavier, more
+        deliberate. Thistle does not startle. She knows the landing.
+      action_sequence:
+        - "The crow shifts. Not fully — Morrow never goes fully human in Thistle's presence, a deliberate austerity. Her half-form resolves: a woman's face, a woman's throat, but crow's black-bead eyes and feathered shoulders that ruffle when she is agitated. She is agitated now."
+        - "Morrow delivers warning #1 in the exact words established: *The Miller men have marked the eastern stakes. Axes by the new moon. Do not go near them, girl. I lost my Thomas to a musket and a smile.* The line about Thomas is not explained — Thistle has heard it before, many times, and the narrative treats it the way she treats it: as a wound Morrow reopens on purpose, to teach."
+        - "Thistle's reply is where the steel voice first cuts through the formal cadence. One line: *If they come for the Mother, they will not leave.* The prose should register, in a single sentence of interiority, that Thistle herself is surprised by the voice that came out of her — that this register exists in her but has not been used aloud before."
+        - "Morrow does not answer the steel. She holds Thistle's gaze for a long beat. Her feathers settle. She says, smaller: *Two hundred years is not long enough to be stupid, Thistle.* It is the first time the reader learns Thistle's age, dropped sideways, not announced."
+      beat_function: >
+        Install the external threat (Miller men), the precedent of fae loss
+        to human violence (Thomas), and the first crack in Thistle's formal
+        register — proof she has it in her to do what Ch. 7 will require.
+      prose_directives:
+        - "Morrow's half-form is described once, precisely, and not re-described."
+        - "Thomas is named but not elaborated. The reader should feel the weight without being given the story."
+        - "The age-reveal must be incidental — not a narrator announcement, not italicized, not paragraph-breaked. Just dropped in dialogue."
+      closes_on: >
+        Morrow's black eyes on Thistle's, the unsaid thing between them
+        — that Thistle has already been tempted by what the Miller men are,
+        by what humans are, long before any axe has fallen.
 
-    - sequence: 3
-      title: "the crossing"
-      description: >
-        She steps out of the shadow. She does not decide to. The decision
-        is the step. She is already across the line before she has examined
-        whether she should cross it. She moves to him the way water moves
-        downhill — not impulsively, simply. The branch lifts. She does it
-        with the ease of long habit and no flourish. She does not explain
-        what she is doing or why.
-      pov_state: "in motion, not examining motion, the act before the thought"
-      function: "establish her power as matter-of-fact; establish she is not performing"
-      prohibited: >
-        magical sparkle, dramatic gesture, Thistle explaining herself,
-        the branch lifting being described as a miracle
+    - id: ch01_b03
+      title: "The Distant Cry"
+      approx_words: 250
+      opens_on: >
+        The silence after Morrow's warning, held one beat too long. The
+        forest's ambient layer — wind through cedar, a creek two hollows
+        over — and then, cutting through it, a man's voice.
+      action_sequence:
+        - "One shout. Male. Distant — three-quarters of a mile east, maybe more. The shout is not a call for help; it is the sound a person makes when something has just happened to their body. Pain, surprise, the breath knocked out. Then nothing. The forest resumes its ambient hum, which somehow makes the silence worse."
+        - "Morrow caws — a real crow's caw, not speech — sharp, twice. A clear warning: *leave it.* Her feathered shoulders have gone rigid. She does not shift back to full crow; she is waiting to see what Thistle does."
+        - "Thistle's interiority for three sentences: she knows what Morrow is telling her. She knows the law. She knows the direction the cry came from is the direction of the eastern edge, which is the direction of the Miller men, which is the direction Morrow has just forbidden. She knows she is about to disobey and she does not fully know why."
+        - "She moves. Not dramatically — she simply turns east and begins walking. Bare feet on moss, unhurried, as though a decision has been made without her participation. She passes the Mother without stopping. She passes the hollow of human things without stopping. She does, in passing, reach down and brush one fingertip across the tin whistle, and leave it behind on the Mother's roots rather than in the hollow — a gesture the reader should register as *offering*, not *forgetting*."
+        - "Morrow, behind her, does not call after her. Morrow is silent. The silence is worse than a shout would have been."
+      beat_function: >
+        The inciting incident. The pull of the human thing wins over the
+        warning. Establishes the pattern the whole book will turn on:
+        Thistle knows the rule, breaks it anyway, and cannot fully explain
+        why to herself.
+      prose_directives:
+        - "The cry is one sound. Not described in detail. The less the reader gets, the more the reader leans in — matching Thistle."
+        - "Her decision to go is *not* dramatized. No internal argument, no 'she had to.' She simply moves. The absence of dramatization is the drama."
+        - "The tin whistle transfer from hollow to Mother's roots must be a single clean sentence. No symbolism explained. The reader will pay for it in Ch. 10."
+        - "Morrow's silence at the exit is load-bearing. Do not have her speak."
+      closes_on: >
+        Thistle's bare feet on moss, moving east. The tin whistle on the
+        Mother's roots behind her, catching the last of the golden-hour
+        light. The chapter ends on the image, not on a thought.
 
-    - sequence: 4
-      title: "he does not ask"
-      description: >
-        Cal looks at her. At the branch. Back at her. He says thank you.
-        He does not ask what she is. He does not ask how. He picks up his
-        hat. He asks if she is cold. She is not cold. She tells him she
-        is not cold. Bract comes to her and she goes very still again, then
-        lets him smell her hand. Cal watches this and says nothing. His leg
-        is injured; she can smell the damage. She tells him she will walk
-        with him to the road. She does not ask permission. He accepts.
-      pov_state: "alert to his not-asking, uncertain what to do with it"
-      function: >
-        establish Cal's constitutive not-asking; establish Thistle's
-        surprise at being treated as simply present; plant the injury
-        that will require her to return
-      prohibited: >
-        Cal asking what she is, Thistle explaining herself, the moment
-        being played for romance — it is practical, almost businesslike
-
-    - sequence: 5
-      title: "she heals him"
-      description: >
-        At the tree line, in the last light, she stops him. She says his
-        leg will not hold through the night. This is true. She puts her
-        hands on the injury without asking — this is the second rule she
-        breaks, the first was moving the branch. She heals it with the
-        same lack of flourish. She feels the cost of it, small but present.
-        She does not show the cost. He goes very still under her hands the
-        way Bract went still — not in fear, in something she does not have
-        a word for. He says: I don't know what to say to you. She says:
-        You have already said the right thing. She means the apology to
-        the tree. She does not explain this. He does not ask her to.
-      pov_state: >
-        deliberate, present, feeling the edges of the rule she is breaking
-        without regret yet
-      function: >
-        complete the first meeting; establish her healing as rule-breaking
-        not gift; plant the reciprocal obligation she does not know she
-        has just created; establish his sample line
-      prohibited: >
-        romance framing, Thistle explaining fae law, the healing being
-        described as magical light or warmth or glow, Cal becoming
-        immediately smitten
-
-  # ============================================================
-  # ESTABLISHES
-  # ============================================================
-  establishes:
-    character:
-      - attribute: "Thistle's habit of watching Cal"
-        method: "stated as established fact in her interiority"
-      - attribute: "the collection — she has already taken his bootlace"
-        method: "noted by her in passing, not explained"
-      - attribute: "Cal's constitutive decency"
-        method: "demonstrated: he apologizes to the tree believing no one hears"
-      - attribute: "Cal's not-asking"
-        method: "demonstrated: he does not ask what she is"
-      - attribute: "Bract's steadiness"
-        method: "shown in his behavior; mirrors Cal"
-      - attribute: "Thistle's power as unremarkable to her"
-        method: "shown through lack of flourish"
-      - attribute: "Cal's sample line"
-        method: "delivered: I don't know what to say to you"
-    world:
-      - attribute: "the Greenwood as Thistle's ward"
-        method: "her attention to the fallen branch as possible failure"
-      - attribute: "fae healing has cost"
-        method: "she feels it; she does not show it"
-      - attribute: "the forest's ambient awareness"
-        method: "implied through Thistle's attention, not stated"
-      - attribute: "1897 Pacific Northwest logger context"
-        method: "Cal's kit, the falling timber, the light going early"
-
-  # ============================================================
-  # MAGIC
-  # ============================================================
-  magic:
-    present: true
-    on_page:
-      - "branch removal (off-hand, no description of mechanism)"
-      - "leg healing (hands-on, cost felt but not shown)"
-    prohibited:
-      - "glowing"
-      - "sparkle"
-      - "stated mechanism"
-      - "the word magic"
-      - "dramatic visual effect"
-    notes: >
-      Magic in this story is as unglamorous as labor. It costs. It is not
-      performed. If it looks like anything, it looks like a woman being
-      very still and very focused.
-
-  # ============================================================
-  # CONTINUITY INPUTS
-  # ============================================================
-  continuity_inputs:
-    required_established_facts: []
-    required_character_states: []
-    required_open_threads: []
-
-  # ============================================================
-  # CONTINUITY OUTPUTS
-  # ============================================================
-  continuity_outputs:
-    locks:
-      - "Cal's injury: left leg, logging accident, healed by Thistle end of chapter"
-      - "Bract: one-eared, wire-coated, medium-sized, greying at muzzle"
-      - "Thistle has Cal's bootlace in her collection"
-      - "the fallen branch: not Thistle's failure — the forest's accident"
-      - "Cal's apology to the tree: exact moment that caused Thistle to act"
-      - "Thistle's healing cost: present, small, not shown"
-    opens:
-      - "Cal's debt to Miller Company and Samuel's situation — not yet revealed"
-      - "the heart-tree contract — not yet issued"
-      - "Thistle's violated rules — she does not yet feel regret"
-      - "his not-asking — she does not yet understand what to do with it"
-    character_state_updates:
-      thistle:
-        has_healed_cal: true
-        glamour_slipped_in_front_of_cal: false
-        has_told_cal_about_heart_tree: false
-        collection_in_hollow_known_to_cal: false
-      cal:
-        knows_thistle_is_fae: false
-        has_asked_what_she_is: false
-        heart_tree_contract_received: false
-
-  # ============================================================
-  # PROHIBITED
-  # ============================================================
-  prohibited:
-    plot: "no backstory delivered in exposition; no contract; no Morrow yet"
-    character: >
-      do not make Thistle self-aware about her feelings; do not make Cal
-      immediately romantic; do not anthropomorphize Bract
-    atmosphere: "no ominous foreshadowing, no fairy-tale sparkle"
-    prose:
-      - "modern emotional vocabulary"
-      - "therapy speak"
-      - "purple prose"
-      - "phonetically rendered accent"
-      - "adverb-heavy dialogue tags"
-      - "the word magic"
-      - "any explanation of fae law in dialogue"
-
-  # ============================================================
-  # GENERATION NOTES
-  # ============================================================
-  generation_notes: >
-    The chapter should feel like a nature documentary about two creatures
-    cautiously entering the same clearing. Neither performs for the other.
-    The miracle is not the healing — it is that he apologized to the tree
-    when he thought no one was listening. That is the thing the chapter
-    exists to establish. Everything else is just what happens after.
-    Thistle's voice should be Fitzgerald-adjacent but older — precise,
-    unhurried, slightly formal in its internal register. Cal barely
-    speaks. What he says matters more because of how little he says.
+  prohibited_at_chapter_level:
+    - "Cal is never named in this chapter — he exists only as 'a man's voice.'"
+    - "Full glamour throughout; no wing-reveal, no true-scale reveal."
+    - "The Mother has no dialogue; she is felt, not voiced."
+    - "No human POV or human-interior access; Thistle's register governs the chapter."
+    - "No narrator gloss on the fae/human romance to come. The chapter does not know it is a setup."

@@ -6,7 +6,7 @@
   species: fae
   age: 200
   apparent_age: "early-twenties"
-  pronouns: she/her
+  gender: female
   occupation: "warden of the Greenwood"
  
   physical:
@@ -15,7 +15,8 @@
       - "ash-blonde hair"
       - "green eyes — wrong shade, off enough to notice"
       - "freckles in patterns resembling birch bark"
-      - "usually barefoot"
+      - "always barefoot"
+      - "small breasts"
       - "too-thin simple dress, out of season"
     alternate_form:
       - "roughly six inches taller than glamour"
@@ -28,6 +29,7 @@
       - "eye color intensifying"
       - "faint shimmer at the shoulders"
       - "single iridescent scale shed"
+      - "clenches her feet"
  
   voice:
     cadence: "formal, slightly archaic, unhurried"
@@ -61,6 +63,7 @@
     - "two hundred years old; has lived her whole life in service of the heart-tree"
     - "has never been loved by a human, or thought she wanted to be"
     - "raised on her aunt Morrow's grief-shaped view of humans"
+    - "refuses to wear footwear"
  
   signature_objects:
     - "her collection in the hollow at the heart-tree's base"
@@ -80,7 +83,7 @@
   species: human
   age: 30
   apparent_age: null
-  pronouns: he/him
+  gender: male
   occupation: "tree-marker / logger for Miller Company"
  
   physical:
@@ -124,6 +127,9 @@
     compulsions:
       - "apologizes to every tree he marks"
       - "whittles when he cannot sleep"
+      - "stares at bare feet and small breasts"
+      - "aroused by powerful women"
+      - "dreams of being stepped on by a small barefoot woman"
     moral_core: "treats every living thing — tree, dog, stranger — as owed basic courtesy"
  
   backstory:
@@ -151,7 +157,7 @@
   species: "fae (corvid-aspect)"
   age: "elder (unspecified)"
   apparent_age: null
-  pronouns: she/her
+  gender: female
   occupation: "elder of the Greenwood"
  
   physical:
@@ -209,7 +215,7 @@
   species: human
   age: 16
   apparent_age: null
-  pronouns: he/him
+  gender: male
   occupation: "student"
  
   physical:
@@ -217,6 +223,7 @@
       - "younger, leaner version of Cal"
       - "no beard"
       - "glasses"
+      - "balding"
     alternate_form: []
     tells: []
  
@@ -260,7 +267,7 @@
   species: human
   age: "mid-forties"
   apparent_age: null
-  pronouns: he/him
+  gender: male
   occupation: "foreman, Miller Company"
  
   physical:
@@ -312,7 +319,7 @@
   species: "dog (mixed, working breed)"
   age: "middle-aged"
   apparent_age: null
-  pronouns: he/him
+  gender: male
   occupation: "Cal's dog"
  
   physical:
@@ -359,7 +366,7 @@
   species: human
   age: null
   apparent_age: null
-  pronouns: she/her
+  gender: female
   occupation: "post office clerk, Hollow Creek"
  
   physical:
@@ -405,7 +412,7 @@
   species: "red cedar (ancient)"
   age: "~1000 years"
   apparent_age: null
-  pronouns: "she/her (fae usage)"
+  gender: female
   occupation: "heart-tree of the Greenwood"
  
   physical:

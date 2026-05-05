@@ -2,7 +2,7 @@ import ollama
 import os
 import yaml
 
-from utils.prompt_render import render_character_prompt, render_system_prompt
+from utils.prompt_render import render_character_prompt, render_system_prompt, render_location_prompt
 
 from src.blueprint import Blueprint
 
@@ -10,6 +10,7 @@ class NovelGen:
     def __init__(self, blueprint:Blueprint):
         self.blueprint = blueprint
         print("NovelGen Online")
+
 
         # Printing metadatinformationa to confirm blueprint is readable
         # print(blueprint.get_metadata())
@@ -19,15 +20,33 @@ class NovelGen:
 
 
 
-        # put together the prompt here
+        # put together the system prompt here
         system = render_system_prompt(self.blueprint.data)
         print(system)
 
+        
 
-        character = render_character_prompt(self.blueprint.get_character("thistle"))
-        #print(character)    
+        
+
+        
+        # Put together user prompt here
+        try:
+            character = render_character_prompt(self.blueprint.get_character("thistle"))
+        except Exception as e:
+            print(e)   
+        print(character)    
+
+        try:
+            location = render_location_prompt(self.blueprint.get_location("greenwood"))
+        except Exception as e:
+            print(e)    
+        #print(location)
 
 
+
+
+
+        # call code to generate chapter
 
 
 
@@ -70,6 +89,13 @@ class NovelGen:
 
 
 
+
+
+
+
+
+    def get_ids_from_yaml(blueprint_data: list) -> list[str]:
+        return [item["id"] for item in blueprint_data]
 
     def load_yaml(self, yaml_path: str) -> dict:
         with open(yaml_path) as f:

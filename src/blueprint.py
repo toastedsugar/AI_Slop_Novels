@@ -43,8 +43,23 @@ class Blueprint:
     def get_character_relationships(self) -> list[dict]:
         return self.data['character_relationships']
 
+    def get_objects(self) -> list[dict]:
+        return self.data['objects']['objects']
+
+    def get_object(self, object_id: str) -> dict | None:
+        return next((o for o in self.data['objects']['objects'] if o['id'] == object_id), None)
+
+    def get_continuity(self) -> dict:
+        return self.data['continuity']
+
     def get_chapters(self) -> list[dict]:
         return [ch['beat'] for ch in self.data['chapters']]
+    
+    def get_locations(self) -> list[dict]:
+        return self.data['locations']
+
+    def get_location(self, location_id: str) -> dict | None:
+        return next((l for l in self.data['locations'] if l['id'] == location_id), None)
 
     def get_chapter(self, sequence: int) -> dict | None:
         return next((ch['beat'] for ch in self.data['chapters'] if ch['beat']['sequence'] == sequence), None)

@@ -22,7 +22,7 @@ You are writing the character of **{{ character.name_full }}**{% if character.na
 
 ## Identity
 
-{{ sentence_case(character.name_display) }} is a{% if character.species[0] in 'aeiou' %}n{% endif %} {{ character.species }}{% if character.age is number %}, {{ character.age }} years old{% elif character.age %}, {{ character.age }}{% endif %}. {{ sentence_case(character.pronouns) }} pronouns.{% if character.occupation %} Occupation: {{ character.occupation }}.{% endif %}{% if character.apparent_age %} Apparent age reads as {{ character.apparent_age }}.{% endif %} Role in the story: {{ character.role | replace('_', ' ') }}.
+{{ sentence_case(character.name_display) }} is a{% if character.species[0] in 'aeiou' %}n{% endif %} {{ character.species }}{% if character.age is number %}, {{ character.age }} years old{% elif character.age %}, {{ character.age }}{% endif %}. Gender: {{ character.gender }}.{% if character.occupation %} Occupation: {{ character.occupation }}.{% endif %}{% if character.apparent_age %} Apparent age reads as {{ character.apparent_age }}.{% endif %} Role in the story: {{ character.role | replace('_', ' ') }}.
 
 Refer to this character as **{{ character.name_display }}** in narration by default.
 {% if character.name_full != character.name_display %}

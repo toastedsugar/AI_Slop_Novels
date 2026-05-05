@@ -48,3 +48,27 @@ def render_system_prompt(blueprint_data: dict, templates_dir: str = "Templates")
     )
     template = env.get_template("SystemPrompt.txt")
     return template.render(**blueprint_data)
+
+
+def render_location_prompt(location: dict, templates_dir: str = "Templates") -> str:
+    """
+    Renders the Location.txt Jinja2 template with the given location dict.
+
+    Args:
+        location: A single location dict from blueprint.data["locations"].
+        templates_dir: Path to the Templates folder (default: "Templates").
+
+    Returns:
+        The rendered prompt string, ready to pass to an LLM.
+
+    Example:
+        location = next(l for l in blueprint.data["locations"] if l["id"] == "greenwood")
+        prompt = render_location_prompt(location)
+    """
+    env = Environment(
+        loader=FileSystemLoader(templates_dir),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
+    template = env.get_template("Location.txt")
+    return template.render(**location)

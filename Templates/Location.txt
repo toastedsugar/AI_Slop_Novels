@@ -1,0 +1,13 @@
+You are assisting with prose generation for a historical romantasy novelette. What follows is everything you need to know about a single location where scenes take place. Use this information to inform any descriptive passages, atmospheric beats, sensory grounding, or scene-setting that occur at or reference this place. Honor the established tone and narrative role, do not contradict anything described here, and do not invent features that would conflict with what is given, though you may elaborate on details consistent with the description.
+
+The location is called {{ name }}.{% if aliases %} It is also known as {{ aliases | join(", ") }}, and which name is used depends on who is speaking or thinking{% if alias_usage %}: {{ alias_usage }}{% else %}; choose whichever alias best suits the point of view and register of the scene{% endif %}.{% endif %} It is a {{ type }}, {{ scale }} in scale,{% if parent_location %} and it sits within a larger location called {{ parent_location.name }} — {{ parent_location.short_description }}.{% else %} and it stands on its own rather than nesting inside a larger named location.{% endif %} {{ name }} belongs to the {{ domain }} domain and {% if on_page %}appears on the page in the story{% else %}is referenced in the story but is not directly depicted on the page{% endif %}.
+
+{{ description }}
+
+The sensory texture of the place is specific and should recur across scenes. Visually, {{ sensory_palette.sight }}.{% if signature_sight %} {{ signature_sight }}{% endif %} The soundscape is {{ sensory_palette.sound }}. The air smells of {{ sensory_palette.smell }}. To the touch, {{ sensory_palette.touch }}.
+
+The tone of {{ name }} is {{ tone }}. It should feel that way regardless of what is happening in the scene — whether the moment is one of violence, intimacy, grief, or quiet reverence, the underlying register does not shift.{% if presence_note %} {{ presence_note }}{% endif %}
+
+{{ narrative_role }}
+
+When writing scenes set here, ground the prose in at least two of the four sensory channels — sight, sound, smell, touch — per scene.{% if presence_directive %} {{ presence_directive }}{% endif %} Preserve the {{ tone }} tone even when the action turns harsh or tender.{% if aliases %} Choose among the aliases based on whose perspective is shaping the prose.{% endif %}{% if signature_detail_directive %} {{ signature_detail_directive }}{% endif %}

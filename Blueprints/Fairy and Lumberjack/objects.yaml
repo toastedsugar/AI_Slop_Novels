@@ -1,0 +1,318 @@
+# The Greenwood's Heart — Object Metadata
+#
+# Each object entry uses the same fields:
+#   id, name, category
+#   physical: material, size, distinguishing_features, condition
+#   origin                — in-world account of how the object came to be where it is
+#   meaning_to            — list of {character, meaning} pairs; one entry per
+#                           character whose inner life the object touches
+#
+# All fields are present on every entry. Where a character relationship
+# does not exist, the meaning_to list simply contains fewer entries.
+ 
+objects:
+ 
+  - id: tin_whistle
+    name: Tin whistle
+    category: artifact
+    physical:
+      material: pressed tin
+      size: palm-sized; small enough to vanish in a child's pocket
+      distinguishing_features: faint dent near the mouthpiece; weather-tarnish along the bore
+      condition: well-played, lightly worn
+    origin: Lost at the Greenwood's edge by a child years ago. Thistle carried it back into the wood and added it to the hollow at the Mother's base, where it lives among the other small human things she could not help taking.
+    meaning_to:
+      - character: thistle
+        meaning: A breath-shape made for a mouth that is not hers. She keeps it the way one keeps a question — turning it over, listening to it, never quite asking. When she finally returns it to Samuel she does so without ceremony; the question has answered itself.
+      - character: samuel
+        meaning: His own whistle, lost long enough ago that he had stopped missing it, given back by a woman his brother loves who somehow knew it was his. He plays it on the cabin porch in summer and does not ask how she knew.
+ 
+  - id: brass_button
+    name: Brass button
+    category: artifact
+    physical:
+      material: brass
+      size: thumbnail-sized
+      distinguishing_features: tarnished green-black at the edges; four-hole pattern; a stamped crest worn nearly smooth
+      condition: aged, oxidized
+    origin: Shed years ago from a coat or work shirt at the forest's edge. Thistle picked it up and brought it home.
+    meaning_to:
+      - character: thistle
+        meaning: One small piece of evidence that humans pass through her wood and leave parts of themselves behind. She does not know the man it came from, the coat it fastened, the weather it was lost in — but she knows the shape of it now, and that is its own kind of knowing.
+ 
+  - id: child_bootlace
+    name: Child's bootlace
+    category: artifact
+    physical:
+      material: leather, treated cowhide
+      size: child's length, well under adult span
+      distinguishing_features: knotted in the middle from a hasty repair; one frayed end; dirt-stained
+      condition: broken, retired
+    origin: Dropped or discarded by a child near the forest's edge. Thistle brought it back to the hollow.
+    meaning_to:
+      - character: thistle
+        meaning: Smaller than the button, smaller than the whistle. The smallness is what stops her each time she handles it — that there are humans in the world too small to keep their own laces tied. She does not have a word for what she feels about that. She keeps the lace anyway.
+ 
+  - id: rain_basin
+    name: Rain basin
+    category: vessel
+    physical:
+      material: hollowed stone, mossed at the rim
+      size: shallow; broad enough to hold a face's reflection
+      distinguishing_features: still water surface; fern-edged; shaped over generations of fae custodians
+      condition: ancient, well-tended
+    origin: Worn into the stone of the heart-tree clearing long before Thistle's tenure; tended by every fae custodian since.
+    meaning_to:
+      - character: thistle
+        meaning: The only mirror in her domain. She uses it to check the glamour she wears for no one, and to look at her own face on quiet mornings — birch-bark freckles, sun-through-leaves eyes — and confirm she is still herself. After she meets Cal she begins, without admitting it, to look longer.
+ 
+  - id: widow_maker_branch
+    name: Widow-maker branch
+    category: debris
+    physical:
+      material: rotten red cedar
+      size: massive, the size of a horse
+      distinguishing_features: split at the break point; punky and fungus-laced; sap-wet where it cracked from the trunk
+      condition: rotten, rain-heavy
+    origin: Fell unprovoked from a cedar in the eastern Greenwood after long rot. Pinned Cal's already-bad left leg for eight hours before Thistle found him under it.
+    meaning_to:
+      - character: cal
+        meaning: The forest's hand falling on him without malice and without warning, the way he has always known it could. He lies under it for eight hours apologizing to the cedar that dropped it because there is nothing else to say to a thing that does not mean him harm and has done him harm anyway.
+      - character: thistle
+        meaning: The weight she lifted off a man who had been saying sorry to a tree. Lifting it cost her nothing. Choosing to lift it cost her every rule she had been keeping for two hundred years.
+ 
+  - id: straight_razor
+    name: Cal's straight razor
+    category: tool
+    physical:
+      material: steel blade, hardwood handle
+      size: pocket-sized
+      distinguishing_features: well-honed edge; handle worn smooth from years of use; possibly his father's before him
+      condition: clean, sharp
+    origin: Cal's everyday grooming tool, very likely inherited from his father. Lives on the small shelf beside the wash basin in the cabin.
+    meaning_to:
+      - character: cal
+        meaning: An ordinary object he has used every morning for as long as he has been a man. When Thistle picks it up and turns it like a sacred thing he is briefly afraid for her finger and then briefly afraid of her, in that order.
+      - character: thistle
+        meaning: A piece of human steel she does not yet understand the danger of. When Cal warns her it could take her finger she answers honestly — she would grow another — and watches him decide she has made a joke. She lets him decide.
+ 
+  - id: iron_kettle
+    name: Iron kettle
+    category: vessel
+    physical:
+      material: cast iron, enameled inside
+      size: medium, sized for a single man's stove
+      distinguishing_features: blackened bottom from years over flame; small dents along the body
+      condition: well-used, fully functional
+    origin: A standard furnishing in Cal's one-room cabin; on the stove since he moved in.
+    meaning_to:
+      - character: cal
+        meaning: His kettle. He has not thought about it since he bought it. Watching her lift the lid and peer inside the way one might look into a well, he sees his cabin for the first time the way a stranger would, and his cabin is more than he had thought it was.
+      - character: thistle
+        meaning: A black iron mouth full of hot water, sat upon a hot iron box, in a small wooden room belonging to a man. Each part of this is a small wonder. She lifts the lid the way she would lift a stone over a spring.
+ 
+  - id: cal_hat
+    name: Cal's hat
+    category: garment
+    physical:
+      material: wool felt
+      size: man's, sized to Cal
+      distinguishing_features: sweat-stained band; brim shaped from years of weather and handling
+      condition: well-worn, beloved
+    origin: Cal's everyday hat. The only one he owns. Lives on a peg by the cabin door.
+    meaning_to:
+      - character: cal
+        meaning: His one hat. He sees her lift it off the peg and slip it onto her own head, and he says nothing — and the saying-nothing is the moment he understands he has already given her things he has not yet named. By morning the hat is back on the peg. He puts it on and feels it differently.
+      - character: thistle
+        meaning: A small theft he allowed. She had not known until that moment that she could take a thing from a man and have him give it to her by not asking for it back. A year later, on the cabin porch, she wears it openly — and that is also a kind of theft he has allowed.
+ 
+  - id: whittled_birds_shelf
+    name: Shelf of whittled birds
+    category: artifact
+    physical:
+      material: cedar and other softwoods; shelf is plain pine
+      size: small carvings, palm-sized; the shelf modest, above the table
+      distinguishing_features: a small flock — sparrows, warblers, a thrush; sanded smooth; unpainted
+      condition: clean, lightly dusted
+    origin: Cal's evening work over years of solitary cabin life. He has never given any of them away.
+    meaning_to:
+      - character: cal
+        meaning: The hours of his life he has not spent breaking his body. He does not know why he carves them. He has never sold one, never given one away. They sit on the shelf like a small congregation, and he does not say their names.
+      - character: thistle
+        meaning: Proof that the man who marks trees for the axe also makes small alive-looking things in the dark. She does not point at the shelf, does not ask. She simply notes that the cabin contains a flock, and changes her understanding of him accordingly.
+ 
+  - id: iridescent_scale
+    name: Iridescent scale
+    category: token
+    physical:
+      material: shed wing-fragment from Thistle's true form
+      size: smaller than a fingernail
+      distinguishing_features: catches light unnaturally, shifting green-violet-gold; impossibly thin; warm to the touch
+      condition: pristine
+    origin: Shed without intent from Thistle's wings while she sat in Cal's chair on her first visit to the cabin. Found on the chair after she left.
+    meaning_to:
+      - character: cal
+        meaning: The proof he chose to carry instead of speak. Nine days in his breast pocket, against his ribs, while he made stew for her and taught her to hold an axe and slept fully clothed beside her. The scale is the silence he kept; touching it through his coat is the act of keeping it.
+      - character: thistle
+        meaning: A piece of herself she did not know she had left. When he gives it back she understands he has known almost as long as she has — that the silence between them was a chosen silence on both sides, and that she was loved through it.
+ 
+  - id: cal_axe
+    name: Cal's axe
+    category: tool
+    physical:
+      material: steel head, hickory haft
+      size: full felling axe
+      distinguishing_features: handle worn smooth where his hands grip; head kept oiled and sharp; his father's mark scored into the haft
+      condition: well-maintained, working condition
+    origin: Cal's working tool. His father's before him. The head has been re-helved twice; the mark is original.
+    meaning_to:
+      - character: cal
+        meaning: Three years of his life made into a length of hickory and a piece of sharpened steel. He has apologized to every tree he has dropped with it. Teaching her to hold it — his hands over hers on the haft — is the first time he has felt the axe as something other than the weight of his father's debt.
+      - character: thistle
+        meaning: The shape of his hands she let close around hers. The same shape, in another man's hands, that bit her Mother. She does not blame the axe. She blames neither hand. She has lived long enough to know that tools are not the thing.
+      - character: hiram
+        meaning: A length of wood and steel left on the ground by a man going soft. He picks it up to make a point. He does not consider whose axe it is. He never has.
+ 
+  - id: cedar_sparrow_first
+    name: Cedar sparrow (first)
+    category: token
+    physical:
+      material: cedar
+      size: smaller than a thimble
+      distinguishing_features: smooth-carved, unpainted; smells of fresh cedar; fine enough to be unmistakably a sparrow
+      condition: freshly carved when given
+    origin: Whittled by Cal over three nights in the cabin while Thistle slept beside him. Wrapped in a cloth and given to her on the morning after the storm.
+    meaning_to:
+      - character: cal
+        meaning: The first thing he has ever made for another person. He gives it apologetically — it's not much — and means it; what he does not say is that he has been making them for years and never given one away, and that this one is different because she was sleeping in the room while it took its shape.
+      - character: thistle
+        meaning: The first object made for her in two hundred years of being. She has been given offerings and tributes and small dead birds; she has never been given a bird carved from cedar by a man who did not know how to say what he meant. She closes her hand around it and does not open her hand for two days.
+ 
+  - id: miller_contract
+    name: Miller Company contract
+    category: document
+    physical:
+      material: paper, ink, red ink stamp; folded into thirds
+      size: standard official length
+      distinguishing_features: GREENWOOD stamped in red at the top; EASTERN RIDGE in the body; HEART CEDAR — PRIORITY FELL midway; Miller letterhead and Hiram Beck's countersign
+      condition: crisp and freshly issued; later, ash
+    origin: Drawn up at the Miller Company office in Hollow Creek as a six-week priority assignment. Cal collects it the afternoon he comes home lighter than Thistle has ever seen him.
+    meaning_to:
+      - character: cal
+        meaning: Samuel's room and board. His father's debt closed. An end-date on the work that has been breaking him. He carries it home almost smiling, which he has not done in three years, and does not understand until he sees Thistle's face that the same paper that frees his brother sentences her Mother.
+      - character: thistle
+        meaning: A death warrant in red ink. She does not read the paper well, but she reads three words on it — GREENWOOD, EASTERN RIDGE, HEART CEDAR — and the words are enough. The man she loves has carried these words home in his hand and is asking her to be glad.
+      - character: hiram
+        meaning: The order he has been waiting for. He countersigned it without looking at the trees.
+ 
+  - id: cal_flint
+    name: Cal's flint
+    category: tool
+    physical:
+      material: flint stone with steel striker, on a leather loop
+      size: pocket-sized
+      distinguishing_features: ordinary woodsman's fire-kit; well-handled
+      condition: serviceable, used for years
+    origin: Cal's everyday kit. He has carried some version of it since he was a boy his father taught to make a fire.
+    meaning_to:
+      - character: cal
+        meaning: The first tool his father ever put in his hand. He uses it at the Mother's roots to set fire to the contract that would have paid his father's debt. He does not think about the symmetry. He only strikes the flint.
+ 
+  - id: miller_scrip
+    name: Miller Company scrip ($60)
+    category: currency
+    physical:
+      material: company-issued paper scrip, not legal tender
+      size: a small stack of folded notes totaling sixty dollars
+      distinguishing_features: Miller Company stamp on each note; redeemable only at the company store and the Hollow Creek office
+      condition: clean, current pay
+    origin: Cal's last full pay packet, set aside to bring Samuel home from boarding school. Carried in his coat the morning he goes to the clearing.
+    meaning_to:
+      - character: cal
+        meaning: Three years of his body, translated into paper. Samuel's passage home. He presses the bills into the moss at the base of the Mother's wound with the heel of his hand and gives up his brother's rescue to a forest he has spent three years cutting, because the woman he loves is not breathing right and there is nothing left of his life worth keeping back.
+ 
+  - id: cal_knife
+    name: Cal's knife
+    category: tool
+    physical:
+      material: steel blade, bone handle
+      size: belt-knife, working size
+      distinguishing_features: woodsman's blade; well-honed; faint stains from use
+      condition: sharp
+    origin: Cal's everyday belt knife. He has worn it on the same hip for years.
+    meaning_to:
+      - character: cal
+        meaning: The blade he uses for rope and snares and dressing game. At the Mother's roots he uses it to open his palm in a single deliberate cut, presses the bleeding hand to the bark, and offers the third thing — his body — because the contract and the scrip have not been enough and he has nothing else left to give.
+ 
+  - id: gold_sap_vial
+    name: Vial of gold sap
+    category: vessel
+    physical:
+      material: small glass vial, corked
+      size: thumb-sized
+      distinguishing_features: contains slow-flowing gold sap; the sap glints
+      condition: corked, kept on Morrow's person
+    origin: Drawn by Morrow from the Mother's wound at the moment the bark closed over Cal's bleeding hand. Stoppered and pocketed before Thistle woke.
+    meaning_to:
+      - character: morrow
+        meaning: A piece of the moment she did not believe would happen. She has watched humans for longer than Thistle has been alive and not one of them has given a forest anything but cuts. She corks the vial because she does not yet know what she will do with it, and because she has lived too long to let a thing like this go uncollected.
+ 
+  - id: samuel_letter
+    name: Samuel's letter
+    category: document
+    physical:
+      material: paper, ink — school letterhead with a separate prize notification enclosed
+      size: folded letter, two weeks travel-aged
+      distinguishing_features: Samuel's hand on the outer letter; a territorial essay prize notification ($200; teacher's apprenticeship in Portland; spring start; room and board)
+      condition: travel-creased, two weeks waiting at the Hollow Creek post office
+    origin: Written and mailed by Samuel from school two weeks before Cal walks down the mountain. Sat in the post office through the storm, the contract, the axe, and the sacrifice.
+    meaning_to:
+      - character: cal
+        meaning: His brother saving himself while Cal was offering everything to save him. The letter has been waiting two weeks; it was waiting before Cal burned the contract, before Hiram raised the axe, before any of it. He stands in the post office and weeps because his brother has grown into a man without him and does not need to be rescued, and because the forest accepted his offering anyway.
+      - character: samuel
+        meaning: The first letter he has written as someone with news of his own. He has been writing his brother for years as the boy being paid for; this is the first letter he has written as someone who can pay back. He hopes Cal will stop. He says please.
+ 
+  - id: mae_handkerchief
+    name: Mae Pritchard's handkerchief
+    category: garment
+    physical:
+      material: linen
+      size: pocket handkerchief
+      distinguishing_features: plainly hemmed; clean; M embroidered in one corner
+      condition: fresh
+    origin: Mae's pocket handkerchief, taken from her sleeve and offered across the post office counter when Cal weeps reading Samuel's letter.
+    meaning_to:
+      - character: cal
+        meaning: A kindness from the woman he did not choose. He has known Mae since they were children; he had thought, briefly, in a tired way, that he might marry her. She hands him the handkerchief without comment and does not make him say anything, and he understands that the world is full of people who have chosen differently and hold no grudge.
+      - character: mae
+        meaning: A small thing she can do for a man she loved a little, once, who is crying in her post office over a letter from a brother she also knows. She is engaged to the blacksmith. She is happy. The handkerchief is the only kind of grace she knows how to offer across a counter.
+ 
+  - id: mae_pie
+    name: Mae's pie
+    category: foodstuff
+    physical:
+      material: pastry crust, autumn fruit filling
+      size: full pie, in a tin
+      distinguishing_features: home-baked, sent up the mountain
+      condition: fresh-sent
+    origin: Baked by Mae a year after the post office, now married to the blacksmith and expecting at Christmas. Sent up to the cabin in autumn.
+    meaning_to:
+      - character: cal
+        meaning: A pie from Mae Pritchard. He eats it without irony, which is how he knows the year has been a year and not a series of months he has been getting through. He saves a slice for Thistle. She has never had pie.
+      - character: mae
+        meaning: A piece of her present life sent uphill in pastry form. She is married, expecting, content; the pie is none of those things by itself, but baking it for them is.
+ 
+  - id: cedar_sparrow_second
+    name: Cedar sparrow (second)
+    category: token
+    physical:
+      material: cedar
+      size: smaller than the first
+      distinguishing_features: in-progress, partially carved; shavings on the porch boards; the bird's shape only beginning to emerge
+      condition: unfinished
+    origin: Begun by Cal on the cabin porch in the autumn of 1898, a year after the first sparrow. Not yet finished on the evening Thistle decides to tell him.
+    meaning_to:
+      - character: cal
+        meaning: The gesture repeated. He does not know yet who it is for; he has been carving it in the evenings the way he used to carve the flock on the shelf, without naming the recipient, simply because his hands wanted to. He will know who it is for tonight.
+      - character: thistle
+        meaning: An unfinished thing for an unannounced one. She watches his hands work the cedar with her hand on her stomach and the words she has not said yet sitting in her mouth, and she understands that she has been alive for two hundred years and did not know she was lonely until he said sorry to a tree.
