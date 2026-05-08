@@ -2,7 +2,7 @@ import ollama
 import os
 import yaml
 
-from utils.prompt_render import render_character_prompt, render_system_prompt, render_location_prompt
+from utils.prompt_render import render_character_prompt, render_system_prompt, render_location_prompt, render_chapter_prompt, render_object_prompt
 
 from src.blueprint import Blueprint
 
@@ -16,34 +16,110 @@ class NovelGen:
         # print(blueprint.get_metadata())
 
 
-
-
-
-
-        # put together the system prompt here
-        system = render_system_prompt(self.blueprint.data)
-        print(system)
-
-        
+        # Put together the system prompt here
+        system_prompt = render_system_prompt(self.blueprint.data)
+        #print(system)
 
         
 
         
         # Put together user prompt here
+
+        # Get chapter 1 information
+        chapter = self.blueprint.get_chapter(1)
+        #print(chapter)
+
+        character_list = chapter.get('characters_present', [])
+        location_list = chapter.get('locations_present', [])
+        object_list = chapter.get('objects_present', [])
+
+       
+        character_prompt = ""
+
+        for character_id in character_list:
+            #print(character_id)
+            try:
+                character_prompt += render_character_prompt(self.blueprint.get_character(character_id))
+            except Exception as e:
+                print(e)
+
+        #print(character_prompt)
+
+
+        location_prompt = ""
+
+        for location_id in location_list:
+            try:
+                location_prompt += render_location_prompt(self.blueprint.get_location(location_id))
+            except Exception as e:
+                print(e)
+
+        #print(location_prompt)
+
+
+
+        object_prompt = ""
+
+        for object_id in object_list:
+            try:
+                object_prompt += render_object_prompt(self.blueprint.get_object(object_id))
+            except Exception as e:
+                print(e)
+
+        #print(object_prompt)    
+
+
+
+
+
+        # put together chapter prompt here
+        try:
+            chapter = render_chapter_prompt(chapter)
+        except Exception as e:
+            print(e)
+        #print(chapter)
+
+
+
+
+        #print(character)
+        '''
+            character = blueprint.get_character(character_id)
+            if character is None:
+                continue
+            # use character here
+        '''
+
+        '''        # put together object prompt here
+        # put together chapter prompt here
+        try:
+            chapter = render_chapter_prompt(chapter)
+        except Exception as e:
+            print(e)
+        #print(chapter)
+
+
+
+
+        # put together character prompt here
         try:
             character = render_character_prompt(self.blueprint.get_character("thistle"))
         except Exception as e:
             print(e)   
-        print(character)    
+        #print(character)    
 
+        # put together location prompt here
         try:
             location = render_location_prompt(self.blueprint.get_location("greenwood"))
         except Exception as e:
             print(e)    
         #print(location)
 
-
-
+        '''
+        
+        
+        final_prompt = f"{system_prompt}{character_prompt}{location_prompt}{object_prompt}{chapter}"
+        print(final_prompt)
 
 
         # call code to generate chapter
@@ -57,6 +133,7 @@ class NovelGen:
 
         # call ollama or whatever to generate the model
         #self.generate("ollama", self.Generate_Chapter())
+
 
 
     def generate(self, model, prompt):

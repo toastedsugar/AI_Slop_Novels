@@ -36,9 +36,9 @@ chapter:
     - miller_men       # off-page threat
 
   objects_present:
-    - hollow_collection_brass_button
-    - hollow_collection_child_bootlace
-    - hollow_collection_tin_whistle
+    - brass_button
+    - child_bootlace
+    - tin_whistle
     - rain_basin
 
   objects_referenced:

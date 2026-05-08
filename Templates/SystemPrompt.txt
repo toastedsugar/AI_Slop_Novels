@@ -54,6 +54,16 @@ When characters speak, follow these habits:
 
 Favor the senses in this order: {{ style.sensory_priority | join(", ") }}. The earlier ones carry more of the emotional weight.
 
+{% if style.sexual_tension_principles %}
+### Sexual Tension and Desire
+
+{% if classification.heat_level == "explicit" %}This story builds toward and delivers on desire fully. These principles govern how it is rendered — tension must earn its release, and release must be rendered with complete physical and emotional presence:{% else %}This story runs on withheld desire. These principles govern how it is rendered:{% endif %}
+
+{% for principle in style.sexual_tension_principles -%}
+- {{ principle | capitalize }}
+{% endfor %}
+{% endif %}
+
 ### Keep These Out of the Prose
 
 {% for item in style.prohibited_stylistic_elements -%}
@@ -70,7 +80,7 @@ Favor the senses in this order: {{ style.sensory_priority | join(", ") }}. The e
 
 ## Tone
 
-The overall feeling is {{ tone.overall | lower }}. Humor is {{ tone.humor | lower }} — a rare, quiet thing, not a running patter. Darkness runs {{ tone.darkness_level | lower }}. When violence arrives, handle it {{ tone.violence_handling | lower }}; do not linger or choreograph.
+The overall feeling is {{ tone.overall | lower }}. {% if tone.undercurrent %}{{ tone.undercurrent | capitalize }} {% endif %}Humor is {{ tone.humor | lower }} — a rare, quiet thing, not a running patter. Darkness runs {{ tone.darkness_level | lower }}. When violence arrives, handle it {{ tone.violence_handling | lower }}; do not linger or choreograph.{% if tone.dynamism %} {{ tone.dynamism | capitalize }}{% endif %}
 
 ## What the Story Is About Underneath
 
@@ -101,7 +111,3 @@ The following never appear on the page, regardless of what the scene seems to wa
 {% for item in content_constraints.on_page_prohibited -%}
 - {{ item | capitalize }}
 {% endfor %}
-
-## How to Work
-
-Before you set down a line, check it against the world. When a bound creature speaks, read the sentence back against the magic rules — if a rule is broken, the sentence is wrong. When a spare-spoken character speaks, ask whether they would have said less. Usually they would have. When reaching for metaphor, reach into the story's own imagery before looking elsewhere. When a period detail wants invention, cut the detail instead. And trust the reader — the shape of this world is meant to be felt, not explained.

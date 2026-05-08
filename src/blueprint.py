@@ -53,7 +53,7 @@ class Blueprint:
         return self.data['continuity']
 
     def get_chapters(self) -> list[dict]:
-        return [ch['beat'] for ch in self.data['chapters']]
+        return [ch['chapter'] for ch in self.data['chapters']]
     
     def get_locations(self) -> list[dict]:
         return self.data['locations']
@@ -61,5 +61,5 @@ class Blueprint:
     def get_location(self, location_id: str) -> dict | None:
         return next((l for l in self.data['locations'] if l['id'] == location_id), None)
 
-    def get_chapter(self, sequence: int) -> dict | None:
-        return next((ch['beat'] for ch in self.data['chapters'] if ch['beat']['sequence'] == sequence), None)
+    def get_chapter(self, number: int) -> dict | None:
+        return next((ch['chapter'] for ch in self.data['chapters'] if ch['chapter']['number'] == number), None)

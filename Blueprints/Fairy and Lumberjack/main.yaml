@@ -7,7 +7,7 @@ classification:
     - faerie romance
   mode: sincere genre
   audience: adult
-  heat_level: high
+  heat_level: explicit
 
 setting:
   era: late Victorian
@@ -48,22 +48,33 @@ point_of_view:
   distance: close
 
 style:
-  prose: In the style of F Scott Fitzgerald
+  prose: In the style of F Scott Fitzgerald, but charged with latent desire — every description should carry a double meaning, every image should be capable of being read two ways
   register: literary commercial
   sentence_variety: high
-  description_density: lush on nature, sparse on interiors
-  figurative_language: earned metaphors drawn from forest imagery
+  description_density: lush on nature, lush on bodies and physicality, sparse on interiors
+  figurative_language: earned metaphors drawn from forest imagery — bark, root, sap, heat, pressure, give
   dialogue_ratio: thirty to thirty-five percent
   dialogue_style:
     - no dialect spelling
     - minimal tags
     - action beats over adverbs
+    - characters say less than they mean; the body says the rest
+    - silence and pauses carry erotic weight
+    - even practical exchanges have current running underneath them
   sensory_priority:
     - tactile
     - olfactory
     - auditory
     - visual
     - gustatory
+  sexual_tension_principles:
+    - tension is built through proximity, heat, and withheld touch — not stated desire
+    - every time a character notices the other's body, render it as a physical event — a catch in the breath, a shift of weight, warmth moving through the chest
+    - characters who are restrained are not cold — they are holding something back, and the prose should feel that effort
+    - serious or stoic characters express desire through what they do not say, what they allow, and what they reach for without asking
+    - the fae character's desire is ancient and patient; the human character's desire is urgent and confused — honor both textures
+    - touch that is practical — tending a wound, passing something across a table — should feel charged even when neither character acknowledges it
+    - anticipation is more erotic than resolution; let scenes breathe before they break
   prohibited_stylistic_elements:
     - purple prose
     - modern idiom in dialogue
@@ -71,14 +82,18 @@ style:
     - therapy speak
     - excessive worldbuilding exposition
     - adverb-heavy dialogue tags
+    - stated desire without physical grounding (do not write "she wanted him" — write what wanting does to the body)
+    - clinical or anatomical language — render sensation, not anatomy; the prose should feel what the body feels, not describe what it looks like
   prohibited_words:
     - profanity
 
 tone:
-  overall: tender with ecological ache
+  overall: tender with ecological ache, threaded through with sexual heat that builds openly and breaks fully when it must
+  undercurrent: every scene carries a current — the story is always aware of itself as a story about two beings drawn toward each other, and that awareness should be felt as physical pressure even when the surface is about timber contracts and winter
   humor: dry, tender, sparse
   darkness_level: moderate
   violence_handling: brief and consequential
+  dynamism: scenes should feel kinetic even when still — the tension of a body trying not to lean toward another body is its own kind of motion
 
 themes:
   central:
@@ -94,13 +109,15 @@ themes:
 content_constraints:
   on_page_allowed:
     - intense kissing
-    - passionate lovemaking
-    - shared bed
+    - sex scenes rendered with full physical presence — heat, breath, weight, sensation, urgency, and release; the body is the instrument, not the subject; render what it feels like, not what it looks like
+    - shared bed with all the charged awareness that implies
+    - bodies as landscape — a collarbone, a forearm, the line of a jaw are appropriate objects of description
+    - desire rendered through physical symptom rather than stated emotion
     - fistfight, brief
     - blood from wound
     - grief and weeping
   on_page_prohibited:
-    - explicit sex
+    - explicit anatomical or visual description of sex acts — render sensation and feeling, not physical mechanics
     - graphic gore
 
 # The greater-than sign is used when you want to write in a way that's easy to read in your text editor (with short lines), but you want the final computer output to be a single continuous paragraph.

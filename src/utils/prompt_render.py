@@ -72,3 +72,23 @@ def render_location_prompt(location: dict, templates_dir: str = "Templates") -> 
     )
     template = env.get_template("Location.txt")
     return template.render(**location)
+
+
+def render_object_prompt(obj: dict, templates_dir: str = "Templates") -> str:
+    env = Environment(
+        loader=FileSystemLoader(templates_dir),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
+    template = env.get_template("Objects.txt")
+    return template.render(object=obj)
+
+
+def render_chapter_prompt(chapter: dict, templates_dir: str = "Templates") -> str:
+    env = Environment(
+        loader=FileSystemLoader(templates_dir),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
+    template = env.get_template("Chapter.txt")
+    return template.render(chapter=chapter)

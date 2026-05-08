@@ -1,0 +1,76 @@
+{# ============================================================================
+   chapter prompt — user message
+   variable per chapter, structural/scaffolding content only
+   ----------------------------------------------------------------------------
+   expected context:
+     chapter.number                       (int)
+     chapter.title                        (str)
+     chapter.word_count_target            (int)
+     chapter.arc_position                 (str | coded, e.g. "opening")
+     chapter.narrative_function           (str | coded)
+     chapter.story_structure_role         (str, prose)
+
+     chapter.setting_summary.time_of_year (str)
+     chapter.setting_summary.time_of_day  (str)
+
+     chapter.emotional_register           (str | coded)
+     chapter.themes_active                (list[str | coded])
+
+     chapter.beats[].title             (str)
+     chapter.beats[].approx_words      (int)
+     chapter.beats[].opens_on          (str)
+     chapter.beats[].action_sequence   (list[str])
+     chapter.beats[].beat_function     (str, optional)
+     chapter.beats[].prose_directives  (list[str], optional)
+     chapter.beats[].closes_on         (str, optional)
+
+     chapter.prohibited_at_chapter_level   (list[str])
+
+     chapter.continuity_out.pov_state      (str)
+     chapter.continuity_out.location_end   (str)
+     chapter.continuity_out.unresolved     (str)
+   ----------------------------------------------------------------------------
+   note: characters, locations, objects, voices, and plants are deliberately
+   omitted from this template. those entities are rendered separately and
+   composed into the final prompt at assembly time.
+============================================================================ #}
+This chapter is Chapter {{ chapter.number }}, titled "{{ chapter.title }}", and targets approximately {{ chapter.word_count_target }} words. It sits at the {{ chapter.arc_position | replace('_', ' ') }} of the larger arc and functions as {{ chapter.narrative_function | replace('_', ' ') }}; its job in the structure is to {{ chapter.story_structure_role | trim }}
+
+The action takes place at {{ chapter.setting_summary.time_of_day }} in {{ chapter.setting_summary.time_of_year }}.
+
+The chapter's emotional register is {{ chapter.emotional_register | replace('_', ' ') }}. Its active themes are {{ chapter.themes_active | map('replace', '_', ' ') | join(', ') }}.
+
+The chapter is built in {{ chapter.beats | length }} beats. Draft them in order, hitting each word target.
+{% for beat in chapter.beats %}
+**Beat {{ loop.index }} — "{{ beat.title }}" (~{{ beat.approx_words }} words).**
+
+Open on: {{ beat.opens_on | trim }}
+
+The action for this beat unfolds in the following sequence:
+{% for action in beat.action_sequence %}
+- {{ action | trim }}
+{%- endfor %}
+{% if beat.beat_function %}
+The function of this beat in the chapter: {{ beat.beat_function | trim }}
+{%- endif %}
+{% if beat.prose_directives %}
+Prose directives for this beat:
+{% for directive in beat.prose_directives %}
+- {{ directive }}
+{%- endfor %}
+{%- endif %}
+{% if beat.closes_on %}
+Close the beat on: {{ beat.closes_on | trim }}
+{%- endif %}
+{% endfor %}
+
+{% if chapter.prohibited_at_chapter_level -%}
+The following are forbidden at the chapter level and must be observed throughout:
+{% for rule in chapter.prohibited_at_chapter_level %}
+- {{ rule }}
+{%- endfor %}
+{%- endif %}
+
+{% if chapter.continuity_out -%}
+When the draft is complete, the continuity carry-out for the next chapter is as follows.{% if chapter.continuity_out.pov_state %} POV state: {{ chapter.continuity_out.pov_state }}{% endif %}{% if chapter.continuity_out.location_end %} Location at chapter end: {{ chapter.continuity_out.location_end }}{% endif %}{% if chapter.continuity_out.unresolved %} Unresolved tensions: {{ chapter.continuity_out.unresolved }}{% endif %}
+{%- endif %}
