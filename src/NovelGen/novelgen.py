@@ -1,8 +1,7 @@
-import ollama
-import os
 import yaml
 
 from utils.prompt_render import render_character_prompt, render_system_prompt, render_location_prompt, render_chapter_prompt, render_object_prompt
+from utils.api_calls import generate_openai, generate_ollama, generate_claude, generate_gemini
 
 from src.blueprint import Blueprint
 
@@ -14,18 +13,47 @@ class NovelGen:
 
         # Put together the system prompt here
         system_prompt = render_system_prompt(self.blueprint.data)
-        print(system_prompt)
+        #print(system_prompt)
 
         user_prompt = self.build_user_prompt(1)
-        print (user_prompt)
+        #print (user_prompt)
         
-        
+    
+
+        '''
+        ollama_output = self.generate_ollama(
+            "ollama", 
+            system_prompt + "\n\n\n" + user_prompt
+        )
+        print(ollama_output)
+        '''
+        '''
+        openai_output = generate_openai(
+            "gpt-5-mini",
+            system_prompt,
+            user_prompt
+        )
+        print(openai_output)
+        '''
+
+        claude_output = generate_claude(
+            "claude-sonnet-4-6",
+            system_prompt,
+            user_prompt
+        )
+        print(claude_output)
+        '''
+        gemini_output = generate_gemini(
+            "gemini-2.5-flash",
+            system_prompt,
+            user_prompt
+        )
+        print(gemini_output)
+        '''
 
 
-        # call ollama or whatever to generate the text
-        # self.generate("ollama", system_prompt + "\n\n\n" + user_prompt)
 
-
+        print("\n\n\nD O N E")
 
 
 
@@ -76,48 +104,5 @@ class NovelGen:
 
         return f"{character_prompt}{location_prompt}{object_prompt}{chapter}"
 
-
-
-    def generate(self, model, prompt):
-        """
-        Connects to Ollama and generates a response for the given prompt.
-
-        Args:
-            model: Ignored — actual model is read from OLLAMA_MODEL env var (default: llama3).
-            prompt: The prompt string to send to the model.
-
-        Prints the prompt and the model's response. Raises on non-model errors.
-        """
-
-        host = os.getenv("OLLAMA_HOST") or "http://localhost:11434"
-        client = ollama.Client(host=host)
-        model = os.getenv("OLLAMA_MODEL", "llama3")
-        print(prompt)
-
-        try:
-            response = client.generate(model=model, prompt=prompt, stream=False)
-            print(response['response'])
-        except Exception as e:
-            if "model" in str(e).lower() and "not found" in str(e).lower():
-                print(f"Error: Model '{model}' is not downloaded.")
-                print(f"Run: docker exec ollama ollama pull {model}")
-            else:
-                raise
-
-
-
-
-
-
-
-
-
-
-    def get_ids_from_yaml(blueprint_data: list) -> list[str]:
-        return [item["id"] for item in blueprint_data]
-
-    def load_yaml(self, yaml_path: str) -> dict:
-        with open(yaml_path) as f:
-            return yaml.safe_load(f)
 
     
