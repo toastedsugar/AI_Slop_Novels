@@ -14,16 +14,16 @@ class NovelGen:
 
         # Put together the system prompt here
         system_prompt = render_system_prompt(self.blueprint.data)
-        #print(system)
+        print(system_prompt)
 
         user_prompt = self.build_user_prompt(1)
-        #print (user_prompt)
+        print (user_prompt)
         
         
 
 
         # call ollama or whatever to generate the text
-        self.generate("ollama", system_prompt + "\n\n\n" + user_prompt)
+        # self.generate("ollama", system_prompt + "\n\n\n" + user_prompt)
 
 
 
