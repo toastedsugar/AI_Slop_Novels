@@ -1,0 +1,587 @@
+chapter:
+  id: ch08
+  number: 8
+  title: "A Named Sacrifice"
+  word_count_target: 1200
+ 
+  narrative_function: climactic_rite_and_resurrection_of_the_beloved
+  arc_position: climax
+  story_structure_role: >
+    The chapter where the cost of the whole book comes due. Cal, having
+    carried a dying Thistle from the spring, performs the rite Morrow names:
+    a human freely given, the true name spoken three times over the Mother's
+    roots, and a price that takes everything. The contract he was felling her
+    forest under, the money for his brother's escape, and the small tokens of
+    their nineteen days are all surrendered, sealed with his blood. The forest
+    answers; the wound in the Mother closes; Thistle returns. The supernatural
+    bond made visible across the book — the matched hand-marks — is restored on
+    both their bodies, ratifying in flesh what the rite has done. This is the
+    consummation of the love story as magic and of the magic as love story.
+ 
+  pov:
+    mode: single
+    character: cal
+ 
+  setting_summary:
+    time_of_year: autumn_1897
+    time_of_day: late_morning_into_mid_afternoon
+ 
+  locations_present:
+    - hidden_spring             # cold open: Morrow names the terms
+    - heart_tree_clearing       # the rite, the resurrection, the close
+ 
+  locations_referenced:
+    - cal_cabin                 # "the way she wore it in his bed at dawn"; the scale shed on his chair
+    - millers_cut               # where Cal pocketed the trillium twenty days ago
+    - portland                  # where the scrip was to send Samuel
+    - hollow_creek              # Cal's birthplace, named in the rite
+ 
+  characters_present:
+    - cal
+    - thistle                   # unconscious through most of the chapter; revives at the close
+    - morrow                    # names the terms, witnesses, withholds, withdraws
+    - the_mother                # non-speaking; answers in warmth, sensation, growth
+    - bract                     # paces Cal, holds vigil at Thistle's feet
+ 
+  characters_referenced:
+    - samuel                    # the scrip was his coach fare to Portland
+    - hiram_beck                # body already hauled off the moss before Cal returns
+    - daniel_thorne             # Cal's father, named in the true name
+    - marin_whitlow_thorne      # Cal's mother, named in the true name
+ 
+  objects_present:
+    - white_trillium            # the ch01 flower, now dried; pocketed twenty days ago, surrendered here
+    - iridescent_scale          # shed on Cal's chair the first night in the cabin; surrendered
+    - cedar_sparrow_carving     # the bird Cal whittled; Morrow returns it in her beak; ends in Thistle's hand
+    - miller_company_scrip      # sixty dollars, Samuel's Portland fare; buried at the Mother's roots
+    - greenwood_contract        # the felling contract, red-stamped; burned to ash
+    - cal_knife                 # opens his left palm for the blood
+    - flint_and_tinder          # lights the contract
+    - flat_stone                # the offering stone at the base of the Mother
+ 
+  objects_referenced:
+    - cal_axe                   # the axe-wound in the Mother's heartwood the rite must close
+    - cal_coat                  # emptied of the tokens
+    - cal_wallet                # holds the scrip
+ 
+  emotional_register: grief_and_surrender_then_awe_then_unspeaking_restoration
+ 
+  themes_active:
+    - sacrifice_freely_given
+    - the_true_name_as_the_deepest_self
+    - giving_back_what_was_taken
+    - love_made_literal_in_the_body
+    - grief_completed                 # the weeping Cal has carried since he was eight
+    - the_bond_made_visible
+    - reciprocity_between_human_and_forest
+ 
+  voices_introduced:
+    - cal_grief_register          # dominant; the deep, plain voice of a man at the bottom of himself
+    - cal_plain_register          # spare declaratives; "He does not wipe it." "Oh. That is all he says."
+    - morrow_broken_voice         # ragged from weeping, austere even while it breaks
+    - thistle_returned_voice      # weak, slow, the familiar-name register; "Caleb." "You did it."
+ 
+  plants_for_later:
+    gold_seam_on_cal_wrist: ch10_fades_to_silver_in_certain_slants_of_light
+    matched_mark_returned_on_thistle: ch10_faded_to_pale_gold_tinted_shadow
+    gold_shadow_on_cal_sternum: ch10_visible_only_in_low_light
+    sapling_at_the_pale_scar: ch09_and_ch10_continued_growth_leaning_toward_them
+    cal_mouth_gold_at_the_corner: ch09_morrow_and_thistle_both_see_it
+    morrow_turning_away_in_woman_form: ch09_morrows_full_spoken_blessing
+    buried_scrip_for_samuel: ch09_question_of_how_samuel_now_reaches_portland
+ 
+  continuity_out:
+    pov_state: >
+      Cal kneeling at the base of the Mother, Thistle revived and sitting
+      against the trunk, his cut left palm over her sternum, a thin gold seam
+      running under the skin from the heel of his thumb up the inside of his
+      wrist along the vein she once traced. His mouth still gold at one corner.
+      The matched hand-mark returned on both their chests.
+    location_end: "The heart-tree clearing, mid-afternoon, mist gone, light the color of honey."
+    unresolved: >
+      What Cal now is, with gold under his skin and a tree's blood in his
+      veins. How Samuel reaches Portland with the fare buried at the roots.
+      The aftermath at the Miller Company with Hiram dead and the contract
+      burned. Whether Morrow's turning-away is a true blessing or only a
+      reprieve. Whether the bond now binds Cal to the Greenwood as surely as
+      it binds Thistle.
+ 
+  beats:
+    - id: ch08_b01
+      title: "The Price"
+      approx_words: 160
+      opens_on: >
+        Morrow at the hidden spring, looking at Cal over the body of her
+        failing niece, opening her mouth to say the thing she has not wanted
+        to say.
+      action_sequence:
+        - >
+          Morrow names the rite, plainly and without softening: the Mother's
+          heartwood takes a named sacrifice. A human, freely. The true name,
+          three times, over her roots. And a thing that costs the giver — all
+          of it. Otherwise the Mother dies and Thistle dies with her.
+        - >
+          Cal asks how long he has. Morrow tells him he is already too late,
+          and to try anyway. She is weeping as she says it; her black
+          crow-eyes are wet and she does not wipe them.
+        - >
+          He starts to say "Caleb Thorne" and she cuts him off — not the name
+          the world calls him; the name his mother gave him. He understands.
+          He says it slow, the way a man lifts something from the bottom of a
+          chest he has not opened in twenty-two years: his full true name, his
+          parents' names, his birthplace, his birth date. He has not said his
+          middle name aloud since his mother died.
+        - >
+          Morrow nods once: that will do. She tells him to bring her — bring
+          all of her, do not leave her here — and lifts into the air, a crow
+          again before her feet leave the moss.
+      beat_function: >
+        Delivers the terms that govern the entire chapter and prices the
+        climax: love will cost Cal everything he has been protecting. The
+        true-name demand pulls Cal's deepest, longest-buried self into the
+        open — the middle name unsaid for twenty-two years is the proof the
+        sacrifice is real. Morrow's weeping while she instructs him reframes
+        the whole rite as grief, not ceremony.
+      prose_directives:
+        - "Morrow's terms are spoken, not paraphrased into narration. The cadence is flat and final."
+        - >
+          Cal's true name is retrieved, not recited — the prose should feel
+          the weight of the chest-lid lifting. The middle name lands with the
+          smallest possible fanfare; the plainness carries it.
+        - >
+          "You are already too late, logger. Try anyway." is the hinge of the
+          beat. It is permission and prophecy at once and should not be
+          dressed up.
+        - "Morrow's wet eyes are the whole of her interiority. Cal does not comment on them."
+      closes_on: >
+        Morrow rising into crow-shape off the moss, the terms spoken, the
+        spring quiet, Thistle still failing in Cal's arms.
+ 
+    - id: ch08_b02
+      title: "Carrying Her Back"
+      approx_words: 90
+      opens_on: >
+        Cal getting his arms under Thistle to lift her from the spring.
+      action_sequence:
+        - >
+          She weighs less than she weighed when he ran her here an hour ago.
+          He carries her at a walk, not a run; running is what put the gold at
+          her mouth and he will not put more there.
+        - >
+          Bract paces him the whole way. The forest opens the path the way it
+          has been opening paths for him all day. Cal does not let himself
+          think about that.
+      beat_function: >
+        A bridge beat that lets the dread settle and quietly seeds the idea —
+        without naming it — that the forest is already treating Cal as one of
+        its own. The deliberate walk is character: he has learned, too late,
+        the cost of haste.
+      prose_directives:
+        - "Short beat. The walking pace is the emotional content — restraint as devotion."
+        - >
+          The forest opening the path is one clause, observed and refused.
+          'Cal does not let himself think about that' is the line; do not
+          explain what he is refusing to think.
+        - "She weighs less. State it once. Do not editorialize the implication."
+      closes_on: >
+        Cal walking the open path toward the clearing, Thistle light in his
+        arms, the dog at his heel.
+ 
+    - id: ch08_b03
+      title: "The Cleared Room"
+      approx_words: 150
+      opens_on: >
+        Cal reaching the heart-tree clearing and finding it emptied — the
+        crew gone, Hiram's body already hauled off the moss while he was at
+        the spring.
+      action_sequence:
+        - >
+          The cedar sparrow carving that fell from his coat is sitting on the
+          flat stone at the base of the Mother; Morrow carried it back in her
+          beak while he was carrying Thistle. The Mother stands with her wound
+          open, gold sap running. The clearing is empty of every small living
+          thing — no birds, no insects, no movement in the leaves. The forest
+          has cleared the room.
+        - >
+          He lays Thistle down at the base of the Mother, on the moss directly
+          under the wound. He smooths her ash-blonde hair the way she wore it
+          in his bed at dawn. He closes the front of her dress at the laces
+          because he cannot bear for anyone, even the trees, to look at her
+          bare chest but him; the bark-pattern freckles where his hand-print
+          used to be go in under the linen and out of sight.
+        - >
+          He kisses her forehead. He kisses her mouth — through the gold sap
+          at her chin. His own mouth comes away gold. He does not wipe it.
+      beat_function: >
+        Stages the rite's space and establishes its reverence. The emptied
+        clearing makes the forest a held breath. The care with which Cal
+        arranges and covers her is the female-gaze register turned wholly to
+        tenderness rather than desire — the body attended to as beloved, not
+        wanted. The gold at his mouth is the first mark the rite leaves on him,
+        taken before he has even begun.
+      prose_directives:
+        - >
+          The cleared clearing is rendered through absence — list what is not
+          there. The forest's withdrawal is the tell, not any stated magic.
+        - >
+          Closing the laces is the most charged gesture in the beat and the
+          most chaste. The bark-freckles going under the linen is the line.
+          No sexual register here; this is devotion at a deathbed.
+        - >
+          'His own mouth comes away gold. He does not wipe it.' — preserve the
+          two-sentence plainness exactly. The not-wiping is the whole feeling.
+        - "Hiram's removal is one subordinate clause. The chapter does not pause for him."
+      closes_on: >
+        Thistle arranged under the open wound, the cedar sparrow on the stone,
+        Cal's mouth gold at the corner, the Mother bleeding above them both.
+ 
+    - id: ch08_b04
+      title: "What He Empties From His Coat"
+      approx_words: 120
+      opens_on: >
+        Cal emptying his coat onto the flat stone at the base of the Mother.
+      action_sequence:
+        - >
+          He sets out the iridescent scale she shed on his chair her first
+          night in the cabin; the dried trillium he pocketed in the cutting
+          clearing twenty days ago without knowing why; the cedar sparrow he
+          whittled. He sets each thing on the stone.
+        - >
+          Then, from his wallet, the last sixty dollars in Miller Company
+          scrip — the money for Samuel's coach down to Portland. And from his
+          breast pocket, the folded contract with the red felling-stamp across
+          the top.
+        - >
+          These are the things that cost him. He sets them next to the others.
+      beat_function: >
+        Assembles the price in full view so the reader weighs it before the
+        rite spends it. The tokens are the nineteen days; the scrip is his
+        brother's future; the contract is the engine of the whole disaster and
+        the only thing keeping his own future fed. Laying his brother's escape
+        and his own livelihood on a stone is the proof the sacrifice is total,
+        not symbolic.
+      prose_directives:
+        - >
+          The three tokens get one breath each — what each is, where it came
+          from. The trillium is explicitly the ch01 flower, now dried; let the
+          continuity land without flagging it.
+        - >
+          The scrip and contract are the heavy ones; name what each one is FOR
+          (Samuel's coach; the felling) so the cost is legible.
+        - "'These are the things that cost him.' is the load-bearing sentence. Keep it bare."
+      closes_on: >
+        The stone laid with everything Cal owns that matters, the gold sap
+        running just above it.
+ 
+    - id: ch08_b05
+      title: "The Rite"
+      approx_words: 210
+      opens_on: >
+        Cal kneeling to begin, the offerings before him, the true name ready
+        in his mouth.
+      action_sequence:
+        - >
+          The contract. He strikes flint to tinder and holds the small flame
+          to the corner of the folded paper. The red stamp curls and blackens.
+          He kneels with it between his hands until it is only ash, and says,
+          to the Mother, the first time: "Caleb Daniel Thorne. Son of Daniel
+          Thorne and Marin Whitlow Thorne." His voice is quieter than the wind
+          that is not moving in the leaves.
+        - >
+          The scrip. He digs at the base of the wound where the gold sap is
+          pooling, presses the bills into the cold wet hole, covers them, pats
+          the moss down. He says it again, and his voice breaks on his
+          mother's name. He has just given his brother's rescue back to the
+          forest he has been cutting for three years. He has no reason to
+          believe it will work. He does it anyway.
+        - >
+          The small things. He lays the trillium, the scale, and the cedar
+          sparrow in a row on the moss under the wound. "This was hers before
+          I knew her," he says of the scale. "This was mine before I knew
+          her," of the trillium. He picks up the sparrow: "This was both of
+          us. I am giving it back." He sets it last.
+        - >
+          The cut. He draws his knife and opens his left palm in one clean
+          stroke. The blood is bright, ordinary red. He presses his palm flat
+          into the axe-wound, into the gold sap, into the deep heartwood gash,
+          and says it the third time, and adds: "I'm hers. I'm yours. Take it.
+          Take whatever. Take all of it. Just —" He does not finish. He does
+          not know how. He stays with his palm pressed to her wound.
+      beat_function: >
+        The rite proper, in four movements, each pairing a surrender with the
+        true name (the small-things movement excepted, where the spoken
+        accounting of what each token is replaces the name). Burning the
+        contract is renouncing his complicity; burying the scrip is renouncing
+        his brother's future; the tokens are renouncing the privacy of their
+        nineteen days; the cut is offering the body itself. The unfinished
+        "Just —" is the human heart inside the ceremony: he cannot bargain
+        because he does not know what he is allowed to ask for.
+      prose_directives:
+        - >
+          Four clean movements. Each opens with the object named as a header-
+          beat in the prose's rhythm (the contract; the scrip; the small
+          things; the cut) without literal headers — let the cadence mark them.
+        - >
+          The true name recurs verbatim across movements one, two, and four.
+          The break on 'Marin Whitlow Thorne' happens once, in the scrip
+          movement; do not repeat the break.
+        - >
+          The spoken lines over the tokens are heard verbatim. 'This was both
+          of us. I am giving it back.' is the emotional apex of the rite.
+        - >
+          The cut's blood is explicitly ordinary red here — the gold has not
+          begun. That sets up the next beat. The trailing 'Just —' is left
+          open; no narration completes the thought.
+      closes_on: >
+        Cal on his knees, left palm pressed into the heartwood gash, the third
+        naming spoken, the sentence unfinished, his blood in her wound.
+ 
+    - id: ch08_b06
+      title: "His Blood Turns Gold, and the Forest Answers"
+      approx_words: 160
+      opens_on: >
+        Cal watching the place where his blood meets the gold sap in the open
+        wound.
+      action_sequence:
+        - >
+          His blood is not mixing with the sap — it is becoming it. The change
+          travels up the heel of his hand, into his wrist, under the skin, in a
+          thin gold line along the vein she once traced with one finger in the
+          cabin. He watches it go in. He does not pull his palm away. He
+          thinks, take it. Take all of it. Take me. Just give her back.
+        - >
+          The forest answers: a sound like a great breath drawn in across the
+          whole clearing. Wind moves without moving any leaves. The mist that
+          has hung at chest-height since first light lifts in one steady rise,
+          like a curtain raised by hand.
+        - >
+          The gold at the axe-wound runs faster, then brighter, then thickens.
+          The bite in the heartwood begins to close — not heal, close — the
+          wood knitting like flesh, the bark rings folding over each other in
+          front of his face, until a long pale scar stands where a foot of
+          axe-bite was.
+        - >
+          From the closed scar, the way things happen only inside a story, a
+          sapling pushes out of the bark no taller than Cal's hand and unfurls
+          one new leaf — the green of sun through new leaves. The green of her
+          eyes.
+      beat_function: >
+        The rite is accepted; the cost is taken into Cal's body, the gold seam
+        that will mark him for the rest of the book begun here. The forest's
+        response is the world ratifying the sacrifice. The sapling with the
+        leaf the color of Thistle's eyes is the first sign the trade has gone
+        through — the Mother saved, and something new growing from the wound.
+      prose_directives:
+        - >
+          'Not mixing — becoming.' is the precise distinction; the dash carries
+          it. The gold travels along the vein she traced — name the callback
+          plainly.
+        - >
+          'The way things happen only inside a story' is a deliberate
+          fairy-tale acknowledgment and should be kept; the chapter is allowed
+          to know, for one clause, that it is a fairy tale.
+        - >
+          'Close, not heal.' The knitting is described as flesh, not carpentry.
+          Keep the wound's closing bodily.
+        - "The leaf's color is the last word and lands on her eyes. Do not over-describe the green."
+      closes_on: >
+        The pale scar in the heartwood, the hand-high sapling with its single
+        new leaf, the gold still running into Cal's wrist.
+ 
+    - id: ch08_b07
+      title: "He Collapses, and What Morrow Does Not Say"
+      approx_words: 140
+      opens_on: >
+        Cal's knees giving out, his face still against the Mother's bark.
+      action_sequence:
+        - >
+          The bark is warm. For one moment he is held — cedar and gold sap and
+          new growth, the body of the Mother breathing under his face the way
+          Thistle's body had been breathing under his face six hours ago — and
+          he weeps in a way that has been waiting since he was eight years old.
+          He is not quiet about it.
+        - >
+          As his cheek presses to the trunk, the matched bruise-mark returns to
+          his own chest under his shirt — a small warmth blooming in the shape
+          of her splayed hand against his sternum. He does not look down to
+          check. He does not have to.
+        - >
+          Morrow does not look at him; she is looking at her niece. Under the
+          laces at Thistle's throat, the bark-pattern freckles on her sternum
+          are reordering — slow, like ink rising into paper from the underside.
+          The four fingers, the palm, the heel: the print is back. The bond has
+          held. Morrow does not tell Cal. She lets him find it on Thistle's
+          body in private — the one thing in the day that will belong only to
+          them, and she will not take it from them.
+      beat_function: >
+        The human cost is paid and the human grief, long delayed, finally
+        breaks; the bond's restoration is confirmed twice over, on Cal's chest
+        and on Thistle's, but kept from Cal so the reader holds it before he
+        does. Morrow's withholding is her first act of tenderness toward him —
+        she gives them the privacy of their own miracle.
+      prose_directives:
+        - >
+          The weeping is the release of the whole book's grief; 'since he was
+          eight years old' is the only backstory permitted, and it is enough.
+          He is not quiet about it — let it be undignified.
+        - >
+          His mark returns by feel, not sight — 'He does not look down. He does
+          not have to.' Preserve the refusal to verify.
+        - >
+          The print returning on Thistle is rendered through Morrow's eyes only,
+          since Cal is face-down. 'Like ink rising into paper from the
+          underside' is the image. Morrow's choice not to tell him is stated
+          plainly and not justified beyond the one clause given.
+        - "Do not let the narration tell Cal what Morrow sees. He learns it in the waking beat."
+      closes_on: >
+        Cal weeping against the warm bark, his own mark blooming unseen on his
+        chest, Morrow watching the print redraw itself on her niece in silence.
+ 
+    - id: ch08_b08
+      title: "The Waiting"
+      approx_words: 90
+      opens_on: >
+        Cal pushing himself off the Mother and going to Thistle.
+      action_sequence:
+        - >
+          He kneels beside her, puts the cedar sparrow back in her closed hand
+          and folds her fingers around it, lays his cut palm — the gold
+          spreading in patches under the skin of his wrist — over her sternum,
+          over the print he cannot yet see has come back, and puts his forehead
+          to hers.
+        - >
+          He waits. An hour. Two. The light shifts to early afternoon. The
+          sapling puts out a second leaf, then a third. Bract has not moved
+          from her feet. Morrow sits in half-form on a low branch and weeps
+          silently.
+      beat_function: >
+        Earns the resurrection by making it cost time and uncertainty — there
+        is no instant reward. The growing sapling and the unmoving dog mark the
+        hours; the held vigil is the proof of devotion the rite did not by
+        itself supply.
+      prose_directives:
+        - "Time is marked through small physical changes — leaves, light, the dog. No clock."
+        - >
+          He puts the sparrow back in her hand: the token he 'gave back' to the
+          forest in the rite returns to her, the rite having taken what it
+          needed. Let that quiet reversal stand without comment.
+        - "Morrow's silent weeping is one line. The chapter does not ask her to speak yet."
+      closes_on: >
+        Cal forehead to forehead with Thistle, the sapling at three leaves, the
+        afternoon light coming on.
+ 
+    - id: ch08_b09
+      title: "She Wakes"
+      approx_words: 130
+      opens_on: >
+        Her fingers twitching against the cedar sparrow — Cal feeling it
+        before he sees it.
+      action_sequence:
+        - >
+          Her hand closes on the carving. He does not move. He does not
+          breathe. Her eyes open — the green of sun through new leaves — and
+          she is looking at him, at him, not through him. She lifts her free
+          hand, weak and slow, and lays her fingertips against his lips. She
+          says, "Caleb." The familiar name: I see you, I know you, I am still
+          here. He breaks, drops his forehead to hers, and says her full name
+          back three times — the way he said it into her hair two hours ago and
+          did not know was the rite — and she lets him.
+        - >
+          Then she moves the hand that is not holding the sparrow and lays it
+          flat over her own sternum, the place she has laid her own hand for
+          chapters. She knows the mark has come back; she does not have to
+          look. She says, "You did it." Cal does not understand until he looks
+          down and sees, under her fingers, the print of his own hand returned
+          to her skin. He sits back on his heels. "Oh," he says. That is all he
+          says. "Oh."
+      beat_function: >
+        The resurrection and the recognition, in that order: she returns, and
+        the first thing she does is name him by the familiar name that has
+        meant intimacy all book. Cal discovering the restored mark on her body
+        — the thing Morrow withheld — is his private miracle delivered exactly
+        as Morrow intended. His "Oh" is the whole of what a man can say at the
+        far side of grief.
+      prose_directives:
+        - >
+          'At him, not through him' is the line that signals she is truly back.
+          'Caleb' — the familiar name — is the counterpart to the true name of
+          the rite; the contrast does the work.
+        - >
+          Cal saying her full name three times mirrors the rite without either
+          of them planning it; flag the mirror lightly, through his own
+          realization, not narration.
+        - >
+          'You did it.' lands before he understands it. His discovery of the
+          mark is staged so the reader, who has known since b07, watches him
+          catch up.
+        - "'Oh. That is all he says. Oh.' — keep the repetition exact. Do not add a sentence after it."
+      closes_on: >
+        Thistle awake against the Mother, her hand over the restored print, Cal
+        sat back on his heels with nothing to say but the one word.
+ 
+    - id: ch08_b10
+      title: "Morrow's Turning, the Mother, and the Honey Light"
+      approx_words: 130
+      opens_on: >
+        Morrow dropping out of the tree, stopping three feet from them, her
+        voice ragged from weeping.
+      action_sequence:
+        - >
+          Morrow tells Thistle she will not do that again. Thistle gives a
+          small exhausted laugh — not the wind-chime, a smaller one — and says,
+          "No, Aunt. I will not." Morrow looks at Cal for one long second, does
+          not speak to him, and turns and walks into the trees in her woman's
+          body, not her crow's. Cal understands: she has blessed him by not
+          killing him. It is the most she can do today.
+        - >
+          He helps Thistle sit up against the trunk that just closed around his
+          blood. The sapling, three leaves now, leans toward them. Thistle
+          lays her palm on the bark beside it and says, in her formal cadence,
+          "Mother. I am sorry. I am sorry." The Mother answers the only way she
+          answers — a pulse of warmth up Thistle's arm into her chest, felt
+          faintly by Cal where his cut palm still rests against her sternum.
+        - >
+          The closing image: the three of them at the Mother's base — Cal,
+          Thistle, the sapling between them — Bract pressed to her hip, the
+          mist gone, the light slanted to mid-afternoon and the color of honey.
+          Cal's mouth still gold at the corner where he kissed her through the
+          sap. Her hand on his cut palm, the thin gold under his skin running
+          up his forearm along the vein she traced on the first day and changed
+          both their lives without knowing it. They have not spoken much. They
+          do not need to. The forest is quiet the way forests are quiet when
+          they have decided, finally, that the people in them are allowed to go
+          home.
+      beat_function: >
+        Resolves the three relationships the chapter has been holding — Morrow
+        and Cal, Thistle and the Mother, Cal and Thistle — without a single
+        speech of resolution. Morrow's turning away in woman-form is mercy
+        offered in the only register she has. Thistle's apology closes her own
+        long arc of guilt. The honey-lit tableau is the chapter's earned rest.
+      prose_directives:
+        - >
+          Morrow's blessing is an action, not a statement — the walking-away in
+          woman-form is the blessing, and Cal reads it. 'The most she can do
+          today' is the line; do not expand her grief here.
+        - >
+          The Mother keeps her vow of silence; her answer is warmth and the
+          leaning sapling. Maintain the no-dialogue rule for her across the
+          whole book.
+        - >
+          The closing image is allowed to be long-breathed and sensual in the
+          tender register — the gold mouth, the traced vein, the honey light —
+          but the eroticism is memory and aftermath, not act. Earn the final
+          'allowed to go home.'
+        - "End on the forest's quiet. No epilogue gesture, no flash-forward — the chapter stops in the honey light."
+      closes_on: >
+        The three of them and the sapling at the Mother's base, the gold in
+        Cal's forearm, the honey light, the forest finally quiet.
+ 
+  prohibited_at_chapter_level:
+    - "POV is Cal, single. No access to Thistle's interior while she is unconscious; her revival is observed from outside until she speaks."
+    - "The Mother has no dialogue anywhere in the chapter; she answers only in warmth, sensation, growth, and the lifting of mist."
+    - "The restored hand-print on Thistle's sternum is withheld from Cal until he discovers it in beat b09; the narration must not reveal it to him in b07."
+    - "No narrator gloss declaring the love saved or the danger over. The restoration is embodied — marks, gold, sapling — not announced."
+    - "Cal's gold-blood transformation is shown only as far as the seam under his skin; its meaning and limits are left unresolved for later chapters."
+    - "The chapter's sensual register is wholly tender, not sexual: bodies are attended to as beloved and grieved, not desired. Frank vocabulary of the bedroom register is out of place here."
+    - "Hiram, Samuel, and the wider Miller Company fallout stay off-page and unexplored; the chapter holds to the clearing and the rite."
+    - "Resurrection must not read as instant or cheap: the waiting beat (hours, the growing sapling) is load-bearing and may not be compressed away."

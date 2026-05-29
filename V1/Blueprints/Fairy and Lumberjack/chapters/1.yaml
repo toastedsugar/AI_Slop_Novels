@@ -1,0 +1,417 @@
+chapter:
+  id: ch01
+  number: 1
+  title: "What She Has Been Doing"
+  word_count_target: 800
+
+  narrative_function: establish_protagonist_obsession_and_world
+  arc_position: opening
+  story_structure_role: >
+    Introduces Thistle not in her unbreached world but already in the thick
+    of her undoing — nineteen days deep into a secret, bodily fixation on a
+    mortal lumberjack. The chapter establishes the custodian, the hunger, the
+    warning, the theft, and the inciting incident (his cry from the east) that
+    propels her across the boundary she already knows she should not cross.
+
+  pov:
+    mode: single
+    character: thistle
+
+  setting_summary:
+    time_of_year: late_summer_1897
+    time_of_day: late_afternoon_into_dusk
+
+  locations_present:
+    - millers_cut               # cold open: the active logging site
+    - heart_tree_clearing       # dusk scene: Morrow's warning, Thistle's cache
+
+  locations_referenced:
+    - greenwood_eastern_edge
+    - the_creek_at_millers_cut  # where the rest of the crew has gone
+
+  characters_present:
+    - thistle
+    - cal                       # present in cold open, shirtless in the cut; named by end of chapter
+    - morrow                    # arrives at clearing, crow then half-form
+    - the_mother                # non-speaking presence at clearing
+
+  characters_referenced:
+    - thomas                    # Morrow's lost mate, invoked in warning
+    - miller_men                # off-page threat; axes by new moon
+
+  objects_present:
+    - cal_leather_glove         # stolen at chapter's end; third taken object
+    - horn_button               # previously stolen; kept in cache
+    - child_bootlace            # previously stolen; kept in cache
+    - brass_button              # previously stolen; kept in cache
+    - white_trillium            # involuntary glamour-bloom at near-miss; Cal pockets it
+
+  objects_referenced:
+    - cal_axe
+    - cal_suspenders
+    - miller_stakes
+
+  emotional_register: aching_want_then_dread_then_reckless_determination
+
+  themes_active:
+    - custodianship_versus_hunger
+    - the_body_as_new_country
+    - warning_delivered_and_refused
+    - the_pull_of_human_things
+    - grief_as_precedent          # Morrow and Thomas as cautionary echo
+
+  voices_introduced:
+    - thistle_aching_interior     # dominant register; dry, precise, unwilling to flatter herself
+    - thistle_steel_voice         # surfaces at direct threat to the Mother, and again at the close
+    - morrow_warning_voice        # austere, cracked at the edges
+
+  plants_for_later:
+    white_trillium_in_cal_pocket: ch03_cal_notices_flower_is_still_fresh
+    glove_against_sternum: ch02_thistle_still_wearing_it_when_she_finds_him
+    morrow_thomas_reference: ch09_morrows_blessing
+    steel_voice_first_appearance: recurring_at_threats_to_mother_through_ch07
+    nineteen_days_count: ch02_cal_has_sensed_something_watching
+
+  continuity_out:
+    pov_state: >
+      Running east toward Cal's voice. Cal's leather glove pressed against
+      her sternum under her dress. Glamour ragged at the edges. Morrow
+      keeping pace overhead in crow form, scolding.
+    location_end: "Greenwood interior, moving fast toward the eastern logging edge."
+    unresolved: >
+      Whether Cal is seriously hurt. Whether Thistle's glamour will hold
+      under the exertion and emotion of running. Whether Morrow will
+      intervene or only witness.
+
+  beats:
+    - id: ch01_b01
+      title: "Cold Open: Nineteen Days"
+      approx_words: 220
+      opens_on: >
+        Thistle on her belly in the underbrush, twenty feet from Cal,
+        glamoured invisible, the cool earth against her small bark-freckled
+        feet and the cold of it traveling up the inside of her thighs through
+        the thin summer dress. He is alone in the cut — the rest of the crew
+        gone to the creek for water.
+      action_sequence:
+        - >
+          He is shirtless. His suspenders hang at his hips. There is sawdust
+          caught in the hair on his chest and a sheen of sweat at the base of
+          his throat that catches the late-afternoon light every time he lifts
+          the axe. She has been here an hour and a half. She has work she is
+          supposed to be doing. She is not doing it.
+        - >
+          The chapter's second paragraph delivers the full accounting with her
+          precise, unwilling candor: she has done this for nineteen days. She
+          knows where he goes to mark trees, where he eats his noon meal, where
+          he stops to drink. She has watched him take his shirt off in this
+          clearing four times. The first time, a small grove of fiddleheads
+          unfurled out of season in the moss beneath her. The second time she
+          made a sound she had never heard from her own mouth. The third time
+          she went home to the hollow at the Mother's roots and put her own
+          slender hand under her own dress in the dark and was so badly surprised
+          by what happened that she did not move for an hour after. She is two
+          hundred years old. She has tended this forest since before his
+          great-grandfather was born. She did not know her body could do this.
+        - >
+          The interiority closes with controlled understatement: she thinks
+          about it constantly. She is here, in the ferns, with the front of her
+          dress pressed flat to the cool moss for reasons she will not say aloud
+          even to the trees.
+      beat_function: >
+        Drop the reader into Thistle's secret mid-count. Establish her voice
+        as self-aware, precise, and disinclined to spare herself. Establish
+        Cal's physical presence as overwhelming without yet making it romantic.
+        The involuntary fiddlehead bloom is the first evidence that her body
+        and her glamour are leaking into each other.
+      prose_directives:
+        - "Cold open: no preamble, no world-building throat-clearing. She is already there."
+        - >
+          The accounting of nineteen days must read as a ledger she keeps on
+          herself — not embarrassed, not proud. Dry fact. The shame, if any,
+          is in the precision: she knows too much about where he goes.
+        - >
+          The third-time scene (hand under the dress, the surprise of it) is
+          written in the same dry register as everything else. The shock is in
+          the plainness of the telling, not in italics or em-dashes.
+        - "The fiddlehead bloom is one clause, not a paragraph. It registers and moves on."
+        - "Two hundred years old is dropped in the same breath as her not knowing her body could do this. The contrast does the work."
+      closes_on: >
+        Her face pressed to the moss, the cool of the earth against the full
+        length of her, and Cal raising the axe again in the light.
+
+    - id: ch01_b02
+      title: "The Thing That Makes Him Not Just a Body"
+      approx_words: 160
+      opens_on: >
+        He stops. Sets the axe down. Walks to a young cedar — straight,
+        healthy, four feet across, the kind of tree a logger marks first.
+      action_sequence:
+        - >
+          He stands in front of the cedar for a long moment, then lifts both
+          hands and presses his palms flat to the bark. He drops his forehead
+          to the trunk between his hands — a posture of surrender, or prayer,
+          or apology. She hears him, very quietly, through the underbrush:
+          "I'm sorry. I'm so sorry. I don't know how to stop."
+        - >
+          He stays like that for the count of ten. Then he straightens, picks
+          up his chalk, and marks the tree for felling anyway.
+        - >
+          A single sentence of interiority: something in her sternum unmakes
+          itself and makes itself back wrong. He is not just a beautiful animal.
+          He is breaking — and she has been wanting, without knowing it, a man
+          who is also breaking. She did not know that was what she had been
+          wanting until this moment.
+      beat_function: >
+        Transforms Cal from a body she watches into a person she is in danger
+        of caring about. The apology to the tree is the exact thing that would
+        undo a forest custodian — evidence of grief and complicity at once.
+        This is the beat that changes nineteen days of want into something
+        more irrevocable.
+      prose_directives:
+        - "His words to the tree are heard, not paraphrased. Verbatim."
+        - >
+          The action of marking the tree anyway must immediately follow the
+          apology — no pause for her to process it. The cruelty and the grief
+          land in the same sentence.
+        - >
+          'Something in her sternum unmakes itself and makes itself back wrong'
+          is the precise phrase. The body-register is consistent: she experiences
+          everything first as physical sensation, then as understanding.
+        - "This beat has no glamour-leak, no involuntary bloom. She is very still."
+      closes_on: >
+        Cal with the chalk in his hand, the mark already on the bark, his
+        back to the tree he just apologized to.
+
+    - id: ch01_b03
+      title: "The Near Miss"
+      approx_words: 180
+      opens_on: >
+        He walks toward the stream — toward her. She does not move.
+      action_sequence:
+        - >
+          He drops to one knee not six feet from where she lies, cups water
+          in his hands, and washes his face, his throat, his chest. A bead of
+          water tracks from the hollow of his throat down to his sternum and
+          disappears into the dark hair at his ribs. She watches it the whole way.
+        - >
+          Her glamour ripples; she feels it go thin. In the moss between his
+          knees, a single white trillium pushes up out of the dirt and opens —
+          full, extravagant, obscenely out of season — in three breaths.
+        - >
+          He sees it. He stops with one hand half to his face. He says, very
+          softly, "…what." He picks the flower. He turns it in his fingers.
+          He looks around the clearing. He looks exactly at the patch of fern
+          where her face is — and her two-hundred-year-old fae heart stops
+          doing what it is supposed to do for the count of three.
+        - >
+          Then he shakes his head, tucks the trillium into the breast pocket
+          of his discarded coat, and goes back to his axe. She does not start
+          breathing again until he has been gone five minutes.
+      beat_function: >
+        First near-discovery. Establishes that her physical response to him
+        is leaking past her glamour and producing involuntary, visible magic.
+        The trillium he pockets is a plant for later. His direct gaze at her
+        hiding spot gives him a fraction of instinct without making him aware —
+        he knows something, and he walks away anyway.
+      prose_directives:
+        - >
+          The bead of water down his sternum is one slow sentence. This is the
+          most explicitly sensory the chapter gets. It earns its length.
+        - >
+          'Her two-hundred-year-old fae heart stops doing what it is supposed
+          to do' — the age is revisited here as comedy of scale, not solemnity.
+          The humor should land quietly.
+        - "The trillium bloom is three beats: push, open, full. Not a paragraph. Three clauses."
+        - >
+          He does not figure it out. He does not look clever. He looks confused
+          and charmed and a little unsettled, and then he puts the flower in his
+          pocket like a man who has decided not to ask questions about nice things.
+        - "She is not breathing. She starts again five minutes after he leaves. That's it."
+      closes_on: >
+        The clearing empty again. The indent in the moss where his knee was.
+        The trillium gone with him.
+
+    - id: ch01_b04
+      title: "The Theft"
+      approx_words: 100
+      opens_on: >
+        When he leaves at the day's end, his leather glove is on the stump
+        where he had been sitting.
+      action_sequence:
+        - >
+          She takes it. She has taken three things from him in nineteen days:
+          a length of bootlace, a horn button torn off in a snag, now this glove.
+          The leather is still warm from his hand.
+        - >
+          She does not put it in her satchel. She puts it inside the front of
+          her dress, against her sternum, against the bark-pattern freckles,
+          where the heat of him can transfer directly to her skin.
+        - >
+          She walks back to the Mother that way — the glove pressed against her
+          chest, her bare feet on the moss, her face composed into something
+          that is not what she is feeling.
+      beat_function: >
+        Escalates the collection from passive (found objects, years apart) to
+        active (three things in nineteen days from one man) and from kept (in
+        the hollow) to worn (against the body). This is where want becomes
+        transgression on her own terms, before anyone else defines it that way.
+      prose_directives:
+        - >
+          No commentary on whether this is wise. No interiority about what
+          it means. She takes it, she wears it, she walks. The reader already
+          knows what it means.
+        - >
+          'The leather is still warm' is the emotional center of the beat.
+          It gets its own short sentence.
+        - >
+          Her face composed into something that is not what she is feeling —
+          she is performing composure for an audience of zero. That absurdity
+          is the beat's final note.
+      closes_on: >
+        Her bare feet on the forest path, the glove warm against her sternum,
+        the trees parting around her as she goes.
+
+    - id: ch01_b05
+      title: "The Mother Knows"
+      approx_words: 80
+      opens_on: >
+        Dusk at the heart-tree clearing. Thistle presses her palm to the
+        bark to report — the old ritual, the daily accounting.
+      action_sequence:
+        - >
+          But her cadence is gone, her voice is wrong, and the Mother answers
+          not with the usual warmth of acknowledgment but with a pulse that is
+          almost amused. Almost fond. Like a grandmother who has counted
+          nineteen nights and has been waiting to be told.
+        - >
+          Thistle sinks to her knees at the roots and presses her face into the
+          hollow where she keeps her human things. The bootlace. The horn button.
+          The brass button from a year ago that has no story. She holds the new
+          glove to her mouth and breathes him in until her wings flicker against
+          the back of her dress and a soft sound escapes her that she has never
+          made in this clearing in two centuries.
+      beat_function: >
+        The Mother is not fooled and is not alarmed — her amusement is the
+        scariest possible response because it implies this is ordinary, that
+        Thistle is not the first. The wing-flicker is the first involuntary
+        physical tell in a private space — more revealing than the fiddleheads
+        because there is no one to hide it from.
+      prose_directives:
+        - >
+          The Mother's response is warmth-with-amusement. Not a rebuke. Not
+          alarm. The reader should feel the slight horror of being seen and
+          not judged — being seen and recognized.
+        - >
+          The soft sound at the end of the beat is not described further.
+          It is the sound from beat 1 (the second time she watched him
+          take his shirt off), identified and then left unnamed.
+        - "Wings flutter against the back of her dress: one sentence, no wing-description."
+      closes_on: >
+        Thistle at the roots, the glove at her mouth, the clearing lit by
+        last light, the Mother's bark warm against her free hand.
+
+    - id: ch01_b06
+      title: "Aunt Morrow's Warning"
+      approx_words: 140
+      opens_on: >
+        A crow lands on a low branch. Too heavy. Too deliberate. She knows
+        the landing.
+      action_sequence:
+        - >
+          Morrow drops from the branch and shifts to half-form mid-fall —
+          tall, severe, the black feathered cape across her shoulders settling
+          as her feet find the ground. Her crow's black-bead eyes are already
+          on the glove in Thistle's hand before Thistle can hide it. Her
+          feathers go rigid.
+        - >
+          A long silence. Then, quiet and broken: "Oh, girl. Oh, no." Then,
+          harder — the warning that has teeth: "The Miller men have marked the
+          eastern stakes. Axes by the new moon. Do not go near them. I lost
+          my Thomas to a musket and a smile, and he was only a man. This
+          one is —" She stops. Both of them know what this one is. Morrow's
+          black crow-eyes go wet. "Put the glove back where you found it,
+          Thistle-in-the-Hollow. Tonight. Before you cannot."
+        - >
+          Thistle does not answer. She tucks the glove deeper into her dress
+          instead. One line, in the steel voice, matter-of-fact: "If they come
+          for the Mother, they will not leave."
+        - >
+          Morrow makes a sound that is a sob and a laugh and a curse all at once.
+      beat_function: >
+        Delivers the external threat (axes, new moon, Miller men) fused with
+        personal precedent (Thomas). Morrow's "Oh, girl. Oh, no." — arriving
+        before the warning — tells the reader this is grief, not rule-enforcement.
+        Thistle's steel voice and the deeper tuck of the glove are her answer.
+        She has already chosen.
+      prose_directives:
+        - "Morrow's half-form is described once: tall, severe, feathered cape, crow eyes. Not re-described."
+        - >
+          "This one is —" and the stop. Neither character finishes the sentence.
+          The reader has to feel what they both already know without it being
+          named. This is where the line 'he was only a man' does its work:
+          Cal is more than a man, which makes the danger greater, not lesser.
+        - >
+          The steel voice on "If they come for the Mother" is exactly the
+          register from the original ch01_b02 scene in the prior draft — it
+          is not new anger, it is old certainty. Morrow recognizes it; that
+          recognition is what produces her broken sound.
+        - "Thomas is named, not explained. Morrow's wet eyes are the whole story."
+      closes_on: >
+        Morrow's broken sound still in the air. The glove pressed deeper
+        into Thistle's dress. The clearing holding its breath.
+
+    - id: ch01_b07
+      title: "The Cry"
+      approx_words: 120
+      opens_on: >
+        From the east — far off, in failing light — a man's voice shouts
+        once in pain, and is cut off.
+      action_sequence:
+        - >
+          She knows the voice. Of course she knows the voice. She has known
+          it for nineteen days.
+        - >
+          Morrow caws — real crow, not speech, sharp and twice. Her feathered
+          shoulders go rigid. She does not move toward Thistle to stop her.
+          She only watches.
+        - >
+          Thistle's interiority lasts three sentences: she knows what Morrow
+          is telling her. She knows the direction. She knows she is about to
+          go and she does not fully know why, only that the sound of his pain
+          has landed in her chest in the same place the glove is pressed.
+        - >
+          She moves. Not dramatically — she simply turns east and begins to
+          run. Not the careful walk of someone observing a rule. A run. Bare
+          feet on moss, a rhythm the forest has not felt from her in a hundred
+          years.
+        - >
+          Morrow is above her in crow form before Thistle clears the first
+          tree line, keeping pace, scolding the whole way in a language only
+          Thistle understands — and not stopping her.
+      beat_function: >
+        The inciting incident. Not a slow walk across a line but a run —
+        she is already past choosing. The detail that Morrow follows but
+        does not stop her is the chapter's final crack: Morrow knows, too,
+        that this has already happened.
+      prose_directives:
+        - "The cry is one sound. Not described in detail. The less the reader gets, the more they lean in."
+        - >
+          'She knows the voice. Of course she knows the voice.' — the repetition
+          is the beat. It is the nineteen days landing in three words.
+        - >
+          She runs. No internal argument, no 'she had to,' no deliberation.
+          The absence of dramatization is the drama.
+        - "Morrow's following-not-stopping must be clear without being explained. She keeps pace. That's it."
+      closes_on: >
+        Thistle running east. The Mother behind her, watching. Morrow above
+        her in crow form, scolding all the way. The trillium Cal tucked in
+        his coat pocket two miles ahead, still open in the dark.
+
+  prohibited_at_chapter_level:
+    - "Cal is unnamed in the cold open and the near-miss beats; he may be named once Thistle's interior identifies him by the end of the chapter."
+    - "Full glamour is maintained throughout; no wing-reveal, no true-scale reveal except the private flicker at the Mother's roots."
+    - "The Mother has no dialogue; she responds in warmth and sensation only."
+    - "No human POV or interior access; Thistle's register governs the chapter."
+    - "No narrator gloss on the romance to come. The chapter does not know it is a setup."
+    - "The bodily and sensual content must be maximally present within the chapter's own plain register — desire is physical, precise, and treated with the same dry candor as any other fact Thistle reports. Nothing is softened by euphemism; nothing is dramatized beyond its weight."

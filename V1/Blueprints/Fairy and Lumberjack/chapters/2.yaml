@@ -1,0 +1,581 @@
+chapter:
+  id: ch02
+  number: 2
+  title: "Sorry, Sorry"
+  word_count_target: 1000
+
+  narrative_function: first_touch_and_first_breach
+  arc_position: inciting_action_completed
+  story_structure_role: >
+    Converts nineteen days of watching into the irreversible: she touches him,
+    she heals him, he sees her, they exchange names. The fae rule against
+    intervention is not broken in the abstract but with both bare hands on his
+    body. The chapter delivers the first physical contact, the first mutual
+    seeing, the first laugh, and the first mark — the handprint-pattern
+    silently reordering in the freckles down her sternum — which neither
+    character knows has happened. Morrow's scolding from the end of chapter
+    one stops mid-flight and becomes silence; the silence is the rest of the
+    warning.
+
+  pov:
+    mode: single
+    character: thistle
+
+  setting_summary:
+    time_of_year: late_summer_1897
+    time_of_day: dusk_bleeding_to_full_dark
+
+  locations_present:
+    - widowmaker_site            # interior eastern edge; rotten cedar limb across his thigh
+    - trailhead_stump            # where loggers will find him; she leaves him here
+
+  locations_referenced:
+    - greenwood_heart_clearing   # she left from there at full run
+    - millers_cut                # the morning's clearing; the scar of his apology four hours ago
+
+  characters_present:
+    - thistle
+    - cal                        # injured, delirious, fading in and out
+    - bract                      # arrives mid-chapter at a dead run
+    - morrow                     # silent crow overhead; not revealed until close
+    - two_lantern_loggers        # off-page until final beat; never named, never speak in scene
+
+  characters_referenced:
+    - samuel                     # Cal's interior delirium-paragraph, the only name he says
+
+  objects_present:
+    - widowmaker_cedar_limb      # the rotten branch across his thigh
+    - cal_torn_shirt             # torn into strips for a tourniquet at his thigh
+    - cal_leather_glove          # against her sternum at the chapter's open; ends in his lap
+    - cal_chalk_in_pocket        # background; not used, but on him
+    - thistle_summer_dress       # open at the laces from the run; the glove is inside it
+
+  objects_referenced:
+    - the_white_trillium         # still in his coat pocket two miles back, unseen this chapter
+    - cal_axe                    # left where the limb came down; not retrieved
+
+  emotional_register: terror_into_rage_into_tenderness_into_unbearable_arrival
+
+  themes_active:
+    - custodianship_broken_with_both_hands
+    - the_body_as_new_country
+    - first_touch
+    - the_witness_who_does_not_intervene
+    - the_body_knowing_before_the_mind_names_it
+    - mutual_seeing_under_failing_light
+
+  voices_introduced:
+    - thistle_first_laugh        # wind-chime, low, surprised; first laugh in the story
+    - cal_delirium_voice         # concussed, plain, frighteningly tender
+    - morrow_silent_voice        # her absence of speech is itself a voice this chapter
+
+  plants_for_later:
+    handprint_freckles_on_sternum: ch_later_matched_marks_recognized_at_the_rite
+    thumb_on_inner_wrist_pulse: ch08_rite_gold_seam_under_skin_along_that_vein
+    cal_unfinished_dont: ch03_he_finishes_or_fails_to_finish_the_sentence_nine_days_later
+    glove_now_in_cals_possession: ch03_he_finds_it_in_his_pocket_does_not_know_what_to_make_of_it
+    bract_instant_devotion: cast_constant_from_this_point
+    cal_underestimates_her_strength: ch07_payoff_when_she_drops_hiram_beck
+    morrow_silent_witness: ch09_morrows_blessing
+    cal_says_angel: ch10_he_says_it_a_second_time_in_daylight_meaning_it_differently
+    cal_says_sams_name_in_delirium: ch04_or_later_samuel_arrives_or_is_summoned
+
+  continuity_out:
+    pov_state: >
+      Thistle in the tree line at full dark, on the eastern slope above the
+      trailhead stump. The leather glove is gone from her sternum for the
+      first time in nineteen nights — left in Cal's lap, in his hand. The
+      shape of his hand is freckle-printed in bark-pattern across her sternum,
+      splayed, fixed; she has not yet seen it. The heat of his thumb is still
+      cinched around her left wrist; she is pressing her own fingers there
+      hard, like trying to hold the print in. Her glamour is back, ragged,
+      barely; her wings are folded but still half-warm.
+    location_end: "Greenwood eastern edge, tree line above the logger trailhead, full dark."
+    unresolved: >
+      Cal carried out on a makeshift litter, leg knit, his missing glove in
+      his hand, concussed and fading — a memory he will not be able to tell
+      apart from a dream. What he will retain of her face and her wings
+      under dusk and delirium. What was supposed to come after the word
+      'Don't —' at his hip. Whether Morrow will speak again, and when. The
+      shape now set in Thistle's sternum freckles, which neither of them
+      has seen.
+
+  beats:
+    - id: ch02_b01
+      title: "The Finding"
+      approx_words: 110
+      opens_on: >
+        She comes through the trees at full run. His glove is still pressed
+        flat to her sternum inside the front of her dress.
+      action_sequence:
+        - >
+          She finds him pinned under a widow-maker — a rotten cedar limb the
+          size of a horse, across his thigh, high. His fingers are clawed
+          into the moss. His shirt is torn open from collar to navel where
+          he tore strips for a tourniquet. There is blood crusted at his
+          thigh and sap-pitch in the hair on his chest and a fly walking on
+          his open mouth.
+        - >
+          One sentence of interiority, dry and devastating: the body she has
+          been watching for nineteen days, the body she has been falling
+          asleep imagining against her own, broken.
+        - >
+          A second sentence, drier: something in her that has lived two
+          hundred years discovers, in the half-second of seeing him, that
+          it has been a coward.
+      beat_function: >
+        Drop the reader into the worst possible version of the body she
+        has been studying. Establish stakes by destruction, not exposition.
+        The 'coward' sentence is the chapter's structural pivot — every
+        beat after it is her acting on that recognition.
+      prose_directives:
+        - "Open in motion. She is already running; we do not see her decide to."
+        - >
+          The fly on his open mouth is one of the chapter's earned ugly
+          details. Do not soften it. It is what makes everything that
+          follows real instead of romantic.
+        - >
+          'The body she has been watching for nineteen days' must land in
+          one sentence, no decoration. The nineteen is doing the work.
+        - >
+          The 'coward' sentence is the only abstract sentence the beat is
+          allowed. Spend the rest on the body.
+      closes_on: >
+        Her hands already moving toward the branch before she has finished
+        the sentence in her own head.
+
+    - id: ch02_b02
+      title: "Sorry, Sorry / The Lift"
+      approx_words: 110
+      opens_on: >
+        He is still talking to the tree. Quiet, slurred, the same word
+        on a loop: "Sorry. Sorry. Didn't mean to crowd you. Sorry."
+      action_sequence:
+        - >
+          One sentence of recognition: the same word she heard him press
+          into the cedar at the cut four hours ago. He has been here, alone,
+          apologizing to the limb that crushed him, for hours.
+        - >
+          Her fae heart does something that is almost rage and almost weeping.
+          Fae law says let the forest take him. He marks trees for the Miller
+          Company. He is everything she has been warned about for nineteen days.
+        - >
+          She lifts the limb. Full fae strength. Her glamour drops in a sheet —
+          wings half-unfurled, eyes the wrong green, freckles in patterns that
+          match no human pattern. She does not brace her bare feet. She throws
+          the limb six yards into the brush. He does not see it. He is too far
+          gone to see anything.
+      beat_function: >
+        The apology is what turns the rule. Fae law would have her let him
+        die; the apology is the small fact that makes the rule unbearable.
+        Payoff of underestimate-her #1: the limb that two men together would
+        struggle with goes six yards, witnessed by no one but the reader. The
+        glamour-drop is full and unobserved.
+      prose_directives:
+        - >
+          His "Sorry. Sorry. Didn't mean to crowd you. Sorry." is verbatim.
+          Do not let the prose mediate it. It is delivered through her ear,
+          and then it is delivered to the reader unedited.
+        - >
+          'Almost rage and almost weeping' is the only emotional register the
+          beat is allowed in the lift moment. The action carries the rest.
+        - >
+          The throw is described physically: she does not brace, the limb
+          goes six yards, full stop. No gasp, no marvel, no narrator-comment
+          on her strength. The matter-of-factness is the point.
+        - "He does not see it. The line gets its own short sentence."
+      closes_on: >
+        The limb in the brush. The shape of him visible now in full, no
+        longer pinned, no longer hidden. Her hands are next.
+
+    - id: ch02_b03
+      title: "The Healing"
+      approx_words: 140
+      opens_on: >
+        She has to put her hands on him. She has to choose where.
+      action_sequence:
+        - >
+          The break is in his thigh, high, mid-femur. She pushes the torn
+          trouser-fabric aside with a hand that is no longer two-hundred-year-old
+          steady. Her slim palm goes flat against the bare skin of his upper
+          thigh — the dark hair there, the heat of him, the size of him under
+          her hand.
+        - >
+          The realization arrives in her register — precise, dry, unflattering:
+          she has tended deer and bear and once a cougar, and she has never in
+          her life touched a man's bare leg. Her body has been making this
+          distinction in the dark of her hollow every night for nineteen nights
+          without telling her what it was making.
+        - >
+          Green light at her fingertips. The sound of growing things. The bone
+          knits. She feels it knit under her palm — the strange intimacy of a
+          body remaking itself against her hand — and she is breathing through
+          her teeth.
+      beat_function: >
+        Central sensual set piece of the chapter. The first hand-on-bare-skin,
+        rendered with the same plain candor as everything she has reported
+        about her own body up to this point. The magic is not separated from
+        the desire; the magic is the desire, with a job to do.
+      prose_directives:
+        - >
+          'She has to put her hands on him. She has to choose where.' — the
+          two sentences are the beat's spine. The choosing is the chapter's
+          first moral action and its first erotic one in the same gesture.
+        - >
+          The 'tended deer and bear and once a cougar' sentence is the
+          chapter's clearest piece of her voice. It is the dryness that makes
+          the rest of the sentence frank rather than purple.
+        - >
+          The bone-knit is felt, not described in mechanism. 'Bone knits.
+          She feels it knit under her palm.' That is the whole technical
+          description. Everything else is sensation.
+        - >
+          'Breathing through her teeth' is the beat's last image. Not a
+          gasp, not a moan. Teeth. She is holding something back.
+      closes_on: >
+        Her palm still flat on the inside of his thigh, the green light
+        fading at her fingertips, his pulse jumping under the skin a
+        half-inch from her thumb.
+
+    - id: ch02_b04
+      title: "The Other Hand, The Scar"
+      approx_words: 120
+      opens_on: >
+        She does not have to put her other hand on his chest. She does it
+        anyway.
+      action_sequence:
+        - >
+          She tells herself it is to steady him while the magic works. It is
+          not. It is so she can feel his heart under her palm. It is
+          hammering. It hammers harder when her hand lands.
+        - >
+          He moans — low, half-conscious, the sound of a man and not a wound —
+          and her wings shudder out further behind her in answer before she
+          can call them back.
+        - >
+          Her thumb finds the scar at his ribs without her permission — a long
+          pale line under the dark hair of his chest, an old one, well-healed.
+          She has watched him from twenty feet for nineteen days and never seen
+          it. She presses her thumb along its length, slow, once, like a woman
+          reading.
+        - "He shivers under her hand. She makes herself stop. She does not, in fact, stop right away."
+      beat_function: >
+        Establish the chest scar — Samuel's saving — as something only this
+        kind of touching can find. Establish that her body answers his sounds
+        before her mind decides whether to permit the answer. The closing
+        sentence ('She does not, in fact, stop right away') is the chapter's
+        first piece of frank self-knowledge about wanting.
+      prose_directives:
+        - >
+          'She does not have to put her other hand on his chest. She does it
+          anyway.' Opening two sentences set the register: she is reporting
+          her own breach to herself, without flinching and without flourish.
+        - >
+          His moan is described once, exactly: 'the sound of a man and not
+          a wound.' Do not gloss it further. Do not have her name what it
+          does to her in this beat — the wings answer for her.
+        - >
+          The scar is not yet attributed to Samuel in this chapter. It is
+          just 'old, well-healed.' The reader and Thistle both file it away.
+          The backstory comes later.
+        - >
+          'Like a woman reading' — keep this image. It is the chapter's
+          quietest line and one of the most exposed.
+      closes_on: >
+        Her thumb still on the scar a heartbeat after she has told herself
+        to lift it. His pulse loud enough now that she can hear it.
+
+    - id: ch02_b05
+      title: "Angel"
+      approx_words: 110
+      opens_on: >
+        He opens his eyes. Green-grey. Unfocused.
+      action_sequence:
+        - >
+          She is leaning over him with one hand high on his thigh and one
+          hand spread flat on his chest and her wings half-out behind her
+          in the dusk. He sees her. He breathes one word: "Angel."
+        - >
+          It lands in a place inside her that she did not know had a name.
+          She answers, formal and shaking, in the voice she uses for the
+          Mother: "I am as real as you are kind."
+        - >
+          One paragraph in his head — concussed, plain, simple. He thinks he
+          is dying. He thinks this is what dying is. He thinks she is the most
+          beautiful thing he has ever seen — small and bark-freckled and lit
+          from inside — and her hand is on his chest and if he dies now it is
+          all right. He thinks, I'm sorry, Sam. I tried. He thinks her eyes
+          are the wrong color of green and he is not afraid. He closes his eyes.
+      beat_function: >
+        Mutual seeing under failing light. He sees her in full, glamour-down,
+        and reads her as angelic — which is the only category he has for what
+        he is looking at, and which is wrong in interesting ways. Her reply
+        is the chapter's only line of high formality, surfacing because she
+        has no other register for being seen. The Cal-paragraph names Samuel
+        for later and establishes Cal's voice in extremis: tender, plain,
+        unafraid.
+      prose_directives:
+        - >
+          This is the chapter's only POV interlude into Cal's head; the rest
+          of the chapter is strict Thistle POV. The interlude is not flagged
+          with a section break — it lands inside the scene and recedes.
+        - >
+          'Angel' is spoken with no italics, no exclamation, no quotation
+          flourish. Just the word, like he has reached for a noun and that
+          one came.
+        - >
+          'I am as real as you are kind.' — this is Thistle's first line of
+          dialogue in the chapter and the line that gives her formality
+          register. Do not soften it. It is shaking; it is also formal.
+        - >
+          The Cal-paragraph is rendered in his idiom: short clauses, no
+          adjectives that he himself would not reach for. 'Small and
+          bark-freckled and lit from inside' is the most figurative he gets
+          and it is what a concussed logger would actually think.
+        - >
+          'I'm sorry, Sam. I tried.' — this is the only name Cal says in
+          this chapter. Note it as planted.
+        - "Wings are not described again here. He sees them; we do not re-render."
+      closes_on: >
+        His eyes closed. Her hands still on him. The word 'Angel' still
+        in the air between them and not yet falling.
+
+    - id: ch02_b06
+      title: "Bract"
+      approx_words: 90
+      opens_on: >
+        Bract arrives at a dead run from the tree line — one-eared, frantic,
+        mud to the chest.
+      action_sequence:
+        - >
+          He sees her crouched over Cal and does not growl. He stops two feet
+          away and sits. She holds out the hand that has just been on his
+          master's chest. Bract pads to her and presses his head into her palm.
+        - >
+          She laughs. Wind-chime, low, surprised. The first laugh in the story.
+        - >
+          Cal, eyes closed, voice barely there, says: "Do that again."
+        - >
+          She does. She laughs once more, just for him, soft enough that the
+          trees lean in to hear. Bract leans his entire weight against her
+          thigh and does not move from there for the rest of the scene.
+      beat_function: >
+        Tonal pivot. After the apology, the lift, the healing, the seeing —
+        the dog arrives and produces the chapter's first laugh, which then
+        becomes the first thing she does on his request. Establishes Bract's
+        immediate, permanent loyalty to her. The trees-leaning-in line is the
+        chapter's one moment of small, earned magic in a register that is
+        otherwise relentlessly bodied.
+      prose_directives:
+        - "Bract's loyalty is established in three actions: does not growl, stops, sits. No interior on the dog."
+        - >
+          Her laugh is 'wind-chime, low, surprised.' That is the description.
+          Do not extend it. Do not have her think about whether she has laughed
+          before. The reader will register that this is the first laugh.
+        - >
+          "Do that again." is the chapter's second piece of Cal dialogue. The
+          first was "Angel." Both are single requests. Track this.
+        - >
+          The trees-leaning-in line is whimsical and the chapter has earned
+          one whimsical line. Do not add a second.
+      closes_on: >
+        Bract's whole weight against her thigh. Cal's hand somewhere near
+        her ankle in the moss. The dusk thickening.
+
+    - id: ch02_b07
+      title: "The Carry"
+      approx_words: 100
+      opens_on: >
+        She gets her arm under his shoulder.
+      action_sequence:
+        - >
+          He gets his arm around her waist — his fingers fisting hard into
+          the fabric at her hip, his face turning into her hair without
+          permission, his breath at her throat.
+        - >
+          He should not be possible for her to lift. She is small and he is
+          enormous. She lifts him anyway.
+        - >
+          He smells of sawdust and blood and sweat and the cedar smoke that
+          has been on the glove pressed against her sternum for nineteen
+          days. The realization is dry and ruinous: those nineteen nights
+          of breathing the leather had been preparing her for this. The
+          actual man. The actual heat. It is not the same. It is so much
+          worse, and she would not unmake one of those nights.
+      beat_function: >
+        Underestimate-her payoff #2, quieter than the lift — she carries him.
+        Establishes the smell-bridge between the glove and the man, which is
+        the chapter's most precise sensory device: the object she has been
+        intimate with for nineteen nights and the body that originated the
+        smell, finally co-present. Closes on the chapter's clearest line of
+        consent to her own want.
+      prose_directives:
+        - >
+          His fisting fingers at her hip and his face turning into her hair
+          'without permission' — this is the chapter's frankest line about
+          his body taking liberties he is not conscious enough to be
+          accountable for. Render it dry; let the reader sit with it.
+        - >
+          The size disparity is acknowledged plainly — 'She is small and he
+          is enormous. She lifts him anyway.' — and then dropped. No marvel.
+        - >
+          The smell list is four items, in this order: sawdust, blood, sweat,
+          cedar smoke. The cedar smoke is the bridge; it must come last.
+        - >
+          'It is not the same. It is so much worse, and she would not unmake
+          one of those nights.' is the chapter's emotional thesis statement.
+          Do not paraphrase. Do not soften 'worse.'
+      closes_on: >
+        Her bare feet in the duff, his weight against her side, the
+        trailhead stump twenty yards ahead in the last of the light.
+
+    - id: ch02_b08
+      title: "The Glove, The Wrist, The Names"
+      approx_words: 170
+      opens_on: >
+        She gets him to the stump. She lowers him against the wood.
+      action_sequence:
+        - >
+          He does not let go of her dress at her hip for a long moment. He
+          says, hoarse, just the one word: "Don't —" and does not finish the
+          sentence. She will not know, for nine more days, what was supposed
+          to come after the word.
+        - >
+          As she kneels to settle him, the leather glove that has been
+          against her sternum for the run east comes loose and tumbles down
+          the front of her dress into his lap. His own glove. Missing for
+          six days, and he has not been able to remember where he set it down.
+        - >
+          He looks at the glove in his lap. He looks at her. The dusk is
+          thick and his head is full of static; he cannot be sure of what
+          he is seeing. She reaches for it. He moves first.
+        - >
+          His hand closes around her wrist before her fingers reach the
+          glove. His hand is enormous around it. His thumb lands on the
+          inside of her wrist, on her pulse, and stays there — by accident,
+          but it stays. He does not let go. She cannot make herself take
+          her wrist back.
+        - >
+          She has been alive for two hundred years and she has never been
+          held by anyone. His thumb on her pulse is doing something to the
+          rest of her body that she has no vocabulary for. The freckles down
+          her sternum, under the open laces of her dress, reorder themselves
+          silently into a shape she will not see until she gets home and
+          looks into the rain basin: the print of his hand, splayed, where
+          her hand has just been on his chest.
+        - >
+          "Name?" he says. She cannot lie. "Thistle." "I'm Cal." "I know."
+          Two words. She has known his name for nineteen days. She has held
+          his glove to her mouth in the dark of her hollow. She does not say
+          so. She does not have to. He sees something move in her face, and
+          his thumb presses harder against her pulse for one full second
+          before he lets her go.
+        - >
+          She leaves the glove with him. She means to take it back. She gets
+          to her feet. She walks four steps. She turns. He is watching her.
+          He is holding the glove in the hand that just held her wrist. She
+          makes herself not return for it. She is giving him the thing she
+          has been falling asleep against for nineteen nights and she does
+          not know yet what she has done.
+      beat_function: >
+        The chapter's longest beat and its structural climax. The glove that
+        opened chapter one — a thing she took, kept, wore against her skin —
+        is returned, and not by her choice; gravity returns it. He holds her
+        by the wrist where he will be marked at the rite. The freckles set
+        the matching mark on her sternum where her hand has just been on him.
+        He asks her name; she gives it; he gives his back and she has to
+        pretend not to already know it. She walks away leaving the keepsake
+        with him. Every plant the novelette will pay off is set here.
+      prose_directives:
+        - >
+          'Don't —' must land exactly as written, em-dash and all, and the
+          'nine more days' aside must not be expanded. The reader is told
+          the payoff timing and given nothing else.
+        - >
+          The glove falls; it is not handed over. This is the chapter's
+          essential mechanic — the object she could not bring herself to
+          surrender is surrendered by accident, and she does not retrieve it.
+        - >
+          The wrist-hold is rendered in body-fact: his thumb lands on her
+          pulse 'by accident, but it stays.' The four-word phrase 'by
+          accident, but it stays' is the heart of the beat. Do not rephrase.
+        - >
+          The freckle-reorder must happen 'silently' and 'under the open
+          laces of her dress' — i.e., not visible to either of them in the
+          moment. The reader is the only one who knows the mark has been
+          set. The rain-basin reveal is left for chapter three.
+        - >
+          The name exchange is rendered as four lines of dialogue, exactly
+          as drafted: "Name?" / "Thistle." / "I'm Cal." / "I know." No tags
+          on the first three. The fourth has its own paragraph after.
+        - >
+          The closing sequence — she turns, he is watching her, he is holding
+          the glove — is rendered in short sentences, in cadence. The cadence
+          is the grief and the consent in one.
+      closes_on: >
+        Cal at the stump with the glove in his hand and his eyes on her.
+        Thistle four steps off, the print of his thumb cinched around her
+        wrist, walking away from the thing she has been sleeping against
+        for nineteen nights.
+
+    - id: ch02_b09
+      title: "The Lanterns / The Crow"
+      approx_words: 80
+      opens_on: >
+        She melts into the tree line just as two men come up the trail
+        shouting his name.
+      action_sequence:
+        - >
+          She watches them find him. She watches them lift him onto a
+          makeshift litter. She watches him turn his head once, slow,
+          looking for her, before they carry him out of sight.
+        - >
+          Thistle in the tree line at full dark. Her wrist still cinched in
+          the heat-shape of his hand. She presses her own slim fingers there,
+          hard, like she is trying to hold the print in. Her sternum bare of
+          the glove for the first time in nineteen nights.
+        - >
+          Above her, somewhere in the dark, a single crow has been watching
+          the entire scene without speaking. The crow's silence is louder
+          than any warning Morrow has ever given her.
+      beat_function: >
+        Witnesses arrive — the human ones who will carry him home, and the
+        fae one who has watched the whole breach without speaking. Morrow's
+        scolding from the end of chapter one has ended; this is the silence
+        on the other side of it. The chapter closes on three losses arranged
+        as one image: the glove gone, the man gone, the warning gone silent.
+      prose_directives:
+        - >
+          The loggers are not described. They are 'two men with lanterns,'
+          shouting his name. They are a mechanism for him being saved, not
+          characters.
+        - >
+          Cal's last gesture — turning his head once, slow, looking for her —
+          must be rendered from her POV through the trees. We do not enter
+          his head again.
+        - >
+          'Like she is trying to hold the print in' — keep this image. It is
+          the chapter's quietest erotic line and its quietest grief line in
+          the same sentence.
+        - >
+          The crow is named at the very end of the beat. Not before. The
+          reader has not been told Morrow followed her into the eastern
+          woods past the run — the run ended somewhere before this scene
+          began. The chapter rewards the reader who remembers chapter one's
+          last line.
+        - "Do not let the closing sentence reach for grandeur. 'Louder than any warning Morrow has ever given her.' Stop."
+      closes_on: >
+        The crow's silence in the eastern dark. Thistle's hand on her own
+        wrist. The trail empty.
+
+  prohibited_at_chapter_level:
+    - "No Cal POV beyond the single delirium paragraph in beat 5; he is otherwise rendered from outside."
+    - "Morrow does not speak in this chapter. She does not descend from crow form. She is only revealed in the final beat."
+    - "The handprint-shaped freckles on Thistle's sternum are set in beat 8 but not seen by either character in this chapter; they remain unseen until chapter 3."
+    - "Cal's chest scar is touched but not yet attributed to Samuel; the backstory is reserved."
+    - "No clinical or systemic description of the healing magic. The reader feels the bone knit; the reader does not learn how fae healing works."
+    - "Cal's 'Angel' line is not commented on by narration. It lands; the next sentence moves."
+    - "Thistle's laugh is described in sound (wind-chime, low, surprised) and frequency (once, then once more); not in psychology."
+    - "The sensual register stays in the chapter's plain dry candor — no euphemism, no purpling, no italic emphasis on body parts."
+    - "The trillium from chapter one is not mentioned. It is in his coat pocket two miles back and the chapter does not refer to it."
+    - "No glamour-restoration scene; she is in dropped-glamour state for the entire scene with Cal and only ragged-glamour by the close. The repair happens off-page after the chapter ends."

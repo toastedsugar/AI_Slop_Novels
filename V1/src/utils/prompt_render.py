@@ -1,0 +1,94 @@
+from jinja2 import Environment, FileSystemLoader
+
+
+def render_character_prompt(character: dict, templates_dir: str = "Templates") -> str:
+    """
+    Renders the CharacterPrompt.txt Jinja2 template with the given character dict.
+
+    Args:
+        character: A single character dict from blueprint.get_character() or get_characters().
+        templates_dir: Path to the Templates folder (default: "Templates").
+
+    Returns:
+        The rendered prompt string, ready to pass to an LLM.
+
+    Example:
+        blueprint = Blueprint()
+        character = blueprint.get_character("thistle")
+        prompt = render_character_prompt(character)
+    """
+    env = Environment(
+        loader=FileSystemLoader(templates_dir),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
+    template = env.get_template("CharacterPrompt.txt")
+    return template.render(character=character)
+
+
+def render_system_prompt(blueprint_data: dict, templates_dir: str = "Templates") -> str:
+    """
+    Renders the SystemPrompt.txt Jinja2 template with blueprint data.
+
+    Args:
+        blueprint_data: The raw blueprint dict (blueprint.data).
+        templates_dir: Path to the Templates folder (default: "Templates").
+
+    Returns:
+        The rendered system prompt string, ready to pass to an LLM.
+
+    Example:
+        blueprint = Blueprint()
+        prompt = render_system_prompt(blueprint.data)
+    """
+    env = Environment(
+        loader=FileSystemLoader(templates_dir),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
+    template = env.get_template("SystemPrompt.txt")
+    return template.render(**blueprint_data)
+
+
+def render_location_prompt(location: dict, templates_dir: str = "Templates") -> str:
+    """
+    Renders the Location.txt Jinja2 template with the given location dict.
+
+    Args:
+        location: A single location dict from blueprint.data["locations"].
+        templates_dir: Path to the Templates folder (default: "Templates").
+
+    Returns:
+        The rendered prompt string, ready to pass to an LLM.
+
+    Example:
+        location = next(l for l in blueprint.data["locations"] if l["id"] == "greenwood")
+        prompt = render_location_prompt(location)
+    """
+    env = Environment(
+        loader=FileSystemLoader(templates_dir),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
+    template = env.get_template("Location.txt")
+    return template.render(**location)
+
+
+def render_object_prompt(obj: dict, templates_dir: str = "Templates") -> str:
+    env = Environment(
+        loader=FileSystemLoader(templates_dir),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
+    template = env.get_template("Objects.txt")
+    return template.render(object=obj)
+
+
+def render_chapter_prompt(chapter: dict, templates_dir: str = "Templates") -> str:
+    env = Environment(
+        loader=FileSystemLoader(templates_dir),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
+    template = env.get_template("Chapter.txt")
+    return template.render(chapter=chapter)

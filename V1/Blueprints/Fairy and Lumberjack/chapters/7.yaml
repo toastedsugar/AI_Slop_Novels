@@ -1,0 +1,1210 @@
+chapter:
+  id: ch07
+  number: 7
+  title: "The Axe and the Foreman"
+  word_count_target: 1200
+
+  narrative_function: confrontation_climax_and_the_bond_struck_from_both_bodies
+  arc_position: novelette_climax_third_act_inflection_point
+  story_structure_role: >
+    The chapter every prior chapter has been preparing. Cal arrives at the
+    heart-tree clearing forty minutes before the Miller crew and meets the
+    Mother for the first time in his life; he kneels and apologizes the way
+    he apologized to a cedar at Miller's Cut twenty-eight days ago, in the
+    sentence pattern the novelette has been building since chapter one. The
+    crew arrives. Hiram Beck demands the cut. Cal refuses. Hiram delivers
+    the chapter's cruelty — 'a witch in his cabin,' the choice between the
+    witch and the boy — and Cal goes silent in the way that has always
+    preceded the breaking. Thistle arrives in full fae out of the eastern
+    tree line. The matched marks on both sternums are gone, struck out by
+    the same axe that bites the Mother. Cal's three years of held silence
+    breaks in one logger's punch; Hiram falls; the crew scatters; Cal
+    carries Thistle to the hidden spring at fae speed with the forest
+    opening the path. The chapter ends on Cal at the spring with Morrow
+    openly weeping beside him, the marks gone from both their bodies, and
+    Cal asking 'Tell me what to do' three times before Morrow opens her
+    mouth to answer. Chapter eight opens on her answer.
+
+  pov:
+    mode: single
+    character: cal
+
+  setting_summary:
+    time_of_year: early_autumn_1897
+    time_of_day: first_light_through_full_morning_of_the_eighth_day
+
+  locations_present:
+    - heart_tree_clearing           # primary setting; the Mother's clearing
+    - the_mother_at_the_clearing    # the heart cedar; both location and character
+    - eastern_clearing_tree_line    # where Thistle arrives from
+    - forest_path                   # Cal's arrival walking; the run after
+    - the_hidden_spring             # closing sequence; Thistle laid at the edge
+
+  locations_referenced:
+    - cal_cabin                     # where Cal came from at first light
+    - millers_cut                   # where the crew came from
+    - hollow_creek                  # where Hiram will be sent in a cell
+    - portland                      # Samuel's school; the second threat
+    - the_camp_office               # where Cal said he would surrender the contract
+
+  characters_present:
+    - cal                           # POV throughout
+    - the_mother                    # the heart cedar; she knows him
+    - hiram_beck                    # antagonist; full chapter
+    - thistle                       # arrives in full fae; falls
+    - morrow                        # crow first, half-form at the spring; openly weeping
+    - bract                         # at heel; howls; lies at her feet at the spring
+    - twelve_miller_crewmen         # arrive together; two run early; nine scatter at the end; one is Hiram
+    - two_younger_crewmen           # step back from Cal's silence; unnamed
+    - two_runaway_crewmen           # drop tools at Thistle's arrival and run into the mist
+
+  characters_referenced:
+    - mae_pritchard                 # Cal recalls her at her father's funeral when he was sixteen
+    - mae_pritchard_father          # implicit in the funeral memory
+    - samuel                        # the Portland threat
+    - the_sheriff_in_hollow_creek   # the witch threat
+    - the_office_clerk              # where Cal said he would go
+    - the_mothers_daughters         # the trees Cal has been apologizing to for three years
+    - the_great_great_grandchildren_trees # the kinship system through which the Mother knows him
+    - the_camp_doctor               # implicit by way of Hiram's mention of the 'miraculously healed' leg
+
+  objects_present:
+    - the_mother                    # the heart cedar; nine feet across, two hundred fifty feet of red cedar
+    - the_mothers_bark              # warm under Cal's palm; she knows him
+    - the_mothers_wound             # a foot deep, width of a man's torso
+    - the_mothers_gold_sap          # running from the wound into the moss
+    - twelve_lanterns               # the crew's
+    - the_two_man_saw_on_sledge     # crew tool
+    - cal_coat                      # holds the three objects until the punch
+    - the_three_objects_in_cals_coat # iridescent scale (ten days), cedar sparrow (one day), dried trillium (twenty-eight days)
+    - the_iridescent_scale          # remains in Cal's coat through the chapter
+    - the_dried_trillium            # remains in Cal's coat through the chapter
+    - the_cedar_sparrow             # falls out of Cal's coat in the punch; left in the moss
+    - cal_axe                       # the axe Cal taught Thistle on Day 3; picked up by Hiram; strikes the Mother
+    - thistle_full_fae_body         # glamour gone; wings half-unfurled; six inches taller; bare arms
+    - thistle_wings                 # iridescent in the mist; half-unfurled
+    - thistle_bark_pattern_freckles # visible down sternum, bare arms, throat
+    - thistle_high_collar_open_at_the_laces # the chapter-three-onward collar finally undone, but not by Cal
+    - thistle_handprint_freckles_on_sternum # GONE — the chapter's central absence
+    - cal_chest_mark                # GONE — the chapter's matched absence
+    - the_gold_sap_at_thistles_mouth # same gold as the Mother's wound
+    - hiram_face                    # the face of a man who got hit by Caleb Thorne
+    - bract_howl                    # the dog's voice introduced as howl, not bark
+
+  objects_referenced:
+    - widowmaker_cedar_limb         # by way of Hiram's 'miraculously healed leg' accusation
+    - the_axe_teaching_day_three    # the hand-over-hand on the haft; Cal recognizes the axe
+    - the_chapter_six_porch_trilliums # the men saw flowers around his cabin; out of season; five kinds in November
+    - cal_pillow_at_dawn            # Thistle's hair across the moss the way it lay across his pillow
+    - cal_chapter_one_apology_to_the_cedar # the same sentence pattern; the structural rhyme
+
+  emotional_register: three_years_of_held_silence_breaking_at_the_cost_of_the_bond
+
+  themes_active:
+    - the_cost_of_his_hands_labor
+    - what_a_quiet_man_does_when_the_silence_breaks
+    - the_bond_as_living_thing_that_can_be_struck_out
+    - the_mother_and_the_woman_bleeding_the_same_gold
+    - the_terrible_cathedral
+    - the_forest_as_active_hand_pushing
+    - the_full_name_as_invocation_attempting_to_call_back
+    - the_witch_or_the_boy_as_false_binary
+    - what_he_is_finally_understood
+
+  voices_introduced:
+    - cal_anger_voice               # the sound that is not his voice; three years of held-back arriving in the punch; the broken sorry of a man who finally understands what he is
+    - hiram_cruelty_voice           # foreman-performative; calculating; addressed to the men as audience; cruelty as theater
+    - thistle_terrible_cathedral_voice # her full-fae arrival voice; 'Caleb Thorne. The Mother is my home.'; the formal register turned to the entire clearing
+
+  plants_for_later:
+    the_cedar_sparrow_left_in_the_clearing: ch_later_returned_for_or_lost_forever
+    the_mother_wounded_but_standing: ch_later_can_the_wound_be_closed
+    the_matched_marks_gone_from_both_bodies: ch_later_can_the_bond_be_remade
+    hiram_unconscious_in_the_clearing: ch_later_in_a_cell_in_hollow_creek_talking_about_witches
+    nine_scattered_crewmen: ch_later_the_story_no_one_in_the_territory_will_believe
+    thistle_unconscious_at_the_spring: ch_immediate_the_rite_or_the_burial
+    morrow_about_to_speak: ch08_immediate_her_answer_opens_chapter_eight
+    "tell_me_what_to_do_three_times": ch08_immediate_morrows_answer
+    the_spring_will_remember_the_sound_for_two_hundred_years: worldbuilding_landscape_carrying_grief
+    cal_understanding_what_he_is: ch_later_the_changed_man
+    the_forest_pushing_him_forward: ch_later_the_forest_as_active_ally_with_a_stake
+    mae_pritchard_named: ch_later_or_epilogue_she_enters_the_story_proper
+    the_three_objects_still_in_cals_coat: ch_later_the_scale_and_the_trillium_remain
+    the_broken_sorry_during_the_run: ch_later_the_new_apology_register
+
+  continuity_out:
+    pov_state: >
+      Cal at the hidden spring, on his knees beside Thistle who is laid at
+      the edge on the moss. His own shirt open over a chest where her print
+      used to be. His hand on her sternum where his print used to be. His
+      face wet, which he has not noticed. He has asked Morrow 'Tell me
+      what to do' three times. Morrow has opened her mouth. The chapter
+      ends in the half-second before her answer.
+    cal_state: >
+      Conscious, broken, has not eaten in eighteen hours, has slept perhaps
+      two hours on his cabin floor, has punched Hiram Beck unconscious with
+      his entire weight through his shoulder, has carried Thistle a mile
+      and a half at fae speed with the forest pushing him forward, has lost
+      the bond. Three objects remain in his coat: the iridescent scale, the
+      dried trillium. The cedar sparrow has been left in the moss in the
+      heart-tree clearing six feet from where he punched Hiram.
+    thistle_state: >
+      Unconscious at the spring edge. Hair across the moss the way it lay
+      across Cal's pillow at dawn. Eyes closed. Lips not moving. Gold sap
+      at the corner of her mouth, spread to her chin. The freckle-handprint
+      that was on her sternum at dawn is gone — just bark-pattern freckles
+      in a body. Her wings folded back inside her shoulders when she fell.
+      Glamour neither up nor down; she does not have the focus for either.
+    the_mother_state: >
+      Standing in the heart-tree clearing, wounded — a foot of bite into
+      the heartwood, the wound the width of a man's torso. Gold sap running
+      from the wound into the moss. Hiram unconscious six feet from her
+      base. The cedar sparrow in the moss beside him. Cal's axe beside that.
+      The clearing otherwise empty.
+    location_end: "The hidden spring, full morning, Cal on his knees beside Thistle and Morrow openly weeping at her other side."
+    unresolved: >
+      What Morrow is about to say. Whether Thistle can be brought back.
+      Whether the Mother can be saved. What the bond requires now. Whether
+      the marks can return to the bodies. Where the cedar sparrow ends up.
+      What becomes of Hiram. Whether the sheriff in Hollow Creek will
+      listen to him. Whether Samuel is safe in Portland. What Cal will do
+      next if Morrow's answer is not survivable. What the forest wants now
+      that the forest is pushing.
+
+  beats:
+    - id: ch07_b01
+      title: "Cal Alone with the Mother"
+      pov: cal
+      approx_words: 140
+      opens_on: >
+        He arrives at the clearing forty minutes before the crew, still
+        walking — running has made his ribs hurt and slowing has not helped.
+        The mist is at his chest.
+      action_sequence:
+        - >
+          The Mother is in front of him for the first time in his life. He
+          has marked her on a map. He has discussed her felling under canvas
+          at a foreman's table. He has not seen her. Nine feet across. Two
+          hundred and fifty feet of red cedar going up into mist that hides
+          her crown. A thousand years standing in this exact eight feet of
+          dirt.
+        - >
+          He understands, in his body, what he was going to do. He
+          understands it the way a man understands a cliff he has been
+          driving toward in fog.
+        - >
+          He puts his palm flat on the bark, the way he has watched Thistle
+          do, twice, through a window he was not supposed to be looking
+          through. The bark is warm. The Mother knows him. Of course she
+          knows him — she has been getting his apologies through her
+          daughters and her granddaughters and her great-great-grandchildren-
+          trees for three weeks.
+        - >
+          He kneels. He does the only thing he knows. He says, into the bark,
+          "I'm sorry. I'm so sorry. I didn't know. I'm sorry."
+        - >
+          He stays there with his forehead against the trunk and his three
+          objects in his coat — the scale, the sparrow, the dried trillium —
+          until the lanterns come up the trail.
+      beat_function: >
+        The chapter opens on Cal meeting the Mother before anyone else
+        arrives. The forty-minute window is the chapter's structural mercy
+        — Cal gets the time alone with what he was being paid to fell. The
+        physical specifications (nine feet across, two hundred fifty feet
+        high, thousand years old, eight feet of dirt) are rendered as fact
+        because Cal is a logger and would estimate them this way. The
+        Mother-knows-him sentence is the chapter's first piece of explicit
+        worldbuilding-as-character: the trees pass information through
+        kinship; she has been receiving his apologies for three weeks; she
+        is not a passive object. The kneeling apology — 'I'm sorry. I'm so
+        sorry. I didn't know. I'm sorry.' — rhymes structurally with both
+        chapter one beat two (Cal apologizing to the cedar at Miller's Cut
+        before marking it) and chapter two beat two (Cal pinned under the
+        widow-maker, still apologizing to the limb). The 'I didn't know'
+        clause added to the familiar pattern is the chapter-six recognition
+        landing in his apology vocabulary for the first time.
+      prose_directives:
+        - >
+          'Forty minutes before the crew' is the chapter's structural fact;
+          render it. The window matters because the chapter's first beat
+          would not work if the crew were already there.
+        - >
+          'The mist is at his chest.' Render exact. The mist height
+          establishes the cold and obscures the Mother's crown for the
+          coming description.
+        - >
+          The Mother's physical specifications are rendered as a logger's
+          estimate: nine feet across, two hundred fifty feet up, mist
+          hiding the crown, a thousand years, eight feet of dirt. Render
+          each measurement. The specificity is doing the awe.
+        - >
+          'A man understands a cliff he has been driving toward in fog.'
+          Render verbatim. The cliff-in-fog simile is the chapter's first
+          piece of figurative language and the chapter's structural image
+          for Cal's six-day arc.
+        - >
+          The palm-on-bark gesture references chapter four's hidden spring
+          and chapter five's morning kiss — Cal has watched Thistle do this
+          twice through a window he was not supposed to be looking through.
+          Render the gesture with the chapter's count of two prior
+          observations. 'A window he was not supposed to be looking
+          through' is the chapter's clearest self-naming of his prior
+          watching as transgression.
+        - >
+          'The bark is warm. The Mother knows him.' Two short sentences.
+          The chapter's first piece of supernatural fact rendered as
+          observation; do not dramatize.
+        - >
+          'Of course she knows him — she has been getting his apologies
+          through her daughters and her granddaughters and her great-great-
+          grandchildren-trees for three weeks.' Render verbatim. The three-
+          generation kinship is the chapter's clearest piece of
+          worldbuilding-by-aside. Render the three-generation count.
+        - >
+          'I'm sorry. I'm so sorry. I didn't know. I'm sorry.' Render
+          verbatim with the four sentences. The pattern explicitly rhymes
+          with chapter one beat two and chapter two beat two; the prose
+          pass should write the apology recognizably as the same
+          structure with 'I didn't know' added.
+        - >
+          The three objects in his coat are named in this order: scale,
+          sparrow, dried trillium. This matches chapter six's order. The
+          chapter is consistent; render in order.
+        - >
+          'Until the lanterns come up the trail.' Render the closing image
+          plain. The lanterns are the chapter's first signal of the crew's
+          arrival; do not extend.
+      closes_on: >
+        Cal's forehead against the Mother's trunk. Three objects in his
+        coat. The first lantern light on the mist beyond his shoulder.
+
+    - id: ch07_b02
+      title: "The Crew Arrives, The Demand"
+      pov: cal
+      approx_words: 110
+      opens_on: >
+        Twelve men. Lanterns. The two-man saw on a sledge.
+      action_sequence:
+        - >
+          Hiram Beck in front — six-foot-three, broad as a barn door,
+          sandy-blond going to grey at the temples, pale blue eyes, the
+          kind of physical authority that does not ask for consent, his
+          face the red of a man either drunk last night or drunk now.
+        - >
+          The men go quiet when they see Cal kneeling at the base of the
+          tree he has been hired to fell.
+        - >
+          Hiram's voice. Loud, performative — for the men. "Thorne. Get up.
+          We've got six weeks of work and you're praying to a tree." Cal
+          does not get up. The men shift their feet.
+        - >
+          Hiram crosses the moss. "Pick up your axe, Thorne. I won't ask
+          twice."
+        - >
+          Cal stands. He puts his back against the Mother. He says, quiet,
+          the voice he uses to spook horses: "Hiram. The contract is
+          broken. Take the men back to camp. I'll go down to the office
+          today and surrender it."
+      beat_function: >
+        The crew arrives and the chapter's antagonist is introduced in
+        physical specificity. Hiram's chapter-six 'face the red of a man
+        either drunk last night or drunk now' is rendered as Cal's
+        observation. The chapter-four confession reference (Hiram beating
+        a younger man unconscious last spring while Cal did nothing) is
+        present in the room without being named. Cal's spook-horses voice
+        is introduced — quiet, calm, addressed to a dangerous animal. His
+        announcement — 'The contract is broken. Take the men back to camp.
+        I'll go down to the office today and surrender it.' — is Cal at
+        his most decisive in the novelette so far, delivered in the
+        chapter's lowest register. The structural set-up: Cal has refused
+        the contract; the chapter's question becomes whether Hiram lets
+        him.
+      prose_directives:
+        - >
+          The crew is rendered as a count and three objects: twelve men,
+          lanterns, the two-man saw on a sledge. The two-man saw is the
+          tool that would be used after the felling cuts; its presence
+          establishes that this is meant to be a full extraction.
+        - >
+          Hiram's description is rendered from chapter four's cast notes
+          verbatim: six-foot-three, broad as a barn door, sandy-blond
+          going to grey at the temples, pale blue eyes, the kind of
+          physical authority that does not ask for consent. The 'face the
+          red of a man either drunk last night or drunk now' is the
+          chapter's only added detail to the established description;
+          render it. The reader should recognize the figure.
+        - >
+          'The men go quiet when they see Cal kneeling at the base of the
+          tree he has been hired to fell.' Render exact. The men's silence
+          is the chapter's first piece of communal recognition that
+          something is wrong.
+        - >
+          Hiram's voice is rendered as 'loud, performative — for the men.'
+          Render the performative quality. He is not addressing Cal alone;
+          he is addressing his audience. This is hiram_cruelty_voice
+          introduced.
+        - >
+          'Thorne. Get up. We've got six weeks of work and you're praying
+          to a tree.' Render verbatim. The mockery of 'praying to a tree'
+          is the chapter's first piece of Hiram dismissing what is real.
+        - >
+          'Pick up your axe, Thorne. I won't ask twice.' Render verbatim.
+          The 'I won't ask twice' is the chapter's first piece of explicit
+          threat; the reader files it for the later 'Pick. Up. The axe.'
+        - >
+          Cal's spook-horses voice is introduced here: 'quiet, the voice
+          he uses to spook horses.' Render the voice's register: low,
+          calm, addressed to a dangerous animal. This is the inverse of
+          Hiram's loud performance; Cal is bringing the room down on
+          purpose.
+        - >
+          '"Hiram. The contract is broken. Take the men back to camp. I'll
+          go down to the office today and surrender it."' Render verbatim.
+          The four sentences are Cal's decision in plain order. The
+          'office today' establishes Cal is willing to do the formal
+          surrender; this is not a refusal in the woods, it is a
+          dissolution of contract.
+      closes_on: >
+        Cal with his back against the Mother. Hiram three steps from him on
+        the moss. Eleven men behind Hiram in the lantern light. The two-man
+        saw on the sledge between them.
+
+    - id: ch07_b03
+      title: "The Cruelty: The Witch or the Boy"
+      pov: cal
+      approx_words: 140
+      opens_on: >
+        Hiram's face works. He has been waiting for this. He has been
+        waiting for Cal for three years — the foreman's quiet pet who
+        out-cuts him every quarter and who reads in the bunkhouse and who
+        apologizes to trees.
+      action_sequence:
+        - >
+          Hiram smiles, and the smile makes his good blue eyes uglier.
+          "You've gone soft, boy, because you've been tupping a witch."
+        - >
+          The crew goes still. Hiram raises his voice. "Don't pretend,
+          Thorne. The men saw the flowers around your cabin yesterday. Out
+          of season. Five kinds, in November. We've all been waiting to
+          see how long it'd take you to admit it."
+        - >
+          He turns to the crew and spreads his arms like a preacher.
+          "There's a witch in his cabin, boys. Has been since he came off
+          the widow-maker with a busted leg miraculously healed."
+        - >
+          He turns back to Cal. He lets his voice drop. "Miller Company
+          don't pay for witchcraft. Pick up the axe, Thorne, or I'll send
+          a runner to the sheriff in Hollow Creek for her. And one to
+          Portland for your brother's school. Take your choice. The witch
+          or the boy."
+      beat_function: >
+        The chapter's cruelty beat — the antagonist's full case made aloud.
+        Hiram's three-year resentment is rendered as character history:
+        the foreman's quiet pet who out-cuts him, reads in the bunkhouse,
+        apologizes to trees. The accusation arrives in escalating
+        specificity: tupping a witch → the flowers around the cabin (the
+        chapter-five-and-six porch-step flora named in court) → the
+        widow-maker leg (chapter two's healing named as evidence) → the
+        two threats: sheriff for the witch, Portland for the brother. The
+        'witch or the boy' binary is the chapter's structural false
+        choice. The chapter title — 'The Axe and the Foreman' — is the
+        foreman as the chapter's foil; the axe is the choice the foreman
+        is forcing.
+      prose_directives:
+        - >
+          'Hiram's face works. He has been waiting for this.' Render the
+          face-works image. Hiram has been holding this confrontation
+          inside himself for three years; the chapter is finally
+          permitting it.
+        - >
+          'The foreman's quiet pet who out-cuts him every quarter and who
+          reads in the bunkhouse and who apologizes to trees.' Render the
+          three-fold list of Hiram's resentments verbatim. Each clause is
+          a piece of Cal-character Hiram has been resenting; each is
+          accurate to Cal as established.
+        - >
+          'Hiram smiles, and the smile makes his good blue eyes uglier.'
+          Render exact. The 'good blue eyes uglier' is the chapter's
+          clearest piece of physical-feature-as-moral language.
+        - >
+          '"You've gone soft, boy, because you've been tupping a witch."'
+          Render verbatim. The vulgarity is character voice; do not
+          soften it. 'Tupping' is the period diction and the cruelty.
+        - >
+          'The crew goes still.' Render the communal stillness. The men
+          are now witnesses to an accusation; the crew is the public
+          square.
+        - >
+          The accusation specifics — flowers around the cabin, out of
+          season, five kinds in November — are rendered exactly. The
+          chapter-five and chapter-six porch-step flora have been visible
+          to the men; the chapter names what was always being seen by
+          someone.
+        - >
+          'He turns to the crew and spreads his arms like a preacher.'
+          Render the preacher posture. Hiram is performing an accusation
+          to an audience; the religious imagery is the chapter's
+          structural counterpoint to chapter five's 'the way men in his
+          father's church used to look at a relic.'
+        - >
+          '"There's a witch in his cabin, boys. Has been since he came off
+          the widow-maker with a busted leg miraculously healed."' Render
+          verbatim. The widow-maker reference is chapter two's healing
+          made public; what Cal has been keeping private is now in the
+          mouth of the foreman in front of the crew.
+        - >
+          'He lets his voice drop.' The drop in voice is the cruelty's
+          performance technique; the threat works because it is delivered
+          quietly. Render the drop.
+        - >
+          '"Pick up the axe, Thorne, or I'll send a runner to the sheriff
+          in Hollow Creek for her. And one to Portland for your brother's
+          school. Take your choice. The witch or the boy."' Render
+          verbatim. The two threats are precisely specified: sheriff /
+          Hollow Creek for the witch, Portland / brother's school for
+          Samuel. The 'Take your choice' and 'The witch or the boy' are
+          the chapter's structural binary. The reader registers it as
+          false; Cal does too.
+      closes_on: >
+        Hiram three steps from Cal. The crew silent behind him. The Mother
+        behind Cal. The contract still in Hiram's coat. The axe on the
+        moss between them.
+
+    - id: ch07_b04
+      title: "Cal's Silence, Thistle Arrives in Full Fae"
+      pov: cal
+      approx_words: 130
+      opens_on: >
+        Cal does not speak. He looks at Hiram. He does not blink.
+      action_sequence:
+        - >
+          He has been a quiet man for thirty years and the silence in him
+          goes all the way down. The men have never seen him like this.
+          Two of them — younger ones, boys really — step backward.
+        - >
+          She steps out of the tree line on the eastern side of the
+          clearing. Full fae. Glamour gone. Wings half-unfurled — iridescent
+          in the mist, six inches taller than her human shape, eyes the
+          green of sun through new leaves, freckles in bark-patterns down
+          her sternum and her bare arms and her throat where the high
+          collar of her dress has come open at the laces. Hair loose to her
+          hips. Small bare feet on the moss.
+        - >
+          She has run from the spring at fae speed and her body is still
+          failing to make a clean human shape. She is terrible in the
+          cathedral way — the way that makes men understand they are small.
+        - >
+          Two men in the back drop their tools and run into the mist. They
+          will be telling this story for the rest of their lives and no one
+          in Hollow Creek will believe them.
+      beat_function: >
+        Cal's silence is rendered as a structural decision. Two younger
+        crewmen step back; the older crew has never seen him like this.
+        The beat establishes the change in him before Thistle's arrival —
+        the silence is the work he is doing while he decides not to pick
+        up the axe. Thistle's full-fae arrival is the chapter's visual
+        climax: six inches taller, wings half-unfurled, bark-pattern
+        freckles visible across every uncovered skin, the high collar
+        finally open (at the laces, undone by her own glamour-failure not
+        by either of them on purpose). The 'terrible in the cathedral way'
+        is the chapter's clearest piece of fae-as-religious-awe writing.
+        Two crewmen run; the chapter explicitly tells the reader these
+        men will tell the story for the rest of their lives and no one
+        will believe them — a small piece of folklore-genesis embedded
+        in the beat.
+      prose_directives:
+        - >
+          'Cal does not speak. He looks at Hiram. He does not blink.'
+          Render the three sentences. The not-speaking, not-blinking, and
+          looking are the structural acts of Cal's silence.
+        - >
+          'He has been a quiet man for thirty years and the silence in him
+          goes all the way down.' Render exact. The 'goes all the way
+          down' is the chapter's clearest piece of Cal-as-iceberg
+          language: the visible silence is the surface of the available
+          silence.
+        - >
+          'The men have never seen him like this.' Render plain. The
+          communal observation establishes the change.
+        - >
+          The full-fae arrival is rendered in a single long sentence with
+          stacked descriptors: wings (iridescent in the mist, half-
+          unfurled), height (six inches taller), eyes (green of sun
+          through new leaves — the chapter-two recognition language),
+          freckles (bark-patterns down sternum, bare arms, throat), the
+          collar (open at the laces), hair (loose to hips), feet (small,
+          bare, on the moss). Render in this order. The reader is being
+          shown her actual body in full lantern light for the first time
+          in the novelette.
+        - >
+          'She has run from the spring at fae speed and her body is still
+          failing to make a clean human shape.' Render exact. The 'failing
+          to make a clean human shape' is the chapter's clearest piece of
+          glamour-as-effort language: she does not have the focus.
+        - >
+          'She is terrible in the cathedral way — the way that makes men
+          understand they are small.' Render verbatim. The cathedral
+          simile is the chapter's structural figure for full fae presence;
+          the 'understand they are small' is the chapter's clearest
+          piece of fae-as-religious-awe.
+        - >
+          'They will be telling this story for the rest of their lives
+          and no one in Hollow Creek will believe them.' Render verbatim.
+          The folklore-genesis aside is the chapter's only piece of
+          forward-looking narration; it is brief and earned.
+      closes_on: >
+        Thistle in the clearing. Hiram twenty feet from her. Cal between
+        them. Two crewmen gone into the mist. Nine still standing in the
+        lantern light.
+
+    - id: ch07_b05
+      title: "The Missing Mark, The Standoff"
+      pov: cal
+      approx_words: 110
+      opens_on: >
+        The print on her sternum that was the bruise-shape of his hand at
+        dawn this morning is gone. Just freckles in bark-patterns. The
+        matched mark is no longer on her body.
+      action_sequence:
+        - >
+          He sees it. He understands it. He has not had time to understand
+          it — his head fills with white static — and then she is across
+          the clearing, and there is no time.
+        - >
+          Cal: "Thistle. Go home. Go home, Thistle, go home." He is trying
+          to save her from what is about to happen. He uses the voice he
+          uses to boys and to soldiers. He does not use the voice he uses
+          to her.
+        - >
+          Thistle, formal: "Caleb Thorne. The Mother is my home."
+        - >
+          Hiram, smiling: "There she is. Look at her, boys. Wings and all.
+          Now tell me again, Thorne, that I'm not earning my keep." He
+          spits into the moss. He says, soft, "Last time, Thorne. Pick. Up.
+          The axe."
+        - >
+          Cal does not pick up the axe. He turns his body fully toward
+          Thistle, his back to Hiram, his back to the Mother. He has
+          decided. He says, looking only at her, "Thistle. Behind me. Get
+          behind me." She does not move. She has been alive for two
+          hundred years. She does not get behind humans.
+      beat_function: >
+        The chapter's structural pivot. Cal sees the print gone — the
+        matched mark from chapter five is no longer on her body. He has
+        not had time to understand the absence and the chapter explicitly
+        names this ('he has not had time to understand it'); the
+        recognition is forced through him by the rate of events. The
+        three-voice standoff is the chapter's most polyphonic exchange
+        and the second instance of three-voice cross-talk in the
+        novelette (after chapter six's contract confrontation). Cal uses
+        the boys-and-soldiers voice — quiet, command, not the voice he
+        uses to her. Thistle's 'Caleb Thorne. The Mother is my home.' is
+        the chapter's clearest piece of thistle_terrible_cathedral_voice:
+        formal address as defiance. Hiram's 'Pick. Up. The axe.' with the
+        full stops between words is the chapter's most explicit threat-
+        cadence. Cal's choice — turning his body fully toward Thistle,
+        back to Hiram and the Mother — is the chapter's structural
+        decision: he is willing to die for her. Her refusal to get behind
+        him — 'She has been alive for two hundred years. She does not get
+        behind humans.' — is the chapter's clearest piece of fae-as-
+        equal: he cannot save her by standing in front of her.
+      prose_directives:
+        - >
+          The missing print is the beat's opening fact. Render: 'is gone.
+          Just freckles in bark-patterns. The matched mark is no longer on
+          her body.' Render the absence in three short clauses. The 'just
+          freckles' is doing the bareness.
+        - >
+          'He sees it. He understands it.' Render exact. The seeing and
+          the understanding are simultaneous and named separately.
+        - >
+          'His head fills with white static.' Render the static as
+          physical sensation. Cal's mind has hit its limit; the
+          recognition is too much.
+        - >
+          The three-voice cross-talk is rendered with explicit speaker
+          tags ('Cal:', 'Thistle, formal:', 'Hiram, smiling:'). The format
+          mirrors chapter six's contract confrontation. Render the tags.
+        - >
+          '"Thistle. Go home. Go home, Thistle, go home."' Render
+          verbatim with the three repetitions. The 'go home' triple is
+          Cal's first triplet of the chapter; the chapter has triplets
+          built into it.
+        - >
+          'He uses the voice he uses to boys and to soldiers. He does not
+          use the voice he uses to her.' Render exact. The distinction
+          between Cal's voices is the beat's structural fact.
+        - >
+          '"Caleb Thorne. The Mother is my home."' Render verbatim.
+          Thistle's line is the chapter's clearest piece of fae-as-
+          guardian assertion. Her formal use of his full name in front of
+          the crew is the inverse of her using it in chapter five in the
+          consummation; now it is public, now it is defiance.
+        - >
+          Hiram's '"Pick. Up. The axe."' Render verbatim with the full
+          stops between each word. The cadence is the menace.
+        - >
+          'He turns his body fully toward Thistle, his back to Hiram, his
+          back to the Mother. He has decided.' Render exact. The
+          decision-naming is the chapter's structural pivot.
+        - >
+          '"Thistle. Behind me. Get behind me."' Render verbatim. Three
+          sentences. Cal's attempt to protect her is the chapter's
+          quietest piece of inadequacy.
+        - >
+          'She does not move. She has been alive for two hundred years.
+          She does not get behind humans.' Render exact. The three short
+          sentences and the two-hundred-year reference complete the beat.
+      closes_on: >
+        Cal turned toward Thistle. Hiram with the axe between them on the
+        moss. The Mother at Cal's back. Twenty feet between Thistle and
+        Cal across the clearing. The crew watching.
+
+    - id: ch07_b06
+      title: "Hiram Picks Up the Axe, The Strike"
+      pov: cal
+      approx_words: 140
+      opens_on: >
+        Hiram picks up the axe. Cal's axe.
+      action_sequence:
+        - >
+          The one Cal taught Thistle to hold on Day 3, hands over hands,
+          his chest against her back, his thumb on her wrist. That axe.
+        - >
+          Hiram lifts it off the moss with the practiced ease of a man who
+          has felled three thousand trees in his life. Cal sees him do it.
+          Cal moves toward him — three strides — but Hiram has already
+          turned to the Mother and is already swinging and the swing is
+          the swing of a thirty-year veteran and there is no time, no
+          time —
+        - >
+          The axe bites the Mother. Deep — a full foot of bite, into the
+          heartwood, the wound the width of a man's torso.
+        - >
+          The sound is not a sound. It is what a green thing makes when it
+          understands it is being killed: a low rending creak in the air
+          and a higher pure note under it that does not travel through the
+          ear but lands in the chest, behind the sternum, in the place a
+          man keeps the names of the dead.
+        - >
+          Every man in the clearing feels it. Bract howls and does not
+          stop howling.
+      beat_function: >
+        The chapter's structural strike. Hiram picks up Cal's axe — the
+        chapter-four hand-over-hand axe — and the recognition is named
+        explicitly: 'That axe.' The continuity makes the strike personal
+        in a way the prose pass must preserve. Hiram's practiced ease as
+        a thirty-year veteran is the chapter's clearest piece of
+        antagonist-as-competent-craftsman language; he is not bad at his
+        job. The 'no time, no time —' double is Cal's interior under
+        compression; render the repetition. The strike itself is rendered
+        with physical specifications (a foot of bite, into the heartwood,
+        the wound width of a man's torso) and then the chapter's most
+        important sentence: 'The sound is not a sound. It is what a green
+        thing makes when it understands it is being killed.' The two-part
+        sound — low rending creak in the air, higher pure note under it —
+        is rendered with the second one landing in the chest 'in the place
+        a man keeps the names of the dead.' This is the chapter's most
+        loaded interior image. Bract's howl is introduced — the dog's
+        voice in this chapter is howl, not bark.
+      prose_directives:
+        - >
+          'Hiram picks up the axe. Cal's axe.' Render the two short
+          sentences. The second sentence's possessive is the beat's
+          structural specificity.
+        - >
+          'The one Cal taught Thistle to hold on Day 3, hands over hands,
+          his chest against her back, his thumb on her wrist. That axe.'
+          Render verbatim with the four chapter-four references in one
+          sentence. The 'That axe.' is the recognition; render the period.
+        - >
+          'A man who has felled three thousand trees in his life.' Render
+          the count. Hiram's expertise is a specific number; do not
+          gloss.
+        - >
+          'No time, no time —' Render the double with the em-dash. Cal's
+          interior under compression.
+        - >
+          The strike's physical specifications are rendered with three
+          measurements: deep — a full foot of bite, into the heartwood,
+          the wound width of a man's torso. Each measurement is one
+          clause. Render each.
+        - >
+          'The sound is not a sound. It is what a green thing makes when
+          it understands it is being killed.' Render verbatim. The two
+          sentences are the chapter's structural premise about the
+          Mother as a green thing that understands.
+        - >
+          The two-part sound is rendered exactly: 'a low rending creak in
+          the air and a higher pure note under it that does not travel
+          through the ear but lands in the chest, behind the sternum, in
+          the place a man keeps the names of the dead.' Render the two
+          parts and the not-through-the-ear specification. 'The place a
+          man keeps the names of the dead' is the chapter's clearest
+          piece of grief-anatomy; render exact.
+        - >
+          'Every man in the clearing feels it.' Render plain. The
+          communal physical experience is the chapter's structural
+          fact: this is not Cal's experience alone.
+        - >
+          'Bract howls and does not stop howling.' Render the howl as
+          the dog's first non-bark vocalization in the novelette. The
+          'does not stop' establishes the howl as continuous through the
+          beats that follow.
+      closes_on: >
+        The axe in the wound. Gold sap beginning to run from the strike.
+        Hiram with the axe-haft in his hands, balanced for the second
+        swing. Cal three strides from Hiram and still moving. Bract
+        howling somewhere in the mist behind them.
+
+    - id: ch07_b07
+      title: "Thistle Falls, The Same Gold"
+      pov: cal
+      approx_words: 100
+      opens_on: >
+        Thistle falls. Not over — down.
+      action_sequence:
+        - >
+          Her wings dim mid-air and fold in on themselves like something
+          put away. She lands in the moss face-first and does not move.
+        - >
+          The freckle-patterns on her bare arms fade and re-form wrong,
+          disordered, broken birch-bark into nothing. Gold sap runs from
+          the corner of her mouth onto the moss.
+        - >
+          The same gold the Mother is running from her wound. The same
+          gold.
+        - >
+          The body of the tree and the body of the woman are bleeding the
+          same thing.
+      beat_function: >
+        The chapter's emotional climax. Thistle does not fall over — she
+        falls down. The 'down' rather than 'over' is the chapter's
+        clearest piece of physical-as-spiritual-collapse: she does not
+        topple, she is dropped from inside herself. The wings dimming and
+        folding 'like something put away' is the chapter's most quietly
+        devastating image of supernatural withdrawal. The freckles fading
+        wrong is the chapter-five and chapter-six freckle-print's
+        structural inverse: the pattern that has been forming and
+        re-forming on her body is now disintegrating. The 'same gold' is
+        the chapter's structural premise made visible: the tree and the
+        woman are the same. The beat is short on purpose; the chapter
+        does not extend the recognition.
+      prose_directives:
+        - >
+          'Thistle falls. Not over — down.' Render verbatim with the
+          em-dash. The 'down' is the beat's structural word.
+        - >
+          'Her wings dim mid-air and fold in on themselves like something
+          put away.' Render exact. 'Like something put away' is the
+          beat's earned simile; render the put-away image.
+        - >
+          'Lands in the moss face-first and does not move.' Render the
+          face-first specifically. The face-first is the body's helpless
+          posture.
+        - >
+          The freckle-pattern dissolution is rendered as three states:
+          fade, re-form wrong, broken birch-bark into nothing. Render the
+          progression. The 'into nothing' is the chapter's clearest piece
+          of fae-pattern-as-glamour failing.
+        - >
+          'Gold sap runs from the corner of her mouth onto the moss.'
+          Render exact. The gold at her mouth is the chapter's first
+          piece of the matching-bleeding image.
+        - >
+          'The same gold the Mother is running from her wound. The same
+          gold.' Render the two sentences with the repetition. The
+          repetition is the recognition.
+        - >
+          'The body of the tree and the body of the woman are bleeding the
+          same thing.' Render exact. The chapter's structural premise made
+          a single sentence.
+      closes_on: >
+        Thistle face-down in the moss. Gold at her mouth. Gold from the
+        Mother's wound. Bract still howling. Hiram raising the axe for
+        the second stroke.
+
+    - id: ch07_b08
+      title: "The Silence Breaks, The Punch, The Crew Scatters"
+      pov: cal
+      approx_words: 130
+      opens_on: >
+        Cal's silence breaks. He has not spoken in two minutes. The sound
+        that leaves him is not his voice.
+      action_sequence:
+        - >
+          It is the voice of a man who has not allowed himself to be angry
+          in three years and who is angry now.
+        - >
+          He crosses the moss faster than he has ever crossed any moss in
+          his life. Hiram is still raising the axe for the second stroke.
+          He does not get the second stroke.
+        - >
+          One punch — a logger's punch, three years of swung axes, his
+          entire weight through his shoulder — square in Hiram's temple.
+          Hiram drops. The axe falls beside him. He does not move.
+        - >
+          He is not dead. He will be in a cell in Hollow Creek before
+          noon and he will not stop talking about witches, and no one in
+          the territory will believe him, because his face will look
+          exactly like what it is: the face of a man who got hit by Caleb
+          Thorne.
+        - >
+          The crew scatters. Nine men in nine directions through the mist.
+          Some of them will tell the story badly. Some of them will keep
+          their mouths shut. None of them will come back to this clearing
+          for the rest of their lives.
+      beat_function: >
+        The chapter's action climax and cal_anger_voice introduction. The
+        sound that leaves Cal is named as 'not his voice' — three years
+        of held-back arriving in one sound. The punch is described with
+        Cal's craftsman vocabulary: a logger's punch, three years of
+        swung axes, his entire weight through his shoulder. Hiram drops
+        in one stroke. The chapter's forward-narration of Hiram's fate
+        (cell in Hollow Creek, talking about witches, no one believing
+        him, his face the consequence) is the second piece of forward-
+        looking narration in the chapter (after the chapter-folklore
+        aside in beat 4). 'The face of a man who got hit by Caleb Thorne'
+        is the chapter's clearest piece of name-as-fact: Caleb Thorne is
+        now a man with a specific reputation. The nine men scattering in
+        nine directions and the chapter's note that none will come back
+        to this clearing is the chapter's clean structural wipe of the
+        antagonist's support.
+      prose_directives:
+        - >
+          'Cal's silence breaks. He has not spoken in two minutes. The
+          sound that leaves him is not his voice.' Render the three
+          short sentences. 'The sound that leaves him is not his voice'
+          is cal_anger_voice's introduction; render exact.
+        - >
+          'The voice of a man who has not allowed himself to be angry in
+          three years and who is angry now.' Render verbatim. The
+          three-year count is chapter-four's confession-context made
+          structurally present in the punch.
+        - >
+          'He crosses the moss faster than he has ever crossed any moss
+          in his life.' Render the specific superlative. Cal is moving
+          at a speed he himself recognizes as unprecedented.
+        - >
+          'One punch — a logger's punch, three years of swung axes, his
+          entire weight through his shoulder — square in Hiram's temple.'
+          Render verbatim with the em-dashes. The four-fold parenthetical
+          (one punch / a logger's punch / three years of swung axes / his
+          entire weight through his shoulder) is the chapter's most
+          compressed piece of craft-as-violence.
+        - >
+          'Hiram drops. The axe falls beside him. He does not move.'
+          Render the three short sentences. The cadence is the immediacy.
+        - >
+          The forward-narration of Hiram's fate is rendered as one long
+          sentence: 'He will be in a cell in Hollow Creek before noon
+          and he will not stop talking about witches, and no one in the
+          territory will believe him, because his face will look exactly
+          like what it is: the face of a man who got hit by Caleb
+          Thorne.' Render verbatim. The 'face of a man who got hit by
+          Caleb Thorne' is the chapter's clearest piece of Cal-as-named-
+          force.
+        - >
+          'Nine men in nine directions through the mist.' Render the
+          symmetry. Twelve crewmen minus Hiram minus two earlier
+          runaways equals nine; render the count.
+        - >
+          The three-fold prediction — 'Some of them will tell the story
+          badly. Some of them will keep their mouths shut. None of them
+          will come back to this clearing for the rest of their lives.' —
+          is rendered with the three clauses. The structure rhymes with
+          the chapter's other triplets.
+      closes_on: >
+        Hiram on the moss. The axe beside him. Bract howling. Thistle
+        face-down twenty feet away. Cal turning toward her with his
+        hands still in fists. The mist beginning to lift.
+
+    - id: ch07_b09
+      title: "Cal Goes to Her, Her Full Name, The Sparrow Left"
+      pov: cal
+      approx_words: 150
+      opens_on: >
+        He crosses the moss on his knees the last three yards.
+      action_sequence:
+        - >
+          He gathers her up. She weighs nothing — she has always weighed
+          nothing — but the less she weighs now is something he can feel
+          in his arms, the absence of a breath under skin, the wrongness
+          of a body whose animating thing has gone somewhere else.
+        - >
+          He presses his forehead to her temple. He says her full name
+          three times into her hair, the only way he knows how to call her
+          back: "Thistle-in-the-Hollow. Thistle-in-the-Hollow. Thistle-in-
+          the-Hollow."
+        - >
+          The same name she said into his mouth at dawn. He says it the
+          way he heard her say his — formal, full, an invocation.
+        - >
+          Her eyes do not open. Her lips do not move. The gold at the
+          corner of her mouth has spread to her chin. He puts his thumb
+          to it. It is warm. It is sap. It is her blood. He stops being
+          able to think.
+        - >
+          The print of his hand on her sternum that he traced with his
+          thumb at dawn — gone. Just freckles in bark-patterns. Just a
+          body. He understands, in his arms, that the mark going into her
+          means the bond is gone or going and he does not know the
+          difference and he does not know how to bring it back.
+        - >
+          The cedar sparrow has fallen out of his coat in the punch. It is
+          in the moss six feet from his knees. He cannot stop for it. He
+          cannot leave her for the three seconds it would cost. He looks
+          at it. He leaves it.
+      beat_function: >
+        The chapter's longest beat and the structural inversion of
+        chapter five's consummation. Where chapter five was Cal above her
+        attending to her body in full sensation, this is Cal gathering
+        her up with the animating thing gone. The full-name-three-times
+        invocation is the chapter's clearest piece of trying to call her
+        back — the same name she gave him in chapter five beat seven,
+        delivered now in the inverse register (he is trying to bring her
+        back rather than to dissolve into her). The chapter explicitly
+        names the rhyme: 'the way he heard her say his — formal, full, an
+        invocation.' The chapter's three repetitions of her full name
+        rhyme with the chapter's three repetitions of 'Tell me what to
+        do' at the close. The cedar sparrow being left is the chapter's
+        most heartbreaking structural choice: Cal cannot afford the three
+        seconds to retrieve the gift he made her over the three nights
+        she could not find the words. The sparrow stays in the moss; the
+        chapter title becomes one of its objects.
+      prose_directives:
+        - >
+          'He crosses the moss on his knees the last three yards.' Render
+          the specific posture: on his knees, the last three yards. He
+          does not stand to cross; he stays low.
+        - >
+          'She weighs nothing — she has always weighed nothing — but the
+          less she weighs now is something he can feel in his arms.'
+          Render the parenthetical exact. The 'less she weighs now' is
+          the chapter's clearest piece of body-as-departure language.
+        - >
+          'The absence of a breath under skin, the wrongness of a body
+          whose animating thing has gone somewhere else.' Render both
+          clauses. The 'animating thing has gone somewhere else' is the
+          chapter's structural fae-physiology claim: the body is housing,
+          not source.
+        - >
+          'Thistle-in-the-Hollow. Thistle-in-the-Hollow. Thistle-in-the-
+          Hollow.' Render verbatim with the three full repetitions. The
+          three iterations of the full name are the chapter's first
+          triplet of three; the second will be the 'Tell me what to do'
+          at the close. Render the rhyme.
+        - >
+          'The same name she said into his mouth at dawn. He says it the
+          way he heard her say his — formal, full, an invocation.' Render
+          exact. The chapter explicitly names the chapter-five rhyme.
+          'Invocation' is the operative noun.
+        - >
+          'Her eyes do not open. Her lips do not move.' Render the two
+          short sentences. The non-response is the heart of the beat.
+        - >
+          'The gold at the corner of her mouth has spread to her chin. He
+          puts his thumb to it. It is warm. It is sap. It is her blood.'
+          Render the three-clause identification: warm, sap, her blood.
+          The chapter is naming what the gold is in three steps.
+        - >
+          'He stops being able to think.' Render plain. The cognitive
+          collapse is the beat's emotional center.
+        - >
+          The missing print discovery is rendered: 'gone. Just freckles
+          in bark-patterns. Just a body.' Render the three short clauses.
+          The 'Just a body.' is the chapter's bleakest reduction.
+        - >
+          'The mark going into her means the bond is gone or going and he
+          does not know the difference and he does not know how to bring
+          it back.' Render exact. The 'gone or going' and the two
+          don't-knows are the chapter's clearest piece of helpless-
+          recognition language.
+        - >
+          The cedar sparrow sequence is rendered in four short sentences:
+          'It is in the moss six feet from his knees. He cannot stop for
+          it. He cannot leave her for the three seconds it would cost. He
+          looks at it. He leaves it.' Five sentences actually — render
+          each. The three-second specificity is the chapter's most
+          devastating piece of cost-accounting: three seconds is what the
+          gift is worth in this moment compared to her, and three seconds
+          is too much.
+      closes_on: >
+        Cal on his knees with Thistle in his arms. The cedar sparrow in
+        the moss six feet behind him. Bract howling still. Morrow
+        somewhere overhead.
+
+    - id: ch07_b10
+      title: "Morrow, The Run, The Spring, Both Marks Gone, Tell Me What To Do"
+      pov: cal
+      approx_words: 180
+      opens_on: >
+        Morrow lands on his shoulder in crow form. She does not shift. She
+        does not have time. She caws once in his ear — go. He goes.
+      action_sequence:
+        - >
+          Cal carrying Thistle. Bract at his heels. Morrow above. The
+          forest opens the path the way it opened a path for him this
+          morning, the second mercy in twelve hours, except that this one
+          feels like a hand pushing him forward more than a kindness.
+        - >
+          He whispers apologies into her hair the whole way — not the
+          careful sorry he has given to trees, the broken sorry of a man
+          who finally understands what he is.
+        - >
+          He lays her at the edge of the spring on the moss. Her hair
+          across the moss the way it lay across his pillow at dawn. Her
+          eyes closed. The gold sap at her mouth still.
+        - >
+          He puts his hand on her sternum and finds the print not there
+          and makes a sound that the spring will remember for two hundred
+          years.
+        - >
+          Then he does the thing he has been not doing since the woods.
+          He pulls open the front of his own shirt. He looks. The bruise-
+          mark on his own chest, the print of her hand that has been
+          there since the night she healed him — gone. Just skin. The bond
+          is dying in both bodies and it is dying together.
+        - >
+          Bract lies down at her feet and presses his head to her ankle
+          and does not move. Morrow drops out of the air, shifts to half-
+          form at last, lands on her knees beside her niece. She is openly
+          weeping, which Thistle has never seen her do, which Cal has only
+          seen one other woman do in his life — Mae Pritchard at her
+          father's funeral, when he was sixteen. Morrow does not speak.
+          She cannot speak yet.
+        - >
+          Cal on his knees. His hand on Thistle's sternum where his print
+          used to be. His own shirt open over a chest where her print used
+          to be. Morrow at her other side. Bract at her feet. The Mother
+          somewhere behind them in the clearing with her wound open and
+          her gold running into the moss.
+        - >
+          Cal looks up at Morrow, his face wet — he has not noticed his
+          own face — and he says, "Tell me what to do." Morrow does not
+          answer. He says it again. "Tell me what to do." He says it a
+          third time. "Tell me what to do." Morrow opens her mouth.
+      beat_function: >
+        The chapter's longest beat and its structural close. Morrow's
+        single caw in his ear ('go') is her only voice in the chapter;
+        the chapter is deliberately silent on her speaking until the
+        cliffhanger. The forest opening the path 'the second mercy in
+        twelve hours, except that this one feels like a hand pushing him
+        forward more than a kindness' is the chapter's structural escalation
+        of forest-as-actor: it is no longer passive, no longer kind, it
+        is intervening. Cal's broken-sorry apology during the run is
+        named explicitly as different from the careful sorry he gave
+        trees — 'the broken sorry of a man who finally understands what
+        he is.' This is the chapter's clearest piece of Cal-as-changed.
+        The spring scene rhymes with chapter four (Cal at the spring with
+        Thistle for the first time) by inversion: now she is unconscious
+        at the edge, her hair across the moss the way it lay across his
+        pillow at dawn. The sound that the spring will remember for two
+        hundred years is the chapter's planted worldbuilding-as-landscape-
+        memory. Cal pulling open his own shirt is the chapter-three plant
+        finally resolved — the mirror he stopped looking in for seven
+        days has now become his own bare chest under his own eyes. Both
+        marks gone, both bodies losing the bond at the same rate. The Mae
+        Pritchard reference grounds Morrow's weeping in Cal's specific
+        memory: he was sixteen, she was at her father's funeral, it is
+        the only other time he has seen a woman weep openly. The
+        three-fold 'Tell me what to do' is the chapter's structural
+        closing triplet and the rhyme to the three-fold 'Thistle-in-the-
+        Hollow' in beat 9. Morrow's opening her mouth is the chapter's
+        cliffhanger.
+      prose_directives:
+        - >
+          'Morrow lands on his shoulder in crow form. She does not shift.
+          She does not have time. She caws once in his ear — go. He goes.'
+          Render the five short sentences. The 'go' is the chapter's only
+          Morrow-as-speech moment; render exact, not in quotation marks
+          (it is the meaning of the caw, not a word).
+        - >
+          'The second mercy in twelve hours, except that this one feels
+          like a hand pushing him forward more than a kindness.' Render
+          verbatim. The 'hand pushing him forward' is the chapter's
+          structural escalation of the forest's role.
+        - >
+          'Not the careful sorry he has given to trees, the broken sorry
+          of a man who finally understands what he is.' Render exact.
+          The 'careful sorry / broken sorry' contrast and 'what he is'
+          are the chapter's clearest pieces of Cal-as-changed language.
+        - >
+          'Her hair across the moss the way it lay across his pillow at
+          dawn.' Render verbatim. The chapter-five reference is the
+          beat's quietest piece of structural rhyme.
+        - >
+          'Makes a sound that the spring will remember for two hundred
+          years.' Render exact. The two-hundred-year landscape memory is
+          the chapter's worldbuilding-as-landscape claim; the spring is
+          carrying this.
+        - >
+          'The thing he has been not doing since the woods. He pulls open
+          the front of his own shirt. He looks.' Render the three-stage
+          motion. The 'since the woods' is the chapter-three plant — he
+          stopped looking at his own chest in the shaving mirror seven
+          days ago because he was not ready; he is ready now and he is
+          looking at his own skin instead of the mirror.
+        - >
+          'The bruise-mark on his own chest, the print of her hand that
+          has been there since the night she healed him — gone. Just
+          skin.' Render the absence in the chapter's plain register.
+          'Just skin.' is the chapter's matching reduction to 'Just a
+          body.' in beat 9.
+        - >
+          'The bond is dying in both bodies and it is dying together.'
+          Render exact. The 'dying together' is the chapter's clearest
+          piece of bond-as-mutual-fact language.
+        - >
+          The Mae Pritchard reference is rendered verbatim: 'which Cal
+          has only seen one other woman do in his life — Mae Pritchard at
+          her father's funeral, when he was sixteen.' Render the
+          specific name and the specific occasion. Mae and her father's
+          funeral and the age of sixteen are the chapter's only piece of
+          Cal-childhood-memory in the chapter; render exact.
+        - >
+          'Morrow does not speak. She cannot speak yet.' Render the
+          two short sentences. The 'cannot speak yet' is the chapter's
+          structural set-up for the cliffhanger.
+        - >
+          The tableau is rendered with five concrete positions: Cal on
+          his knees, hand on Thistle's sternum; his own shirt open over
+          his marked chest; Morrow at her other side; Bract at her feet;
+          the Mother somewhere behind in the clearing. Render each
+          position. The chapter is ending in a frozen visual.
+        - >
+          'His face wet — he has not noticed his own face.' Render exact.
+          Cal's tears are observed by the narration but not by Cal;
+          render the inattention.
+        - >
+          The three-fold 'Tell me what to do' is rendered verbatim with
+          the explicit pacing: '"Tell me what to do." Morrow does not
+          answer. He says it again. "Tell me what to do." He says it a
+          third time. "Tell me what to do."' Render each of the three
+          repetitions in its own paragraph or its own line. The chapter's
+          rhythm is the three repetitions and the silence between them.
+        - >
+          'Morrow opens her mouth.' Render exact as the closing line. The
+          chapter ends mid-action; chapter eight opens on her answer. Do
+          not render her answer in this chapter under any circumstance.
+      closes_on: >
+        Cal on his knees with his hands on Thistle. Morrow on her knees
+        across from him with her mouth opening. Bract at her feet. The
+        spring around all of them. The Mother somewhere in the clearing
+        bleeding gold into the moss. The end of chapter seven.
+
+  prohibited_at_chapter_level:
+    - "Single Cal POV throughout. No internal access to Thistle, Morrow, Hiram, or any crewman. Morrow's weeping, Hiram's resentment, and Thistle's collapse are all rendered through Cal's observation."
+    - "Morrow does not speak in this chapter beyond the single crow-caw 'go' in beat 10. The closing line — 'Morrow opens her mouth.' — is the cliffhanger for chapter eight. Her answer is not rendered in this chapter under any circumstance."
+    - "The cedar sparrow is left in the moss in the heart-tree clearing. Cal does not retrieve it. The two other objects (scale and dried trillium) remain in his coat through the chapter, including during the run and at the spring."
+    - "Cal does not formally name what Thistle is to himself or aloud, even after seeing her in full fae and seeing the marks disappear from both their bodies. He understands; he does not articulate. The chapter is silent on naming her as fae explicitly."
+    - "Hiram's accusation of 'witch' is rendered as his word, not the narration's. The chapter does not endorse the term; Cal does not adopt it."
+    - "The Mother is rendered as both location and character. She knows Cal; her bark is warm; her wound bleeds gold sap that matches Thistle's bleeding. The chapter does not explain the bond between the Mother and Thistle in dialogue; it shows it through the shared gold."
+    - "The forest-opening-the-path appears twice in the chapter (chapter-six closing and this chapter's beat 10). The second instance is rendered as 'a hand pushing him forward more than a kindness' — explicitly different from the first. The forest is no longer passive; render the distinction."
+    - "The three-fold 'Thistle-in-the-Hollow' in beat 9 and the three-fold 'Tell me what to do' in beat 10 are the chapter's structural triplets. They must rhyme. Both are rendered with the explicit three repetitions, in cadence, with the silence between them named."
+    - "The Mae Pritchard reference is the chapter's only piece of Cal-childhood memory and the only naming of Mae before her epilogue appearance. Render her name and the specific occasion (her father's funeral, when Cal was sixteen) exactly. Do not extend the memory."
+    - "Bract's voice in this chapter is howl, not bark. The howl begins at the strike (beat 6) and 'does not stop' through subsequent beats. Render the continuous howl in the background of beats 6 through 8."
+    - "The chapter's two forward-narrations (the two runaway crewmen telling the story for the rest of their lives in beat 4; Hiram in a cell in Hollow Creek in beat 8) are the chapter's only pieces of future-tense gloss. Render exactly where they appear; do not extend the technique elsewhere."
+    - "The 'sound that is not a sound' construction in beat 6 must land with both parts: the low rending creak in the air and the higher pure note that lands in the chest behind the sternum. The 'place a man keeps the names of the dead' is the chapter's most loaded interior image and must render exact."
+    - "The chapter ends mid-action. Morrow has opened her mouth; her answer is the first sentence of chapter eight. Do not anticipate, do not render, do not foreshadow what she will say."
+    - "The word 'instinct' is not used anywhere in the chapter, in any beat, in any directive, in any rendered prose."

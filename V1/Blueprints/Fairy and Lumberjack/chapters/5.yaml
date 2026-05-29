@@ -1,0 +1,952 @@
+chapter:
+  id: ch05
+  number: 5
+  title: "The Cedar Sparrow"
+  word_count_target: 900
+
+  narrative_function: consummation_and_the_marks_named
+  arc_position: first_half_climax_first_consequence_seeded
+  story_structure_role: >
+    The seventh morning. The chapter that the previous four have been
+    building toward. The consummation, rendered explicitly in the
+    novelette's female-gaze register; the matched marks named between them
+    for the first time; the full names exchanged in flesh — Thistle-in-
+    the-Hollow into his mouth, Caleb Thorne into his teeth. The world
+    answers at the porch step with out-of-season trillium and a one-leafed
+    alder neither of them sees. The cedar sparrow that gives the chapter
+    its title is whittled in secret over the prior three nights and given
+    plain. The chapter ends with the deferral still alive in a new shape:
+    Thistle has told him with her body what she is and has not yet found
+    the words. He is at Miller's Cut for the afternoon and she has all
+    the time she needs to find a few small words. The reader knows what
+    that sentence sounds like in fiction.
+
+  pov:
+    mode: shifting_within_chapter
+    characters: [cal, thistle]
+    pattern: "Opens in Cal POV (beats 1–5, the wake through the wings). POV slides into Thistle at the consummation (beat 6) and stays in Thistle through the closing beats (8 and 9). Beat 7 is a brief omniscient aside (the trillium and the alder), unseen by either character. The shift is not signposted with a section break; it is rendered through which body is being observed-from-inside."
+
+  setting_summary:
+    time_of_year: early_autumn_1897
+    time_of_day: dawn_through_midday_on_the_seventh_day
+
+  locations_present:
+    - cal_cabin_bed                 # the chapter's center of gravity
+    - cal_cabin_interior            # continuing
+    - cal_porch_step                # the trillium and alder appear here; unseen by either
+    - cal_cabin_doorway             # where he leaves at midday
+    - cal_cabin_window              # closing image; Thistle sees the trillium through it
+
+  locations_referenced:
+    - millers_cut                   # where he is going at noon for the week's pay
+    - widowmaker_site               # by way of her finger on his ribs scar in aftermath
+    - the_yew                       # still empty in the woods; she has not slept there
+
+  characters_present:
+    - cal
+    - thistle
+    - bract                         # on the porch; sees the trillium; lays his chin on his paws
+
+  characters_referenced:
+    - daniel_thorne                 # "men in his father's church used to look at a relic"
+    - the_mother                    # in her resolution to tell him about the Mother
+    - miller_men                    # implicit in his midday departure
+    - hiram_beck                    # implicit in the new contract assignment
+
+  objects_present:
+    - cal_cabin_bed                 # central
+    - thistle_collar_buttons        # finally unfastened: one, two, three
+    - thistle_old_dress_with_high_collar # worked down over her narrow hips; on the floor
+    - cal_old_linen_shirt           # the one she has been sleeping in; lifted off her
+    - cal_shirt                     # she tugs it over his head
+    - cal_trousers                  # eventually removed in the act
+    - thistle_freckle_print_on_sternum # REVEALED TO CAL for the first time
+    - cal_chest_mark                # matched to her print; named between them
+    - thistle_inner_arm_freckles    # visible in morning light
+    - thistle_bark_pattern_freckles # down sternum, ribs, insides of thighs
+    - thistle_wings                 # glamour fails completely; iridescent, no insect color
+    - thistle_unglamoured_full_body # full reveal during the act
+    - the_cedar_sparrow             # no bigger than a thimble; whittled over three nights
+    - cloth_wrapping_the_sparrow    # small square; he keeps it in his coat by the door
+    - cal_coat_by_door              # where the sparrow has been hidden
+    - cal_other_linen_shirt         # she wears it as he leaves
+    - cal_scar_at_ribs              # her finger traces it in aftermath
+    - the_porch_trillium            # full and white, out of season, appears at the step
+    - the_alder_sapling             # one new leaf, was not there yesterday
+    - the_noon_trillium_cluster     # closing image; visible through the window
+    - bract_on_the_porch            # silent witness; chin on paws
+
+  objects_referenced:
+    - widowmaker_cedar_limb         # by way of the scar at his ribs
+    - cal_leather_glove             # still on the peg, not interacted with this chapter
+
+  emotional_register: the_held_line_broken_and_what_is_on_the_other_side_of_it
+
+  themes_active:
+    - the_matched_marks_named
+    - the_full_names_exchanged_in_flesh
+    - the_worlds_answer_at_the_porch_step
+    - female_gaze_on_a_man_paying_attention
+    - the_deferral_that_survives_the_act
+    - the_cedar_sparrow_as_plain_gift
+    - what_two_hundred_years_have_been_making_room_for
+
+  voices_introduced:
+    - cal_in_bed_voice              # hoarse, wrecked, almost-sob laugh; his "Tell me to stop"; the sounds he does not know he can make
+    - thistle_in_bed_voice          # the wind-chime laugh from chapter two returned transformed; her real name in his mouth; the noise her two hundred years have been making room for
+    - omniscient_world_aside        # the trillium-and-alder beat; not a character voice but a structural maneuver new to the novelette
+
+  plants_for_later:
+    cedar_sparrow_object: ch_later_returned_to_held_or_lost
+    porch_step_trillium_and_alder: ch_later_pattern_continues_world_responds_to_their_intimacy
+    thistles_failure_to_find_the_words_again: ch06_the_afternoon_goes_wrong
+    cal_going_to_millers_cut_after_consummation: ch06_what_happens_at_camp
+    thistles_full_name_given_in_flesh: ch_later_consequence_in_fae_law
+    cals_full_name_returned_in_teeth: ch_later_he_realizes_he_gave_his_name_too
+    "you_are_very_kind_caleb_finished": completes_ch03_b07_unfinished_word
+    glamour_failure_observed_and_not_questioned: ch_later_he_chose_again_not_to_ask
+    cal_three_kisses_at_the_door: ch_later_the_three_kisses_at_a_different_door
+    thistle_wearing_his_other_linen_shirt_alone: ch06_the_state_he_finds_her_in_or_does_not
+    bract_on_guard_at_the_porch: ch_later_what_bract_sees_first
+    "she_has_the_afternoon_repeated": ch06_the_afternoon_runs_out
+    do_that_again_third_use: callback_completed_from_ch02_and_ch03_now_in_aftermath_register
+
+  continuity_out:
+    pov_state: >
+      Midday on Day 7. Thistle alone in Cal's cabin, sitting in his bed in
+      his other linen shirt with the collar of the wrong dress open on the
+      floor and the cedar sparrow closed warm in her hand. Cal gone to
+      Miller's Cut for the week's pay and the new contract assignment,
+      kissed her three times at the door, "back by dark." Her real full
+      name is somewhere in his body now and his full name is somewhere in
+      hers. The freckle-print on her sternum has been seen by him in
+      daylight and laid hand-to-hand with his own; the bruise-print on his
+      chest has been seen by her in daylight and named matched. She has
+      decided to tell him everything tonight. She has tried the words
+      aloud once already. She could not find them.
+    location_end: "Cal's cabin bed, midday on Day 7, the window full of noon light and a cluster of white trillium open at the porch step."
+    unresolved: >
+      Whether Thistle finds the words this afternoon and whether the words
+      she finds are the right ones. What Cal walks into at Miller's Cut.
+      What it means in fae law that her real full name is now in his body.
+      Whether the consummation has changed anything in the forest or only
+      in them. Whether Bract's chin-on-paws posture at the porch is the
+      stillness of a contented dog or the stillness of a dog watching the
+      trees. What Cal is going to say or not say about the wings when he
+      comes back at dark.
+
+  beats:
+    - id: ch05_b01
+      title: "The Wake, The First Kiss"
+      pov: cal
+      approx_words: 110
+      opens_on: >
+        He wakes first.
+      action_sequence:
+        - >
+          Her cheek on his sternum, exactly on the bruise-shaped mark of
+          her hand. His one hand is in her hair at the back of her skull
+          where he put it in the storm; the other is still on the buttons
+          of her collar from the night. He has not moved in five hours.
+        - >
+          He thinks the word tomorrow and it dissolves on his tongue into
+          now. He does not move. He watches her sleep for an hour and does
+          not move. He is thirty years old. He has never been this afraid
+          of getting what he wants.
+        - >
+          Her eyes open. They are six inches apart on one pillow. They
+          look at each other without speaking for a long count. Her mouth.
+          His mouth. He breaks first.
+        - >
+          He leans in slow enough that she could stop him with a breath;
+          she does not. The first kiss is asking. The second is answer.
+          The third is a thing they both have been keeping in their bodies
+          for six days and twenty years and two hundred years and it
+          leaves the room. Her small hands fist in his shirt at his ribs.
+          He makes a sound into her mouth that he does not know he can make.
+      beat_function: >
+        The pickup from chapter four's closing position — same bodies, same
+        bed, same hands in the same places, five hours later. The 'tomorrow
+        dissolves into now' is the chapter's structural pivot: the
+        chapter-four promise is being kept by becoming continuous with the
+        present. The three-kiss escalation — asking, answer, thing-that-
+        leaves-the-room — is the chapter's first explicit accounting of
+        what the six days have been building, with the two age-figures
+        (twenty years for him, two hundred for her) named together for the
+        first time in the novelette. The sound he does not know he can
+        make is the introduction of cal_in_bed_voice.
+      prose_directives:
+        - >
+          The opening must hold the chapter-four closing image without
+          repeating it. Render: her cheek on his sternum on the mark, one
+          of his hands in her hair, the other on the collar buttons, has
+          not moved in five hours. The reader is meant to recognize the
+          position from the previous chapter's last beat.
+        - >
+          'He thinks the word tomorrow and it dissolves on his tongue into
+          now.' Render verbatim. This is the chapter's pivot sentence.
+        - >
+          'He is thirty years old. He has never been this afraid of getting
+          what he wants.' Render exact. The fear-of-getting is the chapter's
+          first inversion of the want-as-pressure that has run through ch3
+          and ch4.
+        - >
+          'He breaks first.' Render exact. Across the novelette Thistle has
+          been the line-breaker (chapter three razor, chapter four axe-
+          teaching). She has held him in restraint for six days. He breaks
+          first here because she has given him permission by staying.
+        - >
+          The three kisses are rendered as three distinct beats: 'asking,'
+          'answer,' 'thing they both have been keeping in their bodies for
+          six days and twenty years and two hundred years and it leaves the
+          room.' Render the three age-counts in this order, in one sentence.
+        - >
+          'He makes a sound into her mouth that he does not know he can
+          make.' The sound is not described. The reader does not need to
+          know. This is the introduction of cal_in_bed_voice as a register;
+          subsequent beats will render the sounds.
+      closes_on: >
+        Her hands fisted in his shirt at his ribs. His mouth still on hers.
+        The bed warm. The cabin around them already an artifact of who
+        they were yesterday.
+
+    - id: ch05_b02
+      title: "The Collar Unfastened, The Marks Named"
+      pov: cal
+      approx_words: 120
+      opens_on: >
+        His fingers go to the small buttons at her throat — the same buttons
+        his thumb traced in the dark last night without unfastening — and
+        this time he undoes them. One. Two. Three. The collar opens.
+      action_sequence:
+        - >
+          He pulls back to look at what she has been hiding from him for
+          six days.
+        - >
+          The freckles down her sternum, in the light from the window, in
+          the unmistakable shape of his own splayed hand, the fingers, the
+          palm, the heel — his hand, on her skin, in birch-bark patterns
+          where there is no birch bark. He stops. He does not breathe.
+        - >
+          He lays his hand over the print. It fits. Of course it fits. He
+          puts his forehead to hers and does not ask the question. She is
+          grateful in a way she does not have language for.
+      beat_function: >
+        The chapter-three plant resolved: the high collar comes down, and
+        Cal sees what has been under it for six days. The matched mark is
+        finally named between them — his hand fits the print of his hand,
+        the chapter's plainest possible recognition. Cal's choice not to
+        ask the question (after seeing) is the third explicit instance of
+        his choose-not-to-ask discipline (chapters three, four, and now
+        five), and the one most explicitly named: 'does not ask the
+        question.' Thistle's gratitude 'in a way she does not have language
+        for' is the chapter's first piece of Thistle-interior bleeding
+        into the prose without the POV having shifted yet — a deliberate
+        leak that sets up the shift to come.
+      prose_directives:
+        - >
+          'One. Two. Three.' Render the count of buttons as three separate
+          sentences or three separate clauses with full stops. The count
+          mirrors the chapter-four button-tracing that did not unfasten.
+        - >
+          The freckle-print is rendered with its full visual vocabulary:
+          fingers, palm, heel, his own splayed hand, birch-bark patterns
+          where there is no birch bark. Render every element. The chapter
+          three plant pays off here in maximum specificity.
+        - >
+          'He stops. He does not breathe.' Two short sentences. The
+          recognition lands.
+        - >
+          'He lays his hand over the print. It fits. Of course it fits.'
+          Render verbatim. The 'Of course it fits' is the chapter's
+          quietest line of acceptance — Cal acknowledging in three words
+          that what he has been refusing to ask about has been the truth
+          all along.
+        - >
+          'He puts his forehead to hers and does not ask the question.'
+          Render exact. The question is unnamed in the text. The reader
+          knows what it is.
+        - >
+          'She is grateful in a way she does not have language for.' This
+          is the first sentence in the chapter from inside Thistle's head.
+          Render it as a leak — the prose has not yet shifted POV; this is
+          a one-sentence borrow from her interior before sliding back to
+          Cal. The reader feels the porousness.
+      closes_on: >
+        His hand on the print of his hand. Her freckle-print warm under
+        his palm. Neither of them moving. The collar open at her throat.
+
+    - id: ch05_b03
+      title: "Both Shirts Off, The Marks Meet"
+      pov: cal
+      approx_words: 140
+      opens_on: >
+        He lifts the linen shirt — his own old shirt, that she has been
+        sleeping in — up and over her head and lets it fall on the floor.
+      action_sequence:
+        - >
+          She is bare from the waist up in the morning light, the print of
+          his hand spread across her chest, her small high breasts the
+          same pale of her shoulders, her hair loose to her hips. He looks
+          at her the way men in his father's church used to look at a
+          relic.
+        - >
+          He says, hoarse, "Thistle. Tell me to stop." She says, "Do not."
+        - >
+          She pushes herself up onto her knees in the bed and tugs his
+          shirt up over his head. The bruise-mark on his sternum, in the
+          morning, is the matched twin of the print on her own — small
+          spread fingers, a palm, the heel. They have been wearing each
+          other for six days.
+        - >
+          She lays her own slender hand back over the print on his chest.
+          The mark warms under her palm. She makes a sound. He makes the
+          same sound. He pulls her to him and her bare chest meets his bare
+          chest and the matching prints meet each other and both of them
+          stop breathing.
+      beat_function: >
+        The matched marks named in both directions. Her print revealed in
+        beat 2; his print revealed in beat 3; both prints brought into
+        contact in the same breath. 'They have been wearing each other for
+        six days' is the chapter's plainest articulation of what the marks
+        are: the bodies have been in covenant since chapter two while the
+        minds were still negotiating. 'Tell me to stop' / 'Do not' is the
+        chapter's clearest piece of explicit consent. The matching-sound
+        and the breath-stopping when prints meet is the chapter's first
+        moment of body-recognition — the marks themselves are responsive
+        to contact.
+      prose_directives:
+        - >
+          The shirt-removal is rendered as two parallel movements: he lifts
+          her shirt off her, she tugs his shirt off him. Render both with
+          their respective bodies — his calloused hands on her thin linen,
+          her slender hands at his collar. The mutuality is the chapter's
+          structural ethic.
+        - >
+          The relic image — 'the way men in his father's church used to
+          look at a relic' — is the chapter's clearest line about how Cal
+          sees her unclothed. Render verbatim. Do not soften 'relic.' The
+          reverence is the desire.
+        - >
+          'Thistle. Tell me to stop.' / 'Do not.' Render verbatim with the
+          full stops. The exchange is the chapter's explicit-consent
+          mechanic; do not gloss it.
+        - >
+          The matched-twin description of his chest mark uses the same
+          vocabulary as the description of her freckle-print in beat 2 —
+          small spread fingers, a palm, the heel. The reader should see
+          the deliberate echo.
+        - >
+          'They have been wearing each other for six days.' Render exact.
+          One short sentence. The chapter's structural recognition of what
+          the chapter-two woods-scene set in motion.
+        - >
+          'The mark warms under her palm. She makes a sound. He makes the
+          same sound.' Render in this exact cadence. The synchronicity of
+          their sounds is the chapter's first piece of bodily-rhyme. Do
+          not specify what the sound is. The reader fills it in.
+        - >
+          The closing image — bare chest meets bare chest, matching prints
+          meet matching prints, both stop breathing — is rendered in one
+          short sentence. Render the simultaneity.
+      closes_on: >
+        The two of them chest to chest, the matched marks aligned, the
+        morning light across them, neither of them breathing.
+
+    - id: ch05_b04
+      title: "His Mouth Traveling"
+      pov: cal
+      approx_words: 90
+      opens_on: >
+        His mouth begins traveling.
+      action_sequence:
+        - >
+          Her jaw. Her throat where the collar was. The hollow between her
+          collarbones. The handprint on her sternum — he kisses each finger
+          of it, slow, like he is signing a name. Her breasts.
+        - >
+          He puts his mouth on her and she fists her small hand in his
+          hair and discovers what her own mouth sounds like when it has
+          had her name taken out of it. He spends a long time. He is not
+          in a hurry. She is two hundred years old and has not been in a
+          hurry in nineteen decades; she is in a hurry now and he is not
+          letting her be.
+      beat_function: >
+        The chapter's first sustained piece of explicit, attentive
+        physical attention rendered in the chapter's plain candor. The
+        kissing-each-finger-of-the-handprint is the chapter's most
+        specific piece of mark-as-text: he is signing his name on the print
+        of his own hand. The 'she discovers what her own mouth sounds like
+        when it has had her name taken out of it' is the chapter's clearest
+        piece of Thistle-interior bleeding into a Cal-POV beat — the second
+        explicit leak, after beat 2. The chapter is preparing the reader
+        for the full POV shift to come.
+      prose_directives:
+        - >
+          The mouth-traveling is rendered as a list of stops: jaw, throat
+          where the collar was, hollow between collarbones, handprint on
+          her sternum, then each finger of the handprint, then her breasts.
+          Render in this exact order. The geography is the female-gaze.
+        - >
+          'He kisses each finger of it, slow, like he is signing a name.'
+          Render verbatim. The signing-a-name image is the chapter's
+          quietest piece of fae-marking writing.
+        - >
+          'She discovers what her own mouth sounds like when it has had
+          her name taken out of it.' Render exact. This is the second leak
+          into Thistle's interior; the reader feels the POV becoming
+          porous.
+        - >
+          'He spends a long time. He is not in a hurry.' Two short
+          sentences. The patience is the chapter's signature directive for
+          rendering Cal's attention.
+        - >
+          'She is two hundred years old and has not been in a hurry in
+          nineteen decades; she is in a hurry now and he is not letting
+          her be.' Render verbatim. The two-hundred-and-nineteen-decades
+          count is the chapter's clearest articulation of the asymmetry of
+          their durations.
+      closes_on: >
+        His mouth at her breast. Her hand fisted in his hair. The morning
+        light slanting higher.
+
+    - id: ch05_b05
+      title: "Her Undressing, His Mouth On Her"
+      pov: cal
+      approx_words: 140
+      opens_on: >
+        He works the dress down over her narrow hips.
+      action_sequence:
+        - >
+          The fae body underneath — pale, bark-patterned where her
+          freckles run, the soft curve of her, the small impossible muscle
+          of her shoulders where the wings sit folded inside her glamour.
+        - >
+          He puts his mouth on the inside of her thigh. Her small hands
+          fist in the sheet. He puts his mouth on her. She has been alive
+          two hundred years and what he is doing to her with his mouth is
+          a thing she has not known her body could be given.
+        - >
+          He is patient. He is paying attention. He has not done this many
+          times — she can feel it — and he is doing it anyway, slow,
+          listening to the sounds she makes, learning what makes her hands
+          fist tighter in the sheet, returning to it.
+        - >
+          A strong, capable, hardworking man on his stomach in the bed
+          with his shoulders between her slender thighs and his attention
+          entirely on her, his calloused hand splayed flat across her belly
+          to hold her there, his other hand laced into hers at her hip.
+      beat_function: >
+        The chapter's signature female-gaze beat. Cal rendered as desired-
+        object in the act of attending to her — the prose's most explicit
+        instance of the gaze structure that has run through the novelette
+        (chapter three's wrist-watching, chapter four's axe-teaching,
+        chapter four's hidden spring). The 'a strong, capable, hardworking
+        man on his stomach in the bed' tableau is one of the chapter's
+        load-bearing images and the prose's clearest articulation of the
+        female-gaze register. The first explicit mention of the wings 'sit
+        folded inside her glamour' is planted here for the wings-revealed
+        beat that follows.
+      prose_directives:
+        - >
+          The dress comes off in one sentence: 'He works the dress down
+          over her narrow hips.' Do not extend. The reveal is the body, not
+          the undressing.
+        - >
+          The fae-body description is rendered as four items: pale, bark-
+          patterned where her freckles run, the soft curve of her, the
+          small impossible muscle of her shoulders where the wings sit
+          folded inside her glamour. Render in this order. The 'small
+          impossible muscle' is the planted reveal for beat 6.
+        - >
+          'He puts his mouth on her.' Render plain. The chapter's most
+          frank line of explicit content in its plainest possible diction.
+          Do not euphemize. Do not extend.
+        - >
+          'She has been alive two hundred years and what he is doing to
+          her with his mouth is a thing she has not known her body could
+          be given.' Render exact. The two-hundred-year count is doing the
+          erotic work; do not gloss it.
+        - >
+          'He is patient. He is paying attention.' Two short sentences.
+          The patience and attention are the chapter's repeated directives
+          for the entire act sequence.
+        - >
+          'He has not done this many times — she can feel it — and he is
+          doing it anyway' is the chapter's clearest piece of Cal-as-
+          un-practiced-but-attentive. Render the parenthetical 'she can
+          feel it' as the second voice in the sentence — Thistle's
+          knowledge inside the rhythm of Cal's body. Another POV-porous
+          line.
+        - >
+          The female-gaze tableau — 'A strong, capable, hardworking man on
+          his stomach in the bed with his shoulders between her slender
+          thighs and his attention entirely on her, his calloused hand
+          splayed flat across her belly to hold her there, his other hand
+          laced into hers at her hip.' — is rendered verbatim, as one
+          sentence, the chapter's signature load-bearing image. Do not
+          break it into smaller sentences. The single-sentence sweep is
+          the gaze itself.
+      closes_on: >
+        The tableau held. Her hands fisted in the sheet. His mouth still
+        on her. The morning light across the small of his back.
+
+    - id: ch05_b06
+      title: "The Wings"
+      pov: cal
+      approx_words: 80
+      opens_on: >
+        She comes undone with her hand fisted in his hair and her back off
+        the mattress and her glamour fails completely for the count of three.
+      action_sequence:
+        - >
+          Wings half-unfurled against the morning light in colors no insect
+          ever wore. Eyes the green of sun through new leaves. Freckles
+          resolved into bark-patterns down her sternum and her ribs and
+          the insides of her thighs. Ash-blonde hair a foot longer than it
+          is in her human shape.
+        - >
+          He sees all of it. He does not look away. He kisses her hipbone
+          like he is making a vow.
+        - >
+          The glamour comes back. He has chosen, again, not to ask. He
+          climbs back up the bed and finds her mouth.
+      beat_function: >
+        Cal's first full sight of Thistle unglamoured — the wings, the
+        eye-color, the resolved bark-patterns, the hair-length change.
+        Three-count of glamour failure. He sees all of it. He does not
+        look away. The kiss to her hipbone 'like he is making a vow' is
+        the chapter's quietest piece of consent to her real form. The
+        'he has chosen, again, not to ask' completes the choose-not-to-ask
+        arc that has run through chapters three, four, and five — but
+        with the crucial addition that he is now choosing not to ask
+        having seen everything. The line between not-asking-from-ignorance
+        and not-asking-from-knowledge is crossed in this beat.
+      prose_directives:
+        - >
+          'For the count of three' is the count. Render explicit. The
+          duration is what the reader has to feel; her body is unglamoured
+          for the length of a breath.
+        - >
+          The four-item fae-body description is rendered in this exact
+          order: wings (in colors no insect ever wore), eyes, freckles
+          resolved into bark-patterns, hair (a foot longer). Each gets its
+          own short sentence. The reader is being shown her actual body
+          one feature at a time.
+        - >
+          'In colors no insect ever wore' is the chapter's quietest piece
+          of fae-wing description. Do not specify colors. The not-naming
+          is the wonder.
+        - >
+          'He sees all of it. He does not look away.' Render exact. The
+          two sentences are the beat's structural ethic.
+        - >
+          'He kisses her hipbone like he is making a vow.' Render exact.
+          This is the chapter's vow-language; the kiss is the form of the
+          vow.
+        - >
+          'He has chosen, again, not to ask.' The 'again' is doing the
+          work. The reader counts the previous chosen-not-to-asks. Render
+          the 'again' specifically.
+      closes_on: >
+        The glamour back. Her body the human shape again, the wings folded
+        back inside the small impossible muscle of her shoulders. His mouth
+        on hers.
+
+    - id: ch05_b07
+      title: "The Act, The Names"
+      pov: thistle
+      approx_words: 150
+      opens_on: >
+        He is above her. His weight on his forearms. His hair fallen forward.
+      action_sequence:
+        - >
+          He stops three more times to look at her — each time he stops,
+          his name catches in her throat — and each time she answers by
+          guiding his hand somewhere new.
+        - >
+          When he comes into her she makes a sound she has never made; he
+          stops, asks with his eyes, and she pulls his mouth back down to
+          hers and tells him with her body to keep going. He is slow. He
+          is paying attention. He keeps his forehead against hers.
+        - >
+          The bed creaks once and he laughs into her mouth — wrecked,
+          surprised, almost a sob — and she laughs the wind-chime laugh
+          into his and discovers, somewhere very far inside her own chest,
+          that this is the noise her two hundred years have been making
+          room for.
+        - >
+          At her second peak her glamour fails again and she says her name
+          into his mouth — her real name, the full one — Thistle-in-the-
+          Hollow — and the words go into him like water into ground.
+        - >
+          He follows her three thrusts later with her formal name in his
+          teeth: Caleb Thorne. No one has ever said his full name to him
+          in bed. He had not known he wanted it said.
+        - >
+          He shakes against her for a long count and she holds the back
+          of his head and feels the wet of his forehead against her temple.
+      beat_function: >
+        The chapter's central act, rendered from inside Thistle's body.
+        The POV shift is the chapter's structural maneuver: the reader has
+        been observing Cal observing her for five beats; now the reader is
+        inside her, observing him. Three stops to look at her (planted
+        from his stopping at the threshold of every previous escalation —
+        the razor, the axe-teaching, the spring). His name catching in her
+        throat each time. Her sound when he enters her — never-made
+        before. The bed creak and the sob-laugh is the chapter's most
+        tender comic note inside the most serious scene. The exchange of
+        true names is the chapter's structural climax: she gives her full
+        name into his mouth; he gives his full name in his teeth; both
+        names are now in the other's body. 'No one has ever said his full
+        name to him in bed' is the chapter's plainest articulation of why
+        her formality has been undoing him from chapter three onward.
+      prose_directives:
+        - >
+          The POV shift is not signposted. The narration simply enters
+          Thistle's body — 'his weight on his forearms,' 'his hair fallen
+          forward' are now what she is registering. The reader feels the
+          shift through the geography of attention.
+        - >
+          'He stops three more times to look at her — each time he stops,
+          his name catches in her throat.' Render the three stops. The
+          name-catching is her version of his choose-not-to-ask: she
+          cannot speak his name while he is looking at her.
+        - >
+          'She guides his hand somewhere new' each time. Render Thistle as
+          the authority of the act. She is teaching him her body.
+        - >
+          When he enters her, the sound she makes is 'a sound she has never
+          made.' Do not specify. The reader fills it in.
+        - >
+          'He stops, asks with his eyes' is rendered as one short clause.
+          The asking is silent. She answers by pulling his mouth back to
+          hers. Render the mutual consent inside the act.
+        - >
+          'He is slow. He is paying attention. He keeps his forehead
+          against hers.' Three short sentences. The patience, attention,
+          and forehead-contact are the chapter's repeated directives,
+          continued from beat 5.
+        - >
+          The bed creak is rendered exact: 'The bed creaks once and he
+          laughs into her mouth — wrecked, surprised, almost a sob.' The
+          three descriptors of the laugh (wrecked, surprised, almost a
+          sob) are the introduction of cal_in_bed_voice in its fullest
+          form. Render all three.
+        - >
+          'She laughs the wind-chime laugh into his.' The wind-chime
+          laugh from chapter two beat six returns here, transformed by
+          context. Render the recognition; do not re-describe the laugh
+          beyond 'wind-chime.'
+        - >
+          'This is the noise her two hundred years have been making room
+          for.' Render verbatim. The chapter's clearest piece of
+          recognition-from-Thistle's-interior, and the strongest
+          articulation of the duration-asymmetry as resolved.
+        - >
+          The two full-name exchanges are the chapter's structural climax.
+          Render: she says 'Thistle-in-the-Hollow' into his mouth at her
+          second peak. He says 'Caleb Thorne' in his teeth three thrusts
+          later. The 'in his teeth' is the chapter's most specific
+          location-of-the-name image.
+        - >
+          'The words go into him like water into ground.' Render exact.
+          This is the chapter's clearest piece of fae-name-language. In
+          fae law, this matters; the chapter does not say so, but the
+          metaphor does the work.
+        - >
+          'No one has ever said his full name to him in bed. He had not
+          known he wanted it said.' Render verbatim. The two sentences
+          land Cal's accumulated formality-undoing from chapter three.
+        - >
+          The closing image — 'He shakes against her for a long count and
+          she holds the back of his head and feels the wet of his forehead
+          against her temple.' — is rendered with the wetness of his
+          forehead specified. The reader can decide whether it is sweat or
+          tears. Do not specify.
+      closes_on: >
+        His weight collapsed against her. Her hand on the back of his
+        head. His forehead against her temple. Both of them shaking.
+
+    - id: ch05_b08
+      title: "Outside the Window, Unseen"
+      pov: omniscient
+      approx_words: 50
+      opens_on: >
+        Outside the window, unseen.
+      action_sequence:
+        - >
+          A cluster of late-autumn trillium pushes up through the moss at
+          the porch step and opens, full and white and out of season.
+          Beside it, a single alder sapling that was not there yesterday
+          unfurls one new leaf.
+        - >
+          Neither of them sees. Bract sees from the porch and lays his chin
+          on his paws.
+      beat_function: >
+        The chapter's only omniscient beat — a 50-word structural maneuver
+        unique in the novelette so far. The world responds to the act at
+        the porch step: trillium (callback to chapter one's involuntary
+        bloom; the third instance of trillium magic in the novelette) and
+        a one-leafed alder (escalation from the chapter-four glamour-fail
+        alder at the tree line, which was a sapling already; this one was
+        not there yesterday). Neither Cal nor Thistle sees the world's
+        answer. Bract sees and assumes the posture of a dog at rest. The
+        reader is given the chapter's quietest piece of supernatural-
+        consequence and the chapter's only sustained look-from-outside.
+      prose_directives:
+        - >
+          The beat is a structural aside. Render it brief — fifty words.
+          Do not extend. The brevity is the entire effect.
+        - >
+          'Outside the window, unseen.' Render exact as the opening. Two
+          phrases, one short sentence. The 'unseen' is doing the
+          structural work.
+        - >
+          The trillium description is full and white and out of season —
+          render all three modifiers. The chapter-one trillium that Cal
+          pocketed (involuntary bloom near Thistle) and the chapter-four
+          alder at the tree line (glamour-fail) are now joined by this
+          new pair. The reader feels the pattern without it being named.
+        - >
+          'A single alder sapling that was not there yesterday.' Render
+          exact. Sapling did not exist twenty-four hours ago. The
+          quietness of the impossibility is the entire register.
+        - >
+          'Neither of them sees. Bract sees from the porch and lays his
+          chin on his paws.' Render exact. Bract's chin-on-paws is the
+          chapter's only piece of dog-as-witness, and it lands without
+          comment. The reader is meant to wonder later whether Bract was
+          contented or watching.
+        - >
+          No POV character. The narration is the world describing itself.
+          The chapter's only beat that is not inside a body.
+      closes_on: >
+        The porch step. The trillium open. The alder leaf unfurled. Bract
+        on the boards.
+
+    - id: ch05_b09
+      title: "Aftermath, 'You Are Very Kind,' The Cedar Sparrow"
+      pov: thistle
+      approx_words: 150
+      opens_on: >
+        Late morning. Light slanted higher. Her head on his chest, on the
+        mark. His thumb tracing the print on her sternum and finding it
+        does not fade no matter how long he traces it. Her finger on the
+        long pale line of the scar at his ribs.
+      action_sequence:
+        - >
+          They do not speak for a long time. When she speaks, she finishes
+          the sentence from her first night in this cabin: "You are very
+          kind, Caleb. That is the word. I could not say it then because
+          I knew it would do this to me."
+        - >
+          He laughs — wrecked, low — and presses his mouth to the top of
+          her head and says, "Do that again," and she does not know
+          whether he means the laugh or the sentence, and she does both.
+        - >
+          He gets up — naked, unembarrassed, the morning making a kind of
+          saint of him — and rummages in his coat by the door. He comes
+          back to the bed with something wrapped in a square of cloth: a
+          cedar sparrow no bigger than a thimble, whittled over the last
+          three nights while she slept beside him in his thoughts. "For
+          you. It's not much."
+        - >
+          She cannot speak. She closes her small hand around it. He kisses
+          her closed fist. Her mouth. The print on her sternum. He puts
+          his forehead between her breasts and stays there for a long count.
+        - >
+          Lying against him in the noon light she decides she will tell
+          him everything tonight. The Mother. The wings. Her name in full,
+          the one she gave him in his teeth. The forest's law. Fae cannot
+          lie but they can delay and she has delayed long enough. She
+          will find the words while he is at the camp this afternoon.
+          She will find them.
+      beat_function: >
+        The chapter's longest aftermath beat and the resolution of three
+        of the novelette's planted threads. The unfinished sentence from
+        chapter three beat seven ('I am sorry. You are very —') is
+        finished here as 'kind' — the word she could not say then because
+        she knew it would do this to her. The reader and Thistle both
+        register the chapter-three plant resolved. 'Do that again' returns
+        for the third time in the novelette (chapter two's laugh, chapter
+        three's laugh, now this), with Cal not knowing whether he means
+        the laugh or the sentence and Thistle giving both. The cedar
+        sparrow scene is plain, undecorated, and titles the chapter. The
+        whittled-over-three-nights detail establishes that Cal has been
+        making her a gift in the same three days she has been failing to
+        find words for him. The closing resolution-to-tell-him is the
+        chapter's set-up for the chapter-six dramatic turn: she has
+        decided, she will find the words, she has the afternoon.
+      prose_directives:
+        - >
+          'Late morning. Light slanted higher.' Two short clauses set the
+          time without naming the clock.
+        - >
+          The post-coital position is rendered with three layered touches:
+          her head on his chest on the mark, his thumb on the print on her
+          sternum, her finger on the scar at his ribs (chapter two plant
+          — Samuel's saving — touched for the first time). Render all three.
+        - >
+          'It does not fade no matter how long he traces it.' Render the
+          permanence specifically. The mark is now permanent; the chapter-
+          three faint-bruise that she first saw in noon sunlight in chapter
+          four is now a set thing.
+        - >
+          'You are very kind, Caleb. That is the word. I could not say it
+          then because I knew it would do this to me.' Render verbatim.
+          This is the chapter's completion of the chapter-three plant.
+          'It would do this to me' lands as the chapter's quietest piece
+          of consequence-recognition.
+        - >
+          'Do that again' is the third use in the novelette. Render
+          exact. The 'she does not know whether he means the laugh or the
+          sentence, and she does both' resolves the callback in the
+          chapter's preferred mode: both at once.
+        - >
+          'The morning making a kind of saint of him' is the chapter's
+          second piece of religious-language for Cal (after the relic line
+          in beat 3). Render verbatim. The female gaze on the naked
+          unembarrassed man is the chapter's signature ethic.
+        - >
+          The cedar sparrow is described with three specific facts: no
+          bigger than a thimble, wrapped in a square of cloth, whittled
+          over the last three nights while she slept beside him in his
+          thoughts. The 'in his thoughts' is the chapter's quietest
+          piece of off-page intimacy: he was carving her image while she
+          was failing to find the words for him.
+        - >
+          '"For you. It's not much."' Render verbatim. The understatement
+          is Cal's voice at its purest.
+        - >
+          'She cannot speak.' Render plain. She, who has been failing to
+          find words for two days, is now silenced by his gift.
+        - >
+          The four-touch sequence — closed fist, mouth, print on sternum,
+          forehead between breasts — is rendered in this order. Render
+          each touch. The forehead-between-breasts at the end is the
+          beat's quietest piece of Cal's vow-language.
+        - >
+          The resolution-to-tell-him list is rendered: the Mother, the
+          wings, her name in full, the forest's law. Each is one item.
+          Render all four. The reader is shown what she has decided to
+          say. The chapter does not say whether she says it. (Spoiler:
+          she does not, in this chapter.)
+        - >
+          'Fae cannot lie but they can delay and she has delayed long
+          enough.' Render verbatim. The chapter's only piece of fae-law
+          exposition, delivered in Thistle's interior at the moment she
+          decides not to delay further. The reader is being told the
+          rule that the next chapter will test.
+        - >
+          'She will find the words while he is at the camp this afternoon.
+          She will find them.' Render with the repetition. The repetition
+          is the chapter's quietest piece of dramatic irony.
+      closes_on: >
+        Cal's forehead between her breasts. The cedar sparrow warm in her
+        closed hand. The noon light slanted higher. Her decision made.
+
+    - id: ch05_b10
+      title: "Midday, He Leaves, The Words That Will Not Come"
+      pov: thistle
+      approx_words: 90
+      opens_on: >
+        Midday. He has to be at Miller's Cut by two for the week's pay and
+        the new contract assignment.
+      action_sequence:
+        - >
+          He gets dressed slowly — she watches him put each piece of
+          clothing back on the body she has just learned and does not know
+          whether to ache or to laugh.
+        - >
+          He kisses her three times at the door. "Back by dark." She nods.
+          Her hair is across her bare shoulders. She is wearing his other
+          linen shirt. The cedar sparrow is closed in her hand. He almost
+          cannot leave. He leaves.
+        - >
+          She sits in his bed with the cedar sparrow warm in her palm and
+          tries the words aloud. "Caleb, I am not — Caleb, my name is —
+          Caleb, my full name is Thistle-in-the-Hollow, and I —" She
+          cannot find them. She tells herself she has the afternoon. She
+          has the afternoon.
+        - >
+          Outside the cabin window, in the noon light, a cluster of white
+          trillium is open at the porch step where there were no
+          trilliums yesterday.
+      beat_function: >
+        The chapter's closing. Cal dressed and gone to the camp; Thistle
+        alone with the sparrow; the words still missing. The reverse
+        female-gaze of beat 5 — there, the reader watched Cal naked
+        attending to her; here, Thistle watches him dressed and leaving,
+        the body she has just learned re-clothed. 'He almost cannot leave.
+        He leaves.' is the chapter's clearest line of duty-overriding-
+        want, and the structural set-up for whatever happens at Miller's
+        Cut. The repetition of 'She has the afternoon.' is the chapter's
+        last piece of dramatic irony — the reader knows the afternoon
+        runs out. The trillium at the porch step is the chapter's closing
+        image, now seen by Thistle through the window (the beat-7
+        omniscient aside paid off as something visible to her).
+      prose_directives:
+        - >
+          'He has to be at Miller's Cut by two for the week's pay and the
+          new contract assignment.' Render exact. The new contract
+          assignment is the chapter-six plant: something is about to
+          change at the camp.
+        - >
+          The reverse female-gaze — 'she watches him put each piece of
+          clothing back on the body she has just learned' — is the
+          chapter's closing ethic. The body she has just learned. Render
+          exact. The verb 'learned' is precise; she has been studying him
+          for nineteen days and has now been given him in body.
+        - >
+          'Does not know whether to ache or to laugh' is the beat's
+          structural ambivalence. Render exact.
+        - >
+          'He kisses her three times at the door.' Three kisses. Match the
+          three kisses of the opening (asking, answer, leaving). The
+          symmetry is the chapter's closing rhyme.
+        - >
+          '"Back by dark."' Render verbatim. The promise of return; the
+          reader files it.
+        - >
+          'He almost cannot leave. He leaves.' Render exact, two
+          sentences. The duty-overriding-want.
+        - >
+          The fragmented words she tries aloud — 'Caleb, I am not — Caleb,
+          my name is — Caleb, my full name is Thistle-in-the-Hollow, and
+          I —' — are rendered verbatim with the em-dashes. Three attempts,
+          all broken off. The third one comes closest; even speaking her
+          full name aloud (which she has now given him in his body) she
+          cannot finish what comes after. The reader feels the failure
+          accumulating.
+        - >
+          'She tells herself she has the afternoon. She has the afternoon.'
+          Render with the repetition. The third use of repetition for
+          dramatic irony in the chapter (after the three-age-counts in
+          beat 1 and 'She will find them' in beat 9).
+        - >
+          The closing trillium image is rendered exact: 'Outside the cabin
+          window, in the noon light, a cluster of white trillium is open
+          at the porch step where there were no trilliums yesterday.' The
+          beat-7 trillium is now visible to her through the window. The
+          chapter closes on the world's answer becoming a thing she can
+          see.
+      closes_on: >
+        Thistle in his bed with the cedar sparrow in her hand. The
+        trillium open at the porch step through the window. The afternoon
+        in front of her. The chapter ends.
+
+  prohibited_at_chapter_level:
+    - "No interruption from the outside world during the central act sequence (beats 1–7). Bract stays on the porch; the trillium and alder appear at the porch step but are not entered; Morrow does not appear and is not referenced; Samuel does not appear and is not referenced; no human visitor; no sound from the woods. The cabin holds the entire act."
+    - "Cal does not ask Thistle directly what she is, even after the wings reveal in beat 6. The choose-not-to-ask discipline established in chapters three, four, and four extends through five — now in its strongest possible form, the not-asking having seen everything. The chapter explicitly names this: 'He has chosen, again, not to ask.'"
+    - "Thistle does not reveal her full identity (the Mother, the forest's law, the wings as institution, what she has been guarding) to Cal in dialogue this chapter. She gives her full name in flesh (beat 7) but does not say in words what she is. The verbal reveal is reserved; the chapter ends with her failing to find the words again."
+    - "The matched marks are named between them in beat 2 (revealed) and beat 3 (matched), but the mechanism of their making (the chapter-two healing scene) is not explained by either character in dialogue. He saw her at the woods; she healed him; the marks set themselves. None of this is articulated. The reader knows; the characters know without speaking it."
+    - "POV is single-character within each beat. The two POV-porous lines — 'she is grateful in a way she does not have language for' (beat 2) and 'she can feel it' (beat 5) — are deliberate leaks from Thistle's interior into Cal-POV beats, prefiguring the shift in beat 7. They are not full POV shifts. After beat 7 the chapter is in Thistle through the close."
+    - "Beat 8 (Outside the Window) is the novelette's only beat with no character POV. Render in omniscient world-voice. Neither Cal nor Thistle is the observer; the narration is the world describing itself. Bract sees; this is reported as fact, not as Bract's interior."
+    - "The sex scene is rendered explicitly per the project's romantasy-explicit register, female-gaze on Cal throughout, in the chapter's plain dry candor. No euphemism. No italics on body parts. No purpling. The bodies are bodies; the acts are the acts; the rendering is matter-of-fact in the same register Thistle reported her own body in chapter one and Cal reported his in chapter three."
+    - "Female-gaze on Cal extends through the entire act — render his attention, his patience, his hands, his hair fallen forward, his forehead against hers, his sob-laugh, his calloused hand splayed flat across her belly. The chapter is not about her undoing; it is about him paying attention to her undoing, and the reader watches him."
+    - "Thistle's two glamour failures during the act sequence are not interrogated in dialogue by either character. He sees; he kisses; the glamour returns; they continue. The chapter is silent on what the failures mean and how they happen. The reader files them."
+    - "The cedar sparrow is described with its physical specifications (no bigger than a thimble, wrapped in cloth, whittled over three nights) but not as a fae object or a charged gift. It is a plain whittled bird. Cal calls it 'not much.' The chapter does not say what it is or what it will become. That work is left for later."
+    - "The three unfinished sentences accumulated through chapter four — Cal's 'Thistle. If I —', his 'Thistle, last night I —', Thistle's chapter-three 'You are very —' — are now resolved as follows: Thistle's is finished here as 'kind' (beat 9). Cal's two unfinished sentences are not finished in this chapter; they are now superseded by what has happened between them. The reader can decide whether the unfinishing matters anymore."
+    - "The 'tomorrow' deferral from chapter four is kept, transformed: 'tomorrow' becomes 'now' in beat 1. The deferral is resolved by becoming continuous with the present. Thistle's new deferral ('she has decided to tell him everything tonight') is the chapter-six plant."
+    - "The word 'instinct' is not used anywhere in the chapter, in any beat, in any directive, in any rendered prose."

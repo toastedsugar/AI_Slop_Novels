@@ -1,0 +1,683 @@
+chapter:
+  id: ch09
+  number: 9
+  title: "What the Forest Found"
+  word_count_target: 1400        # running long on purpose; beats overshoot in outline, prose pass tightens
+
+  narrative_function: resolve_external_threat_and_consummate_the_bond
+  arc_position: post_climax_resolution
+  story_structure_role: >
+    The return and the reckoning. Three days after the rite, the chapter pays
+    off everything the body of the story has been building: the matched marks
+    made visible and mutual, the external threat dissolved by mercy rather than
+    violence, Samuel's letter lifting the economic noose that drove Cal to the
+    axe, and the full consummation that ratifies the bond. The rite of Ch. 8
+    and the romance are revealed to be the same four words, said twice by
+    accident. The chapter moves Cal down the mountain to face the world, lets
+    the world let him keep everything, and brings him home to a body that has
+    been waiting since noon. Set three days after the rite. POV is fluid: Cal
+    carries the morning and the descent (b01-b05); POV slides to Thistle at the
+    porch (b06) and stays with her through the reunion, the love scene, and the
+    close; the aftermath beats (b13-b15) run fluid; the chapter closes inside
+    Thistle's head. Transitions occur only on scene breaks, never mid-beat.
+
+  pov:
+    mode: fluid
+    character: thistle
+
+  setting_summary:
+    time_of_year: autumn_1897
+    time_of_day: morning_through_after_dark
+
+  locations_present:
+    - cal_cabin                 # morning scene and the long night scene
+    - hollow_creek_trail        # the descent and the return
+    - miller_company_office     # Albert Gould, the contract that no longer exists
+    - hollow_creek_post_office  # Mae Pritchard, the handkerchief
+
+  locations_referenced:
+    - heart_tree_clearing       # the rite, three days prior
+    - miller_camp               # Albert tells him not to go back
+    - magistrate_cell           # where Hiram is raving about witches
+    - portland                  # Samuel's apprenticeship, spring start
+
+  characters_present:
+    - cal
+    - thistle
+    - albert_gould              # first major on-page scene
+    - mae_pritchard
+    - bract
+
+  characters_referenced:
+    - samuel                    # the letter, the prize, the freedom
+    - hiram_beck                # off-page, in the cell, broken
+    - the_mother                # the rite, the source of the gold
+    - mr_halloran               # the Portland master Samuel will apprentice under
+    - marin_thorne              # the name said three times at the rite (Ch. 8 echo)
+
+  objects_present:
+    - cedar_sparrow             # in her hand through the three days of sleep
+    - cal_linen_shirt           # she wears it; he tears it off her later
+    - cal_hat                   # she wears it to the reunion; it falls in the moss
+    - samuels_letter            # two weeks old, handed over by Albert
+    - mae_handkerchief          # given without looking at his face
+    - trilliums_at_the_porch    # three closed at dawn, open at his boot, seven by night
+    - alder_leaf                # still on the porch step from Day 6
+
+  objects_referenced:
+    - cal_leather_glove         # lifted from a stump six days before he saw her face
+    - white_trillium            # the bloom in the cutting clearing, Ch. 1 / Ch. 3 payoff
+    - iridescent_scale          # used to live in the breast pocket; the letter lives there now
+    - the_contract              # burned in the moss three days ago; nothing to surrender
+    - cal_gold_seam             # the healed cut, heel of thumb to inside of wrist
+    - cal_sternum_mark          # the print of her splayed hand
+
+  emotional_register: >
+    tender_reckoning -> released_grief -> disbelieving_grace -> reunion_hunger
+    -> consummation -> settled_belonging_and_quiet_resolve
+
+  themes_active:
+    - the_body_as_ratification_of_the_bond
+    - the_matched_mark_made_mutual_and_visible
+    - the_romance_and_the_rite_are_the_same_words
+    - mercy_as_the_shape_the_world_takes_when_it_lets_him_keep_things
+    - grief_released_after_twenty_two_years
+    - claiming_and_being_claimed_in_equal_measure
+    - the_forest_finishing_the_sentence_the_body_started
+
+  voices_introduced:            # by Ch. 9 the core registers are established; one new voice arrives
+    - albert_gould_voice        # dignified, unembarrassed kindness; "Go home, son."
+    - thistle_formal_cadence    # her low ceremonial register, now used in the bed
+    - cal_plain_register        # flattened, fast, working-man economy under feeling
+    - the_shared_settled_voice  # the two of them after, fewer words, full meaning
+
+  plants_for_later:
+    trilliums_multiplying_three_to_seven: ch10_epilogue_the_porch_in_bloom
+    i_will_not_let_him_grow_old_without_me: ch10_what_she_gives_the_mother
+    samuel_apprenticeship_portland: ch10_samuel_settled_and_writing
+    mae_handkerchief_kindness: ch10_mae_marries_eli_and_the_custard_pies
+    gold_seam_fading_to_silver: ch10_the_mark_at_low_light
+    four_word_echo_said_by_accident: ch10_said_a_third_time_on_purpose
+
+  continuity_out:
+    pov_state: >
+      Thistle awake in Cal's bed after dark, his arm under her shoulders,
+      her hair across his chest, both marks cooled back toward skin color.
+      Samuel's letter read. Glamour fully dropped since noon; wings folded
+      around them both. Her resolve formed but unspoken. The external threat
+      is fully resolved by now: Hiram broken and disbelieved, the contract
+      void, no pursuit coming.
+    location_end: "Cal's cabin, after dark, the lamp burned low."
+    unresolved: >
+      Whether she will tell him tomorrow what she has decided about the
+      Mother and his mortality. What the price of that will be. Whether
+      Cal yet believes the world has let him keep all of it.
+
+  beats:
+    - id: ch09_b01
+      title: "The Third Morning"
+      approx_words: 90
+      opens_on: >
+        The cabin in early light. Thistle has slept three days in his bed, the
+        cedar sparrow loose in her hand. Cal has not left. He has slept in the
+        chair beside her, or not slept, and watched her breathe like it is a
+        thing he is helping her do.
+      action_sequence:
+        - >
+          His left hand has been healing the whole three days. The cut is
+          closed now; the gold seam runs from the heel of his thumb up the
+          inside of his wrist along the vein she traced with one finger on
+          Day 1 of the Six Days. He has been pressing his right thumb along
+          the gold line, learning the new shape of his own arm.
+        - >
+          On the third morning her eyes open fully and stay open. She is hers
+          again.
+      beat_function: >
+        Re-establish the cost and the vigil before the reckoning. Cal's thumb
+        on the gold seam is the small private gesture that shows he has spent
+        three days becoming someone with a mark. Her waking is the chapter's
+        starting gun.
+      prose_directives:
+        - "No flashback to the rite. The reader holds Ch. 8; do not re-narrate it."
+        - "Her waking is one short sentence. 'She is hers again.' Do not embellish."
+        - "Cal's vigil is shown through the body — the chair, the thumb on the seam — not stated as devotion."
+      closes_on: >
+        Her eyes open and steady on him. The cedar sparrow still in her hand.
+
+    - id: ch09_b02
+      title: "The Conversation She Promised Him"
+      approx_words: 180
+      opens_on: >
+        She tells him everything. He sits on the edge of the bed and lets her.
+      action_sequence:
+        - >
+          Her full name. Her two hundred years. The Mother. The nineteen days
+          of watching. The glove she lifted from a stump six days before he
+          ever saw her face. The trillium at his knees in the cutting clearing —
+          that was me, Caleb, that flower, that was me. He listens without
+          interrupting.
+        - >
+          He answers plain: "I knew. By the end of day three I knew, and by the
+          morning you ran I had seen my own bare chest in a mirror and known."
+          He takes off his shirt — first time in three days — and shows her the
+          bruise-shape on his sternum, the print of her splayed hand, visible
+          from across the bed.
+        - >
+          Her slim hand goes to it. She lays her palm over the print of her own
+          palm and the print warms under her hand; the matched mark on her own
+          chest warms in answer. Both of them feel the small pulse travel
+          between them.
+        - >
+          She says, formal and low: "I marked you twice, Caleb. Once at the
+          chest, once at the wrist. I did not know I was doing either." He says,
+          "I marked you the night you healed me, didn't I." She says, "Yes." He
+          turns his cut palm up to the morning light. "And here." "Yes." He puts
+          his marked palm over the print on her chest, and her marked chest
+          under his marked hand makes both of them stop breathing.
+      beat_function: >
+        Full disclosure and the reveal that the marks are mutual, matched, and
+        physically alive. Cal's "I knew" removes any deception structure: he was
+        never fooled, only patient. The palm-over-print is the chapter's first
+        proof that the bond reads through skin.
+      prose_directives:
+        - "Her disclosure is delivered as plain catalogue, not confession — the same ledger register as Ch. 1."
+        - "Cal's lines are verbatim and flat. He does not perform forgiveness; there is nothing to forgive."
+        - "The marks warming is sensation reported, not magic explained. Heat, then pulse, then both holding their breath."
+        - "Keep the formal cadence reserved for her two marking lines. It should feel like a vow she did not mean to take."
+      closes_on: >
+        His marked palm on the print on her chest, both of them not breathing,
+        the morning full in the window.
+
+    - id: ch09_b03
+      title: "He Has to Go Down the Mountain"
+      approx_words: 90
+      opens_on: >
+        He explains, fast and flat, what he has to do. The contract. Hiram. The
+        witnesses. He may be arrested. He may be turned away.
+      action_sequence:
+        - >
+          He cannot live in this cabin with her without going down once to look
+          the world in the face. She does not argue. She knows he is right.
+        - >
+          She walks him to the door in one of his linen shirts that comes to her
+          knees and nothing under it, her small bare feet on the porch boards.
+          She presses her palm flat to his chest over the mark and says, "Come
+          back." He says, "I will" — and then, in her own formal cadence, "I
+          will, Thistle-in-the-Hollow," which is what he gives her at the
+          threshold instead of a kiss. He kisses her at the door three times
+          anyway. He goes.
+      beat_function: >
+        Sets the descent in motion and earns the reunion by separating them.
+        Her palm-to-chest is the third beat of the four-beat palm through-line;
+        two counts still owed before the fourth is earned. Cal borrowing her
+        cadence is the bond bleeding into his speech.
+      prose_directives:
+        - "His reasoning is logistics, said quickly. No speech. The weight is in how few words he uses."
+        - "Mark the palm-to-chest as the third of four without flagging it for the reader. The body keeps the count."
+        - "Three kisses after 'I will' — let the gap between the vow and the kisses be the joke and the ache at once."
+      closes_on: >
+        Cal on the trail going down. Thistle in his shirt on the porch, palm
+        still warm from his chest.
+
+    - id: ch09_b04
+      title: "Hollow Creek, the Small Mercies"
+      approx_words: 200
+      opens_on: >
+        Cal walks into the Miller Company office at noon and turns himself in
+        for the breach. The contract was burned three days ago in the moss; he
+        has nothing to surrender. He offers to work off the sixty dollars.
+      action_sequence:
+        - >
+          Albert Gould — sixty-one, white-haired, salt-and-pepper moustache, the
+          forge-built forearms still under his rolled sleeves — looks at Cal a
+          long second and says, "Thorne. Sit down. There's mail for you." No
+          arrest. He hands over a letter two weeks old in Samuel's hand.
+        - >
+          Cal opens it standing. The territorial essay prize. Two hundred
+          dollars and an apprenticeship in Portland under a Mr. Halloran, room
+          and board, spring start. "I can send money home now, Cal. You can
+          stop. Please stop." Cal sits down on the bench by Albert's desk and
+          cries the way he has not cried in twenty-two years — quietly, into his
+          hands, shoulders shaking once and not again.
+        - >
+          Albert pretends to be busy with a ledger. Mae Pritchard comes through
+          from the post office — red hair loose at her temple, slim, soft-hipped,
+          the comfortable pretty she has always been — and hands Cal a
+          handkerchief without looking at his face, then goes back without a word.
+        - >
+          When Cal has gathered himself Albert says, "Hiram's in the cell behind
+          the magistrate's. He's been raving about witches for three days.
+          Nobody believes him. Don't go back to the camp, Thorne. There's
+          nothing there for you. Go home." Cal stands. "Yes sir. Thank you, sir."
+          Albert says, "Go home, son."
+      beat_function: >
+        The external threat resolves through mercy, not combat — the antagonist
+        already defeated off-page, the economic trap sprung open by Samuel's
+        own success. Cal's grief, held twenty-two years, finally breaks in the
+        one place he is safe enough to let it. Albert's "son" gives Cal the
+        father-word he lost in 1875.
+      prose_directives:
+        - "Albert is described once, in the action, and never re-described. Dignity carried in plain sentences."
+        - "The letter's two quoted lines are verbatim. They are the hinge of the whole chapter."
+        - "Cal's crying is exact: quietly, into his hands, one shoulder-shake. No sobbing set-piece."
+        - "Mae does not look at his face. That averted kindness is the entire characterization. Do not have her speak."
+        - "'Go home, son' lands last and alone. Do not gloss what the word does to Cal."
+      closes_on: >
+        Cal on his feet with the letter in his hand. Albert back at the ledger.
+        The word 'son' still in the room.
+
+    - id: ch09_b05
+      title: "The Walk Back"
+      approx_words: 70
+      opens_on: >
+        Cal goes up the mountain in the long slant of late afternoon.
+      action_sequence:
+        - >
+          The forest is quiet around him in the way it has been quiet for three
+          days. He does not think. He just walks. Samuel's letter is folded in
+          the breast pocket where the iridescent scale used to live.
+        - >
+          He has the gold seam in his wrist, the print on his sternum, a brother
+          who has paid his own way out, and a woman waiting in his cabin in one
+          of his shirts and nothing else under it. He cannot believe the world
+          has let him keep all of these things at once. He does not yet believe
+          it. He walks.
+      beat_function: >
+        The breath between descent and reunion. Disbelieving grace stated
+        plainly. The letter taking the scale's place in his pocket is the
+        object-swap that says the human world and the fae world now share one
+        breast pocket.
+      prose_directives:
+        - "No interiority beyond the disbelief. He does not think; the narration does not think for him."
+        - "The letter-in-the-scale's-place detail is one clause. Do not underline it."
+        - "End on 'He walks.' The repetition from the opening is the beat."
+      closes_on: >
+        Cal climbing in the gold light. The letter against his chest. The forest
+        quiet on every side.
+
+    - id: ch09_b06
+      title: "The Porch"
+      approx_words: 70
+      opens_on: >
+        She has been on the porch since noon. She has not moved.
+      action_sequence:
+        - >
+          The three trilliums that closed when she left him three days ago are
+          still closed at her bare feet. The alder leaf is still on the step.
+          Bract has been beside her since dawn.
+        - >
+          The sky goes the color of a bruise — purple at the horizon, gold
+          higher up — and the first star is in the east. She sees him at the
+          bottom of the trail. He sees her at the same moment. He drops his bag
+          where he stands.
+      beat_function: >
+        POV handoff to Thistle. Her stillness across a whole day measures the
+        wait the way Cal's vigil measured his. The closed trilliums are loaded
+        to open; their stillness is suspense.
+      prose_directives:
+        - "Mark the POV shift cleanly at the scene break. From here the chapter is hers until the aftermath."
+        - "The bruise-and-gold sky is one sentence. The closed trilliums get no commentary; their being closed is the tension."
+        - "Both seeing each other 'at the same moment' is the beat. He drops the bag. Cut."
+      closes_on: >
+        The two of them across the length of the trail. His bag in the dirt.
+        The trilliums still shut.
+
+    - id: ch09_b07
+      title: "The Reunion"
+      approx_words: 110
+      opens_on: >
+        She comes off the porch at fae speed without bothering to look human
+        about it.
+      action_sequence:
+        - >
+          His linen shirt over her own dress, his hat on her head, small bare
+          feet on the path. He catches her at full force; she nearly knocks him
+          backwards. Her arms around his neck. Her legs around his waist. His
+          hands under her thighs. Her mouth on his mouth and not asking.
+        - >
+          He turns and walks them up the path with her wrapped around him, her
+          hat falling off and rolling into the moss, neither of them noticing.
+          As his boots hit the porch step, all three closed trilliums open under
+          his feet at once — slow, white, full — the forest finishing the
+          sentence the body started. He does not see them.
+        - >
+          He kicks the door open with his heel, kicks it closed behind them, and
+          does not put her down.
+      beat_function: >
+        The fourth and earned beat of the palm/closeness through-line, paid as a
+        full-body collision rather than a single palm. The trilliums opening at
+        his unseeing boot is the forest's parallel consummation, set running
+        ahead of the human one.
+      prose_directives:
+        - "She drops all glamour pretense here — fae speed, openly. Do not have her perform humanity again this chapter."
+        - "Her mouth 'not asking' is the consent and the hunger in three words. Keep it."
+        - "The trilliums open in three adjectives — slow, white, full — and he does not see. The reader sees for him."
+        - "End on 'does not put her down.' No transition sentence into the next beat."
+      closes_on: >
+        The door shut. The three trilliums open on the empty porch. Her still
+        wrapped around him inside.
+
+    - id: ch09_b08
+      title: "Undoing Each Other"
+      approx_words: 110
+      opens_on: >
+        He carries her three steps to the bed and they go down together.
+      action_sequence:
+        - >
+          She is already pulling at his shirt — buttons popping, two rolling
+          across the floor, Bract investigating one and deciding it is not food.
+          She gets the shirt off his shoulders; he shrugs the rest of the way
+          one-handed, his other hand in her hair. His suspenders next. His belt.
+          She watched him do all of this in reverse on Day 6 in the dooryard
+          light, and she undoes him faster than he has ever been undone.
+        - >
+          He drags his own linen shirt up over her head in one motion and tosses
+          it. Her dress under it, the laces at the front — he does not unfasten
+          them. He puts his teeth to the laces and tears once and the front comes
+          open, and her small bare breasts and the print on her sternum are in
+          his face. He puts his mouth on the print, groans into her skin, and she
+          makes a sound she did not know her two hundred years had been keeping
+          back for him.
+      beat_function: >
+        Mutual, equal undressing — neither careful, neither passive. Bract and
+        the popped button keep one foot in the ordinary so the heat stays
+        embodied rather than ceremonial. His mouth on the print closes the
+        morning's palm-on-print loop with a kiss instead of a hand.
+      prose_directives:
+        - "Female gaze on Cal throughout: she is the one undoing him, and faster. Keep the agency hers."
+        - "The Day 6 callback is one clause. Do not stop to explain it."
+        - "Bract and the button are the chapter's permission to breathe. One sentence, then back."
+        - "Frank, not euphemistic. The print, the breasts, the torn lace are stated plainly in her dry register, the way Ch. 1 stated the hand under the dress."
+      closes_on: >
+        His mouth on the print, the torn dress open, her sound still in the air.
+
+    - id: ch09_b09
+      title: "The Body That Is Fully Hers Tonight"
+      approx_words: 90
+      opens_on: >
+        Her glamour is gone. She has not been bothering to hold it since noon.
+      action_sequence:
+        - >
+          Her wings unfurl as he gets the rest of her dress off — half-spread
+          against the quilt, iridescent in the lamplight, the colors moving when
+          she does. The bark-pattern freckles down her sternum and ribs and the
+          insides of her slender thighs. Her hair to her hips. Her eyes the green
+          of sun through new leaves, with the gold of his sap running through
+          them now in faint threads.
+        - >
+          He has not seen the gold in her eyes before. He stops. He stares. She
+          says, ragged and low, "Caleb. Do not stop. Do not ever stop. I have
+          been waiting three days." He does not stop.
+      beat_function: >
+        Full reveal of her true body to him, in his own bed, by her choice —
+        the inverse of the glamour she held through eight chapters. The gold in
+        her eyes (his sap, the rite's residue) is the first time the bond shows
+        in her irises; his pause honors it before her command resumes the scene.
+      prose_directives:
+        - "The body is described once, fully, in her own catalogue voice — the same inventory rhythm as her self-accounting in Ch. 1."
+        - "His stopping to stare is reverence, not hesitation. Her three lines pull him back."
+        - "Do not describe the wings beyond 'iridescent, colors moving when she does.' The established image stands."
+      closes_on: >
+        His staring broken by her command. The gold threads in her eyes. Her
+        wings half-spread on the quilt.
+
+    - id: ch09_b10
+      title: "The First Time Tonight"
+      approx_words: 150
+      opens_on: >
+        He is over her, his weight on his forearms, her small hands at his back.
+      action_sequence:
+        - >
+          Three days of holding her unconscious and not touching her like this;
+          both of them are starving. They are past asking. The sound she makes
+          when he comes into her goes through him like the sound the Mother made
+          when the axe hit her — except this one is her body welcoming, claiming,
+          saying yes in a register he can feel in his chest under the mark.
+        - >
+          She is wrapped around him completely: legs at his waist, one hand
+          fisted in his hair, the other splayed flat over his cut palm where it
+          braces beside her shoulder — gold to print. The matched marks on both
+          chests, pressed together, go warm, then warmer, then hot, then visibly
+          glowing — gold light through the thin skin of both sternums, the room
+          lit dim gold from inside their bodies.
+        - >
+          He says into her ear, "Look at us. Thistle, look at us. We are lit."
+          She comes apart fast, her wings beating once hard against the mattress;
+          he follows three thrusts later with his face at her throat and her name
+          in his teeth. Both shaking. He stays, forehead at her temple, a long
+          count. She kisses his ear and says, low, "Again."
+      beat_function: >
+        The consummation that physically proves the bond: the marks do not
+        merely warm now, they light the room. The Mother-sound comparison binds
+        this act to the rite, so the reader hears the romance and the ritual in
+        one register. "We are lit" is the literalization of the metaphor the
+        whole book has run on.
+      prose_directives:
+        - "Frank and embodied, choreographed clearly, but the explicit detail serves the mark-glow payoff — keep the gold light the centre of the beat."
+        - "The Mother-sound simile is the structural keystone of the chapter; place it exactly where the source has it."
+        - "Cal's three lines are verbatim. 'We are lit' is the chapter's thesis spoken aloud by accident."
+        - "Her 'Again' is the final word and the engine of the next beat. One syllable, low."
+      closes_on: >
+        The room dim gold from their two chests. Both shaking. Her one-word
+        request between them.
+
+    - id: ch09_b11
+      title: "The Second Time, His Mouth"
+      approx_words: 120
+      opens_on: >
+        He pulls out slow and slides down the bed.
+      action_sequence:
+        - >
+          He kisses the print on her sternum on the way down — one finger of it,
+          the palm, the heel — then her ribs, her stomach, the bark-pattern
+          freckles at her hipbones, the insides of her slender thighs. He takes a
+          long time. He learned this on her in Ch. 5 and has been thinking about
+          it for ten days, and now he has her bare in lamplight and means to do
+          it properly.
+        - >
+          Female-gaze choreography: his shoulders between her thighs, one hand
+          splayed wide and flat across her belly to keep her there, his other
+          laced with hers at her hip, his mouth patient and attentive and almost
+          obscenely focused. She fists her free hand in his hair and does not get
+          to be quiet about it.
+        - >
+          Her wings beat slow against the mattress, then unfold further, then come
+          down around him like a canopy — iridescent, dim-gold-lit, full-spread.
+          He has her under a roof of her own body. She comes a second time,
+          longer than the first, his name in her formal cadence cracking in her
+          throat — Caleb Daniel Thorne — and he laughs once into her, wrecked and
+          proud, and does not stop until she pulls at his hair to ask him to.
+      beat_function: >
+        Pleasure given, not taken — the female gaze made structural, his focus
+        wholly on her response. The Ch. 5 callback shows accumulated knowledge of
+        her body. The wings folding into a canopy is the image that turns her own
+        anatomy into shelter, the body of the world over the body of the bed.
+      prose_directives:
+        - "Keep the gaze on his attention to her, not on anatomy for its own sake. The hand on her belly and the laced fingers are the tenderness."
+        - "The wing-canopy is the beat's signature image. Let it land as the second-time builds, not before."
+        - "Her formal cadence cracking on his full name is the contrast that does the work — ceremony breaking under feeling."
+        - "His laugh is 'wrecked and proud,' once. Do not extend it."
+      closes_on: >
+        Her wings down around him like a folded tent. His name cracked in her
+        throat. Her hand pulling him up.
+
+    - id: ch09_b12
+      title: "The Third Time, Her Above"
+      approx_words: 150
+      opens_on: >
+        He climbs back up the bed. She rolls him onto his back.
+      action_sequence:
+        - >
+          She sits up — bare, fae, wings spread wide above her like a
+          stained-glass window in lamplight, hair down her back — and lowers
+          herself onto him slow. She sets the pace now. He stares at her like a
+          man at a saint, his hands on her hips, his thumbs at the bark-pattern
+          freckles there.
+        - >
+          She rides him slow at first, eye to eye, wings rising and falling with
+          her breath, her slim hand spread flat over the print on his chest the
+          whole time — holding the mark against him the way she has held her own
+          hand to her own sternum for chapters. He says, "Thistle, look at me,"
+          and she does. He says, "You are the most beautiful thing the world has
+          made," and she does not laugh, because two hundred years have taught her
+          when a man means a thing he will mean for the rest of his life.
+        - >
+          She breaks him on his back in his own bed. He comes with her name in his
+          mouth and his thumb pressed hard to her pulse at her wrist — the same
+          wrist, the same pulse, the print of his thumb she has carried since the
+          night of the woods. The body's full circle. She follows within seconds,
+          head thrown back, wings full open, the gold from her chest and eyes and
+          the seam in his wrist filling the cabin enough that the lamps are
+          unnecessary. She collapses forward; her wings come down around them
+          both; the marks on both chests are hot against each other.
+      beat_function: >
+        Her agency at its peak — she sets the pace, she breaks him. His thumb to
+        her wrist-pulse closes the four-beat through-line begun on Day 1 of the
+        Six Days, the body's full circle. The gold flooding the cabin is the
+        glow of b10 brought to full power: the bond at its visible maximum.
+      prose_directives:
+        - "She is the active partner; keep every verb of motion hers. His worship is the still point she moves against."
+        - "Cal's two lines are verbatim. The 'most beautiful thing' line must read as plain fact from him, not flattery."
+        - "Name the wrist-pulse callback as 'the body's full circle' — this is the structural payoff, place it exactly."
+        - "The lamps becoming unnecessary is the literal close of the light motif. State it, do not explain it."
+      closes_on: >
+        Her collapsed forward, wings down around them, both chests hot, the cabin
+        gold without the lamps.
+
+    - id: ch09_b13
+      title: "Aftermath"
+      approx_words: 80
+      opens_on: >
+        Long quiet. Her hair across his chest. His arm under her shoulders.
+      action_sequence:
+        - >
+          His thumb traces the print on her sternum — not fading, never going to
+          fade. Her finger rests on the gold seam at his wrist. They do not speak
+          for a long time.
+        - >
+          Outside the cabin window, in the dark, a cluster of trillium opens at
+          the porch step where the three reopened at his boot: seven flowers now
+          where there were three this morning. Neither of them sees. Bract, from
+          the floor, sees and yawns.
+      beat_function: >
+        The settling. The marks are confirmed permanent by touch. The trilliums
+        multiplying off-page (3 to 7) is the forest's quiet arithmetic of
+        increase, planted for the epilogue. Bract's yawn is the comic exhale
+        that closes the love scene without bathos.
+      prose_directives:
+        - "POV goes fluid here — neither head, both bodies. Keep it observational and slow."
+        - "The trillium count (three to seven) is exact and load-bearing for Ch. 10. State the numbers."
+        - "Bract's yawn is the last word of the beat. The dog gets the joke the lovers miss."
+      closes_on: >
+        The two of them quiet under the window. Seven trilliums open in the dark
+        outside. Bract asleep again.
+
+    - id: ch09_b14
+      title: "You Drank"
+      approx_words: 90
+      opens_on: >
+        Eventually she lifts her head. She traces the corner of his mouth with
+        her thumb and finds the faint gold there, three days old, where he kissed
+        her through the Mother's sap.
+      action_sequence:
+        - >
+          "You drank," she says. "I drank." She kisses the gold off. She says,
+          "Caleb. You're mine. I'm yours. That's it." He says, "Then that's it."
+        - >
+          Neither of them knows that those four words are the same four claims he
+          made into the Mother's wound three days ago — I'm hers, I'm yours, take
+          all of it. The romance and the rite are still the same words, still
+          being said by accident.
+      beat_function: >
+        The thematic keystone made explicit for the reader and kept hidden from
+        the characters. The four-word echo binds Ch. 8's rite to Ch. 9's bed
+        without either lover noticing — the structural irony the whole novelette
+        is built to deliver.
+      prose_directives:
+        - "Their exchange is verbatim and clipped. The plainness is the point; do not let either of them sound poetic."
+        - "The echo is narrated to the reader only — the characters must not flag it. This is dramatic irony, not a reveal."
+        - "Do not over-explain the parallel. State the four claims once and move on."
+      closes_on: >
+        The gold kissed off his mouth. The four words said. The echo hanging
+        unheard by either of them.
+
+    - id: ch09_b15
+      title: "Samuel's Letter"
+      approx_words: 110
+      opens_on: >
+        He reaches over the side of the bed to his coat and pulls out the letter.
+      action_sequence:
+        - >
+          She reads it pressed against his chest, her wings folded around them
+          both, his hand stroking her hair. When she reaches the line "You can
+          stop, please stop," she puts her face into his throat and stays there a
+          long count. She does not know what to do with the size of what the
+          forest has given them back.
+        - >
+          He says, "It worked, Thistle. It worked. I asked the forest to take all
+          of it and find another way, and the forest found another way." She says
+          into his throat, "Of course it did, Caleb. The forest loves you." He
+          laughs, hoarse: "Does it." She says, "It does. I do."
+        - >
+          She does not say the forest loves him because she does; she does not
+          have to. He understands.
+      beat_function: >
+        The economic and emotional resolution folded into the bond. Samuel's
+        sacrifice (and reward) closes the brother thread. Her "It does. I do."
+        merges her love and the forest's love into one sentence — the chapter's
+        gentlest statement of its central equation, the world and the woman as
+        one source of grace.
+      prose_directives:
+        - "Samuel's quoted line repeats from b04 deliberately — the reader hears it land twice, once on Cal, once on her."
+        - "Cal's 'It worked' is verbatim and twice. The repetition is a man not believing his own luck."
+        - "'It does. I do.' is the beat's last clause and must stand alone. Do not annotate the slippage between the two loves; the next sentence does it."
+      closes_on: >
+        Her face in his throat. The letter between them. 'I do' still in the air.
+
+    - id: ch09_b16
+      title: "Closing Image"
+      approx_words: 80
+      opens_on: >
+        The lamp has burned low. The cabin is dim gold from the marks and the
+        seam, fading slowly back to skin color as the bodies cool.
+      action_sequence:
+        - >
+          Bract asleep at the foot of the bed. Cal's breathing slow and even
+          against her temple. She looks up at the ceiling — boards he hewed
+          himself, boards he counted across from her three weeks ago on his floor
+          when he was making himself not look at her in his bed.
+        - >
+          She thinks, calm: I have been alive for two hundred years. I have not
+          been alive until tonight. She thinks: I will not let him grow old
+          without me. Whatever I have to give the Mother, I will give it. She
+          thinks: Tomorrow I will tell him that.
+        - >
+          She kisses the corner of his mouth where the last of the gold is. He
+          does not wake. She closes her eyes.
+      beat_function: >
+        The chapter closes inside her resolve, planting the central question of
+        the epilogue: what she will pay the Mother for his years. The ceiling
+        callback ties tonight to the chastity of three weeks ago — the floor he
+        kept her at, the bed she is now in. Calm, not anguished: a decision, not
+        a fear.
+      prose_directives:
+        - "Her three thoughts are stated flat and calm. This is resolve, not melodrama — no question marks, no trembling."
+        - "The ceiling-boards callback is one clause; the reader who remembers Ch. 6/earlier gets it, the rest read past it cleanly."
+        - "End on 'She closes her eyes.' Do not add a forward-looking sentence. The plant is enough."
+      closes_on: >
+        Thistle awake beside a sleeping Cal, her decision made, the gold cooling
+        to skin, her eyes closing on it.
+
+  prohibited_at_chapter_level:
+    - "Glamour is fully dropped from noon onward; do not have Thistle re-perform humanity or hide her wings/eyes after b06."
+    - "The four-word echo (b14) must remain unknown to both characters — narrated to the reader only, never spoken about between them."
+    - "The matched marks glow literally, not metaphorically; the gold light is physical and lights the room. Do not soften it to simile."
+    - "No re-narration of the Ch. 8 rite. It is referenced, never replayed."
+    - "POV transitions occur only at scene breaks (b06 to Thistle; aftermath to fluid). Never slide POV mid-beat."
+    - "Hiram and the violence stay off-page. The threat resolves through mercy and bureaucracy, not a confrontation."
+    - "Albert and Mae are rendered through restraint — averted eyes, busy ledgers, the unspoken kindness. No on-page emotional speeches from either."
+    - >
+      Sensual content is maximally present but rendered in the story's plain,
+      dry-candor register — bodies are bodies, acts are stated frankly and
+      without euphemism, and the explicitness always serves the bond's visible
+      proof (the glow, the marks, the full circle) rather than spectacle.

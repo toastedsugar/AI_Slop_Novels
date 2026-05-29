@@ -1,0 +1,696 @@
+chapter:
+  id: ch03
+  number: 3
+  title: "The Kettle and the Straight Razor"
+  word_count_target: 1000
+
+  narrative_function: first_domestic_arrival_and_disciplined_proximity
+  arc_position: first_act_climax_of_restraint
+  story_structure_role: >
+    The novelette's first sustained Cal POV. Six days after the woods,
+    Thistle arrives at his door with no reason and does not pretend to have
+    one. The chapter is the discipline of two people in a small room not
+    touching each other for fourteen hours — a containment scene that puts
+    every object in the cabin (the glove, the razor, the bowl, the blanket,
+    the hat, the bed) in service of an erotic and emotional pressure that
+    the chapter does not release. Establishes Cal's interior voice for the
+    rest of the novelette: dry, plain, undefended, frightened of what is
+    happening to him in his own house. Plants the chest mark, the healed
+    thigh, the iridescent scale, the high collar, the unfinished word, and
+    the hat for later payoffs.
+
+  pov:
+    mode: single
+    character: cal
+
+  setting_summary:
+    time_of_year: early_autumn_1897
+    time_of_day: dusk_through_following_morning
+
+  locations_present:
+    - cal_woodpile               # opening scene: chopping wood he does not need split
+    - cal_cabin_interior         # primary setting; the fourteen-hour containment
+    - cal_porch                  # the brief crossing point at the knock
+    - cabin_tree_line            # morning farewell at the edge of the clearing
+
+  locations_referenced:
+    - widowmaker_site            # six days back; the body still remembers
+    - millers_cut                # his work; half a mile from the cabin
+
+  characters_present:
+    - cal
+    - thistle
+    - bract                      # sits at her feet without a sound; tail thumps once
+
+  characters_referenced:
+    - camp_doctor                # whose accounting of the thigh has been disproven
+    - miller_men                 # background; the body of his work, off-page
+
+  objects_present:
+    - cal_axe                    # in his hand at the knock; he has been chopping for two hours
+    - cal_leather_glove          # on the peg by the door for six days; not touched by either of them
+    - cal_shaving_mirror         # small, on the wash-shelf; he has stopped looking in it
+    - cal_straight_razor         # the central object of the central beat
+    - cal_blanket                # wool, his, smelling of him; given to her; she presses her face to it
+    - cal_bowl                   # only one; shared across the table
+    - cal_kettle                 # she lifts the lid like an oracle
+    - cal_whittled_birds         # on the shelf; she touches them on her tour
+    - cal_hat                    # on the peg above the glove; she puts it on her head
+    - bract_rag_rug              # small domestic anchor
+    - cal_cabin_bed              # touched by her, deliberately, with him watching
+    - iridescent_scale           # the chapter's closing object; left on the chair where she sat
+    - thistle_old_dress          # summer fabric, generation-old cut, ill-fitting
+    - thistle_high_collar        # three small buttons up under her chin; hiding the chapter-two mark
+
+  objects_referenced:
+    - widowmaker_cedar_limb      # by way of his impossibly healed thigh
+    - cal_chest_mark             # the faint bruise-print of her hand; he has stopped looking at it
+
+  emotional_register: six_days_of_undoing_then_discipline_under_unbearable_presence
+
+  themes_active:
+    - the_body_as_evidence
+    - being_seen_for_the_first_time
+    - discipline_as_a_shape_of_want
+    - the_bed_as_object_in_a_small_room
+    - the_choice_not_to_ask
+    - shared_food_as_covenant
+    - the_door_that_closes_them_in_together
+
+  voices_introduced:
+    - cal_interior_voice         # first sustained chapter in Cal's POV; dry, plain, unflattering to himself
+    - thistle_visiting_voice     # present, unhidden, here-for-no-reason; formal without distance
+
+  plants_for_later:
+    cal_chest_mark: ch_later_he_sees_it_as_the_matched_mark_to_her_sternum_freckles
+    cal_healed_thigh: ch_later_the_impossible_made_articulable
+    cal_hand_shape_around_nothing: ch_later_he_holds_her_wrist_again_and_the_shape_fits
+    iridescent_scale_in_breast_pocket: ch_later_physical_evidence_he_did_not_dream_her
+    thistle_high_collar: ch_later_the_collar_comes_down_and_he_sees_his_own_hand_in_freckles
+    thistle_unfinished_word: ch_later_she_finishes_or_he_names_what_she_did_not_say
+    thistle_old_dress: ch_later_worldbuilding_of_how_long_since_she_wore_human_cloth
+    razor_i_would_grow_another: ch_later_her_regeneration_confirmed_or_demonstrated
+    hat_on_her_head: ch_later_the_domestic_image_returns
+    her_palm_on_the_bed: ch_later_the_bed_is_finally_used
+    do_you_love_your_work_no: ch_later_cal_leaves_the_miller_company
+    thistle_palm_on_chest_at_treeline: ch_later_the_mark_is_named_between_them
+
+  continuity_out:
+    pov_state: >
+      Cal in the cabin doorway just after she has walked into the tree line.
+      Right hand pressed flat over his breast pocket where the iridescent
+      scale now sits. Left hand on the peg by the door where the leather
+      glove still hangs. The faint bruise-mark under his shirt where her
+      palm just rested. His thigh that should not be healed and is. His
+      chest that should not be marked and is. He has not asked her a single
+      question that mattered and he is not sorry.
+    location_end: "Cal's cabin doorway, morning, the cleared yard and the tree line empty in front of him."
+    unresolved: >
+      What the unfinished word 'you are very —' was supposed to be. What the
+      mark on his chest is and why it is the shape of her hand. Why his
+      thigh is healed. What the iridescent scale is. When she will come
+      back. What she is hiding behind the high collar at her throat. Whether
+      he is going to be able to swing an axe at a Miller tree on Monday morning.
+
+  beats:
+    - id: ch03_b01
+      title: "What Six Days Have Done"
+      approx_words: 130
+      opens_on: >
+        Cal at dusk, splitting wood he does not need split. He has been
+        chopping for two hours.
+      action_sequence:
+        - >
+          His shirtless back streaked with sweat. His shoulders shake. He
+          keeps chopping. He has done this every evening since the woods. He
+          works himself to a place where his body cannot dream, and his body
+          dreams anyway.
+        - >
+          The accounting, in his voice — flat, factual, unflattering to
+          himself: he wakes at three in the morning with his right hand
+          closed in a specific shape around nothing. The shape of a wrist he
+          held once. He does not know what to do with the hand for the rest
+          of the night.
+        - >
+          The bone in his thigh, which by the camp doctor's accounting should
+          be six more weeks healing, is healed. He has been pressing his
+          thumb along the line where the break was and finding nothing but
+          smooth skin. He has stopped looking in the small shaving mirror,
+          because there is a mark on his chest where her hand was — faint,
+          the color of a bruise — and he is not ready to know what it is.
+      beat_function: >
+        Establish Cal's voice in extended form for the first time. Six days
+        of evidence on his body that he cannot reconcile and is choosing,
+        item by item, not to investigate. The hand-shape around nothing, the
+        impossibly healed thigh, the unexamined chest mark — three planted
+        objects the rest of the novelette will pay off. Sets the chapter's
+        emotional baseline: a man at the end of six days of trying to work
+        himself past her and failing.
+      prose_directives:
+        - >
+          Cal's voice is dry, plain, unflattering to himself. He reports his
+          own state in the same register Thistle reported hers in chapter
+          one: ledger, not lyric. He is not a man who has poetic words for
+          what is happening to him.
+        - >
+          'A specific shape around nothing. The shape of a wrist he held
+          once.' is one of the chapter's earned exact phrases. Render verbatim.
+        - >
+          The three pieces of physical evidence — hand-shape, healed thigh,
+          chest mark — are listed in this order. Each gets one sentence. The
+          third one ends with 'he is not ready to know what it is.' That
+          phrase is the chapter's whole structural premise. Do not soften it.
+        - >
+          The chapter opens with him shirtless from chopping. Continuity into
+          the next beats: he is still shirtless when the knock comes.
+      closes_on: >
+        The axe in his hand at the end of a swing. The wood split clean. His
+        shoulders shaking and not from the work.
+
+    - id: ch03_b02
+      title: "The Glove on the Peg"
+      approx_words: 70
+      opens_on: >
+        Inside the cabin, on the peg by the door: the leather glove. Six
+        days on the peg. Fitting no one.
+      action_sequence:
+        - >
+          He has not moved it. He has touched it three times. The third time
+          he held it to his face like a man tasting weather.
+        - >
+          He put it back. He has not told himself why.
+      beat_function: >
+        Mirror to Thistle's nineteen days with the glove against her sternum
+        in chapters one and two. He now has the same object on the same kind
+        of ritual — touched, held to the face, replaced — and refuses to name
+        what the ritual is. The glove has crossed the threshold between them:
+        it knows them both now.
+      prose_directives:
+        - >
+          'Like a man tasting weather' — keep this exactly. It is Cal's idiom:
+          a logger's image, not a writer's.
+        - >
+          'He has not told himself why' is the beat's whole moral point. He
+          is a man capable of not telling himself things. Render with no
+          commentary.
+        - "The beat is intentionally short. It is a pause in the chapter's breathing before the knock."
+      closes_on: >
+        The glove on the peg. The cabin still. The dusk outside thickening
+        toward dark.
+
+    - id: ch03_b03
+      title: "The Knock and the Threshold"
+      approx_words: 120
+      opens_on: >
+        The knock comes at the door. He knows who it is before he opens it.
+        He shouldn't. He does anyway.
+      action_sequence:
+        - >
+          He stops chopping at the third stroke of the knock and stands in
+          his own kitchen with the axe still in his hand and understands, in
+          his body, what he is about to do. He sets the axe down. He crosses
+          the room. He opens the door.
+        - >
+          She is on his porch in a dress that is wrong — too thin for autumn,
+          summer fabric, the cut of it from a generation ago, fitting a slim
+          frame that the dress was not measured for. Bare small feet on his
+          porch boards. Hair loose to her hips. Her hands are empty. She has
+          not come with the glove. She has not come with anything. She has
+          come with no reason and she is not pretending to have one.
+        - >
+          The collar of the dress is high — old-fashioned high, throat-
+          covering, fastened with three small buttons up under her chin. She
+          is hiding something. He looks at the collar. He looks at her face.
+          He does not ask. He says, "Come in," and does not recognize his own
+          voice.
+        - >
+          She steps past him into the cabin and her shoulder brushes his
+          chest. Her hair, in the half-second of her passing, against his
+          throat. His whole body locks. Bract comes around the door, sees
+          her, and sits at her feet without a sound, his tail thumping once.
+          Cal closes the door behind them.
+      beat_function: >
+        The threshold crossing. He knows it is her; he opens anyway. The
+        wrong dress and the high collar are planted in tight specificity for
+        later payoff — the old-fashioned dress hints at how long since she
+        wore human cloth, and the high collar hides the freckle-handprint
+        from chapter two that neither of them has named to the other. Bract
+        sealing the moment — sits at her feet, no growl, tail thumps once —
+        is the dog's quiet co-signature on what is happening.
+      prose_directives:
+        - >
+          'He knows who it is before he opens it. He shouldn't. He does
+          anyway.' Three sentences, three beats. Render in cadence.
+        - >
+          The dress description is granular and specific: too thin for
+          autumn, summer fabric, generation-old cut, ill-fitting on her
+          frame. The granularity is doing the worldbuilding without spelling
+          it out — this is the only dress she owned the last time she walked
+          among people, and she does not know it does not fit the year.
+        - >
+          The high collar gets its own description with three small buttons
+          up under her chin. The reader (but not Cal) knows what is under it.
+          Cal's choice not to ask is the chapter's first major moral act.
+        - >
+          'He says, "Come in," and does not recognize his own voice.' is the
+          beat's pivot. Render plainly. He hears himself invite her in and is
+          aware that he is not in charge of his own door.
+        - "Bract sits without a sound. Tail thumps once. That is all of the dog this beat. He has already chosen her."
+      closes_on: >
+        The cabin door closed behind both of them. The wool of the small
+        room. Her bare feet on his floor. The leather glove on the peg three
+        feet from her shoulder, neither of them looking at it.
+
+    - id: ch03_b04
+      title: "The Look"
+      approx_words: 80
+      opens_on: >
+        She does not pretend. She looks at everything.
+      action_sequence:
+        - >
+          The stove. The shelf of whittled birds. The rag rug. The bed in
+          the corner. She lets her eyes rest on the bed for a moment. He
+          sees her let them rest.
+        - >
+          She lets her eyes come back to him. She does not look down. She
+          has been looking at him for nineteen days and now they are six
+          feet apart with a closed door and she is not looking down.
+        - >
+          He has never been looked at like this in his life. He has the
+          discovery, standing in his own kitchen, that being looked at is a
+          thing that can be done to a man.
+      beat_function: >
+        Inversion of the chapter-one structure. There, Thistle watched him
+        without his knowing. Here she is six feet away with a closed door
+        and she will not stop looking, and he can feel it. Establishes the
+        chapter's central erotic mechanic: looking is the act. Cal's
+        discovery — being looked at is something done to a man — names the
+        female-gaze register of the novelette in one line.
+      prose_directives:
+        - >
+          The list — stove, shelf, rag rug, bed — is delivered as four items
+          in this order. The bed is last. Her gaze rests on it. He notices
+          her gaze rest. The whole erotic content of the beat is in those
+          two sentences.
+        - >
+          'She has been looking at him for nineteen days.' — this is Cal's
+          register registering hers. He does not know the count yet; the
+          narration does and gives it once, for the reader. Do not repeat it
+          elsewhere in the chapter.
+        - >
+          'Being looked at is a thing that can be done to a man.' is the
+          chapter's clearest thesis statement. Render exactly. No surrounding
+          commentary.
+      closes_on: >
+        Her eyes still on him. Him still not finding words. Six feet of cabin
+        floor between them.
+
+    - id: ch03_b05
+      title: "The Blanket and the Stew"
+      approx_words: 100
+      opens_on: >
+        He gives her the chair. He gives her his only blanket — wool, his,
+        smelling of him.
+      action_sequence:
+        - >
+          She wraps it around her slim shoulders and presses her face to it
+          for half a second over the collarbone, the wool against her mouth,
+          and her eyelids drop. He sees her do that. He has to turn to the
+          stove and stay turned for longer than the stew needs.
+        - >
+          He cooks. He nearly burns the onions because he is being watched
+          while he cooks for the first time in his thirty years and his hands
+          are not behaving. She is delighted by his hands not behaving. She
+          does not hide that she is delighted.
+      beat_function: >
+        First in the sequence of small offerings (blanket, stew, kettle-
+        lesson, bowl) that the chapter uses to render want without touch.
+        Thistle's half-second of face-against-wool is the chapter's first
+        Thistle-physical-want rendered through Cal's eye — and his reaction
+        (turning to the stove and staying turned) is his first explicit
+        admission to himself that he cannot keep watching her do that. Her
+        delight in his fumbling is the chapter's first beat of warmth between
+        them.
+      prose_directives:
+        - >
+          'Wool, his, smelling of him.' is one short clause. The commas do
+          the work; do not extend it.
+        - >
+          Her face in the wool is rendered in five concrete items: face to
+          wool, over the collarbone, the wool against her mouth, half a
+          second, eyelids drop. Render slow. This is one of the chapter's
+          most exposed quiet moments.
+        - >
+          'He has to turn to the stove and stay turned for longer than the
+          stew needs.' — the line carries his whole interior state. No
+          decoration.
+        - >
+          'She is delighted by his hands not behaving. She does not hide that
+          she is delighted.' These are the only two adjacent sentences in
+          the chapter where her interior is described to the reader from
+          outside. Use the latitude carefully and once.
+      closes_on: >
+        The onions saved at the last moment. The stew ready. Two of them in
+        a small kitchen with one bowl on the shelf.
+
+    - id: ch03_b06
+      title: "The Kettle and the Razor"
+      approx_words: 140
+      opens_on: >
+        She lifts the lid of the kettle like it is an oracle. He explains
+        tea. She is rapt.
+      action_sequence:
+        - >
+          He has never been listened to like this. He has been listened to
+          to verify and to correct and to take orders from. He has not been
+          listened to to know him. He has to keep talking because she keeps
+          looking at him and the only thing he can think of to do with his
+          mouth, in front of her, is words.
+        - >
+          She has crossed to the wash-shelf while he ladles stew. She picks
+          up his straight razor and opens the blade flat against her small
+          pale palm.
+        - >
+          He sees her in profile — the blade on her skin, the line of her
+          bare throat above the high collar, the small fae figure of her in
+          the lamplight — and he crosses the cabin in two strides. He does
+          not take the razor from her. He closes his hand around hers, his
+          fingers over her fingers, both of their hands closed on the steel
+          together. His face six inches from hers.
+        - >
+          He says, "That'll take your finger off." She says, looking at his
+          mouth, "I would grow another." He does not pull the razor away.
+          They stand like that — hands together on a blade, breath together
+          in the half-foot of air between them — for three seconds, then
+          four. She is the one who lets go.
+        - >
+          He puts the razor back on the shelf and finds that his own hand is
+          shaking.
+      beat_function: >
+        The chapter's central set piece. The kettle-lesson — small, domestic,
+        rapt — is the warming-pan for the razor moment. The razor scene is
+        their first hand-on-hand contact and one of only three skin contacts
+        in the entire fourteen-hour visit. Crucially: the steel is between
+        them; she is the one who lets go; the hand that shakes is his, after
+        the steel is back on the shelf. Plants 'I would grow another' as the
+        first piece of her non-human nature spoken aloud to him — which he
+        files away without questioning.
+      prose_directives:
+        - >
+          The kettle paragraph is Cal's slow discovery of what being listened
+          to is. The four-fold parallelism — 'to verify and to correct and
+          to take orders from. He has not been listened to to know him.' —
+          is one of the chapter's load-bearing rhythms. Render exact.
+        - >
+          The razor sequence is the chapter's tightest physical staging. The
+          reader needs each detail in order: she opens the blade flat against
+          her palm; he sees her in profile; he crosses the cabin in two
+          strides; his hand closes around hers; both hands on the steel.
+        - >
+          'I would grow another.' is the chapter's most quietly supernatural
+          line. She is looking at his mouth when she says it. Render the
+          gaze and the line in the same sentence, exactly as drafted.
+        - "The three-then-four seconds are the chapter's only countable beat. The slowness is the entire content of the moment."
+        - >
+          'She is the one who lets go.' is the chapter's clearest piece of
+          structural information about who is in charge of restraint. Render
+          plainly. He does not let go first; he could not have.
+        - >
+          The shaking hand at the end of the beat is his, not hers. Render
+          after the razor is back on the shelf — the shake arrives after the
+          danger has passed.
+      closes_on: >
+        The straight razor closed back on the wash-shelf. Cal's hand at his
+        side, shaking. Thistle's palm with no mark on it.
+
+    - id: ch03_b07
+      title: "The Bowl, The Wrist, The Question"
+      approx_words: 130
+      opens_on: >
+        He gives her his bowl because there is only one. She eats two bites.
+        She holds the bowl across the table to him. "Together."
+      action_sequence:
+        - >
+          He does not know how to refuse. They share. Her spoon. His spoon.
+          Her spoon again. He has not eaten in three years without thinking
+          of the cost of the food. He eats now without thinking of anything
+          but her mouth on the spoon.
+        - >
+          He reaches across the small table to take her bowl back when she
+          has finished. His sleeve rides up — his forearm bare to the elbow,
+          the corded muscle, the vein at the inside of his wrist. She looks
+          at it. She does not look up to check whether he sees her looking.
+          He sees her looking. He has never been looked at this part. He
+          cannot speak. He sets the bowl down. He does not pull his arm back.
+        - >
+          She lifts one slender finger — one finger — and lays it along the
+          line of the vein at the inside of his wrist, light, like a woman
+          reading. His pulse hits her fingertip and jumps. She holds her
+          finger there for the count of three. She withdraws her hand. She
+          says, very quietly, "I am sorry. You are very —" She does not
+          finish the word. He does not know which word it was. He will
+          think about it that night.
+        - >
+          She asks, formal and devastating, looking at his hands on the
+          table: "Do you love your work, Caleb Thorne?" He chokes on his
+          tea. No one in his life has asked him that. He says, "No." He
+          says it looking at her bare wrists where the blanket has fallen
+          open, and it is the most honest thing he has said in three years.
+      beat_function: >
+        Three escalations stacked tight. The shared bowl introduces shared-
+        food as covenant. The wrist-trace is the chapter's second skin
+        contact and the deliberate inverse of chapter two's wrist-hold:
+        there, his hand engulfed hers; here, one of her fingers on his vein
+        for three counts. The unfinished word 'you are very —' is planted
+        for later payoff. The formal question and his 'No' is the chapter's
+        most consequential exchange of dialogue: the question no one has
+        ever asked him, answered honestly, sets up his eventual departure
+        from the Miller Company.
+      prose_directives:
+        - >
+          'Together.' is delivered as one word, with no surrounding tag. It
+          is the second piece of her formality register (the first was 'I
+          am as real as you are kind' in chapter two). Render with the full
+          stop.
+        - >
+          The bowl-sharing is rendered in five short phrases — 'They share.
+          Her spoon. His spoon. Her spoon again.' — and one declarative
+          sentence about him not thinking of cost. The rhythm is doing the
+          work.
+        - >
+          The forearm description is granular: corded muscle, the vein at
+          the inside of the wrist. Render the body the way Thistle sees it
+          — female-gaze through his POV is the chapter's signature trick.
+        - >
+          'She does not look up to check whether he sees her looking. He
+          sees her looking.' is the chapter's clearest articulation of her
+          unembarrassed attention. Render exact.
+        - >
+          The finger on his vein is held for the count of three. Render
+          the slow duration; do not narrate the numbers. The reader feels
+          it.
+        - >
+          'I am sorry. You are very —' followed by the broken-off word. Do
+          NOT supply the word. The reader is in the same position Cal is.
+          That is the point.
+        - >
+          'Do you love your work, Caleb Thorne?' uses his full name for the
+          first time in the chapter. The full name is the formality. Render
+          her question and his choking on his tea in the same paragraph.
+        - >
+          His answer is one word: 'No.' The line he answers it on — looking
+          at her bare wrists where the blanket has fallen open — is the
+          most honestly-staged moment of his life. Render the wrists; render
+          the gaze; let the answer land.
+      closes_on: >
+        His 'No' still in the air. Her hands folded on the table. The bowl
+        empty between them.
+
+    - id: ch03_b08
+      title: "The Wandering and the Hat"
+      approx_words: 90
+      opens_on: >
+        He washes the bowl. She gets up.
+      action_sequence:
+        - >
+          She walks the small circle of his cabin — touches the shelf of
+          whittled birds, touches the table, touches, finally, the edge of
+          the bed. He sees her touch the bed. He does not breathe for a
+          moment. She does not look at him while she does it. She has done
+          it on purpose. She wants him to see her do it.
+        - >
+          She comes to the leather glove on the peg next. She does not
+          touch the glove. She does not need to touch it. They both know
+          where it has been.
+        - >
+          Above the glove is his hat. She lifts the hat down. She puts it
+          on her own head. She turns to him. Her ash-blonde hair under the
+          brim. The high collar. The summer dress in autumn. Her small bare
+          feet on his floor. She does not take the hat off. He cannot speak
+          for a moment.
+        - >
+          He has the small clear thought, I am going to die in this cabin.
+          He says, very quietly, "Keep it." She does not. She lifts the hat
+          off her head, slow, and puts it back on the peg. But the moment
+          is on the table now. They both saw it.
+      beat_function: >
+        Her tour of the cabin is a sequence of touches escalating to the bed
+        and then to the hat. The bed-touch is deliberate and acknowledged
+        between them without speech. The hat moment is the chapter's quietest
+        domestic image — and the moment she does not need to touch the glove
+        confirms that the glove has crossed between them as a shared, named
+        thing. 'Keep it / she does not / but the moment is on the table now'
+        is the chapter's structural acknowledgment that what is happening
+        between them has been seen by both and refused, for now, by her.
+      prose_directives:
+        - >
+          The wandering is a list of three touches: shelf, table, bed. The
+          bed is last. The reader and Cal both know that is the destination
+          of the walk.
+        - >
+          'She has done it on purpose. She wants him to see her do it.' is
+          Cal seeing her clearly for the first time in the chapter as someone
+          who is exercising will, not whim. Render plainly.
+        - >
+          'She does not touch the glove. She does not need to touch it. They
+          both know where it has been.' The glove's offstage history is
+          referenced obliquely. The reader knows; Cal mostly knows; neither
+          speaks the count of nineteen days.
+        - >
+          The hat moment is rendered in a stack of short concrete clauses —
+          her hair, the brim, the collar, the dress, the feet. Render in this
+          order. The reader is looking at her wearing him.
+        - "'I am going to die in this cabin.' is Cal's interior, dry, plain. Render exact, no italics."
+        - >
+          'Keep it.' / 'She does not.' / 'But the moment is on the table now.'
+          — render as three short sentences. The cadence is the beat's whole
+          content.
+      closes_on: >
+        The hat back on the peg. The glove below it. Both of them on their
+        feet in his small cabin with nothing left to do but choose what
+        happens next.
+
+    - id: ch03_b09
+      title: "The Bed and the Night"
+      approx_words: 80
+      opens_on: >
+        He gives her the bed. He takes the floor.
+      action_sequence:
+        - >
+          The fire is low. The room is small. She lies on her side facing
+          him on the floor and watches him not sleep. He lies on his back
+          and counts the boards on the ceiling. Twice he hears her breathing
+          change. He does not look.
+        - >
+          Around two in the morning she makes a small sound in her sleep —
+          half a word — and he sits up. She is asleep. She has one small
+          hand pressed flat against her own sternum under the blanket, over
+          the high collar, over whatever it is the collar is hiding.
+        - >
+          He sits up the rest of the night. He does not lie back down.
+      beat_function: >
+        The chapter's longest stretch of held silence. He chooses the floor;
+        he chooses not to look when her breathing changes; he chooses to sit
+        up rather than lie back down once he has seen her hand over her own
+        sternum in sleep. Each choice is a small one, and every one is a
+        refusal of the easier thing. Her hand pressed flat against her own
+        sternum — over the high collar, over whatever the collar is hiding —
+        is the chapter's quietest plant: she is, even in sleep, holding the
+        mark that is the shape of his hand.
+      prose_directives:
+        - "'He gives her the bed. He takes the floor.' Two short sentences. That is the entire decision. Do not narrate around it."
+        - >
+          'She lies on her side facing him on the floor and watches him not
+          sleep.' is the beat's quietly devastating sentence. He knows she
+          is watching. He does not turn. Render exact.
+        - "'Twice he hears her breathing change. He does not look.' — render the discipline. Two is the count."
+        - >
+          Her hand on her own sternum in sleep is the beat's planted image.
+          Render the layered geometry: her hand, the blanket, the high
+          collar, whatever the collar is hiding. Cal's POV does not name
+          what is under the collar. The reader knows.
+        - "'He sits up the rest of the night. He does not lie back down.' is the chapter's only piece of explicit discipline-as-want. Render plain."
+      closes_on: >
+        Cal sitting on the floor with his back against the foot of the bed.
+        Thistle asleep an arm's length above him. The fire down to coals.
+        The window beginning to gray.
+
+    - id: ch03_b10
+      title: "Morning, The Tree Line, The Scale"
+      approx_words: 130
+      opens_on: >
+        He is in the chair by the stove with two cups of tea ready when she
+        opens her eyes.
+      action_sequence:
+        - >
+          She looks at him in the morning light. He says, "Good morning."
+          She says, "Caleb." She does not say anything else. They drink tea
+          in silence and the silence is louder than anything either of them
+          could have said.
+        - >
+          He walks her out. She turns to go and then turns back. She crosses
+          the three steps between them. She has to reach up — he is so much
+          taller — and she presses her palm, flat, against his chest, over
+          his shirt, over the faint bruise-mark he has been trying not to
+          look at, exactly where her hand was in the woods. She holds it
+          there for one breath. She does not say anything. She walks into
+          the trees.
+        - >
+          He returns to the cabin. There is a single iridescent scale on
+          the chair where she sat — smaller than a fingernail, catching the
+          morning light in seven colors. He picks it up. He puts it in his
+          breast pocket. He keeps his hand pressed over the pocket for a
+          long minute, like he is keeping something from flying out.
+        - >
+          He stands in the doorway, the door still open behind him, his hand
+          over his breast pocket, his other hand on the peg by the door
+          where she did not touch the glove because she did not need to. He
+          says, to no one and to the forest, "What am I doing."
+      beat_function: >
+        The chapter's closing movement, in four small acts: the silent tea,
+        the palm on the chest mark at the tree line (which is the chapter's
+        third and final piece of skin-on-skin and the one she initiates),
+        the scale found on the chair, and the final spoken line to the empty
+        woods. The palm-on-chest is the gesture that confirms — to the
+        reader, not yet to Cal — that she knows the mark is there and that
+        she put it there. The scale is physical evidence she was not a
+        dream. 'What am I doing' is the chapter's closing line and Cal's
+        first piece of dialogue addressed to the world rather than to her.
+      prose_directives:
+        - "'Caleb.' as her only word at the table in the morning. Render with the full stop. Do not narrate her reasons."
+        - >
+          The walk to the tree line is rendered in short physical steps: she
+          turns to go, turns back, crosses the three steps, has to reach up.
+          Cal's height is acknowledged once — 'he is so much taller.'
+        - >
+          The palm-on-chest is rendered in layered geometry: her palm, flat,
+          against his chest, over his shirt, over the faint bruise-mark,
+          exactly where her hand was in the woods. Render each layer. The
+          exactness of placement is the point.
+        - "'She holds it there for one breath.' is the count. One breath. Not a heartbeat, not three seconds — a breath. Hers, presumably."
+        - >
+          The scale is described in physical detail: smaller than a
+          fingernail, seven colors in the morning light. Cal does not name
+          what it is. The reader knows.
+        - "'Like he is keeping something from flying out.' is one of the chapter's two earned figurative lines. Render exact."
+        - >
+          The closing line — 'What am I doing.' — is delivered as a
+          statement, not a question. The period is intentional. He is not
+          asking. He is observing.
+      closes_on: >
+        Cal in the cabin doorway. Hand over the scale in his pocket. Other
+        hand on the peg by the door. The forest in front of him not
+        answering.
+
+  prohibited_at_chapter_level:
+    - "No Thistle POV. The chapter is single Cal POV throughout. Her interior is rendered only through what Cal observes."
+    - "The iridescent scale is not named as fae evidence in the chapter. Cal picks it up, pockets it, presses his hand over the pocket. He does not name what it is. The reader is allowed to know."
+    - "The mark on Cal's chest is acknowledged but not understood by him. He calls it 'a mark' or 'a bruise-mark' or 'where her hand was.' He does not name it as the shape of her hand."
+    - "Thistle's high collar is observed by Cal in the doorway and again over her sternum in sleep. Cal does not ask what it is hiding. Thistle does not show what is under it. The reader knows; Cal chooses not to."
+    - "Cal does not ask Thistle who or what she is. He does not ask about the woods. He does not ask how his thigh is healed. The chapter's central moral act is the choosing not to ask."
+    - "No physical romance, no kiss, no consummation. The chapter's three skin-contacts are: hand-over-hand on the razor (steel between them), one finger on the inside of his wrist (three counts), her palm on his chest (one breath, fully clothed). That is the chapter's complete physical inventory."
+    - "Morrow is not present, not referenced, not mentioned in this chapter."
+    - "Samuel is not present, not referenced, not mentioned in this chapter."
+    - "The healed thigh is acknowledged in beat one and not revisited. Cal does not press his thumb to it again during Thistle's visit."
+    - "The unfinished word 'you are very —' is not supplied by narration. The reader is in Cal's position: he does not know which word; he will think about it. The narration does not know either."
+    - "The word 'instinct' is not used anywhere in the chapter, in any beat, in any directive, in any rendered prose."

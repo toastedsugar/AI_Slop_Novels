@@ -1,0 +1,953 @@
+chapter:
+  id: ch04
+  number: 4
+  title: "Six Days"
+  word_count_target: 1200
+
+  narrative_function: extended_escalation_under_disciplined_deferral
+  arc_position: second_act_compression_before_consummation
+  story_structure_role: >
+    The novelette's longest stretch of held-line proximity. Six days of
+    Thistle returning at dusk, of small impossible escalations, of the bed
+    increasingly visible in the corner of every scene — all under the
+    discipline of the high collar that stays buttoned and the "tomorrow"
+    that keeps being deferred. Alternating POV by day (Cal–Thistle–Cal–
+    Thistle–Cal–Thistle) so the reader is inside both bodies during the
+    same compression. The chapter ends with them in bed together for the
+    first time, fully clothed, holding through the storm, neither
+    unbuttoning, neither kissing, both awake all night because they have
+    decided not to do tonight what they have decided to do in the morning.
+    Sets up the rite/consummation of chapter five with maximum pressure
+    already built and the collar still up.
+
+  pov:
+    mode: alternating
+    characters: [cal, thistle]
+    pattern: "Day 1 Cal, Day 2 Thistle, Day 3 Cal, Day 4 Thistle, Day 5 Cal, Day 6 Thistle — clean alternation across the six day-sections, single POV within each beat."
+
+  setting_summary:
+    time_of_year: early_autumn_1897
+    time_of_day: dusk_to_dawn_across_six_consecutive_days
+
+  locations_present:
+    - cal_cabin_interior            # primary across Days 1, 3, 5, 6
+    - cal_woodpile                  # Days 1, 3, 6
+    - cal_porch                     # Days 5 and 6
+    - cabin_clearing_tree_line      # Day 6 noon, glamour-fail and the alder
+    - hemlock_ridge_above_cabin     # Day 2: Morrow's lecture
+    - thistle_hollow_at_mother_roots # Day 2 night
+    - the_hidden_spring             # Day 4; never seen by humans before this
+    - cal_cabin_bed                 # Day 6 night; the storm; the holding
+
+  locations_referenced:
+    - widowmaker_site               # by way of Cal's mostly-healed thigh and the lingering limp
+    - millers_cut                   # Morrow's accusation about the eastern stakes
+    - the_yew_thistle_has_been_sleeping_in # planted Day 2, named again Day 5
+
+  characters_present:
+    - cal
+    - thistle
+    - bract                         # Days 1, 3, 4, 5, 6 — increasingly present, increasingly proprietary
+    - morrow                        # Day 2 only; lecture register
+    - the_mother                    # Day 2 night, non-speaking, at Thistle's hollow
+
+  characters_referenced:
+    - daniel_thorne                 # the father in the snow; Day 5 confession
+    - marin_thorne                  # the mother and the grief-consumption; Day 5 confession
+    - samuel                        # Day 5; "so my brother doesn't have to"
+    - hiram_beck                    # Day 5; the younger man beaten unconscious
+    - the_younger_man               # unnamed; Hiram's victim, Cal's witness
+    - the_dead_crew_men             # background; the men who died while Cal stayed on
+    - the_camp_doctor               # who could not be afforded for the ribs
+
+  objects_present:
+    - thistle_chanterelles          # Day 1; cradled in the fold of her skirt
+    - thistle_old_dress_with_high_collar # CONTINUING; buttoned across all six days
+    - the_butter                    # Day 1; she has not had it in a hundred years
+    - cal_bowl                      # Day 1
+    - cal_old_linen_shirt           # given to her Day 1; she wears it Day 6 night
+    - cal_axe                       # Days 1, 3, 6
+    - morrow_crow_form              # Day 2 arrival
+    - morrow_half_form              # Day 2 lecture
+    - thistle_freckle_print_on_sternum # CONTINUING; under the collar
+    - cal_chest_mark                # CONTINUING; visible in noon sun Day 6
+    - thistle_inner_arm_freckles    # Day 4; revealed when sleeves rolled
+    - the_hidden_spring_pool        # Day 4
+    - the_flat_stone_at_the_pools_edge # Day 4
+    - bract_jerky_reward            # Day 4 evening
+    - cal_floor_position            # Day 5 night
+    - thistle_chair_position        # Day 5 night
+    - the_young_alder_blossoming    # Day 6 noon; out-of-season glamour-fail
+    - the_thunderstorm              # Day 6 night
+    - cal_bed                       # Day 6 night
+    - cal_boots_belt                # Day 6 night; removed
+    - thistle_collar_buttons        # Day 6 night; traced once, not unfastened
+
+  objects_referenced:
+    - cal_leather_glove             # background on the peg; not used this chapter
+    - the_eastern_miller_stakes     # Morrow's accusation
+    - cal_father_in_snow            # confession
+    - the_forty_dollars_a_month     # confession
+    - cal_broken_ribs_untreated     # confession
+    - hiram_beating_the_younger_man # confession
+
+  emotional_register: six_days_of_increasing_pressure_under_self_imposed_restraint
+
+  themes_active:
+    - the_discipline_of_deferral
+    - what_his_hands_have_been_doing
+    - the_matched_marks_revealed_to_one_but_not_the_other
+    - the_first_holding_in_decades
+    - confession_as_surrender
+    - tomorrow_as_both_threat_and_promise
+    - the_line_of_buttons_not_undone
+
+  voices_introduced:
+    - cal_confession_voice          # Day 5; the eight-year-old in the snow register, his interior breaking out into speech
+    - thistle_tomorrow_register     # Day 6; the deferral that becomes the chapter's tempo
+    - morrow_lecture_voice          # Day 2; returns from chapter-two silence, sharper than the chapter-one warning
+
+  plants_for_later:
+    chanterelles_she_did_not_find: ch_later_her_fae_provenance_spoken_aloud_to_him
+    the_century_old_butter: ch_later_worldbuilding_of_her_long_absence_from_human_kitchens
+    cal_chest_mark_visible_in_daylight_to_thistle: ch05_the_mark_is_named_between_them
+    thistle_inner_arm_freckles: ch05_or_after_unclothed_at_the_rite
+    the_hidden_spring: ch_later_returned_to_at_or_after_the_rite
+    her_hand_fitting_his_hand_at_the_spring: ch05_the_matched_shapes_named
+    young_alder_blossoming_out_of_season: ch_later_her_magic_increasingly_uncontainable
+    cal_confession_about_his_hands: ch_later_he_leaves_the_miller_company
+    the_tomorrow_promise_kept_for_six_days: ch05_morning_consummation
+    thistle_practiced_words_that_failed: ch_later_she_finds_them_and_speaks
+    the_collar_buttons_traced_not_unfastened: ch05_collar_comes_down
+    spring_water_healed_his_limp: ch_later_fae_healing_named
+    cal_held_for_the_first_time_in_twenty_two_years: ch_later_he_is_held_again_and_does_not_flinch
+    morrow_re_engaged_as_speaking_presence: ch_later_morrows_blessing_or_intervention
+
+  continuity_out:
+    pov_state: >
+      Dawn of the seventh day. Cal on his back in his own bed, fully clothed
+      except for boots and belt. Thistle on her side against his ribs in
+      his old linen shirt that he gave her on Day 1. Her cheek resting on
+      his sternum directly over the bruise-mark of her hand. His mouth
+      pressed into the top of her hair. His right hand flat between her
+      shoulder blades. His left thumb resting on the line of three small
+      buttons at the back of her collar — having traced them once in the
+      night without unfastening any. Bract on the floor at the foot of the
+      bed, eyes on the door, ears up. Neither of them has slept. Neither of
+      them has moved in two hours.
+    location_end: "Cal's cabin bed, dawn of Day 7, the storm gone and the window grey."
+    unresolved: >
+      What "tomorrow" specifically means and which of them speaks first now
+      that tomorrow is here. Whether Thistle finds the words she failed to
+      find on the porch yesterday at dawn. What Cal will do when she tells
+      him. Whether the collar comes down today and whether he sees what is
+      under it. What Cal will do about the Miller Company on Monday morning.
+      The mark on his chest, still not named between them. Whether either
+      of them can hold the line through breakfast.
+
+  beats:
+    - id: ch04_b01
+      title: "Day 1: The Chanterelles, The Butter, The Wrist"
+      pov: cal
+      approx_words: 140
+      opens_on: >
+        She comes back at dusk. He has been telling himself all day that
+        she will not. She does.
+      action_sequence:
+        - >
+          She is in the same high-collared summer dress; her hair is loose;
+          she has a fold of her skirt held up in front of her with
+          chanterelles cradled in it. "I found them." He knows she did not
+          find them. He says nothing.
+        - >
+          He cooks. She watches him cook the way a woman watches a man she
+          has decided she will. She learns what butter is — he says the
+          word, she repeats it the way she repeats words she has not had
+          for a hundred years — and she cries a little when she tastes it.
+          He pretends not to see.
+        - >
+          Distracted by her face, he licks butter off his own thumb without
+          thinking. Her fae composure cracks for a half-second; he sees the
+          crack without knowing what he is seeing.
+        - >
+          After the meal he reaches across the small table to take her
+          bowl from her, and his thumb brushes the inside of her wrist.
+          Her hand turns under his hand — slow, on purpose — so that his
+          thumb is on her pulse. He freezes. He does not move his thumb.
+          She does not move her hand. Three seconds. Four. He breaks first;
+          he withdraws his hand and turns to the stove.
+        - >
+          Before she leaves for the night, he sets his old linen shirt in
+          her hands without explanation — too long for her, smelling of him,
+          for the walk back. She takes it without speaking.
+        - >
+          She holds her wrist for the rest of the evening with her own
+          thumb pressed to the print of his.
+      beat_function: >
+        First of six escalations. The chanterelles she did not find are the
+        first piece of fae-provenance evidence Cal files away without
+        questioning. The butter scene establishes her century-long absence
+        from human kitchens in one image. Cal's accidental thumb-lick and
+        her half-second composure-crack is the first piece of erotic charge
+        that runs both directions in the same gesture. The deliberate
+        wrist-turn that puts his thumb on her pulse is Thistle's first
+        explicit consent-as-staging in the chapter: she places his hand on
+        the spot where she is most undone by being touched, on purpose,
+        slow, where he can see her do it. The linen-shirt gift is planted
+        here for the Day 6 night payoff.
+      prose_directives:
+        - >
+          'She watches him cook the way a woman watches a man she has
+          decided she will.' is one of the chapter's clearest erotic thesis
+          statements. Render exact. Do not soften 'decided she will.'
+        - >
+          The butter sentence — 'she repeats it the way she repeats words
+          she has not had for a hundred years' — is the chapter's first
+          piece of soft-edge worldbuilding. Render exact and do not gloss
+          the hundred years.
+        - >
+          'She cries a little when she tastes it. He pretends not to see.'
+          — two short clauses, no decoration. The tenderness is in the
+          plainness.
+        - >
+          The thumb-lick must happen 'without thinking.' Her composure
+          cracks for a half-second. Cal sees the crack 'without knowing what
+          he is seeing.' Both clauses must land — his ignorance is as
+          important as her crack.
+        - >
+          The wrist-turn is rendered in this sequence: his thumb brushes her
+          wrist (accident); her hand turns under his hand (deliberate, on
+          purpose); his thumb lands on her pulse (she has placed it there);
+          three seconds, four; he breaks first. Render the count.
+        - >
+          The shirt-gift is one short line. Do not have him explain. Do not
+          have her thank him. The exchange is wordless. The reader needs to
+          register that the shirt has been given so it can appear on her
+          body in beat 8.
+        - >
+          The closing image is her with her own thumb on her own wrist on
+          the print of his. Render plainly. She is keeping the touch.
+      closes_on: >
+        Thistle gone into the dusk in his linen shirt over her summer dress.
+        Cal alone in the cabin with the dishes and the print of his thumb
+        on his own thumb where her pulse was.
+
+    - id: ch04_b02
+      title: "Day 2: The Hemlock and the Hollow"
+      pov: thistle
+      approx_words: 140
+      opens_on: >
+        She has not gone home. She has been sitting in the high crotch of a
+        hemlock on the ridge above his cabin since midnight, watching the
+        dim square of his lit window go out at three and the smoke from his
+        chimney come up at five-thirty.
+      action_sequence:
+        - >
+          Morrow lands on her shoulder in crow form, shifts to half-form in
+          the same motion. "You slept in a yew last night, girl, you said.
+          You slept in a yew while watching his light go out."
+        - >
+          The lecture lands hard. The Miller Company. The eastern stakes.
+          "He marks trees for them, Thistle-in-the-Hollow. He is paid by
+          the foot of cedar. Do you know what his hands have been doing for
+          three years?"
+        - >
+          Thistle goes cold. She has been so full of his hands that she has
+          forgotten to ask what his hands have been doing. She tells herself
+          she will ask him tomorrow. She does not ask him tomorrow.
+        - >
+          That night, in her hollow at the Mother's roots, she lies with
+          her own thumb pressed against the inside of her own wrist — the
+          spot — for hours. The closest she can come to him without going
+          to him.
+        - >
+          The freckle-print on her sternum has not faded. She sleeps with
+          her hand inside her dress, palm flat against it, like a woman
+          holding something against escape.
+      beat_function: >
+        Morrow's return as a speaking presence after chapter two's silence —
+        sharper than the chapter-one warning, direct accusation rather than
+        plea. The lecture introduces the chapter's central counter-pressure:
+        what his hands have been doing for three years. The reader sees
+        Thistle register the accusation and immediately defer it. Her tells-
+        herself-and-doesn't-ask is the chapter's first piece of mirrored
+        moral cowardice — she is, in this beat, doing Cal's choosing-not-
+        to-ask back at him. The hollow scene at chapter-end establishes the
+        chapter's central physical refrain: she presses her own thumb to
+        the same spot his thumb has touched. The freckle-print under her
+        own hand in sleep is the planted image that the Day 5 night beat
+        will mirror.
+      prose_directives:
+        - >
+          The hemlock-watch is rendered as duration and observation, not
+          drama. Since midnight. Light goes out at three. Smoke up at
+          five-thirty. The reader registers the count without it being
+          named as obsessive.
+        - >
+          Morrow's lecture is delivered in three pieces: the slept-in-a-yew
+          recognition, the Miller Company fact, the three-years question.
+          Each piece gets one paragraph. The third is the one that lands.
+        - >
+          'She has been so full of his hands that she has forgotten to ask
+          what his hands have been doing.' is the beat's structural
+          recognition. Render exact. The reader feels the inversion: she
+          has been thinking about his hands and not about what his hands do.
+        - >
+          'She tells herself she will ask him tomorrow. She does not ask
+          him tomorrow.' Render the deferral in two sentences, one beat
+          apart. The cadence is the moral failure.
+        - >
+          The hollow scene closes the beat. 'The closest she can come to
+          him without going to him.' Render plainly. The image is the
+          mirror to his three-AM hand-shape from chapter three.
+        - >
+          The hand-inside-the-dress-on-the-freckle-print is rendered with
+          one figurative line — 'like a woman holding something against
+          escape.' That is the chapter's clearest line about her own
+          custodianship of the mark.
+      closes_on: >
+        Thistle asleep at the Mother's roots, her own hand on the freckle-
+        print on her sternum, the moon down, the forest quiet around her.
+
+    - id: ch04_b03
+      title: "Day 3: The Axe-Teaching"
+      pov: cal
+      approx_words: 170
+      opens_on: >
+        He has been chopping wood he does not need for six straight
+        evenings. Today he needs the wood and he is going to teach her how.
+      action_sequence:
+        - >
+          He stands behind her and puts his hands over hers on the haft.
+          He discovers, in his body, that he has done this hand-over-hand
+          thing before — the razor, six days ago, in this same cabin — and
+          that he is doing it again on purpose.
+        - >
+          His chest is against her back. Her hair is under his chin. The
+          high collar of her dress is touching the underside of his throat.
+          He has been not asking about the collar for three days.
+        - >
+          He says, low, at her ear, "Loose, not tight. Let it fall through
+          you." He does not hear how it sounds until after he has said it.
+          She does. Her hands go loose under his. The axe drops a foot
+          through both their hands and stops. He says, hoarse, "Good."
+        - >
+          His thumb is on the inside of her wrist again — the same wrist,
+          in the exact same spot, his thumb laying over the print he left
+          at the table on Day 1 without knowing the print is there. She
+          turns her head a fraction. Her temple is against his jaw. He
+          stops breathing.
+        - >
+          The cabin is fifteen feet behind them and the bed is in the cabin
+          and they are three days into six and he is going to do something
+          he cannot undo. He says, "Thistle." She says, "Caleb." They
+          could. Right now. They both know they could.
+        - >
+          She steps forward out of his arms — she breaks it, not him,
+          which she will think about for the rest of her existence — swings
+          the axe loose and clean, splits the log in one stroke. She turns.
+          She is breathless. He sees her breathless. He sets his axe down
+          because his hands are not steady. He says, "I think you've got
+          it." She says, "Yes." Neither of them has stopped looking at the
+          other's mouth.
+        - >
+          Bract comes over with a stick. The moment breaks. Both of them
+          laugh — her wind-chime, him rough and surprised — and he says,
+          into the laugh, "Do that again," and she does, just for him, and
+          he turns his back to her and pretends to look for a wedge for a
+          long minute because the front of his trousers is not behaving.
+      beat_function: >
+        The chapter's central female-gaze set piece and the closest they
+        come to consummation across the six days. The hand-over-hand on
+        the haft is a deliberate echo of the razor scene in chapter three;
+        Cal recognizes the echo from inside his own body. The wrist-thumb
+        landing in the exact print he left without knowing the print is
+        there is the chapter's most specific piece of body-memory writing.
+        The "Thistle" / "Caleb" exchange — they could; both know they
+        could — is the chapter's first explicit naming of the line between
+        them and the fact that holding it is a shared decision. She breaks
+        it (which the prose pass should preserve as her sole authorship —
+        she is the one who keeps the line through every escalation in this
+        chapter). The closing Bract-and-laughter beat is the chapter's
+        first return of the chapter-two laughter, with the "Do that again"
+        callback now coming from Cal in a register that is not delirium.
+      prose_directives:
+        - >
+          'He discovers, in his body, that he has done this hand-over-hand
+          thing before' — render the self-recognition as somatic, not
+          intellectual. He notices in his hands, not in his mind.
+        - >
+          'Loose, not tight. Let it fall through you.' Render verbatim. The
+          beat hinges on the double meaning he does not hear until after,
+          and her hands going loose in his is the chapter's clearest line
+          about her response to instruction in his low voice.
+        - >
+          'His thumb is on the inside of her wrist again — the same wrist,
+          in the exact same spot' — the exactness is the body-memory.
+          Render the placement explicitly. The print he left on Day 1 is
+          named in the same sentence so the reader holds both moments
+          together.
+        - >
+          'They could. Right now. They both know they could.' Three short
+          sentences. Render as a paragraph or three separate sentences.
+          The cadence is the entire content.
+        - >
+          'She breaks it, not him, which she will think about for the rest
+          of her existence' — the parenthetical aside is the only piece of
+          forward-projected interiority the chapter allows itself. Render
+          exact. 'Existence' rather than 'life' is deliberate; she is
+          two hundred years old.
+        - >
+          The axe-stroke is one sentence: swings the axe loose and clean,
+          splits the log in one stroke. The reader sees her competence
+          arrive at the moment she chooses competence over consummation.
+        - >
+          The Bract beat is the chapter's first laugh and the callback to
+          chapter two. 'Do that again' is now in Cal's mouth — note the
+          inversion from chapter two beat six. Both should land. Do not
+          gloss the echo.
+        - >
+          The closing trouser-line is dry, plain, slightly comic. 'Because
+          the front of his trousers is not behaving' is the chapter's
+          frankest piece of Cal-body humor. Render plain.
+      closes_on: >
+        Cal with his back to Thistle, pretending to look for a wedge. The
+        log split and the axe down. Bract chewing his stick. Thistle
+        watching Cal's back and seeing exactly what is happening.
+
+    - id: ch04_b04
+      title: "Day 4: The Hidden Spring"
+      pov: thistle
+      approx_words: 170
+      opens_on: >
+        She brings him to the hidden spring. She has been alive two hundred
+        years. She has brought no human here in any of those years. She
+        does not name what she is doing.
+      action_sequence:
+        - >
+          He kneels at the edge across from her. She unbuttons both her
+          cuffs, slow, and rolls her sleeves to the elbows; her slender
+          forearms are bare; the inside of her arm has a different pattern
+          of freckles than the outside, and he has not seen the inside
+          before. She watches him not look.
+        - >
+          She cups water in her hands and drinks; water runs down her chin
+          to her throat to the collar of her dress. She does it again. He
+          is staring at her mouth. "Drink, Caleb." He cups water. He
+          drinks. She watches his throat move — his Adam's apple, the line
+          of his beard, the water that disappears under his collar.
+        - >
+          He stands. The limp that was almost gone is gone. He flexes his
+          ankle. He looks at her. He does not ask. She does not explain.
+        - >
+          She stands and walks two steps into the pool. She lifts her skirt
+          to her knees to keep it dry. Her bare calves. The back of her
+          knees. He sees the back of her knees and looks away. She watches
+          him look away.
+        - >
+          She walks back out and sits on the flat stone at the edge, her
+          wet small feet on the moss, her skirt still pulled up around her
+          shins. He sits beside her, six inches between them, and does not
+          look down. They sit like that until the light goes amber.
+        - >
+          When he stands, he offers her his hand to help her up. She takes
+          it. His hand around her bare hand is the same shape as the print
+          on her sternum. She gets up. She does not let go of his hand for
+          the walk back to the cabin. He does not let go either.
+        - >
+          They walk through the trees holding hands for the first time and
+          neither of them says anything. The whole walk is one held breath.
+          Bract is so well-behaved that night he gets two pieces of jerky.
+      beat_function: >
+        Thistle's offering. She brings him to a place she has kept private
+        for two hundred years and does not name what she is doing. The
+        sleeve-rolling and the inner-arm freckles are the first piece of
+        her body she has shown him on purpose — paid off later when she is
+        unclothed at the rite. The spring water heals the last of his limp,
+        which Cal registers and does not interrogate (continuing his choose-
+        not-to-ask discipline from chapter three). The back-of-the-knees
+        moment is the chapter's quietest piece of mutual restraint — she
+        sees him look away and is undone by it. The hand-offered, hand-
+        taken at the end is the chapter's first piece of fully-elective
+        skin-on-skin contact, and the recognition (his hand around her bare
+        hand is the same shape as the print on her sternum) is the
+        chapter's clearest planted image for the matched-marks payoff to
+        come. They walk back holding hands — the chapter's first held
+        contact that lasts more than seconds. Bract's jerky is the beat's
+        only comic note and the right size.
+      prose_directives:
+        - >
+          'She has brought no human here in any of those years' — render
+          plainly. Do not say what the spring is. Cal does not know, and
+          neither does the narration in this beat. The reader feels the
+          weight of the offering.
+        - >
+          The cuff-unbuttoning is slow. Two cuffs. Sleeves rolled to the
+          elbows. The inside-of-the-arm freckles are described as 'a
+          different pattern than the outside' — Cal has not seen the
+          inside before. Render the specificity.
+        - >
+          'She watches him not look' is the beat's quietly devastating
+          recurring construction. It appears twice (here and at the back-
+          of-the-knees). Render both occurrences.
+        - >
+          'Drink, Caleb.' is the chapter's quietest piece of fae imperative
+          —  she names him and instructs him in the same breath, formal
+          register. Render exact.
+        - >
+          The healing is one short clause: 'The limp that was almost gone
+          is gone.' He flexes his ankle. He looks at her. He does not
+          ask. The chapter's choose-not-to-ask discipline is now Cal's
+          established register.
+        - >
+          The back-of-the-knees moment is rendered in five short clauses:
+          her bare calves, the back of her knees, he sees, he looks away,
+          she watches him look away. Render slow. The looking-away is the
+          beat's whole erotic content.
+        - >
+          'His hand around her bare hand is the same shape as the print on
+          her sternum.' Render exact. This is the chapter's most explicit
+          planted image for the matched-marks payoff. Thistle is the only
+          one who knows the shape match. The reader is told once here and
+          not again.
+        - >
+          'The whole walk is one held breath.' Render exact. The breath is
+          shared, not specified as his or hers.
+        - >
+          Bract gets two pieces of jerky. One sentence. The chapter's
+          comic ballast.
+      closes_on: >
+        Cal's cabin door at full dark. Their hands still together. Bract
+        chewing on his second piece of jerky. Neither of them stepping in
+        first.
+
+    - id: ch04_b05
+      title: "Day 5: The Confession"
+      pov: cal
+      approx_words: 140
+      opens_on: >
+        Low fire, no lamp lit, the cabin in red and shadow. He sits on the
+        floor with his back against the stove. She sits in his chair. Her
+        small bare feet on his floor. He starts talking and cannot stop.
+      action_sequence:
+        - >
+          His father in the snow. April thaw. Eight years old, Samuel three.
+          Their mother, grief that the doctor called consumption. The forty
+          dollars a month. The broken ribs he did not tell the doctor about
+          because he could not afford to stop.
+        - >
+          The men who have died on his crew while he stayed on the crew.
+          Hiram beating a younger man unconscious last spring while Cal did
+          nothing because doing something would have meant losing the
+          contract.
+        - >
+          He looks at the stove the whole time. "I don't know what I'm
+          building, Thistle. I'm cutting down trees so my brother doesn't
+          have to. That's all I've ever done. I'm thirty years old and
+          that's all I've ever done."
+        - >
+          She does not speak for a long time. Then, formal and devastating:
+          "Your heart is a good one, Caleb. I am sorry it has carried so
+          much."
+      beat_function: >
+        Cal's confession voice introduced. The eight-year-old in the snow
+        register, his interior breaking out into speech for the first time
+        in the novelette. The factual nodes — the father, the mother, the
+        forty dollars, the broken ribs, the dead crew, Hiram and the
+        younger man — are delivered in this order without dramatization;
+        Cal is reporting his own ledger the way Thistle reported hers in
+        chapter one. The 'cutting down trees so my brother doesn't have to'
+        is the chapter's clearest line about why his hands have been doing
+        what they have been doing — Morrow's Day 2 accusation answered,
+        though Morrow is not in the room. Thistle's response — formal,
+        devastating — is the chapter's emotional thesis statement.
+      prose_directives:
+        - >
+          The opening setting line is one sentence: low fire, no lamp,
+          cabin in red and shadow. The lack of lamp is doing the work —
+          this is confession-light, not domestic-light.
+        - >
+          He sits on the floor with his back against the stove. She sits
+          in his chair. The arrangement is reversed from Day 5 night's
+          arrangement and from chapter three's arrangement — render the
+          inversion. He is below her now.
+        - >
+          The factual nodes are delivered in this order: father, mother,
+          forty dollars, ribs, crew, Hiram. Each gets one short sentence
+          or clause. The prose is Cal's voice — ledger, not lyric. No
+          decoration.
+        - >
+          'I'm cutting down trees so my brother doesn't have to. That's
+          all I've ever done. I'm thirty years old and that's all I've
+          ever done.' Render verbatim with the two repetitions. The
+          rhythm is the entire weight of the thirty years.
+        - >
+          'He looks at the stove the whole time.' This single sentence
+          interrupts the confession midway. Render so the reader feels
+          him not looking at her.
+        - >
+          'Your heart is a good one, Caleb. I am sorry it has carried so
+          much.' Render verbatim. This is Thistle's third major formal-
+          register line in the novelette (after 'I am as real as you are
+          kind' in chapter two and 'Do you love your work, Caleb Thorne'
+          in chapter three). The pattern of formal address as devastating
+          tenderness is now consolidated.
+        - "Do not narrate his reaction to her line inside this beat. The reaction is the next beat."
+      closes_on: >
+        Her line in the air. Cal on the floor with his back against the
+        stove. The fire down to coals. Neither of them moving.
+
+    - id: ch04_b06
+      title: "Day 5: The Porch, The Cheek, The Wrist"
+      pov: cal
+      approx_words: 140
+      opens_on: >
+        He has to leave the room.
+      action_sequence:
+        - >
+          He goes onto the porch. He grips the railing until his knuckles
+          whiten. He does not cry. She comes out behind him. She does not
+          speak. She crosses the porch. She stops behind him and presses
+          her slim palm, flat, against his back between his shoulder blades.
+        - >
+          He drops his head. His shoulders shake once. She does not move
+          her hand. After a long time he says, into the railing, "I don't
+          know what to do." She says, "Come inside."
+        - >
+          He does. He sits on the bed. She sits beside him. She puts her
+          hand on his cheek. He closes his eyes and turns his face into her
+          palm — he, who has not been held by anyone since he was eight,
+          who has been held now by this woman for three full breaths and is
+          undone by it.
+        - >
+          His lips brush the inside of her wrist by accident. She makes a
+          small sound. He stops. He opens his eyes. "Thistle. If I —" She
+          says, "Tomorrow." He does not understand what she is telling him.
+          She is telling him: tomorrow I will give you everything and you
+          will decide if you still want me.
+        - >
+          He says, hoarse, "Stay tonight. Don't sleep in the yew. Stay."
+          She stays. She sleeps in the chair by the fire. He sleeps on
+          the floor in front of her. Bract sleeps between them. None of
+          them sleep.
+      beat_function: >
+        The chapter's first explicit holding. Thistle's palm between his
+        shoulder blades on the porch is the chapter's third skin-to-skin
+        contact and the first one offered without erotic pretext — she is
+        catching him. The face-into-palm moment is the chapter's clearest
+        line about Cal's twenty-two years of not being held, rendered as
+        somatic fact: he closes his eyes, turns his face into her hand,
+        is undone by it in three breaths. His accidental brush of her wrist
+        with his lips and her small sound is the chapter's quietest
+        moment of erotic charge inside the beat of tenderness. 'Tomorrow'
+        is introduced here as Thistle's deferral register — the word that
+        will run through the rest of the chapter and the chapter to come.
+        The chapter-five payoff (the meaning of 'tomorrow') is named to
+        the reader and not to Cal.
+      prose_directives:
+        - >
+          'He grips the railing until his knuckles whiten. He does not cry.'
+          Render both. The not-crying is the discipline; the white knuckles
+          are the cost of it.
+        - >
+          Thistle's palm 'flat, against his back between his shoulder blades'
+          is rendered in three descriptors: slim, flat, between his shoulder
+          blades. Render the placement specifically. She is catching him
+          on the same plane of his body where the print on her sternum is
+          on hers — the symmetry should land for the reader without being
+          named.
+        - >
+          'He, who has not been held by anyone since he was eight, who
+          has been held now by this woman for three full breaths and is
+          undone by it.' Render verbatim. The construction — the relative
+          clauses, the count of breaths — is the chapter's most exposed
+          piece of Cal-interior in the beat.
+        - >
+          The wrist-brush-by-accident is the chapter's quietest piece of
+          mouth-contact. Render plainly. 'His lips brush the inside of her
+          wrist by accident.' Her 'small sound' is one phrase. He stops.
+          He opens his eyes.
+        - >
+          'Thistle. If I —' is the unfinished sentence from his side. Note
+          the symmetry with her 'You are very —' in chapter three. Both
+          unfinished sentences are filed for later.
+        - >
+          'Tomorrow.' from Thistle is the chapter's first instance of the
+          deferral register. The narration explains it to the reader in
+          one sentence — 'She is telling him: tomorrow I will give you
+          everything and you will decide if you still want me.' — and not
+          to Cal. Render the disjuncture between what is said and what is
+          understood.
+        - >
+          'Stay tonight. Don't sleep in the yew. Stay.' Render verbatim.
+          The reference to the yew (Day 2 plant) is Cal showing that he
+          has noticed without asking.
+        - >
+          The sleeping arrangement is rendered in four short sentences.
+          She in the chair. He on the floor. Bract between. None of them
+          sleep. The repetition of 'sleep' is the joke and the truth.
+      closes_on: >
+        The fire down to coals. Three figures in the small cabin none of
+        them sleeping. The yew empty in the woods.
+
+    - id: ch04_b07
+      title: "Day 6: Morning, The Mark in Daylight, Tomorrow Night"
+      pov: thistle
+      approx_words: 130
+      opens_on: >
+        She has been awake since three. She has decided. She practices the
+        words on the porch in the dawn light.
+      action_sequence:
+        - >
+          "Caleb, my name is. Caleb, the forest is. Caleb, your work is."
+          She cannot find them.
+        - >
+          He comes out half an hour later. He looks at her and says,
+          "Thistle, last night I —" She says, "Not yet, Caleb. Give me
+          today." He nods. He does not ask. She loves him for that and
+          she has been loving him for six days.
+        - >
+          He goes to split wood because he does not know what else to do
+          with his hands. At noon she comes through the trees and he is
+          shirtless. Sweat at the small of his back, at the line of his
+          collarbone, in the hair of his chest. And the mark on his
+          sternum — visible in the noon sun, faint, the color of a bruise,
+          in the unmistakable shape of a small spread hand. Her hand.
+        - >
+          She has not seen it in daylight before. She stops at the tree
+          line. Her glamour fails for one full second; behind her, a young
+          alder blossoms out of season. Her hand finds her own sternum
+          where her hand is on the freckle-print of his hand, where his
+          hand was on her chest in the woods, the matched set finally
+          visible to her in the sun.
+        - >
+          She makes herself walk in. He stops, surprised, reaches for his
+          shirt — "Sorry — I didn't know you —" She says, "Don't." He
+          stops with the shirt half-on. She crosses to him. She stops a
+          foot away. She lifts her hand and traces, in the air an inch
+          from his skin, the shape of the print on his chest. Without
+          contact.
+        - >
+          "What is it," he asks, hoarse, "Thistle, what is on my chest."
+          She says, "Tomorrow." He says, "It's tomorrow now." She says,
+          "Tomorrow night, Caleb. I am asking you for tomorrow night."
+          He nods. He does not put the shirt on. She makes him stand bare-
+          chested for another long moment with her palm an inch from his
+          skin. She drops her hand. She walks past him into the cabin and
+          starts the stew.
+      beat_function: >
+        The matched marks revealed to Thistle in daylight for the first
+        time. Cal's chest mark is in the noon sun in the unmistakable
+        shape of her hand; her freckle-print on her sternum is the print
+        of his hand. Both have been on the bodies for six days. Both are
+        named to the reader for the first time as a confirmed matched
+        set in this beat — and not to Cal, who still does not know what
+        is on his chest, only that Thistle is reacting to it. The
+        glamour-fail (the alder out of season) is the chapter's second
+        piece of her magic breaking through, escalated from chapter
+        one's trillium. The 'Tomorrow night' specification turns the
+        chapter's deferral register from open-ended into time-bounded:
+        the rite is twelve hours away. The practiced-words moment at
+        dawn establishes that Thistle has decided to tell him today
+        and cannot yet find the words — that failure is planted for
+        chapter five's opening.
+      prose_directives:
+        - >
+          The practiced sentences are rendered as fragments: 'Caleb, my
+          name is. Caleb, the forest is. Caleb, your work is.' Render
+          verbatim with the broken-off endings. The reader feels her
+          searching for and not finding the end of each sentence.
+        - >
+          'Thistle, last night I —' is Cal's unfinished sentence again,
+          continued from beat 6. Note the third unfinished sentence in
+          the chapter (his Day 5 'If I —', his Day 6 'last night I —',
+          and her chapter-three 'You are very —'). The reader feels the
+          accumulation.
+        - >
+          'She loves him for that and she has been loving him for six
+          days.' Render exact. The first explicit interior use of 'love'
+          in the novelette from either POV. This is a load-bearing
+          sentence.
+        - >
+          The shirtless description is rendered with three specific sweat
+          locations: small of his back, line of his collarbone, hair of
+          his chest. Then the mark sentence. The mark is rendered with
+          three descriptors: faint, the color of a bruise, in the
+          unmistakable shape of a small spread hand. Then: 'Her hand.'
+          Two words. The recognition lands.
+        - >
+          The glamour-fail is one sentence: 'Her glamour fails for one
+          full second; behind her, a young alder blossoms out of season.'
+          Render the second beat as automatic consequence. The pattern
+          is established (trillium in chapter one); the escalation
+          (alder blossoming) is the second occurrence.
+        - >
+          'The matched set finally visible to her in the sun.' Render
+          exact. Thistle (and the reader) sees both marks together for
+          the first time. Cal does not.
+        - >
+          Cal's line — 'Sorry — I didn't know you —' — is unfinished. He
+          does not know how to finish 'I didn't know you were here' or
+          'I didn't know you would come' or anything else. Render the
+          broken-off line.
+        - >
+          'She lifts her hand and traces, in the air an inch from his
+          skin, the shape of the print on his chest. Without contact.'
+          Render the inch. Render the without-contact. This is the
+          chapter's clearest piece of restraint-as-eroticism: she is
+          mapping the mark in the air without touching it.
+        - >
+          'Thistle, what is on my chest.' His question is direct. The
+          first direct question he has asked her about any of the
+          impossible body-evidence. The reader feels his discipline
+          breaking.
+        - >
+          'Tomorrow night, Caleb. I am asking you for tomorrow night.'
+          Render verbatim. The specificity of 'night' is the chapter's
+          structural set-up for chapter five's morning opening.
+      closes_on: >
+        Cal half-clothed in the woodpile clearing, her hand-shape on his
+        chest in the noon sun. Thistle inside starting the stew. The
+        young alder in bloom behind her in the tree line.
+
+    - id: ch04_b08
+      title: "Day 6: Night, The Storm, The Buttons, The Cradle"
+      pov: thistle
+      approx_words: 180
+      opens_on: >
+        That night, thunderstorm. They eat in silence. The light goes
+        early. He banks the stove.
+      action_sequence:
+        - >
+          He says, "I'll take the floor." She says, "Caleb." He looks up.
+          She says, "I do not wish to sleep alone." He does not move for a
+          full minute. He has done this math for six nights.
+        - >
+          He takes off his boots. He takes off his belt. He keeps his
+          shirt and trousers on. She is in his old linen shirt that he
+          gave her on Day 1 — it comes to her knees, falls loose around
+          her slim frame — and the small shock of his own shirt against
+          her bare legs nearly undoes him in the doorway of his own bed.
+        - >
+          They lie down six inches apart and stare at the ceiling. Their
+          hands find each other. Their fingers lace. A long time passes.
+          The storm gets louder. He turns his head. She turns hers.
+        - >
+          She moves first; her cheek lands on his shoulder. He puts his
+          arm under her, pulls her against his side. Her cheek finds his
+          sternum — finds the mark — and she stops breathing for one
+          second. He does not ask.
+        - >
+          His hand goes to her back, over the high collar that has been
+          on her for six days, and his thumb finds the row of small
+          buttons and runs along them once — once — without unfastening
+          any. She makes a sound against his chest. He stops.
+        - >
+          He flattens his palm between her shoulder blades and keeps it
+          there. His other hand comes up and finds the back of her head,
+          slow, careful, cradling. He turns his face into her hair and
+          breathes her in.
+        - >
+          He says, into the top of her head, "Tomorrow." She says, into
+          his sternum where her hand-print is under her cheek, "Tomorrow."
+        - >
+          Neither of them sleeps. Neither of them unbuttons. Neither of
+          them kisses. Both of them are awake all night because both of
+          them have decided not to do tonight what they are going to do
+          in the morning.
+      beat_function: >
+        The chapter's longest beat and its emotional payoff. They are in
+        bed together for the first time, fully clothed, holding through
+        the storm, neither unbuttoning, neither kissing. The chapter's
+        central physical constraint — the high collar — is touched by
+        Cal's thumb once, and the buttons are explicitly not unfastened.
+        Her cheek finds the mark on his sternum and she stops breathing
+        for one second; he does not ask. The cradling is the chapter's
+        first sustained holding-of-the-head, paid off from the chapter-
+        three planted absence ('held by no one since he was eight').
+        Both say 'Tomorrow' into the other's body — the two-word exchange
+        is the chapter's structural close. The reader knows the chapter
+        five morning is the consummation. Both characters have decided
+        it. The decision is explicitly named in the final paragraph.
+      prose_directives:
+        - >
+          The thunderstorm is the beat's ambient pressure. Render the
+          storm getting louder. Render the light going early. The storm
+          does the work of the closed-in-together pressure that the
+          cabin alone cannot.
+        - >
+          'I'll take the floor.' / 'Caleb.' / 'I do not wish to sleep
+          alone.' Render verbatim. Her line is formal — 'do not wish'
+          rather than 'don't want' — and that is the chapter's last
+          piece of formal register before the holding.
+        - >
+          'He does not move for a full minute. He has done this math for
+          six nights.' Render exact. The 'math' is the chapter's clearest
+          line about Cal's running interior calculus of want and restraint.
+        - >
+          The undressing is incomplete by design: boots, belt; not shirt,
+          not trousers. Render the items he removes and the items he
+          keeps. The discipline is in what stays on.
+        - >
+          'The small shock of his own shirt against her bare legs nearly
+          undoes him in the doorway of his own bed.' Render exact. The
+          construction 'in the doorway of his own bed' is one of the
+          chapter's most quietly devastating prepositional phrases —
+          render the doorway-image specifically.
+        - >
+          The lying-down is rendered in three short clauses: six inches
+          apart, hands find each other, fingers lace. The reader feels
+          the geometry.
+        - >
+          'She moves first.' Render exact. Across the chapter Thistle is
+          the one who breaks lines and crosses distances; Cal holds.
+          The pattern is named one last time here.
+        - >
+          'Her cheek finds his sternum — finds the mark — and she stops
+          breathing for one second. He does not ask.' Render verbatim.
+          The chapter's central piece of mutual not-knowing held in
+          tenderness.
+        - >
+          The button-tracing is rendered as exactly described: his thumb
+          finds the row of small buttons and runs along them once —
+          once — without unfastening any. Render the doubled 'once' and
+          the without-unfastening. The chapter's central physical
+          constraint is held in this exact gesture.
+        - >
+          The cradling sequence is rendered in slow physical order: he
+          flattens his palm between her shoulder blades; keeps it there;
+          his other hand comes up; finds the back of her head; slow,
+          careful, cradling; he turns his face into her hair; breathes
+          her in. Render each step. The pace is the entire content of
+          the holding.
+        - >
+          The two 'Tomorrow's are rendered with their delivery
+          specifications: he into the top of her head; she into his
+          sternum where her hand-print is under her cheek. The
+          specification of where each word is said is the chapter's
+          last piece of layered geometry.
+        - >
+          The closing tercet — 'Neither of them sleeps. Neither of them
+          unbuttons. Neither of them kisses. Both of them are awake all
+          night because both of them have decided not to do tonight
+          what they are going to do in the morning.' — is the chapter's
+          structural close. Render verbatim. Four sentences. The reader
+          is told explicitly what the morning is.
+      closes_on: >
+        Dawn. Her cheek on his chest, on the mark. His mouth pressed into
+        her hair. His thumb still on the line of buttons at the back of
+        her collar. Neither has moved. Bract on the floor, watching the
+        door like a man on guard duty.
+
+  prohibited_at_chapter_level:
+    - "The high collar stays buttoned across all six days, including in bed during the storm on Day 6 night. Cal's thumb traces the row of small buttons once without unfastening any. Render the trace; do not allow the unfastening."
+    - "No consummation. No clothing comes off in this chapter beyond Cal's boots and belt on Day 6 night. No kiss on the mouth. Their three mouth-adjacent contacts in the chapter are: his lips brushing the inside of her wrist by accident (Day 5), his face turned into her hair (Day 6 night), and her cheek on his sternum (Day 6 night). None of these is a kiss."
+    - "Thistle does not name what she is to Cal in this chapter. She does not reveal that she is fae. She does not explain the mark, the healed thigh, the chanterelles, the spring water, or the alder. Every supernatural piece of evidence is observed by Cal and not interrogated; he chooses, item by item, not to ask."
+    - "Cal does not see the freckle-print on Thistle's sternum in this chapter. The matched set is visible to Thistle only — in noon sun on Day 6, when she sees the bruise-print on his chest in daylight and recognizes the shape. The reveal of her print to Cal is reserved for chapter five."
+    - "POV is single-character within each beat. No internal switching. Day 1 Cal, Day 2 Thistle, Day 3 Cal, Day 4 Thistle, Day 5 Cal (both beats 5 and 6), Day 6 Thistle (both beats 7 and 8)."
+    - "Morrow appears only on Day 2. She does not return in the chapter. The Day 2 lecture is her full presence."
+    - "Samuel is referenced in the Day 5 confession only ('so my brother doesn't have to'). He does not appear or speak in this chapter."
+    - "The 'tomorrow' promise is made, deferred, specified ('tomorrow night, Caleb'), and not broken in this chapter. The chapter ends at dawn of Day 7 with the promise still intact and unkept. Chapter five opens on its keeping."
+    - "Cal does not learn the source of the chanterelles, the source of his healed thigh and ankle, or the source of the spring water's healing. Each is observed and filed without interrogation."
+    - "The three unfinished sentences in the chapter — Cal's 'Thistle. If I —', his 'Thistle, last night I —', and Thistle's 'You are very —' from chapter three — are not finished by narration. The reader holds them with the characters."
+    - "The word 'instinct' is not used anywhere in the chapter, in any beat, in any directive, in any rendered prose."

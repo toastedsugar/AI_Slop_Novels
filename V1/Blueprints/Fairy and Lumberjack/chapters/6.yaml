@@ -1,0 +1,962 @@
+chapter:
+  id: ch06
+  number: 6
+  title: "The Eastern Ridge"
+  word_count_target: 1000
+
+  narrative_function: second_act_break_and_the_words_that_did_not_come_in_time
+  arc_position: structural_reversal_and_the_setup_for_the_clearing
+  story_structure_role: >
+    The chapter that undoes chapter five in three minutes and a piece of
+    paper. Thistle spends the afternoon she was given trying and failing
+    to find the words. Cal comes home early with the contract that names
+    the Mother. Thistle's two hundred years of composure go in a single
+    minute. She flees rather than tell him; she runs to the hidden spring
+    rather than to the Mother; Morrow holds her in the dusk while she
+    shakes. Cal, alone in the cabin, finally puts the evidence together
+    from three objects on his quilt and a small shaving mirror and arrives
+    at the recognition he has been refusing for six days. Both characters
+    fall asleep when neither could afford to. Both wake at first light
+    and run toward the same clearing where the Mother is and where the
+    Miller crew is coming at dawn. The chapter ends with both of them on
+    the trail, neither knowing the other is coming, the forest opening
+    paths for both.
+
+  pov:
+    mode: primary_with_interludes
+    primary: thistle
+    interludes: [cal_brief_during_confrontation, cal_substantial_in_the_cabin, cal_closing_at_the_door, omniscient_brief_in_the_forest]
+    pattern: "Thistle POV throughout the chapter's spine. Three Cal interludes: a short interior paragraph during the confrontation (beat 3, ~70 words, his recognition); a substantial Cal-alone-in-the-cabin scene (beat 7, ~150 words, the three objects and the mirror); the chapter's closing image (beat 9, Cal at the cabin door with his axe). One brief omniscient sentence in beat 8 ('The forest, which has been holding this story since the night Cal told a cedar he was sorry, lets them') is the second use of the omniscient register introduced in ch05_b08."
+
+  setting_summary:
+    time_of_year: early_autumn_1897
+    time_of_day: mid_afternoon_through_first_light_of_the_eighth_day
+
+  locations_present:
+    - cal_cabin_interior            # afternoon, evening, full dark; Cal-alone scene
+    - cal_porch_step                # the multiplying trilliums and the dying trilliums
+    - forest_path                   # her flight; the fae flowers in her wake
+    - the_hidden_spring             # she returns to it alone; Morrow finds her there
+    - cal_cabin_doorway             # closing image; Cal leaves with his axe
+
+  locations_referenced:
+    - the_eastern_ridge             # named on the contract; the destination of both characters at chapter's end
+    - the_heart_cedar_clearing      # the Mother's clearing; where the crew comes at dawn
+    - millers_cut                   # where Cal came from with the contract
+    - the_woods                     # by way of the chapter-two healing scene; Cal recalls it
+    - the_cutting_clearing          # by way of the chapter-one trillium that Cal has carried
+
+  characters_present:
+    - thistle                       # POV primary
+    - cal                           # interlude POV
+    - morrow                        # returns; in half-form at the spring; aunt-voice, not lecture
+    - bract                         # on porch; barks once, called back by Cal
+
+  characters_referenced:
+    - samuel                        # Cal's babbling in beat 2; "Samuel home for spring"
+    - the_mother                    # named on the contract as 'HEART CEDAR'; central to the chapter
+    - the_miller_crew               # the crew coming at dawn
+    - hiram_beck                    # implicit in the contract; the new assignment
+
+  objects_present:
+    - cal_other_linen_shirt         # she has worn it since midday
+    - the_cedar_sparrow             # warm in her closed fist all afternoon; later left on the pillow
+    - cal_kettle                    # she touches; daily-object inventory
+    - cal_straight_razor            # she touches; daily-object inventory
+    - cal_leather_glove_on_peg      # she touches; daily-object inventory
+    - the_three_porch_trilliums     # multiplied from one to three between noon and afternoon
+    - the_alder_sapling             # second leaf; later drops the new leaf
+    - the_contract                  # GREENWOOD / EASTERN RIDGE / HEART CEDAR — PRIORITY FELL
+    - the_whiskey_bottle            # Cal sets it on the table; never opened
+    - cal_chest_mark                # her palm placed over it for the third time
+    - the_dying_trilliums           # close one by one as she passes them; brown at the edges
+    - the_dropped_alder_leaf        # falls onto the porch step
+    - fae_flowers_in_her_wake       # foxglove, bleeding heart, larkspur — out of season
+    - the_iridescent_scale          # Cal takes it from his coat after she is gone
+    - the_dried_trillium            # twenty days in his breast pocket; brown at the edges, whole
+    - the_small_shaving_mirror      # he finally looks; the print visible to him
+    - cal_axe                       # closing image; over his shoulder
+    - the_three_objects_in_cals_coat # at the closing: scale, sparrow, dried trillium
+
+  objects_referenced:
+    - thistle_freckle_print_on_sternum # she touches her own; the matched set
+    - thistle_full_name             # 'Thistle-in-the-Hollow' said in his teeth in chapter five
+    - thistle_wings                 # Cal recalls them in beat 3
+    - the_cedar_at_millers_cut      # Cal's chapter-one apology; the forest's reference point
+
+  emotional_register: the_undoing_of_chapter_fives_morning_in_three_minutes_and_a_piece_of_paper
+
+  themes_active:
+    - the_whole_truth_too_big_for_the_room
+    - fae_cannot_lie_but_can_fail_to_say
+    - the_price_of_choosing_not_to_ask
+    - the_forest_as_actor_not_background
+    - composure_of_two_centuries_gone_in_one_minute
+    - family_obligation_and_fae_law_in_the_same_room
+    - the_three_objects_as_triangulation_of_evidence
+    - she_who_did_not_say_and_he_who_did_not_ask
+    - sleep_as_failure
+
+  voices_introduced:
+    - cal_unburdened_voice          # the babbling Cal who comes home with the contract; brief; transformed by paragraph's end
+    - cal_recognition_voice         # the 'oh God, no'; what comes after he puts it together
+    - morrow_aunt_voice             # tenderness without lecture; she gathers Thistle to her chest; new register
+
+  plants_for_later:
+    the_eastern_ridge_clearing_at_dawn: ch07_imminent_confrontation
+    the_heart_cedar_priority_fell: ch07_imminent_confrontation
+    the_three_objects_in_cals_coat: ch07_what_he_brings_with_him_to_the_clearing
+    cal_with_his_axe_heading_to_the_ridge: ch07_the_axe_he_does_or_does_not_swing
+    "find_her_find_her_find_her": ch07_the_finding
+    "i_was_going_to_ask_you": ch_later_or_never_the_unfinished_proposal
+    samuel_home_for_spring: ch_later_samuels_arrival
+    the_forest_opens_a_path_for_him: ch_later_the_forest_as_active_ally
+    morrow_aunt_voice_giving_blessing_at_spring: ch09_morrows_blessing_recurs_in_new_register
+    cal_seeing_the_print_in_the_mirror_alone: ch07_he_comes_to_her_already_knowing
+    the_dying_trilliums_at_the_porch: ch_later_the_worlds_blessing_can_be_withdrawn
+    thistle_sleeping_through_the_night_she_had: ch07_consequence
+    the_pattern_of_fae_flowers_in_her_wake: ch_later_her_glamour_continues_to_leak
+    "she_does_not_weep_fae_do_not_weep": worldbuilding_fact_planted_for_future_use
+
+  continuity_out:
+    pov_state: >
+      Thistle running through the trees toward the heart-cedar clearing
+      at first light. Glamour falling off in pieces with each step. Cedar
+      sparrow not with her — left on Cal's pillow yesterday. Morrow
+      somewhere behind her, called after but not pursuing. Her body has
+      been awake for thirty-six hours minus one stolen hour of sleep on
+      moss. She knows where Cal is going. She does not know whether she
+      can reach the clearing before the crew does.
+    cal_state: >
+      At his cabin door at first light, axe over his shoulder, Bract at
+      his heel, three objects in his coat: the iridescent scale (ten days
+      old), the cedar sparrow (one day old), the dried trillium (twenty
+      days old). He has slept perhaps two hours sitting on the bed. He
+      has seen the print on his chest in the mirror with his own hand
+      held over it and found his hand too large. He does not know what
+      he is walking toward beyond find her, find her, find her. The
+      forest opens a path for him without asking why.
+    location_end: "Two characters on two separate trails moving toward the same clearing at first light, the heart-cedar still standing, the Miller crew not yet arrived."
+    unresolved: >
+      Whether Thistle reaches the clearing before the crew does. Whether
+      Cal reaches the clearing before Thistle does. Whether either of
+      them speaks the whole truth in time. Whether the Mother can be
+      saved. What Cal will do with the axe when he sees what he is
+      being asked to fell. Whether Morrow follows. What the forest does
+      next. Whether the cedar sparrow stays on the pillow or one of them
+      goes back for it.
+
+  beats:
+    - id: ch06_b01
+      title: "The Afternoon She Has Been Given"
+      pov: thistle
+      approx_words: 110
+      opens_on: >
+        She is alone in his cabin in his other linen shirt with the cedar
+        sparrow warm in her closed fist.
+      action_sequence:
+        - >
+          She has practiced the words a hundred times since noon. "Caleb,
+          my full name is — Caleb, the forest is — Caleb, your work is —"
+          None of them are right. None of them survive contact with the
+          shape of his face.
+        - >
+          She paces the cabin on small bare feet. She touches the things
+          he touches every day: the kettle, the razor, the peg by the door
+          where his glove waits. The mark on her sternum has not faded.
+          The mark on his sternum, she knows, is still there too.
+        - >
+          She is happier than she has been in two centuries and she has
+          been happy for six days, which is the longest stretch she has
+          had since she was small.
+        - >
+          The trillium at the porch step has multiplied. Three white
+          flowers now where there had been one this morning. The alder
+          sapling has put out a second leaf. She does not look at them on
+          purpose. She knows what they are. She also does not need to be
+          told that her body is still finishing what it started in his bed.
+      beat_function: >
+        The chapter opens in the joy that the previous chapter ended in,
+        and it tightens the dramatic-irony screw with every sentence. The
+        practiced words are the same fragmented attempts that closed
+        chapter five, now an hour further into the afternoon and still
+        broken. Her touring his daily objects is the chapter's first piece
+        of pre-loss inventory — she is studying his life because she has
+        decided to enter it. The multiplied trilliums and the alder
+        sapling are the chapter-five plant escalated: the world is still
+        writing on the porch step. 'She does not look at them on purpose'
+        is the chapter's first deliberate not-looking, the structural
+        echo of Cal's choose-not-to-ask, now in her body. 'The longest
+        stretch she has had since she was small' is the chapter's
+        clearest piece of duration-pathos: this is the worst possible
+        moment to peak.
+      prose_directives:
+        - >
+          The opening sentence holds the chapter-five closing image
+          without repeating it: she is in his shirt, the sparrow is in
+          her hand, she is alone in his cabin. The reader is meant to
+          register continuity.
+        - >
+          The practiced words are rendered verbatim with the em-dashes:
+          'Caleb, my full name is — Caleb, the forest is — Caleb, your
+          work is —' Three attempts. All broken off at the same place.
+          Note the chapter-five closing fragment is the third of these
+          forms; she has been trying the same three openings for an hour.
+        - >
+          'None of them survive contact with the shape of his face.'
+          Render exact. The sentence is the chapter's clearest articulation
+          of the love-induced paralysis. The face is the obstacle.
+        - >
+          The daily-object inventory is three items: kettle, razor, glove
+          on peg. Render in this order. The glove was the chapter-one
+          theft and the chapter-three not-touched object and is now the
+          chapter-six object she is studying. The full arc of the glove
+          lands in this clause.
+        - >
+          'She is happier than she has been in two centuries and she has
+          been happy for six days, which is the longest stretch she has
+          had since she was small.' Render verbatim. The sentence is one
+          of the chapter's emotional anchors; the reader holds it for
+          when the chapter takes it away.
+        - >
+          The multiplied trilliums (one to three between noon and
+          afternoon) and the alder sapling's second leaf are rendered as
+          quiet facts. 'She does not look at them on purpose.' Render
+          exact. The not-looking is the chapter's first piece of
+          deliberate not-knowing from Thistle's side.
+      closes_on: >
+        Her bare feet on his floor. The sparrow in her fist. The
+        three trilliums at the porch step. The clock on the cabin wall
+        somewhere past three.
+
+    - id: ch06_b02
+      title: "He Comes Home, The Kiss, The Contract"
+      pov: thistle
+      approx_words: 150
+      opens_on: >
+        He comes home early. He bursts in. He has been running up the trail.
+      action_sequence:
+        - >
+          He is lit — a Cal she has not seen, an unburdened Cal, a Cal she
+          has just made. He kisses her at the door before he speaks —
+          deep, like he has been carrying the kiss in his mouth from the
+          camp — and her body, traitor, still rings from him five minutes
+          later when he steps back, sets a bottle of cheap whiskey on the
+          table, and unfolds the contract.
+        - >
+          She has not read human writing well in fifty years. She does
+          not have to. She knows the words. GREENWOOD. Stamped at the top
+          in red ink. EASTERN RIDGE. HEART CEDAR — PRIORITY FELL. The
+          Mother's name in human ink. Six weeks' work in human ink. Her
+          happiness, since noon, in human ink.
+        - >
+          He cannot stop talking. This is the man who has said three
+          sentences a day for three years and he is babbling. The big one.
+          Six weeks. The debt clear. Samuel home for spring. "After this
+          one, Thistle, I can stop. I'm going to stop. I was going to —
+          Thistle, I was going to ask you —" He sees her face. He stops.
+          The room stops.
+      beat_function: >
+        The chapter's pivot. The unburdened Cal — joyful, kissing her
+        deep, carrying the kiss from the camp — is the version of him
+        that the consummation made; he is the chapter's most dangerous
+        possible version of himself because he has been changed by what
+        she gave him and he does not yet know what he is asking for. The
+        contract is rendered in caps with the priority fell stamp because
+        the visual fact is the chapter's structural fact: the Mother's
+        name in human ink. The babbling is Cal at his most opened — three
+        sentences a day for three years becomes a flood. The unfinished
+        'I was going to ask you —' is planted (he was going to propose
+        marriage; he does not get to). The 'He sees her face. He stops.
+        The room stops.' is the chapter's hinge sentence: everything
+        that has been building inverts in one moment.
+      prose_directives:
+        - >
+          'He bursts in. He has been running up the trail.' Render the
+          two short sentences. The running is the unburdening; he has
+          been carrying the news downhill for half a mile.
+        - >
+          'A Cal she has not seen, an unburdened Cal, a Cal she has just
+          made.' Render verbatim. The 'a Cal she has just made' is the
+          chapter's most pointed line — she is responsible for the
+          version of him about to be devastated.
+        - >
+          The kiss is described in two clauses: 'deep, like he has been
+          carrying the kiss in his mouth from the camp.' Render exact.
+          Then 'her body, traitor, still rings from him five minutes
+          later.' The five-minute lag between the kiss and her registering
+          the contract is the beat's quietest piece of erotic-cognitive
+          dissonance.
+        - >
+          'She has not read human writing well in fifty years. She does
+          not have to.' Render exact. The fifty-year worldbuilding lands
+          in one clause and is the chapter's softest piece of duration
+          fact.
+        - >
+          The contract is rendered with the all-caps stamped language
+          verbatim: 'GREENWOOD. Stamped at the top in red ink. EASTERN
+          RIDGE. HEART CEDAR — PRIORITY FELL.' Render exactly. The
+          all-caps and the red ink stamp are the chapter's most concrete
+          visual fact.
+        - >
+          'The Mother's name in human ink. Six weeks' work in human ink.
+          Her happiness, since noon, in human ink.' Render the three
+          parallel clauses. The repetition of 'in human ink' is the
+          chapter's clearest piece of structural rhyme.
+        - >
+          'He cannot stop talking. This is the man who has said three
+          sentences a day for three years and he is babbling.' Render
+          verbatim. The chapter-three confession established his three-
+          sentences-a-day baseline; this is the breach.
+        - >
+          The babbling content is rendered as terse fragments in his
+          voice: 'The big one. Six weeks. The debt clear. Samuel home
+          for spring.' Render as fragments, not full sentences. The
+          syntax is the joy.
+        - >
+          '"After this one, Thistle, I can stop. I'm going to stop. I
+          was going to — Thistle, I was going to ask you —"' Render
+          verbatim with the em-dashes. The unfinished question is the
+          chapter's planted proposal. Cal does not get to ask it.
+        - >
+          'He sees her face. He stops. The room stops.' Render exact.
+          Three short sentences. The hinge of the chapter is in the
+          third sentence's repetition of 'stops.'
+      closes_on: >
+        Cal mid-sentence with the contract in his hand. Thistle
+        motionless. The whiskey bottle on the table. The kiss still on
+        her mouth.
+
+    - id: ch06_b03
+      title: "One Paragraph in His Head"
+      pov: cal
+      approx_words: 70
+      opens_on: >
+        He touches the iridescent scale through the wool of his breast
+        pocket.
+      action_sequence:
+        - >
+          He thinks of the trillium he pressed into the same pocket twenty
+          days ago, a flower that bloomed out of season at his knees. He
+          thinks of the mark on his chest. He thinks of her wings half-out
+          against the morning light. He thinks of her name in his teeth
+          and his name in hers.
+        - >
+          He thinks, oh God. He thinks, no. He thinks, oh God, no.
+      beat_function: >
+        The chapter's structural pivot from Cal's side. He puts together
+        the six pieces of evidence he has been refusing to integrate: the
+        scale (chapter three), the trillium (chapter one — the near-miss
+        he never identified), the chest mark (chapter three onward), the
+        wings (chapter five), the name exchange (chapter five), and now
+        the contract that names the Mother. The choose-not-to-ask
+        discipline that has held him through five chapters breaks in
+        this paragraph. The three escalating 'oh God / no / oh God, no'
+        is cal_recognition_voice in its purest form: the cost of not
+        asking finally landing all at once.
+      prose_directives:
+        - >
+          The beat is interior. No dialogue. No action beyond his thumb on
+          the scale through the wool. Render entirely as the inside of his
+          head while his face is across the table from hers.
+        - >
+          The five 'He thinks of' clauses are rendered in this exact order:
+          the trillium twenty days ago, the mark on his chest, her wings
+          against the morning light, her name in his teeth, his name in
+          hers. Each clause is one sentence or one short phrase. The
+          accumulation is the recognition.
+        - >
+          'The trillium he pressed into the same pocket twenty days ago,
+          a flower that bloomed out of season at his knees.' The chapter-
+          one trillium has been in Cal's pocket since the inciting near-
+          miss. Render the chapter-one detail specifically: it bloomed
+          out of season, at his knees. He has been carrying evidence of
+          her glamour-leak for twenty days without registering what it was.
+        - >
+          'He thinks, oh God. He thinks, no. He thinks, oh God, no.'
+          Render verbatim. Three escalating thoughts. The third is the
+          first two combined. The thought-tags ('He thinks,') are the
+          chapter's only piece of internal-monologue framing; do not
+          remove them — they make the recognition feel forced through
+          him rather than chosen.
+      closes_on: >
+        Cal's face across the table from hers. The contract still in his
+        hand. The recognition behind his eyes. Thistle reading it in his
+        face before he speaks again.
+
+    - id: ch06_b04
+      title: "Her Steel, The Short Argument, The Choice"
+      pov: thistle
+      approx_words: 140
+      opens_on: >
+        Her formal cadence comes back — the voice she uses to the Mother,
+        the voice she has not used to him since the night of the woods.
+        "Caleb. Do not go to the eastern ridge."
+      action_sequence:
+        - >
+          "Thistle — what — why are you —" She tries. "Caleb. The trees
+          on the eastern ridge — there is one tree — there is —" She
+          cannot find the next word. Fae cannot lie. She can omit, but
+          she cannot make herself say a sentence that does not contain the
+          whole truth, and the whole truth is too big for this room with
+          the contract in his hand.
+        - >
+          "Caleb, there is a tree that —" He says, his voice climbing,
+          "Thistle, what is this — what — my brother —" She says, "Do
+          not go." He says, helpless, "Why." She cannot answer. She has
+          prepared the words for this afternoon. She has not prepared
+          them for this minute.
+        - >
+          She has three choices. Tell him everything now and watch his
+          face break. Lie — she cannot lie. Flee. She flees. She knows
+          it is cowardice in the second before she does it and she does
+          it anyway.
+      beat_function: >
+        thistle_steel_voice returns from chapter one, directed at Cal for
+        the first time. The chapter-one register that surfaced at direct
+        threat to the Mother now surfaces at a different threat to the
+        Mother: Cal's contract. The fae-cannot-lie worldbuilding is
+        delivered as character constraint at the moment of maximum
+        narrative pressure: she physically cannot speak a half-truth that
+        omits the whole, and the whole is too big. The chapter's most
+        important worldbuilding sentence — 'Fae cannot lie. She can omit,
+        but she cannot make herself say a sentence that does not contain
+        the whole truth' — is the structural reason she has been stuck
+        on 'Caleb, the forest is —' for six days. Her flight is named as
+        cowardice in the same beat she commits to it: 'She knows it is
+        cowardice in the second before she does it and she does it anyway.'
+        The chapter does not pretend her choice is heroic.
+      prose_directives:
+        - >
+          'The voice she uses to the Mother, the voice she has not used
+          to him since the night of the woods.' Render exact. The reader
+          is given the chapter-two reference: she used the formal voice
+          at the woods ('I am as real as you are kind') and has not used
+          it on him since. Its return is the chapter's most specific
+          register shift.
+        - >
+          '"Caleb. Do not go to the eastern ridge."' Render verbatim with
+          the full stop on 'Caleb.' The formal address as command.
+        - >
+          The argument is rendered as broken cross-talk: Cal's questions
+          ('Thistle — what — why are you —' / 'Thistle, what is this —
+          what — my brother —' / 'Why.') and her broken attempts
+          ('Caleb. The trees on the eastern ridge — there is one tree —
+          there is —' / 'Caleb, there is a tree that —' / 'Do not go.').
+          Render the cross-cut, with em-dashes for the breaks.
+        - >
+          'Fae cannot lie. She can omit, but she cannot make herself say
+          a sentence that does not contain the whole truth, and the whole
+          truth is too big for this room with the contract in his hand.'
+          Render verbatim. This is the chapter's structural worldbuilding
+          load-bearing sentence. The reader must register the rule because
+          everything that follows depends on it.
+        - >
+          The three-choice paragraph is rendered as a list and a decision:
+          'Tell him everything now and watch his face break. Lie — she
+          cannot lie. Flee.' Render as three short clauses, then 'She
+          flees.' The two-sentence rhythm is the beat's structural close.
+        - >
+          'She knows it is cowardice in the second before she does it and
+          she does it anyway.' Render verbatim. The chapter is naming
+          her action precisely. Do not allow narrator gloss.
+      closes_on: >
+        Thistle on her feet. Cal with the contract in his hand and his
+        mouth open. The room behind her about to be empty.
+
+    - id: ch06_b05
+      title: "The Last Touch, The Flight, The Dying Trilliums"
+      pov: thistle
+      approx_words: 130
+      opens_on: >
+        Before she goes, she crosses to him.
+      action_sequence:
+        - >
+          She places her slim palm flat against his chest, over the
+          bruise-print of her own hand, over the place she has put her
+          hand at the tree line in chapter three and in his bed in
+          chapter five and now here. The print warms under her palm. His
+          hand comes up over hers and presses.
+        - >
+          He says, ragged, "Thistle, don't —" She says, "I will come
+          back." It is a true statement. Fae cannot lie. But she does not
+          say tonight, and she does not say to you, and he hears the
+          absence of both. His hand tightens on hers. She takes her hand
+          back. She walks out the door.
+        - >
+          Behind her, the three white trilliums at the porch step close
+          their petals one by one as she passes them, brown at the edges,
+          like a snuffed flame, and the alder sapling drops its new leaf
+          onto the step.
+        - >
+          Through the trees at fae speed. Her glamour falls off her in
+          pieces — she does not have the focus to hold it. A trail of
+          late-season flowers behind her on the path, foxglove and
+          bleeding heart and out-of-season larkspur. Bract barks once
+          from the porch and does not bark again; Cal has called him back.
+          She does not look back.
+      beat_function: >
+        The chapter's most devastating beat. The palm-on-the-chest-mark
+        is the third use of the gesture (chapter three at the tree line,
+        chapter five in the consummation aftermath, now here), and the
+        chapter explicitly names the count. The 'I will come back' fae-
+        truthful evasion is the chapter's clearest demonstration of the
+        fae-cannot-lie worldbuilding: every word is true; the omissions
+        are everything. The dying trilliums and the dropped alder leaf
+        are the chapter-five porch-step magic reversed — the world's
+        blessing visibly withdrawing as she leaves. The fae-flowers in
+        her wake (foxglove, bleeding heart, out-of-season larkspur) are
+        her glamour bleeding out of her body in flora. Bract's single
+        bark and Cal's calling him back establishes Cal's choice: he
+        does not pursue. He stays.
+      prose_directives:
+        - >
+          The palm-on-the-chest is rendered with the count made explicit:
+          'over the place she has put her hand at the tree line in
+          chapter three and in his bed in chapter five and now here.'
+          Render the three-place geography. The reader must register
+          the third use as completing a pattern.
+        - >
+          'The print warms under her palm.' One short sentence. The
+          mark is responsive; he and she both feel it; neither
+          acknowledges aloud.
+        - >
+          '"Thistle, don't —"' / '"I will come back."' Render verbatim.
+          His unfinished plea and her fae-truthful evasion. The
+          structural rhyme with all the other unfinished sentences in
+          the novelette lands here.
+        - >
+          'But she does not say tonight, and she does not say to you,
+          and he hears the absence of both.' Render verbatim. The
+          omissions are the lie that is not a lie. He hears them. This
+          is the chapter's clearest articulation of fae-rule-as-cruelty:
+          she keeps the rule and breaks his heart in the same sentence.
+        - >
+          The dying trilliums are rendered with the exact image: 'close
+          their petals one by one as she passes them, brown at the
+          edges, like a snuffed flame.' Render the snuffed-flame simile
+          specifically. The chapter has earned one figurative line; this
+          is it.
+        - >
+          'The alder sapling drops its new leaf onto the step.' Render
+          exact. The chapter-five plant un-makes itself in one sentence.
+        - >
+          The fae-flowers in her wake are rendered with three specific
+          species in this order: foxglove, bleeding heart, larkspur. All
+          three are out of season. Render each. The reader registers
+          the pattern as her body unraveling into flora.
+        - >
+          'Bract barks once from the porch and does not bark again; Cal
+          has called him back.' Render the single bark. The reader feels
+          Cal's choice not to pursue — Bract was going to chase her, Cal
+          stopped him. The choice is rendered through the dog, not
+          through Cal's interior; Cal is offstage to this beat.
+        - "'She does not look back.' Render exact. The beat closes on the not-looking."
+      closes_on: >
+        Thistle disappearing into the trees at fae speed. The trail
+        behind her in bloom out of season. The cabin behind her quiet.
+        Bract on the porch with one ear up.
+
+    - id: ch06_b06
+      title: "The Spring, Morrow's Embrace"
+      pov: thistle
+      approx_words: 140
+      opens_on: >
+        She arrives at the spring in the deep blue of full dusk and goes
+        to her knees on the moss at the edge.
+      action_sequence:
+        - >
+          The water is dark. She presses her small hands into the moss
+          and the moss is cold and she shakes. She has had two hundred
+          years of composure and it is gone.
+        - >
+          She makes a sound she has never made — small, low, like a
+          creature in a snare. She does not weep. Fae do not weep. She
+          does the thing fae do, which is shake until the body remembers
+          what shape it is supposed to be.
+        - >
+          A black streak through the dusk and a thump of feet on the
+          moss. Aunt Morrow, in half-form, on her knees beside her
+          niece. She does not say I told you. She does not say what have
+          you done. She gathers Thistle against her chest the way she
+          has not done since Thistle was sixty and learning the language
+          of stones, and Thistle puts her face into the dark feathers at
+          her aunt's shoulder and shakes.
+        - >
+          Morrow strokes her hair. After a long time Morrow says, "He is
+          going to the clearing at dawn, girl. He will go whether he
+          believes you or not. Tell him tonight. Go to him tonight. Tell
+          him all of it — the Mother, the name, the years — and let him
+          choose with the whole truth in his hands."
+        - >
+          Thistle says, into the feathers, "Yes." She means it.
+      beat_function: >
+        Thistle's two centuries of composure collapse in the place she
+        brought Cal to in chapter four. The chapter-four spring is now
+        the chapter-six spring; the place she offered him is the place
+        she breaks. 'Fae do not weep' is the chapter's second piece of
+        load-bearing worldbuilding (after fae-cannot-lie in beat 4),
+        delivered in the same plain register: she does the thing fae
+        do, which is shake until the body remembers. Morrow's return
+        is the chapter's most tender register shift: morrow_aunt_voice
+        introduced — she does not say I told you, she does not say
+        what have you done. The chapter-four lecture register and the
+        chapter-one warning register are both withheld. The chapter-six
+        Morrow is purely tender. Her instruction — tell him tonight,
+        all of it, let him choose with the whole truth in his hands —
+        is the right counsel arriving at the right time, and the chapter
+        is set up to honor it; the next beat takes it away.
+      prose_directives:
+        - >
+          'The deep blue of full dusk' sets the time. Render the
+          specific color-light; the chapter has been moving through
+          afternoon and is now at the threshold of night.
+        - >
+          'She has had two hundred years of composure and it is gone.'
+          Render exact. The two-hundred-year count appears for the
+          fourth time in the novelette; track this. Each use has been at
+          the moment her composure has been most undone.
+        - >
+          'She makes a sound she has never made — small, low, like a
+          creature in a snare.' Render verbatim. The creature-in-a-snare
+          simile is the chapter's earned figurative line for Thistle's
+          undoing.
+        - >
+          'She does not weep. Fae do not weep. She does the thing fae
+          do, which is shake until the body remembers what shape it is
+          supposed to be.' Render verbatim. The worldbuilding-as-fact
+          arrives unflagged; the reader takes it as it comes. The
+          'remembers what shape it is supposed to be' is the chapter's
+          clearest piece of fae-body-as-glamour-and-grief language.
+        - >
+          'A black streak through the dusk and a thump of feet on the
+          moss.' Morrow's arrival is rendered as motion, not introduction.
+          The reader registers her by her shape.
+        - >
+          'She does not say I told you. She does not say what have you
+          done.' Render verbatim. The chapter is naming what Morrow does
+          not do. The withholding is the love.
+        - >
+          'The way she has not done since Thistle was sixty and learning
+          the language of stones.' Render exact. The chapter-six fae-
+          worldbuilding lands once: Thistle was a child at sixty and
+          learned the language of stones. Do not extend or explain.
+        - >
+          Morrow's instruction is rendered verbatim: '"He is going to
+          the clearing at dawn, girl. He will go whether he believes you
+          or not. Tell him tonight. Go to him tonight. Tell him all of
+          it — the Mother, the name, the years — and let him choose with
+          the whole truth in his hands."' The three-item list of what to
+          tell (Mother, name, years) is the same three-item list Thistle
+          resolved on in chapter five beat 9, now spoken aloud by her
+          aunt.
+        - >
+          'Thistle says, into the feathers, "Yes." She means it.' Render
+          exact. The 'She means it' is the chapter's structural pivot
+          back toward action — she has been given the right counsel and
+          she has agreed to follow it. The next beat will take this away.
+      closes_on: >
+        Thistle's face in Morrow's feathered shoulder. Morrow's hand on
+        Thistle's hair. The spring dark behind them. Full night arriving.
+
+    - id: ch06_b07
+      title: "Brief Slip — Cal Alone in the Cabin"
+      pov: cal
+      approx_words: 150
+      opens_on: >
+        He stands in the door long after she has gone.
+      action_sequence:
+        - >
+          Then he comes inside and sits on the bed where she slept and
+          where he slept and where they were. The cedar sparrow is on
+          the pillow where she left it. She left the sparrow. He picks
+          it up. He holds it in his fist for an hour.
+        - >
+          Then he goes to his coat by the door and takes out the
+          iridescent scale he has carried for ten days. He sets it on
+          the bed. He takes the dried trillium out of the breast pocket
+          where he pressed it twenty days ago in the cutting clearing —
+          fragile, brown at the edges, whole. He sets it next to the
+          scale and the sparrow. Three objects in a row on the quilt.
+        - >
+          Then, slowly, like a man approaching a wound, he goes to the
+          small shaving mirror he has been avoiding for seven days. He
+          pulls his shirt off. He looks. He puts his own hand over the
+          print on his sternum. His hand is too large. The print is the
+          shape of her hand — small, splayed, the exact shape from the
+          woods, from the tree line, from this morning.
+        - >
+          He sits down on the floor. He says, to no one and to the
+          forest, "Oh God. Oh God, what have I —"
+        - "He does not finish the sentence. He does not need to."
+      beat_function: >
+        The chapter's longest single-POV beat and the structural
+        completion of Cal's recognition arc. The three objects on the
+        quilt are the chapter's most concrete piece of evidence-as-
+        narrative: scale (ten days, from chapter three when she left her
+        first physical trace), trillium (twenty days, from chapter one
+        when her glamour first leaked toward him), sparrow (one day, the
+        gift he made her returned). The objects arrange themselves
+        chronologically by his possession of them and thematically by
+        what each represents. The mirror sequence is the chapter-three
+        beat 1 plant resolved: he stopped looking in the mirror seven
+        days ago because he was not ready to know; he is ready now. His
+        hand over the print, his hand too large, is the chapter's
+        clearest visual confirmation that the print is hers and not his.
+        'He does not finish the sentence. He does not need to.' Note the
+        novelette's structural pattern of unfinished sentences (Thistle's
+        chapter-three 'You are very —' was finished in chapter five;
+        Cal's chapter-four 'Thistle. If I —' and 'last night I —' were
+        superseded by the consummation; this new unfinished sentence —
+        'Oh God, what have I —' — is the first to be unfinished because
+        the speaker actively refuses to finish it).
+      prose_directives:
+        - >
+          'He stands in the door long after she has gone.' Render the
+          static moment. The beat opens on inaction.
+        - >
+          'The cedar sparrow is on the pillow where she left it. She
+          left the sparrow.' Render the repetition. The repetition is
+          the recognition: she left the sparrow. The chapter-five gift
+          is now an abandoned object.
+        - >
+          'He holds it in his fist for an hour.' Render the duration.
+          The hour is the beat's most concrete time-fact.
+        - >
+          The three-object sequence is rendered with each object's
+          provenance specified: 'the iridescent scale he has carried for
+          ten days' / 'the dried trillium he pressed twenty days ago in
+          the cutting clearing — fragile, brown at the edges, whole' /
+          the sparrow already named. The duration counts (ten days,
+          twenty days, today) are the chapter's clearest piece of
+          evidence-as-chronology.
+        - >
+          'Three objects in a row on the quilt.' Render exact. The
+          tableau is the chapter's structural image; the prose should
+          stop on it for a beat before moving to the mirror.
+        - >
+          'Slowly, like a man approaching a wound' — render the simile
+          for the mirror approach. The mirror is the chapter-three
+          mirror he stopped looking in.
+        - >
+          The mirror sequence is rendered as a list of motions: he pulls
+          his shirt off, he looks, he puts his hand over the print, his
+          hand is too large. Each motion is one sentence. The
+          progression is the recognition.
+        - >
+          'The exact shape from the woods, from the tree line, from this
+          morning.' Render the three-place count. Cal is doing the same
+          accounting Thistle did in beat 5; the parallel is the
+          chapter's clearest piece of structural rhyme between Cal and
+          Thistle. They are arriving at the same recognition by
+          opposite paths in the same hour.
+        - >
+          '"Oh God. Oh God, what have I —"' Render verbatim. The
+          unfinished sentence ends the beat. 'He does not finish the
+          sentence. He does not need to.' is the chapter's final-
+          paragraph framing of Cal's recognition. Render exact.
+      closes_on: >
+        Cal on the floor of his cabin. Three objects on the quilt above
+        him. The shaving mirror on the wall behind him. His shirt off,
+        the print of her hand on his sternum visible in the lamplight.
+
+    - id: ch06_b08
+      title: "The Forest Lets Them Sleep"
+      pov: thistle
+      approx_words: 110
+      opens_on: >
+        Full dark at the spring. Thistle stops shaking.
+      action_sequence:
+        - >
+          She tells Morrow she is going to him now, tonight. Morrow says,
+          "Yes, child. Rest for a quarter-hour. Drink. Then go." Morrow
+          shifts back to crow and roosts on a low branch above.
+        - >
+          Thistle lays her head on the moss for a quarter-hour because
+          Morrow has told her to. She means to get up. She has been
+          awake for thirty-six hours and her body has been new in ways
+          it has never been new. She closes her eyes for one minute. She
+          closes her eyes.
+        - >
+          The forest is kinder to her than she deserves. Morrow watches
+          her niece sleep for an hour, planning to wake her. Then Morrow
+          herself, old crow, old keeper, tucks her head under her wing
+          for a moment to rest her eyes. Both of them sleep. The forest,
+          which has been holding this story since the night Cal told a
+          cedar he was sorry, lets them.
+      beat_function: >
+        The chapter's most structurally cruel beat. Both characters have
+        been given the right counsel and the right intention — Thistle
+        is going to Cal tonight; she will tell him everything. Morrow
+        instructs her to rest a quarter-hour first. The forest, present
+        as actor since chapter five's trillium-at-the-porch and chapter
+        six's dying trilliums and the fae-flowers in Thistle's wake,
+        now intervenes in the most dangerous possible way: it is kind.
+        It lets them sleep. The omniscient sentence ('The forest, which
+        has been holding this story since the night Cal told a cedar he
+        was sorry, lets them.') is the second omniscient line in the
+        novelette (the first was ch05_b08), and the second instance of
+        the forest narrating itself. The reference to chapter one beat
+        2 (Cal apologizing to the cedar) closes a structural loop: the
+        story has been the forest's story since that moment; the forest
+        has been the actor all along.
+      prose_directives:
+        - >
+          'Full dark at the spring. Thistle stops shaking.' Render the
+          time-mark and the body-state in two short sentences.
+        - >
+          Morrow's instruction — '"Yes, child. Rest for a quarter-hour.
+          Drink. Then go."' — is rendered verbatim. The 'child' is
+          continuing morrow_aunt_voice from beat 6.
+        - >
+          'She has been awake for thirty-six hours and her body has been
+          new in ways it has never been new.' Render exact. The thirty-
+          six-hour count is the chapter's structural reason; the 'new in
+          ways it has never been new' is the chapter-five aftermath
+          finally costing her.
+        - >
+          'She closes her eyes for one minute. She closes her eyes.'
+          Render the repetition. The second sentence is the failure
+          arriving — the minute becomes the sleep.
+        - >
+          'The forest is kinder to her than she deserves.' Render exact.
+          The chapter's most direct piece of forest-as-character
+          attribution.
+        - >
+          'Morrow watches her niece sleep for an hour, planning to wake
+          her. Then Morrow herself, old crow, old keeper, tucks her head
+          under her wing for a moment to rest her eyes.' Render the
+          progression. Morrow fails the same way Thistle does — by
+          intending to wake and not waking. The 'old crow, old keeper'
+          construction is the chapter's only piece of Morrow-as-figure
+          attribution; render exact.
+        - >
+          'The forest, which has been holding this story since the night
+          Cal told a cedar he was sorry, lets them.' Render verbatim.
+          This is the chapter's omniscient interlude — second use of the
+          omniscient register introduced in ch05_b08. The chapter-one
+          beat 2 reference ('the night Cal told a cedar he was sorry')
+          closes the novelette's first structural loop: the forest has
+          been a character since that moment, and the chapter is
+          finally naming it. POV is omniscient for this one sentence;
+          the surrounding beat is Thistle's.
+      closes_on: >
+        Thistle asleep with her cheek on the moss. Morrow asleep on her
+        branch with her head under her wing. The spring dark. The
+        forest holding both of them. The sky beginning to gray at the
+        edges.
+
+    - id: ch06_b09
+      title: "First Light, Running, The Closing Image"
+      pov: thistle_then_cal
+      approx_words: 130
+      opens_on: >
+        Thistle wakes with her cheek on the moss and the sky pale and her
+        whole body cold and the understanding, complete and terrible,
+        arriving with her first breath.
+      action_sequence:
+        - >
+          She is on her feet before Morrow is awake. Morrow caws — "Girl,
+          wait, GIRL —" Thistle is already running. Not to the cabin. To
+          the clearing. The Mother is at the clearing. He is at the
+          clearing. Both of the things she loves are at the clearing and
+          the crew is coming and she has slept through the night she had
+          to use.
+        - >
+          [POV shifts: Cal] Cal's cabin door swinging shut behind him at
+          first light. His axe over his shoulder. Bract at his heel.
+          Three objects in his coat: the iridescent scale, the cedar
+          sparrow, the dried trillium. On the porch step behind him:
+          three trillium flowers, brown and closed. One alder leaf,
+          fallen.
+        - >
+          He starts up the trail toward the eastern ridge with no plan
+          in his head except find her, find her, find her, and the
+          forest opens a path for him without asking why.
+      beat_function: >
+        The chapter's closing image and the structural setup for chapter
+        seven. The first sentence — 'the understanding, complete and
+        terrible, arriving with her first breath' — is the chapter's
+        most condensed piece of Thistle-cost. The night she had to use
+        is gone; the consequence is in her body before her feet have
+        moved. The POV shift in the middle of the beat to Cal is the
+        chapter's second internal POV shift (after beat 3) and is
+        rendered without signposting beyond the natural close of
+        Thistle's running. Cal's three objects are now in his coat;
+        the dying trilliums and the dropped alder leaf are on the
+        porch step behind him. The 'find her, find her, find her'
+        is Cal's interior reduced to its core monosyllable. 'The forest
+        opens a path for him without asking why' is the chapter's
+        closing line and the third instance of forest-as-actor in the
+        chapter (after the dying trilliums and the let-them-sleep). The
+        forest, which has been opening flowers and closing flowers and
+        letting them sleep, is now opening trails. Both characters are
+        moving toward the same destination at the same speed in the
+        same light.
+      prose_directives:
+        - >
+          'The understanding, complete and terrible, arriving with her
+          first breath.' Render verbatim. The first sentence is the
+          chapter's closing weight.
+        - >
+          Morrow's call — '"Girl, wait, GIRL —"' — is rendered with the
+          all-caps GIRL. The all-caps and the dash are Morrow trying to
+          stop a fae who is already half a hemlock away. Render the
+          futility.
+        - >
+          'Both of the things she loves are at the clearing and the
+          crew is coming and she has slept through the night she had to
+          use.' Render verbatim. The 'two things she loves' is the
+          chapter's clearest naming of what Cal is to her — the same
+          weight as the Mother. The sentence is the chapter's most
+          devastating piece of accounting.
+        - >
+          The POV shift to Cal is rendered without signposting beyond
+          'Cal's cabin door swinging shut behind him at first light.'
+          The reader registers the shift through the new geography.
+        - >
+          The three objects in Cal's coat are rendered in this order:
+          iridescent scale, cedar sparrow, dried trillium. The order
+          matches the chronological order of his possession (ten days,
+          one day, twenty days) — not chronologically; render in
+          dramatic order, with the sparrow in the middle as the
+          heaviest of the three.
+        - >
+          'On the porch step behind him: three trillium flowers, brown
+          and closed. One alder leaf, fallen.' Render exact. The
+          chapter-five porch-step magic is now the chapter-six dead-
+          porch-step; the world's blessing visibly withdrawn behind him
+          as he leaves the cabin.
+        - >
+          'Find her, find her, find her.' Render the threefold
+          repetition exact. This is Cal's interior in its most reduced
+          form. The reader has been watching his interior grow from
+          chapter three's plain dry ledger to chapter five's wrecked
+          sob-laugh; it is now three words.
+        - >
+          'The forest opens a path for him without asking why.' Render
+          verbatim. The chapter's closing sentence. The forest has been
+          rendered as actor three times in this chapter (dying
+          trilliums, letting them sleep, opening this path); the
+          closing line lands the pattern.
+      closes_on: >
+        Two figures on two separate trails at first light, both moving
+        east toward the same clearing. The forest opening paths for
+        both. The Mother still standing. The crew not yet arrived. The
+        end of chapter six.
+
+  prohibited_at_chapter_level:
+    - "Thistle never speaks aloud what she is in this chapter. Her closest attempts are 'Caleb. The trees on the eastern ridge — there is one tree — there is —' and 'Caleb, there is a tree that —'. Both break before the next word. The fae-cannot-lie rule is the explicit reason; render the rule once in beat 4 and let it govern every subsequent attempt."
+    - "Cal does not pursue Thistle when she flees. He stands in the door 'long after she has gone'; he then comes inside and sits on the bed. Bract barks once and Cal calls him back. The chapter's structural choice — Cal does not chase — is non-negotiable. The pursuit, if any, happens at first light, in opposite direction (toward the ridge, not toward the spring)."
+    - "Cal's recognition in beat 3 is rendered entirely interior. No dialogue. No motion beyond his thumb on the scale through the wool. The whole arrival happens behind his face while Thistle reads it across the table."
+    - "Cal's cabin-alone scene in beat 7 has no dialogue beyond the closing 'Oh God. Oh God, what have I —'. The whole scene is rendered as motion-around-objects: holding the sparrow for an hour, arranging the three objects, approaching the mirror, looking, sitting down. The interiority is in the motion, not in monologue."
+    - "Morrow does not say 'I told you so' in any form in this chapter. The chapter explicitly names this — 'She does not say I told you. She does not say what have you done.' — and the prose must honor it. morrow_aunt_voice is purely tender; her one piece of instruction in the chapter is the right counsel arriving at the right time, not a rebuke."
+    - "The dying trilliums and the dropped alder leaf in beat 5 are observed but not commented on by Thistle. She passes them; they close; the alder drops. Render the world's withdrawal of blessing as fact, not as her perception of it. She is fleeing; she does not turn back to see the world un-flower."
+    - "The forest-as-actor language is rendered carefully in three places (the dying trilliums, the letting-them-sleep, the opening-the-path). Do not extend the metaphor elsewhere. The forest is named as actor in these three specific moments; the chapter's restraint is the reason the moments land."
+    - "The omniscient sentence in beat 8 ('The forest, which has been holding this story since the night Cal told a cedar he was sorry, lets them.') is the chapter's only omniscient interlude. The surrounding beat is Thistle's. The shift is brief; the line is the chapter's quietest piece of structural commentary."
+    - "The cedar sparrow stays on the pillow when Thistle leaves. Cal picks it up in beat 7; he sets it on the quilt with the other two objects. He puts it in his coat at the closing image. Thistle does not see it again in this chapter. The reader should register that Cal is now carrying her gift back toward her."
+    - "The contract is read by Thistle without her having to read it well. Cal does not read it aloud to her. The all-caps stamped language ('GREENWOOD. EASTERN RIDGE. HEART CEDAR — PRIORITY FELL.') is rendered as her registration of the visible words, not as Cal's recitation."
+    - "Cal does not name the Mother as the Mother in this chapter. He sees 'HEART CEDAR' on the contract and understands the priority-fell designation; he does not yet know the name the cedar has in Thistle's world. That naming is reserved."
+    - "The 'I will come back' fae-truthful evasion is the chapter's structural lynchpin. Render it exactly as drafted: she does not say tonight, she does not say to you, and he hears the absence of both. Do not add explanatory narration. The reader works it out at the speed Cal does."
+    - "The chapter's repeated unfinished-sentence pattern (Cal's 'I was going to ask you —' / 'Thistle, don't —' / 'Oh God, what have I —' and Thistle's 'Caleb, the trees on the eastern ridge — there is one tree — there is —' / 'Caleb, there is a tree that —') must be preserved with their em-dashes. None of them are completed by narration or by either character."
+    - "The word 'instinct' is not used anywhere in the chapter, in any beat, in any directive, in any rendered prose."

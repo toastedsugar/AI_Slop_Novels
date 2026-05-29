@@ -1,0 +1,455 @@
+chapter:
+  id: ch10
+  number: 10
+  title: "The Sapling"
+  word_count_target: 600
+ 
+  narrative_function: epilogue_the_chosen_life_and_the_quiet_reveal
+  arc_position: resolution
+  story_structure_role: >
+    The closing chapter, set a full year past the rite. It is a deliberate
+    epilogue: a compressed montage of the life that the sacrifice bought —
+    Cal a forest warden, Samuel reconciled, the town folded in, Morrow gentled,
+    the Greenwood at peace with the people in it — followed by a single present
+    scene at dusk in which Thistle, without a phrase for it, tells Cal she is
+    carrying his child. The supernatural architecture of the book (the matched
+    marks, the bond made visible) is here at rest and domestic, warming under a
+    hand laid on a sternum rather than blazing in a rite. The chapter resolves
+    the love story by making it ordinary, and resolves the magic by making it a
+    family. The unspoken cost — Thistle has chosen a finite human span — runs
+    under everything and is never stated outright, only refused, the way she
+    refuses it every morning.
+ 
+  pov:
+    mode: single_dominant_with_terminal_pov_shift
+    character: cal_throughout_then_thistle_in_the_closing_beat
+ 
+  setting_summary:
+    time_of_year: late_autumn_1898
+    time_of_day: dusk_into_early_dark
+ 
+  locations_present:
+    - cal_cabin
+    - cabin_porch
+    - chopping_stump_behind_cabin
+ 
+  locations_referenced:
+    - heart_tree_clearing       # the Mother, the stone, the sapling; Thistle's dawn visits
+    - the_mothers_stone
+    - greenwood_interior        # Cal's warden rounds
+    - portland                  # Samuel's teaching apprenticeship
+    - hollow_creek              # Mae and Eli, the town below
+ 
+  characters_present:
+    - cal
+    - thistle
+    - bract
+ 
+  characters_referenced:
+    - samuel                    # three visits since spring; recounted, not present in the dusk scene
+    - morrow                    # every full moon; recounted
+    - the_mother                # off-page; Thistle's dawn reports recounted
+    - mae_pritchard
+    - eli_brennan
+    - iris_brennan              # Mae and Eli's daughter, born October
+    - thistles_mother           # Morrow's sister, two hundred and forty years gone
+    - marin_whitlow_thorne      # Cal's mother; the name chosen for a daughter
+    - daniel_thorne             # Cal's father; half of the name chosen for a son
+ 
+  objects_present:
+    - cal_hat                   # the "keep it" hat; returned to him as a yes
+    - cal_axe                   # the wood-splitting; set against the stump
+    - second_cedar_sparrow_carving  # finished on the cabin table, to be given tonight
+    - white_trillium            # the porch, blooming year-round, out of season
+ 
+  objects_referenced:
+    - cedar_sparrow_carving     # the first bird; the new one's matched sister
+    - the_mothers_stone         # the offering stone, still laid with the tokens
+    - iridescent_scale          # still catching seven colors on the stone
+    - tin_whistle               # Marin's gift to Samuel, returned to him by Thistle
+    - samuels_letters_tin       # the tin of letters Cal keeps under the bed
+    - mae_custard_pie           # the pies sent up the mountain
+ 
+  emotional_register: settled_domestic_warmth_then_wordless_revelation_then_chosen_finitude
+ 
+  themes_active:
+    - the_life_built_after_the_sacrifice
+    - chosen_mortality
+    - grief_transmuted_into_family
+    - the_names_carried_forward
+    - love_made_literal_in_the_body
+    - the_bond_made_visible_and_at_rest
+    - the_forest_at_peace_with_its_people
+    - a_lineage_without_a_fae_phrase
+ 
+  voices_introduced:
+    - cal_settled_register        # a man a year into a life he still cannot get over
+    - cal_wrecked_register        # the reveal; crying and laughing at once
+    - thistle_formal_cadence      # her dawn reporting voice to the Mother
+    - thistle_two_centuries_interior  # the closing meditation; the oldest, plainest voice in the book
+ 
+  plants_for_later:
+    the_unborn_child: beyond_the_book_a_birth_the_following_year
+    second_cedar_sparrow_for_thistle: beyond_the_book_the_matched_pair_completed_tonight
+    sapling_growing_a_foot_a_month: beyond_the_book_the_mothers_eventual_successor
+    thistles_chosen_finite_lifespan: beyond_the_book_the_cost_she_refuses_to_count
+    morrows_unnamed_seeing_in_thistles_freckles: beyond_the_book_what_morrow_already_knows
+ 
+  continuity_out:
+    pov_state: >
+      Thistle in Cal's lap on the chopping stump in full dark, his forehead at
+      her sternum, his hat back on his head, the faded gold-silver light in his
+      wrist warm against her hip. She has just told him, without a phrase for
+      it, that she is carrying his child, and named nothing of the cost.
+    location_end: "The chopping stump behind the cabin, full dark, the porch trilliums open and white in the cold."
+    unresolved: >
+      Deliberately left open as the book's final notes rather than questions:
+      the child not yet born; the names chosen but uncarried; the second sparrow
+      not yet given; and, beneath all of it, the span Thistle has chosen and the
+      Mother's future with one fewer keeper — a cost the chapter, like Thistle,
+      declines to total.
+ 
+  beats:
+    - id: ch10_b01
+      title: "The Second Room"
+      approx_words: 80
+      opens_on: >
+        The cabin a year on, with a second room added to it.
+      action_sequence:
+        - >
+          Cal built the room himself, badly — the door catches on the floor and
+          the south wall is a half-inch out of plumb — and Thistle loves it for
+          exactly the reason that it is his hands' work and no one else's.
+        - >
+          The porch is overgrown with white trilliums that bloom year-round,
+          out of every season. The few visitors who climb the mountain remark on
+          the strangeness; Cal tells them the porch is a microclimate. Thistle
+          smiles into her tea.
+      beat_function: >
+        Establishes the chapter's register in two strokes: the settled, ordinary
+        domesticity of a built life, and the unhidden magic the two of them now
+        live inside without comment. The microclimate lie is the book's old
+        secrecy turned into a small shared joke rather than a danger.
+      prose_directives:
+        - >
+          The out-of-plumb wall is affection, not apology — she loves the flaw
+          because of whose flaw it is. One sentence, no sentiment added.
+        - >
+          The trilliums are stated as fact, not wonder. The strangeness belongs
+          to the visitors; the couple has stopped finding it strange.
+        - "'Thistle smiles into her tea' is the beat's last note. Do not gloss it."
+      closes_on: >
+        Thistle on the porch with her tea, the trilliums white around her, the
+        lie about the microclimate hanging pleasant in the air.
+ 
+    - id: ch10_b02
+      title: "The Warden's Year"
+      approx_words: 90
+      opens_on: >
+        Cal's year accounted plainly: what he does now, and what it earns.
+      action_sequence:
+        - >
+          He walks the Greenwood five days of seven for the Cascade Conservation
+          Society — forty dollars a month to keep the Miller men out and the
+          small thefts down. Samuel sends another forty each spring from his
+          teaching apprenticeship in Portland.
+        - >
+          They are not rich. They are also not hungry, which Cal still cannot
+          get over. He keeps Samuel's letters in a tin under the bed — three so
+          far this year — and has read them more times than he will admit.
+      beat_function: >
+        Closes Cal's arc from the man burning a felling contract to the man paid
+        to protect the forest he once cut. The detail that he cannot get over not
+        being hungry is the whole measure of where he came from; the tin of
+        letters is the brother he nearly traded away, kept close.
+      prose_directives:
+        - >
+          The money is given in plain figures, ledger-style, the way Cal's mind
+          works. No editorial on the irony of the warden's wage; the reader sees
+          it unaided.
+        - >
+          'Not hungry, which Cal still cannot get over' is the load-bearing line.
+          Keep the past audible under the present comfort.
+        - "The re-read letters are confessed by the narration, not by Cal. He will not admit it; the prose admits it for him."
+      closes_on: >
+        The tin under the bed, three letters in it, Cal's whole changed fortune
+        measured in forty-dollar increments and a brother who writes.
+ 
+    - id: ch10_b03
+      title: "Samuel, and the Dog"
+      approx_words: 100
+      opens_on: >
+        Samuel up the mountain three times since spring, meeting the woman his
+        brother lives with.
+      action_sequence:
+        - >
+          He took it in the schoolteacher's way — careful questions for an
+          afternoon, two cups of tea — and at the end told Cal only that she is
+          good for him and that he is not equipped to ask further than that.
+        - >
+          He plays the tin whistle Thistle left on the Mother's roots two
+          autumns ago and returned to him on his first visit. He did not ask how
+          she knew it was the one their mother gave him at three years old. He
+          plays in the evenings on the porch; the forest goes quiet to listen,
+          and Bract — grey on the muzzle now, sleeping most of the day — puts
+          his chin on Samuel's knee for it.
+        - >
+          Bract still will not let Thistle leave the cabin alone. Cal teases her
+          about it. She pretends to be annoyed. She is not.
+      beat_function: >
+        Resolves the brother and the dog in one warm sweep. Samuel's measured
+        acceptance and the returned whistle close the family's grief — the
+        mother's gift back in her son's hands by a magic no one explains. Bract's
+        devotion, now old and grey, is the book's longest-running tenderness.
+      prose_directives:
+        - >
+          Samuel's verdict is given close to verbatim: good for you, not equipped
+          to ask further. The restraint is the character.
+        - >
+          The whistle's provenance is stated and the not-asking is stated; the
+          magic stays unexplained, exactly as Samuel chooses to leave it.
+        - "'She pretends to be annoyed. She is not.' — keep the two-beat rhythm. It is the whole joke and the whole affection."
+      closes_on: >
+        Samuel's whistle on the porch in the evening, the forest listening, the
+        old dog's chin on his knee.
+ 
+    - id: ch10_b04
+      title: "The Town and the Crow"
+      approx_words: 110
+      opens_on: >
+        The wider circle, checked in on: the town below, and the aunt who comes
+        every full moon.
+      action_sequence:
+        - >
+          Mae Pritchard married Eli Brennan the blacksmith in February and had a
+          girl in October — Iris, after her mother. She sent a custard pie up the
+          mountain when she came home from her churching; Cal ate it without
+          irony and wrote a thank-you in his careful schoolboy hand. A month
+          later she sent another, unprompted, and Cal cried a little in private
+          with the tin in his lap.
+        - >
+          Morrow lands on the porch railing in crow form every full moon and
+          shifts to half-form to sit, the feathered cape still moving in a wind
+          that is not moving the porch. She calls Cal logger now without spite.
+          He has brought her tea four times; she has accepted it four times and
+          drunk it none, and thrown it none.
+        - >
+          Last full moon she sat with Thistle among the trilliums for an hour and
+          told her a story about her sister — Thistle's mother, two hundred and
+          forty years gone — that Thistle had never heard. Afterward Morrow
+          studied her niece's face a long count and saw the small fixed thing in
+          her freckles that has not shifted in nine months. She did not name it.
+          She lifted into the air as a crow and flew east.
+      beat_function: >
+        Folds the human town and the fae elder into the same settled peace, and
+        plants — without naming it — the pregnancy through Morrow's eyes. Morrow's
+        gentling (logger without spite; the tea accepted and never drunk, never
+        thrown) is her grief finally laid down. Her seeing-and-not-naming gives
+        the reader the secret a beat before Cal will earn it.
+      prose_directives:
+        - >
+          The town news is montage-fast — marriage, birth, pies — until Cal's
+          private crying with the pie tin, which slows for one sentence and then
+          moves on. Do not linger past that sentence.
+        - >
+          Morrow's tea, accepted four times and drunk zero, thrown zero, is the
+          exact measure of a truce. Keep the tally; it does the emotional work.
+        - >
+          'The small fixed thing in her freckles' is the planted reveal. Morrow
+          knows. Do not state pregnancy; state the fixed freckles and the
+          not-naming, and let it pass.
+      closes_on: >
+        Morrow flying east as a crow, the thing she saw and did not say still
+        unspoken in the trilliums behind her.
+ 
+    - id: ch10_b05
+      title: "The Stone at Dawn"
+      approx_words: 80
+      opens_on: >
+        The offering stone, still at the Mother's base, a year on.
+      action_sequence:
+        - >
+          The iridescent scale still catches seven colors; the dried trillium
+          has not decayed. Thistle visits at dawn, lays her palm to the bark
+          beside the sapling — waist-high now, growing a foot a month, leaning
+          toward the cabin in a way the rest of the forest is too polite to
+          comment on — and reports the day's tending in her formal cadence. The
+          Mother answers in pulses.
+        - >
+          Thistle does not let herself think about how long the Mother will live
+          with one fewer keeper. She refuses the thought every morning.
+      beat_function: >
+        Holds the magic at rest and introduces the chapter's single shadow: the
+        cost of Thistle's chosen mortality, carried entirely in the thought she
+        will not finish. The leaning sapling — the new growth from the rite —
+        is the future already bending toward the life she chose.
+      prose_directives:
+        - >
+          The Mother keeps her silence; pulses only, no dialogue, consistent with
+          the whole book.
+        - >
+          The leaning sapling gets the gentle joke (the forest too polite to
+          comment) and nothing heavier; the weight is saved for the refused
+          thought.
+        - >
+          'She refuses the thought every morning' is the chapter's only direct
+          touch on the cost. The narration refuses it with her — do not finish
+          the thought on her behalf.
+      closes_on: >
+        Thistle's palm on the bark beside the leaning sapling at dawn, the
+        unfinished thought set down again, the Mother answering in warmth.
+ 
+    - id: ch10_b06
+      title: "The Present Moment"
+      approx_words: 80
+      opens_on: >
+        Late afternoon, the same day. Cal splitting wood behind the cabin.
+      action_sequence:
+        - >
+          Shirt off, suspenders at his hips, sweat at his temples and the small
+          of his back and the line of his collarbone. The bruise-mark on his
+          sternum has faded to a pale gold-tinted shadow, visible only in a
+          certain slant of light; the gold seam in his left wrist has gone nearly
+          silver, visible in the same slant.
+        - >
+          He has been splitting for an hour. He does not need this much wood. He
+          is doing it because she has been watching him from the porch for forty
+          minutes and he likes to be watched.
+      beat_function: >
+        Returns to the present and to the body, mirroring the book's opening
+        image — a woman watching this man's bare work — but inverted: she is no
+        longer hidden, he knows he is watched, and the watching is now a married
+        ease rather than a forbidden hunger. The faded marks date the year that
+        has passed in the body itself.
+      prose_directives:
+        - >
+          The sensory register here is the warm, knowing female gaze, not the
+          aching secret one of Ch. 1. He performs the labor for an audience he
+          loves. Keep it light and unhurried.
+        - >
+          The marks are described by their fading — gold to silver, bruise to
+          shadow, both only in a certain slant. The year is told through the
+          skin.
+        - "'He likes to be watched' is the beat's close and its whole reversal of the opening. Land it plainly."
+      closes_on: >
+        Cal at the stump in the slant of late light, the silver in his wrist, the
+        woman on the porch he is splitting wood to be seen by.
+ 
+    - id: ch10_b07
+      title: "The Walk-Over"
+      approx_words: 120
+      opens_on: >
+        Thistle, who has known for three weeks and has not found the words.
+      action_sequence:
+        - >
+          She does not know what fae cadence covers this. Two centuries alive,
+          present at many fae namings, and none of those children were hers; the
+          lineage she has held by heart for two hundred years has no phrase for
+          carrying a child for a man who will live sixty years. So she does not
+          use a phrase.
+        - >
+          She comes off the porch with his hat on her head and crosses to him on
+          small bark-freckled feet. He stops when he sees her come and sets the
+          axe against the stump. She takes the hat off her head and puts it on
+          his — a year and a month ago, in the cabin, he had told her to keep it,
+          and she had not, and now she is giving it back, which is also a yes.
+        - >
+          He laughs once, surprised. She does not laugh. She lays her slim palm
+          flat on his bare chest, on the faded print, in the exact place she has
+          laid it more times this year than either of them has counted. The
+          print warms under her hand; the matched print on her own chest warms in
+          answer. He watches her face, then looks down at her hand, then at her
+          stomach, then back at her face.
+      beat_function: >
+        The reveal, delivered wholly without the word for it — the chapter's
+        central choice. Her having no fae phrase is the deepest statement of the
+        cost and the choice both: this is outside everything she has ever been.
+        Returning the hat is the book's "keep it" finally answered. The warming
+        matched marks make the body itself confirm what she cannot say.
+      prose_directives:
+        - >
+          The absence of a phrase is the point — do not give her words. The fae
+          lineage detail explains why silence, not shyness, is the register.
+        - >
+          The hat is the load-bearing object: 'keep it' a year and a month ago,
+          refused then, returned now as a yes. Make the callback legible without
+          stating 'this is a callback.'
+        - >
+          Cal's understanding arrives through her body in three glances — face,
+          hand, stomach, face. Stage exactly that sequence; let him do the
+          arithmetic, not her.
+      closes_on: >
+        Cal looking from her stomach back to her face, the matched marks warm
+        between them, the word still unsaid.
+ 
+    - id: ch10_b08
+      title: "The Reveal, the Names, and the Dark"
+      approx_words: 130
+      opens_on: >
+        Cal working it out, needing no one to say it. POV shifts to Thistle for
+        the chapter's close.
+      action_sequence:
+        - >
+          He sits down hard on the stump and covers his face for a long count.
+          When he takes his hands away he is crying and laughing at once. He
+          pulls her down into his lap and presses his mouth to the print on her
+          sternum through her dress and stays there until, with her hand on the
+          back of his head, his shoulders stop shaking.
+        - >
+          His voice wrecked, he gives the names: Marin Whitlow Thorne, if a girl,
+          after his mother — Thistle says yes; Daniel Samuel Thorne, if a boy,
+          after both of them — Thistle says yes. She adds no fae name. He notices
+          the absence and does not ask. He kisses the inside of her wrist where
+          his thumb has rested through a year of mornings, the gold-silver seam
+          warming against her pulse. Inside, on the table, a second cedar sparrow
+          lies finished, smaller than the first — the matched pair — to be given
+          tonight.
+        - >
+          Full dark. The porch trilliums open and white in the cold; Bract asleep
+          on the rag rug through the doorway. Cal on the stump with her in his
+          lap, his forehead at her sternum. In her two-centuries voice she thinks
+          that she did not know she was lonely until he said sorry to a tree, did
+          not know she was a body until his mouth was on her throat, did not know
+          she was anyone's until she was his — and that she has chosen the years
+          she has left, and the choosing was the easiest thing she has done in
+          two hundred years. She puts her hand over his at her hip; he turns his
+          face up; he says her name into the underside of her jaw, and she says
+          his full true name into his hair. The matched marks go warm one last
+          time. A half-mile east in the dark, the sapling at the Mother's scar
+          puts out one more leaf.
+      beat_function: >
+        Lands the reveal, the names, and the book's final meditation in one
+        descending movement from afternoon into dark. The names carry the dead
+        parents forward into a living child; the withheld fae name marks Thistle's
+        full crossing into a mortal life. The closing interior is the thesis of
+        the whole book in her oldest voice, and the warming marks and the new leaf
+        are the last proof that the bond and the forest are answering still.
+      prose_directives:
+        - >
+          The reveal stays wordless on Cal's side — he sits hard, weeps, laughs,
+          puts his mouth to the print. No 'are you—?' Keep the source's certainty.
+        - >
+          The four 'I did not know' clauses are the closing meditation's spine —
+          lonely / a body / anyone's / the choosing — in Thistle's plain
+          two-centuries register, no ornament. Preserve the anaphora and the
+          turn on 'the easiest thing.'
+        - >
+          The exchanged names mirror the rite of Ch. 8 — his true name in full,
+          her true name in full — now spoken as tenderness, not sacrifice. Let the
+          mirror sound without being flagged.
+        - >
+          End on the single new leaf a half-mile east. No further line, no
+          flash-forward past this dark. The book stops here.
+      closes_on: >
+        The matched marks warm one last time, the second sparrow waiting on the
+        table, and the sapling putting out one more leaf in the dark to the east.
+ 
+  prohibited_at_chapter_level:
+    - "The Mother has no dialogue; she answers only in pulses and warmth, as throughout the book."
+    - "The pregnancy is never stated in dialogue or named by the narrator; Cal works it out from Thistle's body, and the word is withheld to the end."
+    - "Thistle's mortality and the cost of her choice are felt, never totaled: the narration refuses the thought alongside her and never finishes it for her."
+    - "No fae name is supplied for the child; the absence is deliberate and goes unexplained, exactly as Cal lets it."
+    - "The magic is shown at rest, never explained as mechanism; the only 'explanation' permitted is the microclimate lie the couple tells visitors."
+    - "No flash-forward beyond this single evening; the chapter ends in full dark on the chopping stump and the one new leaf, with the birth and the gift left off-page."
+    - "The closing meditation stays in Thistle's two-centuries interior register; no sentimental narratorial gloss is laid over it."
+    - "The recap montage (warden's year, Samuel, Bract, town, Morrow, the stone) stays compressed and present-tense-summary; it must not expand into full scenes that compete with the dusk reveal."
