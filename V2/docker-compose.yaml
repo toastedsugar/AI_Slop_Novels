@@ -1,0 +1,10 @@
+services:
+  novelgen:
+    build: .
+    working_dir: /app
+    volumes:
+      - ./src:/app/src
+      - ./db:/app/db
+    env_file:
+      - .env
+    command: python src/main.py

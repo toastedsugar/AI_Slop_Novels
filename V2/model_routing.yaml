@@ -1,0 +1,19 @@
+prose:
+  provider: anthropic
+  model: claude-sonnet-4-6
+
+continuity:
+  provider: openai
+  model: gpt-4o-mini
+
+outline:
+  provider: anthropic
+  model: claude-haiku-4-5-20251001
+
+extraction:
+  provider: ollama
+  model: llama3.2
+
+polish:
+  provider: xai
+  model: grok-3
