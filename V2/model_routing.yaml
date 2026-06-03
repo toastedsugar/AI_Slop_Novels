@@ -1,19 +1,58 @@
-prose:
-  provider: anthropic
-  model: claude-sonnet-4-6
+# Sonnet 4.5 so far has had the best output for prose and story structure.
+# Gpt5.5 thinking has been awful. 
 
-continuity:
-  provider: openai
-  model: gpt-4o-mini
+models:
+  claude-opus:
+    provider: anthropic
+    model: claude-opus-4-8
+    max_tokens: 8192
 
-outline:
-  provider: anthropic
-  model: claude-haiku-4-5-20251001
+  claude-sonnet:
+    provider: anthropic
+    model: claude-sonnet-4-5
+    max_tokens: 16000
 
-extraction:
-  provider: ollama
-  model: llama3.2
+  claude-haiku:
+    provider: anthropic
+    model: claude-haiku-4-5-20251001
+    max_tokens: 8192
 
-polish:
-  provider: xai
-  model: grok-3
+  gpt-5:
+    provider: openai
+    model: gpt-5
+    reasoning:
+      effort: low
+    text:
+      verbosity: medium
+
+  gpt-5.5:
+    provider: openai
+    model: gpt-5
+    reasoning:
+      effort: low
+    text:
+      verbosity: medium
+
+  gpt-5-mini:
+    provider: openai
+    model: gpt-5-mini
+    reasoning:
+      effort: low
+    text:
+      verbosity: medium
+
+
+prod:
+  metadata: claude-sonnet
+  rough_outline: claude-sonnet
+  characters: claude-sonnet
+  final_outline: claude-sonnet
+  prose: claude-sonnet
+
+
+dev:
+  metadata: claude-haiku
+  rough_outline: gpt-5-mini
+  characters: gpt-5-mini
+  final_outline: gpt-5-mini
+  prose: claude-haiku

@@ -9,32 +9,36 @@ def generate_openai(
     model,
     system_prompt,
     user_prompt,
-    temperature=1,
-    top_p=1,
-    frequency_penalty=0,
-    presence_penalty=0,
     seed=None,
+    reasoning=None,
+    text=None,
 ):
     client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    kwargs = {}
+    if reasoning is not None:
+        kwargs["reasoning"] = reasoning
+    if text is not None:
+        kwargs["text"] = text
+    if seed is not None:
+        kwargs["seed"] = seed
     try:
-        response = client.chat.completions.create(
+        response = client.responses.create(
             model=model,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user",   "content": user_prompt},
+            input=[
+                {
+                    "role": "system",
+                    "content": system_prompt,
+                },
+                {
+                    "role": "user",
+                    "content": user_prompt,
+                },
             ],
-            temperature=temperature,
-            top_p=top_p,
-            frequency_penalty=frequency_penalty,
-            presence_penalty=presence_penalty,
-            seed=seed,
+            **kwargs,
         )
-        return response.choices[0].message.content
-
+        return response.output_text
     except Exception as e:
-        print(f"OpenAI API Error: {e}")
-        return None
-
+        raise RuntimeError(f"OpenAI API Error: {e}") from e
 
 def generate_claude(
     model,
@@ -68,8 +72,7 @@ def generate_claude(
         return response.content[0].text
 
     except Exception as e:
-        print(f"Anthropic API Error: {e}")
-        return None
+        raise RuntimeError(f"Anthropic API Error: {e}") from e
 
 
 def generate_gemini(
@@ -104,5 +107,4 @@ def generate_gemini(
         return response.text
 
     except Exception as e:
-        print(f"Gemini API Error: {e}")
-        return None
+        raise RuntimeError(f"Gemini API Error: {e}") from e

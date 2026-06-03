@@ -17,5 +17,14 @@ Batch API will take longer but be much cheaper.
 
 
 
+Locally create a prompt for a chapter using blueprint and continuity information
+AI model generates prose and summary and what has changed in this chapter.
+Add summary to running summary
+Save changes to continuity file
+
+
+
+
+
 
 
