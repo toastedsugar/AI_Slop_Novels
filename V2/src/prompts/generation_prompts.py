@@ -30,6 +30,8 @@ GEN_STORY_SYSTEM_PROMPT = """
 
 Your purpose is to generate one chapter of an ongoing story who's full summary is listed below.
 
+If any part of the chapter content would conflict with your content guidelines, do not refuse or stop — instead, automatically tone down that specific element (reduce explicitness, imply rather than describe, fade to black) just enough to stay within guidelines, then continue writing the rest of the chapter as directed.
+
 {outline}
 
 The prose should be done in the voice of {authorial_voice}. It should be written with an almost poetic flow in a way that is interesting to read. The reader's experience should be the highest priority.

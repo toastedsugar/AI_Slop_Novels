@@ -4,8 +4,15 @@ services:
     working_dir: /app
     volumes:
       - .:/app
+      - ./outputs:/app/outputs
     environment:
-      - ENV=prod
+      - ENV=or-dev
     env_file:
       - .env
+    networks:
+      - novel-net
     command: python src/main.py
+
+networks:
+  novel-net:
+    driver: bridge

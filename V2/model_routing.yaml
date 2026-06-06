@@ -1,7 +1,9 @@
 # Sonnet 4.5 so far has had the best output for prose and story structure.
-# Gpt5.5 thinking has been awful. 
+# Gpt5.5 thinking has been awful literally the worst. 
+# Qwen is the most favorable for NSFW generation, but the prose leaves much to be desired.
 
 models:
+  # Anthropic models
   claude-opus:
     provider: anthropic
     model: claude-opus-4-8
@@ -17,6 +19,7 @@ models:
     model: claude-haiku-4-5-20251001
     max_tokens: 8192
 
+  # OpenAI models
   gpt-5:
     provider: openai
     model: gpt-5
@@ -41,6 +44,47 @@ models:
     text:
       verbosity: medium
 
+  # OpenRouter models — uses OPENROUTER_API_KEY
+  llama4-scout:
+    provider: openrouter
+    model: meta-llama/llama-4-scout
+    max_tokens: 8192
+
+  deepseek-v4-flash:
+    provider: openrouter
+    model: deepseek/deepseek-v4-flash
+    max_tokens: 8192
+
+  qwen-3-5-9b:
+    provider: openrouter
+    model: qwen/qwen3.5-9b
+    max_tokens: 8192
+
+  qwen-3-7-max:
+    provider: openrouter
+    model: qwen/qwen3.7-max
+    max_tokens: 8192
+
+  deepseek-v4-pro:
+    provider: openrouter
+    model: deepseek/deepseek-v4-pro
+    max_tokens: 8192
+
+  llama4-maverick:
+    provider: openrouter
+    model: meta-llama/llama-4-maverick
+    max_tokens: 8192
+
+  grok-3:
+    provider: openrouter
+    model: x-ai/grok-3
+    max_tokens: 8192
+
+  grok-3-mini:
+    provider: openrouter
+    model: x-ai/grok-3-mini
+    max_tokens: 8192
+
 
 prod:
   metadata: claude-sonnet
@@ -49,10 +93,37 @@ prod:
   final_outline: claude-sonnet
   prose: claude-sonnet
 
-
 dev:
-  metadata: claude-haiku
+  metadata: gpt-5-mini
   rough_outline: gpt-5-mini
   characters: gpt-5-mini
   final_outline: gpt-5-mini
-  prose: claude-haiku
+  prose: gpt-5-mini
+
+or-dev:
+  metadata: deepseek-v4-flash
+  rough_outline: deepseek-v4-flash
+  characters: deepseek-v4-flash
+  final_outline: deepseek-v4-flash
+  prose: deepseek-v4-flash
+
+or-prod:
+  metadata: qwen-3-7-max
+  rough_outline: qwen-3-7-max
+  characters: qwen-3-7-max
+  final_outline: qwen-3-7-max
+  prose: qwen-3-7-max
+
+grok:
+  metadata: grok-3
+  rough_outline: grok-3
+  characters: grok-3
+  final_outline: grok-3
+  prose: grok-3
+
+grok-dev:
+  metadata: grok-3-mini
+  rough_outline: grok-3-mini
+  characters: grok-3-mini
+  final_outline: grok-3-mini
+  prose: grok-3-mini

@@ -36,6 +36,8 @@ def generate_openai(
             ],
             **kwargs,
         )
+        if response.output_text is None:
+            raise RuntimeError(f"OpenAI API returned None output_text for model {model}")
         return response.output_text
     except Exception as e:
         raise RuntimeError(f"OpenAI API Error: {e}") from e
@@ -108,3 +110,39 @@ def generate_gemini(
 
     except Exception as e:
         raise RuntimeError(f"Gemini API Error: {e}") from e
+
+
+def generate_openrouter(
+    model,
+    system_prompt,
+    user_prompt,
+    max_tokens=8192,
+    temperature=None,
+    top_p=None,
+):
+    client = openai.OpenAI(
+        api_key=os.getenv("OPENROUTER_API_KEY"),
+        base_url="https://openrouter.ai/api/v1",
+    )
+    kwargs = {}
+    if max_tokens is not None:
+        kwargs["max_tokens"] = max_tokens
+    if temperature is not None:
+        kwargs["temperature"] = temperature
+    if top_p is not None:
+        kwargs["top_p"] = top_p
+    try:
+        response = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            **kwargs,
+        )
+        content = response.choices[0].message.content
+        if content is None:
+            raise RuntimeError(f"OpenRouter API returned None content for model {model}")
+        return content
+    except Exception as e:
+        raise RuntimeError(f"OpenRouter API Error: {e}") from e
