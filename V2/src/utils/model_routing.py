@@ -1,6 +1,7 @@
 import os
 import random
 import yaml
+from utils.api_calls import generate_openai, generate_claude, generate_openrouter
 
 ROUTING_PATH = os.path.join(os.path.dirname(__file__), "..", "..", "model_routing.yaml")
 
@@ -12,6 +13,20 @@ def _resolve_params(config):
         else:
             resolved[k] = v
     return resolved
+
+def generate_from_config(config, system_prompt, user_prompt):
+    provider = config["provider"]
+    model = config["model"]
+    params = {k: v for k, v in config.items() if k not in ("provider", "model")}
+    if provider == "anthropic":
+        return generate_claude(model, system_prompt, user_prompt, **params)
+    elif provider == "openai":
+        return generate_openai(model, system_prompt, user_prompt, **params)
+    elif provider == "openrouter":
+        return generate_openrouter(model, system_prompt, user_prompt, **params)
+    else:
+        raise ValueError(f"Unknown provider: {provider}")
+
 
 def load_routing():
     env = os.environ.get("ENV", "dev")

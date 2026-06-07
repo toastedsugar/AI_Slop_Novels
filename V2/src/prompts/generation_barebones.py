@@ -1,29 +1,3 @@
-GEN_ONESHOT_SYSTEM_PROMPT = """
-
-Your purpose is to use the attached outline to generate a full story of {word_count} words.
-
-{outline}
-
-"""
-
-GEN_ONESHOT_USER_PROMPT = """
-
-Make sure all the information in the outline is present in the story.
-
-"""
-
-
-'''
-The thing is prompted to add new things once in a while. There should a new additions section to this.
-
-There should be a character state section that tracks what has changed with this character physically and emotionally. Same for locations, items, etc...
-
-Output should be formatted in json format
-
-'''
-
-
-
 
 
 GEN_STORY_SYSTEM_PROMPT = """
