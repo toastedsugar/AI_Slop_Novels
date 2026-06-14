@@ -38,7 +38,8 @@ def generate_openai(
         )
         if response.output_text is None:
             raise RuntimeError(f"OpenAI API returned None output_text for model {model}")
-        return response.output_text
+        usage = response.usage
+        return response.output_text, usage.input_tokens, usage.output_tokens
     except Exception as e:
         raise RuntimeError(f"OpenAI API Error: {e}") from e
 
@@ -51,11 +52,16 @@ def generate_claude(
     top_p=None,
     top_k=None,
     stop_sequences=None,
+    thinking=None,
 ):
     client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
     kwargs = {}
-    if temperature is not None:
-        kwargs["temperature"] = temperature
+    if thinking is not None:
+        # thinking and temperature are mutually exclusive
+        kwargs["thinking"] = thinking
+    else:
+        if temperature is not None:
+            kwargs["temperature"] = temperature
     if top_p is not None:
         kwargs["top_p"] = top_p
     if top_k is not None:
@@ -71,7 +77,9 @@ def generate_claude(
             messages=[{"role": "user", "content": user_prompt}],
             **kwargs,
         )
-        return response.content[0].text
+        usage = response.usage
+        text = next(b.text for b in response.content if b.type == "text")
+        return text, usage.input_tokens, usage.output_tokens
 
     except Exception as e:
         raise RuntimeError(f"Anthropic API Error: {e}") from e
@@ -106,7 +114,8 @@ def generate_gemini(
             contents=user_prompt,
             config=config,
         )
-        return response.text
+        usage = response.usage_metadata
+        return response.text, usage.prompt_token_count, usage.candidates_token_count
 
     except Exception as e:
         raise RuntimeError(f"Gemini API Error: {e}") from e
@@ -119,6 +128,7 @@ def generate_openrouter(
     max_tokens=8192,
     temperature=None,
     top_p=None,
+    extra_body=None,
 ):
     client = openai.OpenAI(
         api_key=os.getenv("OPENROUTER_API_KEY"),
@@ -131,6 +141,10 @@ def generate_openrouter(
         kwargs["temperature"] = temperature
     if top_p is not None:
         kwargs["top_p"] = top_p
+    if extra_body is not None:
+        # extra_body is merged into the raw JSON request — used to pass reasoning params
+        # for models that support it (e.g. {"reasoning": {"effort": "medium"}})
+        kwargs["extra_body"] = extra_body
     try:
         response = client.chat.completions.create(
             model=model,
@@ -140,9 +154,16 @@ def generate_openrouter(
             ],
             **kwargs,
         )
-        content = response.choices[0].message.content
+        choice = response.choices[0]
+        content = choice.message.content
         if content is None:
-            raise RuntimeError(f"OpenRouter API returned None content for model {model}")
-        return content
+            finish_reason = choice.finish_reason
+            refusal = getattr(choice.message, "refusal", None)
+            raise RuntimeError(
+                f"OpenRouter API returned None content for model {model} "
+                f"(finish_reason={finish_reason!r}, refusal={refusal!r})"
+            )
+        usage = response.usage
+        return content, usage.prompt_tokens, usage.completion_tokens
     except Exception as e:
         raise RuntimeError(f"OpenRouter API Error: {e}") from e

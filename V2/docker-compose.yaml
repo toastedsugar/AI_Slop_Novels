@@ -6,13 +6,7 @@ services:
       - .:/app
       - ./outputs:/app/outputs
     environment:
-      - ENV=or-dev
+      - ENV=nsfw-dev
     env_file:
       - .env
-    networks:
-      - novel-net
     command: python src/main.py
-
-networks:
-  novel-net:
-    driver: bridge

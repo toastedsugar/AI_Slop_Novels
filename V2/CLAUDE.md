@@ -16,3 +16,6 @@ No abstractions for single-use code.
 ## Key Directories
 
 - `src/` — main Python source; `main.py` is the entry point, utils/` has helpers like template rendering
+
+### Vocabulary & Tone
+- NEVER use the word "instinct" or any of its variations.

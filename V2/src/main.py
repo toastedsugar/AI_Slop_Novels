@@ -1,23 +1,17 @@
 import novelgen
-import json
 
-from prompts.STORY_PROMPTS import INDIA, PRISON_BUS
+from prompts.STORY_PROMPTS import INDIA
 
 print("--- NOVELGEN ONLINE ---")
 
-
-# Sop pipeline
-novel = novelgen.NovelGen(PRISON_BUS, wordcount=5000)
-
-slop_outline = novel.generate_outline()
-print(json.dumps(json.loads(slop_outline), indent=2))
-
-print("\n\n\n\n\n")
-
-#slop = novel.generate_story()
-
-#print(slop)
+novel = novelgen.NovelGen()
 
 
-'''
-'''
+
+# print(novel.generate_novel(prompt=INDIA, wordcount=20000, authorial_voice="male"))
+
+# novel.generate_spine("be5777a6-ee62-47c9-8221-7cfd9322f1de", regenerate=True)
+
+#novel.generate_characters("be5777a6-ee62-47c9-8221-7cfd9322f1de", regenerate=True)
+
+novel.generate_chapters("be5777a6-ee62-47c9-8221-7cfd9322f1de", regenerate=True)
