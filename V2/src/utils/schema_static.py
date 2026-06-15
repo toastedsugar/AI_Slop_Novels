@@ -36,7 +36,7 @@ STATIC = {
         "word_count": 70000,
         "narrative_structure": [
             {
-                "heros_journey_step": "ordinary_world | inciting_incident | crossing_threshold | rising_complications | midpoint | antagonist_peaks | all_is_lost | climax | resolution",
+                "heros_journey_step": "ordinary_world | inciting_incident | crossing_threshold | rising_complications | midpoint | antagonist_peaks | all_is_lost | climax | resolution — all 9 steps are required",
                 "summary": "Dense 3-5 sentence description of what happens, why, the emotional stakes, and what changes.",
                 "word_count_pct": 10,
                 "time_gap_before": "How much time has passed since the previous beat, e.g. 'same day', 'two weeks later', 'immediately'.",

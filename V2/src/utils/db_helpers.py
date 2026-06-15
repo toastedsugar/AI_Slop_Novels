@@ -246,7 +246,9 @@ def get_novel(novel_id: str, cols: list[str]) -> dict:
     conn = get_connection()
     row = conn.execute(f"SELECT {', '.join(cols)} FROM novel WHERE id = ?", (novel_id,)).fetchone()
     conn.close()
-    return dict(zip(cols, row)) if row else {}
+    if not row:
+        raise ValueError(f"Novel {novel_id} not found in database.")
+    return dict(zip(cols, row))
 
 
 def delete_novel(novel_id: str):
@@ -359,7 +361,9 @@ def get_spine(novel_id: str, cols: list[str]) -> dict:
     conn = get_connection()
     row = conn.execute(f"SELECT {', '.join(cols)} FROM spine WHERE novel_id = ?", (novel_id,)).fetchone()
     conn.close()
-    return dict(zip(cols, row)) if row else {}
+    if not row:
+        raise RuntimeError(f"No spine found for novel {novel_id} — run generate_spine first.")
+    return dict(zip(cols, row))
 
 
 def delete_spine(novel_id: str):
@@ -417,6 +421,8 @@ def get_characters(novel_id: str, cols: list[str]) -> list[dict]:
     conn = get_connection()
     rows = conn.execute(f"SELECT {', '.join(cols)} FROM characters WHERE novel_id = ?", (novel_id,)).fetchall()
     conn.close()
+    if not rows:
+        raise RuntimeError(f"No characters found for novel {novel_id} — run generate_characters first.")
     return [dict(zip(cols, row)) for row in rows]
 
 

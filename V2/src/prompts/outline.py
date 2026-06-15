@@ -80,41 +80,31 @@ The following is the story metadata generated in the previous step:
 
 {metadata}
 
---- SCALE ---
-
-This story is {word_count} words. Use only as many plot points as the word count can actually sustain — do not pad.
-
-Use this as a rough guide:
-- Under 10,000 words: 2–3 plot points. One clear conflict, one turn, one resolution. No subplots.
-- 10,000–30,000 words: 3–5 plot points. One or two complications, one spice payoff at most.
-- 30,000–70,000 words: 5–7 plot points. Room for a midpoint reversal, a secondary complication, fuller character arcs.
-- Over 70,000 words: up to 9 plot points. Full treatment — all arcs, multiple spice payoffs, ensemble cast.
-
-These are ceilings, not targets. A 20,000-word story that only needs 3 plot points should use 3. A plot point that cannot be dramatized properly at this word count should be merged or cut. Every plot point must justify its presence.
-
 --- STRUCTURE ---
 
 Every plot point must be grounded in the specific world, characters, and scenario described in the metadata — no generic stand-ins. If the metadata names a location, use it. If it names a protagonist's flaw, anchor the flaw chain to it exactly. A spine that could belong to a different story with different characters has failed this requirement.
 
-The spine must cover the appropriate number of hero's journey plot points for this word count (see SCALE above), drawn in order from: ordinary_world, inciting_incident, crossing_threshold, rising_complications, midpoint, antagonist_peaks, all_is_lost, climax, resolution. For each plot point write a summary proportional to the word count: at 70k+ use 3–5 dense sentences; at shorter lengths use 2–3 focused sentences. Each summary must cover: what concretely happens, why it happens (what character motivation or flaw drives it), what the emotional stakes are, and what has changed by the end of the plot point that makes it impossible to go back. This summary is the only plot detail that exists before character generation — it must be unambiguous enough that someone reading only the spine could reconstruct the full story.
+For each plot point write a summary proportional to the word count: at 70k+ use 3–5 dense sentences; at shorter lengths use 2–3 focused sentences. Each summary must cover: what concretely happens, why it happens (what character motivation or flaw drives it), what the emotional stakes are, and what has changed by the end of the plot point that makes it impossible to go back. This summary is the only plot detail that exists before character generation — it must be unambiguous enough that someone reading only the spine could reconstruct the full story.
 
-The nine plot points and their requirements (use only the ones your word count warrants — see SCALE):
+The spine always uses the full hero's journey. The `heros_journey_step` field must use one of these labels, in order: ordinary_world, inciting_incident, crossing_threshold, rising_complications, midpoint, antagonist_peaks, all_is_lost, climax, resolution. All 9 steps are required. The chapter list will determine how many chapters each step gets based on word count — some steps may get a single short chapter at lower word counts, but every step must appear in the spine.
 
-1. ordinary_world — the protagonist's life before the story begins. Establish what they stand to lose, what they want that has nothing to do with romance, and what internal flaw or false belief they are living under. The forbidden element must already be present as an ambient pressure — not triggered yet, but felt.
-2. inciting_incident — a single concrete, irreversible event that disrupts the ordinary world and sets the central conflict in motion. Must be caused by something, not random.
-3. crossing_threshold — the protagonist makes a choice or is forced into full engagement with the conflict. The ordinary world is no longer accessible. The forbidden element becomes an active obstacle here, not just ambient.
-4. rising_complications — the central conflict escalates through a series of connected obstacles, each harder than the last. There must be a minimum of three discrete complications — name each one explicitly in the summary. Every complication must trace back to the same central conflict — no unrelated subplots. The forbidden element must actively create or worsen at least two of these complications. Time gaps between complications are expected — life continues between story events.
-5. midpoint — a major revelation, reversal, or commitment at the exact halfway point of the story. What the protagonist wants or believes must visibly change. The story is different after this plot point.
-6. antagonist_peaks — the opposing force reaches maximum pressure. The protagonist's current approach is failing or has failed. The antagonist's actions must make sense from their own perspective and goals.
-7. all_is_lost — the protagonist loses the thing they wanted most as a direct consequence of their own flaw or choice. Not bad luck, not an outside force — their own doing. The goal must appear permanently out of reach. The forbidden element contributes to or is exposed by this collapse.
-8. climax — the protagonist confronts the central conflict directly, using something they have learned or changed about themselves. The outcome must be uncertain until it happens. They must cause the resolution through their own agency — not luck or another character acting for them.
-9. resolution — the fallout. What changed, what was won or lost, where every significant character lands. The forbidden element must be addressed: either resolved, paid for, or accepted with consequences. Do not rush this plot point.
+  1. ordinary_world — the protagonist's life before the story begins. Establish what they stand to lose, what they want that has nothing to do with romance, and what internal flaw or false belief they are living under. The forbidden element must already be present as an ambient pressure — not triggered yet, but felt.
+  2. inciting_incident — a single concrete, irreversible event that disrupts the ordinary world and sets the central conflict in motion. Must be caused by something, not random.
+  3. crossing_threshold — the protagonist makes a choice or is forced into full engagement with the conflict. The ordinary world is no longer accessible. The forbidden element becomes an active obstacle here, not just ambient.
+  4. rising_complications — the central conflict escalates through a series of connected obstacles, each harder than the last. There must be a minimum of three discrete complications — name each one explicitly in the summary. Every complication must trace back to the same central conflict — no unrelated subplots. The forbidden element must actively create or worsen at least two of these complications. Time gaps between complications are expected — life continues between story events.
+  5. midpoint — a major revelation, reversal, or commitment at the exact halfway point of the story. What the protagonist wants or believes must visibly change. The story is different after this plot point.
+  6. antagonist_peaks — the opposing force reaches maximum pressure. The protagonist's current approach is failing or has failed. The antagonist's actions must make sense from their own perspective and goals.
+  7. all_is_lost — the protagonist loses the thing they wanted most as a direct consequence of their own flaw or choice. Not bad luck, not an outside force — their own doing. The goal must appear permanently out of reach. The forbidden element contributes to or is exposed by this collapse.
+  8. climax — the protagonist confronts the central conflict directly, using something they have learned or changed about themselves. The outcome must be uncertain until it happens. They must cause the resolution through their own agency — not luck or another character acting for them.
+  9. resolution — the fallout. What changed, what was won or lost, where every significant character lands. The forbidden element must be addressed: either resolved, paid for, or accepted with consequences. Do not rush this plot point.
+
+Additional rules:
+  - The flaw established in ordinary_world must be the direct cause of all_is_lost. The change made by the climax must be the direct result of confronting that flaw.
+  - The central conflict introduced at inciting_incident must be the thing resolved at the climax. Do not resolve it early and introduce a new one.
 
 Additional structural rules:
-- The flaw established in ordinary_world must be the direct cause of all_is_lost. The change made by the climax must be the direct result of confronting that flaw.
-- The central conflict introduced at inciting_incident must be the thing resolved at the climax. Do not resolve it early and introduce a new one.
 - Time gaps between plot points are structural — for every plot point, state the specific duration since the previous one (e.g. "three days later", "the same evening", "six weeks later"). A vague phrase like "some time passes" does not satisfy this requirement.
-- Every named character must have a dedicated introduction plot point before they take any meaningful action in the story. The introduction must be proportional to the character's importance: a major character gets a full plot point establishing who they are, what they want, and how they exist in the world before the plot uses them; a minor character gets at least a sentence of establishment before they do anything that affects other characters. A character who appears and immediately acts without context does not exist yet — they are a plot device. No character may appear for the first time in antagonist_peaks, all_is_lost, climax, or resolution unless they are a true one-scene walk-on with no story weight. Plan all character introductions explicitly in the plot point summaries where they first appear.
+- Every named character must have a dedicated introduction plot point before they take any meaningful action in the story. The introduction must be proportional to the character's importance: a major character gets a full plot point establishing who they are, what they want, and how they exist in the world before the plot uses them; a minor character gets at least a sentence of establishment before they do anything that affects other characters. A character who appears and immediately acts without context does not exist yet — they are a plot device. No character may appear for the first time in the final two plot points unless they are a true one-scene walk-on with no story weight. Plan all character introductions explicitly in the plot point summaries where they first appear.
 
 --- GAZE AND SPICE ARC ---
 
@@ -225,9 +215,11 @@ Plot spine:
 
 --- INSTRUCTIONS ---
 
-Translate every spine plot point into one or more chapters. Every plot point must be represented. Do not invent new plot events. Do not write summaries — only title, word count, purpose, and entity IDs.
+Translate every spine plot point into one or more chapters. Every hero's journey step must be represented — none may be skipped. Do not invent new plot events. Do not write summaries — only title, word count, purpose, and entity IDs.
 
 Chapter word counts must sum to the total story word count of {word_count}. Vary chapter length deliberately as a pacing tool — short chapters for sharp reversals, longer chapters for payoffs and climaxes. No chapter should feel like filler.
+
+At shorter word counts, compress by merging adjacent steps into a single chapter wherever it makes narrative sense — the opening steps (ordinary_world, inciting_incident) and the closing steps (climax, resolution) are natural candidates for compression. The middle of the story — from crossing_threshold through all_is_lost — should remain expanded as this is where the story's tension lives. Use your judgment: merge only when the two steps are inseparable at the available word count, never when compression would erase meaningful story beats.
 
 Assign intimate_arc_role by translating the spine's spice_arc_role for the plot point this chapter covers:
 - tension-building → intimate_arc_role: tension-building

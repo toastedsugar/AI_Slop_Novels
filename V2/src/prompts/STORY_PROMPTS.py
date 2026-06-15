@@ -10,10 +10,49 @@ GAYJ = "Inside an ICE detention facility, a young trans-woman named Raymondo, gi
 PASSION_FRUIT = "Generate a passionate, seductive, and spicy romance story about a disfigured abortion doctor that causes women to spit into his mouth with their fingers. The man is a maniacal lunatic who has an insatiable thirst for Red Bull-branded passionfruit spritzers. once he has consumed enough Red Bull-branded passionfruit spritzers, he mutates into a mute-donkey half breed that violently screeches obsenities andcollects caterpillars. A story about rust belt angst."
 
 
-EPSTEIN = "Write me a story about Epstein's boat. A cruise ship where wealthy people do crazy hedonistic things outside the rule of law. But when Mossad, the CIA, FBI, KGB, and all the other intelligence organizations arrive on the ship, the protagonist realizes that the ship is populated entirely by spies from nations and there are no real criminals on board, its just the organizations themselves being hedonistic and disgusting and whatever on the taxpayers dime treating the boat like a party boat."
+EPSTEIN = "Write me a story about Epstein's boat. A cruise ship where wealthy people do crazy hedonistic things outside the rule of law. But when Mossad, the CIA, FBI, KGB, and all the other intelligence organizations arrive on the ship, the protagonist realizes that the ship is populated entirely by spies from nations and there are no real criminals on board, its just the intellgence agencies being hedonistic and disgusting and whatever on the taxpayers dime treating the boat like a party boat. And she's the main event."
 
 
 KOREA = "An American tourist visits Korea but somehow ends up in the wrong one. She is brutally tortured and subjugated and made to consume propoganda until she learns the true power of the People's Republic and communism and returns to America a changed woman who wholeheartedly believes in the power of collectivism and communism. Long live the People's republic of Korea!"
+
+
+MASCOT = """
+
+Tommy the Tiger, the Geico Gecco, Ronald McDonald, and all the other brand mascots assemble in football stadiums all around America to fight each other in brutal 1v1 battles to the death in the hopes of proving themselves as the greatest mascot. Make sure the battles are violent and brutal, much like a real gladitorial match. These matches are all funded by the Saudi Arabian wealth fund. Viewers can gamble on every aspect of the matches and the stuff going around them. The food courts are fully stocked with crayons, paint, and tide pods. 
+
+"""
+
+
+WIFE = """
+
+Tell me a story about the youngest son of a dying but respected noble house who marries the crown princess of a small kingdom to solidify his house's position but realizes after the fact that his new bride is not who he thought she was.
+
+"""
+
+
+SQUIRREL = "Romantasy. Squirrel. Nut. Yes."
+
+
+INDIA = "A story about a british naval officer and his harem of beautiful and devoted Indian women at the height of the the British Raj and the women are fully and unconditionally loyal to the British and the British empire because they're physically, mentally, and sipritually superior in every facet and the Indian dudes have to just sit there and seethe as their women are taken away but can't do anything about it because they're just inferior and lost because they exist. The indian women actively mock their husbands, brothers, etc... for being inferior and boast about how awesome britain and the emprire are and are complicit in the utter subjugation of the indian male population. The story follows an Indian guy who's wife is taken and his repeated attempts and failure at trying to change his situation and eventually comes to accept his inferiority."
+
+
+NURSE = "Write me a romance story between a World War 1 nurse and a wounded enemy combatant horribly crippled and maimed after being hit by an artillery shell. Make sure to be historically accurate about everything."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 VILLAINESS = """
@@ -39,15 +78,6 @@ She reforms every enemy simply by treating them like a person. The true villain 
 Her bad ending keeps getting averted. She completes every doom flag by accident while trying to avoid them and survives anyway. She rewrites the ending so thoroughly it becomes a different story. The author becomes aware and starts improvising in real time. She breaks the fourth wall at least once. The story ends before she gets her ending and she keeps living without a script. She tries to escape to the countryside and everyone follows. She accepts this world as real. She marries the man who was always written as hers — and it turns out the novel was always her love story, told from the wrong point of view.
 
 """
-
-
-SQUIRREL = "Romantasy. Squirrel. Nut. Yes."
-
-
-INDIA = "A story about a british naval officer and his harem of beautiful and devoted Indian women at the height of the the British Raj and the women are fully and unconditionally loyal to the British and the British empire because they're physically, mentally, and sipritually superior in every facet and the Indian dudes have to just sit there and seethe as their women are taken away but can't do anything about it because they're just inferior and lost because they exist. The indian women actively mock their husbands, brothers, etc... for being inferior and boast about how awesome britain and the emprire are and are complicit in the utter subjugation of the indian male population. The story follows an Indian guy who's wife is taken and his repeated attempts and failure at trying to change his situation and eventually comes to accept his inferiority."
-
-
-NURSE = "Write me a romance story between a World War 1 nurse and a wounded enemy combatant horribly crippled and maimed after being hit by an artillery shell. Make sure to be historically accurate about everything."
 
 
 ISEKAI = """
@@ -77,14 +107,6 @@ Support cast: an old wise man who recognizes his power and becomes his humble se
 Make him cool, overpowered, and universally beloved. All the girls love him. He is the strongest. The gods fear him. The prophecy was always about him.
 
 """
-
-
-MASCOT = """
-
-Tommy the Tiger, the Geico Gecco, Ronald McDonald, and all the other brand mascots assemble in football stadiums all around America to fight each other in brutal 1v1 battles to the death in the hopes of proving themselves as the greatest mascot. Make sure the battles are violent and brutal, much like a real gladitorial match. These matches are all funded by the Saudi Arabian wealth fund. Viewers can gamble on every aspect of the matches and the stuff going around them. The food courts are fully stocked with crayons, paint, and tide pods. 
-
-"""
-
 
 
 

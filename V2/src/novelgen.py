@@ -3,7 +3,6 @@ import random
 import re
 import uuid
 from datetime import datetime, timezone
-
 from json_repair import repair_json
 from utils.model_routing import load_routing, generate_from_config, calculate_cost
 from utils.schema_static import schema_to_json
@@ -126,7 +125,7 @@ class NovelGen:
         if regenerate:
             self._cascade_delete(novel_id, "spine")
 
-        novel = get_novel(novel_id, ["title", "summary", "word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element", "authorial_voice"])
+        novel = get_novel(novel_id, ["title", "summary", "word_count", "target_word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element", "authorial_voice"])
         world = get_worldbuilding(novel_id, ["story_type", "time_period", "anchor_location", "social_hierarchy", "constraints"])
 
         config = self.routing["spine"]
@@ -136,7 +135,7 @@ class NovelGen:
             GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("summary", "")),
             self._seed(GEN_SPINE_USER_PROMPT.format(
                 metadata=json.dumps({**novel, **world}, indent=2),
-                word_count=novel.get("word_count", 0),
+                word_count=novel.get("target_word_count", 0),
                 schema=schema_to_json("spine"),
             )),
         )
@@ -198,7 +197,7 @@ class NovelGen:
         if regenerate:
             self._cascade_delete(novel_id, "chapters")
 
-        novel = get_novel(novel_id, ["title", "summary", "word_count", "premise", "primary_genre", "tone", "spice_level", "tense", "perspective", "forbidden_element"])
+        novel = get_novel(novel_id, ["title", "summary", "word_count", "target_word_count", "premise", "primary_genre", "tone", "spice_level", "tense", "perspective", "forbidden_element"])
         spine = get_spine(novel_id, ["word_count", "narrative_structure"])
         characters = get_characters(novel_id, ["id", "name", "role", "arc"])
         locations = get_locations(novel_id, ["id", "name", "description"])
@@ -214,7 +213,7 @@ class NovelGen:
             self._seed(GEN_CHAPTER_LIST_USER_PROMPT.format(
                 metadata=json.dumps(novel, indent=2),
                 spine=spine.get("narrative_structure", ""),
-                word_count=novel.get("word_count", 0),
+                word_count=novel.get("target_word_count", 0),
                 characters=json.dumps(characters, indent=2),
                 locations=json.dumps(locations, indent=2),
                 items=json.dumps(items, indent=2),
