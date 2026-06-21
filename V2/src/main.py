@@ -1,6 +1,6 @@
 import novelgen
 
-from prompts.STORY_PROMPTS import INDIA, EPSTEIN, WIFE
+from prompts.STORY_PROMPTS import INDIA, EPSTEIN, WIFE, KARMA, SPACE_AMERICA
 
 print("--- NOVELGEN ONLINE ---")
 
@@ -9,17 +9,19 @@ novel = novelgen.NovelGen()
 
 
 
+# Pulling a story and spine
+#novel.generate_spine(novel.generate_novel(prompt=SPACE_AMERICA, wordcount=25000, authorial_voice="An imitation of F Scott Fitzgerald mixed with Hemmingway."), regenerate=True)
 
-novel.generate_spine(novel.generate_novel(prompt=WIFE, wordcount=20000, authorial_voice="An imitation of F Scott Fitzgerald mixed with Hemmingway."), regenerate=True)
 
-#novel.generate_novel(prompt=EX, wordcount=20000, authorial_voice="An imitation of F Scott Fitzgerald mixed with Hemmingway.")
+#novel.generate_novel(SPACE_AMERICA, 25000, authorial_voice="An imitation of F Scott Fitzgerald mixed with Hemmingway.")
 
-#novel.generate_spine("93765826-07c6-4eb3-987e-ab0b3180c49a", regenerate=True)
+#novel.generate_spine("5ab83283-eb82-42ac-ae4c-8537e98aad62", regenerate=True)
 
-#novel.generate_characters("af6810a8-c412-4e04-82a8-8a1a779d0dea", regenerate=True)
+#novel.generate_characters("5ab83283-eb82-42ac-ae4c-8537e98aad62", regenerate=True)
 
-#novel.generate_chapters("af6810a8-c412-4e04-82a8-8a1a779d0dea", regenerate=True)
+#novel.generate_chapter_list("5ab83283-eb82-42ac-ae4c-8537e98aad62", regenerate=True)
 
+novel.generate_chapters("5ab83283-eb82-42ac-ae4c-8537e98aad62", regenerate=True)
 
 
 

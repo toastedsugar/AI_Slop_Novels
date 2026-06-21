@@ -18,7 +18,6 @@ from utils.db_helpers import (
     insert_organizations, get_organizations, delete_organizations,
     insert_events, get_events, delete_events,
     insert_chapter, update_chapter_summary, get_chapters, delete_chapters,
-    insert_beat, get_beats, delete_beats,
 )
 from prompts.outline import (
     GEN_OUTLINE_SYSTEM_PROMPT,
@@ -27,20 +26,18 @@ from prompts.outline import (
     GEN_CHARACTERS_USER_PROMPT,
     GEN_CHAPTER_LIST_USER_PROMPT,
     GEN_CHAPTER_USER_PROMPT,
-    GEN_BEATS_USER_PROMPT,
 )
 from prompts.generation_chapter_by_chapter import GEN_CHAPTER_BY_CHAPTER_SYSTEM_PROMPT, GEN_CHAPTER_USER_PROMPT as GEN_PROSE_USER_PROMPT
 
 
 # Cascade delete order — each stage wipes itself and everything downstream (upstream → downstream).
-_CASCADE = ["worldbuilding", "spine", "characters", "chapters", "beats"]
+_CASCADE = ["worldbuilding", "spine", "characters", "chapters"]
 
 _DELETE = {
     "worldbuilding": delete_worldbuilding,
     "spine":         delete_spine,
     "characters":    lambda novel_id: [f(novel_id) for f in (delete_characters, delete_locations, delete_items, delete_organizations, delete_events)],
     "chapters":      delete_chapters,
-    "beats":         delete_beats,
 }
 
 
@@ -75,12 +72,7 @@ class NovelGen:
     def _cascade_delete(self, novel_id: str, from_stage: str):
         start = _CASCADE.index(from_stage)
         for stage in _CASCADE[start:]:
-            # beats are keyed by chapter_id, not novel_id — delete via chapters
-            if stage == "beats":
-                for chapter in get_chapters(novel_id, ["id"]):
-                    delete_beats(chapter["id"])
-            else:
-                _DELETE[stage](novel_id)
+            _DELETE[stage](novel_id)
 
     # ---------------------------------------------------------------------------
     # generate_novel
@@ -88,7 +80,7 @@ class NovelGen:
     # ---------------------------------------------------------------------------
 
     def generate_novel(self, prompt: str, wordcount: int, authorial_voice: str = "") -> str:
-        config = self.routing["metadata"]
+        config = self.routing["novel"]
         print(f"Generating novel using {config['provider']} / {config['model']}")
         text, input_tokens, output_tokens = generate_from_config(
             config,
@@ -125,14 +117,14 @@ class NovelGen:
         if regenerate:
             self._cascade_delete(novel_id, "spine")
 
-        novel = get_novel(novel_id, ["title", "summary", "word_count", "target_word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element", "authorial_voice"])
+        novel = get_novel(novel_id, ["prompt", "title", "summary", "word_count", "target_word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element", "authorial_voice", "protagonist_stubs", "antagonist_stubs"])
         world = get_worldbuilding(novel_id, ["story_type", "time_period", "anchor_location", "social_hierarchy", "constraints"])
 
         config = self.routing["spine"]
         print(f"Generating spine using {config['provider']} / {config['model']}")
         text, input_tokens, output_tokens = generate_from_config(
             config,
-            GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("summary", "")),
+            GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
             self._seed(GEN_SPINE_USER_PROMPT.format(
                 metadata=json.dumps({**novel, **world}, indent=2),
                 word_count=novel.get("target_word_count", 0),
@@ -157,7 +149,7 @@ class NovelGen:
         if regenerate:
             self._cascade_delete(novel_id, "characters")
 
-        novel = get_novel(novel_id, ["title", "summary", "word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element"])
+        novel = get_novel(novel_id, ["prompt", "title", "summary", "word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element"])
         world = get_worldbuilding(novel_id, ["story_type", "time_period", "anchor_location", "social_hierarchy", "constraints"])
         spine = get_spine(novel_id, ["word_count", "narrative_structure"])
 
@@ -165,7 +157,7 @@ class NovelGen:
         print(f"Generating characters using {config['provider']} / {config['model']}")
         text, input_tokens, output_tokens = generate_from_config(
             config,
-            GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("summary", "")),
+            GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
             self._seed(GEN_CHARACTERS_USER_PROMPT.format(
                 metadata=json.dumps({**novel, **world}, indent=2),
                 spine=spine.get("narrative_structure", ""),
@@ -197,7 +189,7 @@ class NovelGen:
         if regenerate:
             self._cascade_delete(novel_id, "chapters")
 
-        novel = get_novel(novel_id, ["title", "summary", "word_count", "target_word_count", "premise", "primary_genre", "tone", "spice_level", "tense", "perspective", "forbidden_element"])
+        novel = get_novel(novel_id, ["prompt", "title", "summary", "word_count", "target_word_count", "premise", "primary_genre", "tone", "spice_level", "tense", "perspective", "forbidden_element"])
         spine = get_spine(novel_id, ["word_count", "narrative_structure"])
         characters = get_characters(novel_id, ["id", "name", "role", "arc"])
         locations = get_locations(novel_id, ["id", "name", "description"])
@@ -209,7 +201,7 @@ class NovelGen:
         print(f"Generating chapter list using {config['provider']} / {config['model']}")
         text, input_tokens, output_tokens = generate_from_config(
             config,
-            GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("summary", "")),
+            GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
             self._seed(GEN_CHAPTER_LIST_USER_PROMPT.format(
                 metadata=json.dumps(novel, indent=2),
                 spine=spine.get("narrative_structure", ""),
@@ -219,12 +211,15 @@ class NovelGen:
                 items=json.dumps(items, indent=2),
                 organizations=json.dumps(organizations, indent=2),
                 events=json.dumps(events, indent=2),
-                schema=schema_to_json("chapters"),
+                schema=schema_to_json("chapter_list"),
             )),
         )
         print(text)
         data = self._parse_json(text)
-        for chapter in self._ensure_list(data.get("chapters", [])):
+        chapters = self._ensure_list(data.get("chapter_list") or data.get("chapters", []))
+        if not chapters:
+            raise RuntimeError(f"generate_chapter_list: no chapters found in response. Top-level keys: {list(data.keys())}")
+        for chapter in chapters:
             insert_chapter(novel_id, chapter)
         insert_cost(novel_id, "chapter_list", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens))
 
@@ -243,9 +238,9 @@ class NovelGen:
         if regenerate:
             # Clear only the summary fields, keep the chapter list rows
             for chapter in chapters:
-                update_chapter_summary(chapter["id"], None, None, chapter.get("intimate_arc_role"), chapter.get("chapter_end_hook"))
+                update_chapter_summary(chapter["id"], None, None, chapter.get("intimate_arc_role"), chapter.get("chapter_end_hook"), [])
 
-        novel = get_novel(novel_id, ["title", "summary", "word_count", "premise", "primary_genre", "tone", "spice_level", "tense", "perspective", "forbidden_element"])
+        novel = get_novel(novel_id, ["prompt", "title", "summary", "word_count", "premise", "primary_genre", "tone", "spice_level", "tense", "perspective", "forbidden_element"])
         spine = get_spine(novel_id, ["word_count", "narrative_structure"])
         characters = get_characters(novel_id, ["id", "name", "role", "arc", "appearance", "personality"])
         locations = get_locations(novel_id, ["id", "name", "description", "atmosphere"])
@@ -265,7 +260,7 @@ class NovelGen:
             print(f"Generating chapter {chapter['chapter_number']} summary using {config['provider']} / {config['model']}")
             text, input_tokens, output_tokens = generate_from_config(
                 config,
-                GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("summary", "")),
+                GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
                 self._seed(GEN_CHAPTER_USER_PROMPT.format(
                     metadata=json.dumps(novel, indent=2),
                     spine=spine.get("narrative_structure", ""),
@@ -281,79 +276,22 @@ class NovelGen:
             )
             print(text)
             data = self._parse_json(text)
+            # Unwrap {"chapters": {...}} envelope if present
+            detail = data.get("chapters", data)
+            if isinstance(detail, list):
+                detail = detail[0] if detail else {}
+            if not detail.get("summary"):
+                raise RuntimeError(f"generate_chapters: no summary in response for chapter {chapter['chapter_number']}. Top-level keys: {list(data.keys())}")
             update_chapter_summary(
                 chapter["id"],
-                data.get("summary", ""),
-                data.get("emotional_arc", ""),
-                data.get("intimate_arc_role", chapter.get("intimate_arc_role")),
-                data.get("chapter_end_hook", chapter.get("chapter_end_hook")),
+                detail.get("summary", ""),
+                detail.get("emotional_arc", ""),
+                detail.get("intimate_arc_role", chapter.get("intimate_arc_role")),
+                detail.get("chapter_end_hook", chapter.get("chapter_end_hook")),
+                self._ensure_list(detail.get("beats", [])),
             )
             previous_summaries += f"\nChapter {chapter['chapter_number']} — {chapter['title']}:\n{data.get('summary', '')}\n"
             insert_cost(novel_id, f"chapter_{chapter['chapter_number']}", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens))
-
-    # ---------------------------------------------------------------------------
-    # generate_beats
-    # ---------------------------------------------------------------------------
-
-    def generate_beats(self, novel_id: str, regenerate: bool = False):
-        if not regenerate:
-            chapters = get_chapters(novel_id, ["id", "chapter_number"])
-            if chapters and get_beats(chapters[0]["id"], ["id"]):
-                return
-
-        if regenerate:
-            self._cascade_delete(novel_id, "beats")
-
-        novel = get_novel(novel_id, ["summary", "premise", "tone", "spice_level", "tense", "perspective", "forbidden_element"])
-        characters = get_characters(novel_id, ["id", "name", "role", "appearance", "personality", "arc"])
-        locations = get_locations(novel_id, ["id", "name", "region", "description", "atmosphere"])
-        items = get_items(novel_id, ["id", "name", "description", "symbolic_weight"])
-        organizations = get_organizations(novel_id, ["id", "name", "type", "goals"])
-        events = get_events(novel_id, ["id", "title", "description", "status", "narrative_salience"])
-
-        char_index = {c["id"]: c for c in characters}
-        loc_index  = {l["id"]: l for l in locations}
-        item_index = {i["id"]: i for i in items}
-
-        char_index = {c["id"]: c for c in characters}
-        loc_index  = {l["id"]: l for l in locations}
-        item_index = {i["id"]: i for i in items}
-        org_index  = {o["id"]: o for o in organizations}
-        evt_index  = {e["id"]: e for e in events}
-
-        beats_config = self.routing["beats"]
-        chapters = get_chapters(novel_id, ["id", "chapter_number", "title", "summary", "emotional_arc", "intimate_arc_role", "chapter_end_hook", "word_count", "characters_present_ids", "location_ids", "items_present_ids", "organizations_present_ids", "events_present_ids"])
-
-        for chap in chapters:
-            print(f"Generating beats for chapter {chap['chapter_number']} using {beats_config['provider']} / {beats_config['model']}")
-
-            chap_chars = [char_index[cid] for cid in self._ensure_list(json.loads(chap.get("characters_present_ids") or "[]")) if cid in char_index]
-            chap_locs  = [loc_index[lid]  for lid  in self._ensure_list(json.loads(chap.get("location_ids") or "[]"))              if lid  in loc_index]
-            chap_items = [item_index[iid] for iid  in self._ensure_list(json.loads(chap.get("items_present_ids") or "[]"))         if iid  in item_index]
-            chap_orgs  = [org_index[oid]  for oid  in self._ensure_list(json.loads(chap.get("organizations_present_ids") or "[]")) if oid  in org_index]
-            chap_evts  = [evt_index[eid]  for eid  in self._ensure_list(json.loads(chap.get("events_present_ids") or "[]"))        if eid  in evt_index]
-
-            text, input_tokens, output_tokens = generate_from_config(
-                beats_config,
-                GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("summary", "")),
-                self._seed(GEN_BEATS_USER_PROMPT.format(
-                    metadata=json.dumps(novel, indent=2),
-                    chapter=json.dumps(chap, indent=2),
-                    characters=json.dumps(chap_chars, indent=2),
-                    locations=json.dumps(chap_locs, indent=2),
-                    items=json.dumps(chap_items, indent=2),
-                    organizations=json.dumps(chap_orgs, indent=2),
-                    events=json.dumps(chap_evts, indent=2),
-                    chapter_id=chap["id"],
-                    schema=schema_to_json("beats"),
-                )),
-            )
-            print(text)
-            data = self._parse_json(text)
-            for beat in self._ensure_list(data.get("beats", [])):
-                beat["chapter_id"] = chap["id"]
-                insert_beat(chap["id"], beat)
-            insert_cost(novel_id, f"beats_ch{chap['chapter_number']}", beats_config["model"], input_tokens, output_tokens, calculate_cost(beats_config, input_tokens, output_tokens))
 
     # ---------------------------------------------------------------------------
     # generate_outline
@@ -366,7 +304,6 @@ class NovelGen:
         self.generate_characters(novel_id)
         self.generate_chapter_list(novel_id)
         self.generate_chapters(novel_id)
-        self.generate_beats(novel_id)
         return novel_id
 
     # ---------------------------------------------------------------------------
@@ -382,7 +319,7 @@ class NovelGen:
         perspective = novel_meta.get("perspective", "third_person_limited")
         system_prompt = GEN_CHAPTER_BY_CHAPTER_SYSTEM_PROMPT.format(tense=tense, perspective=perspective)
 
-        chapters = get_chapters(novel_id, ["id", "chapter_number", "title", "summary", "emotional_arc", "intimate_arc_role", "chapter_end_hook", "word_count"])
+        chapters = get_chapters(novel_id, ["id", "chapter_number", "title", "summary", "emotional_arc", "intimate_arc_role", "chapter_end_hook", "word_count", "beats", "characters_present_ids", "location_ids", "items_present_ids", "organizations_present_ids", "events_present_ids"])
         if limit:
             chapters = [c for c in chapters if c["chapter_number"] == limit]
 
@@ -394,42 +331,20 @@ class NovelGen:
             chapter_number = chapter["chapter_number"]
             print(f"--- Generating chapter {chapter_number} ---")
 
-            beats = get_beats(chapter["id"], ["id", "beat_number", "description", "pov", "word_count", "tension_level", "heat_level", "key_events", "location_id", "characters_present_ids", "items_present_ids", "organizations_involved", "events_ids"])
+            characters    = self._get_chapter_characters(chapter)
+            locations     = self._get_chapter_locations(chapter)
+            items         = self._get_chapter_items(chapter)
+            organizations = self._get_chapter_organizations(chapter)
+            events        = self._get_chapter_events(chapter)
 
-            # Collect unique entities across all beats in this chapter
-            characters    = []
-            locations     = []
-            items         = []
-            organizations = []
-            events        = []
-            for beat in beats:
-                for c in self._get_beat_characters(beat):
-                    if not any(x["id"] == c["id"] for x in characters):
-                        characters.append({k: c[k] for k in ("id", "name", "age", "gender", "role", "appearance", "personality", "voice", "speech_patterns") if k in c})
-                loc = self._get_beat_location(beat)
-                if loc and not any(x["id"] == loc["id"] for x in locations):
-                    locations.append(loc)
-                for i in self._get_beat_items(beat):
-                    if not any(x["id"] == i["id"] for x in items):
-                        items.append(i)
-                for o in self._get_beat_organizations(beat):
-                    if not any(x["id"] == o["id"] for x in organizations):
-                        organizations.append(o)
-                for e in self._get_beat_events(beat):
-                    if not any(x["id"] == e["id"] for x in events):
-                        events.append(e)
-
-            char_name_index = {c["id"]: c["name"] for c in characters}
-
+            beats = self._ensure_list(json.loads(chapter.get("beats") or "[]"))
             beats_block = ""
-            for beat in beats:
-                pov_label = char_name_index.get(beat.get("pov"), beat.get("pov"))
-                beats_block += (
-                    f"Beat {beat['beat_number']} | Word count: {beat['word_count']} | "
-                    f"Tension: {beat['tension_level']} | Heat: {beat['heat_level']} | POV: {pov_label}\n"
-                    f"Description: {beat['description']}\n"
-                    f"Key events: {beat['key_events']}\n\n"
-                )
+            for i, beat in enumerate(beats, start=1):
+                beats_block += f"Beat {i} | Word count share: {beat.get('word_count_pct')}%\nKey event: {beat.get('key_event')}\n"
+                states = beat.get("character_states_after", {})
+                if states:
+                    beats_block += "Character states entering next beat: " + "; ".join(f"{name}: {state}" for name, state in states.items()) + "\n"
+                beats_block += "\n"
 
             optional_context = ""
             if organizations:
@@ -487,8 +402,8 @@ class NovelGen:
     # DB fetch helpers for prose generation
     # ---------------------------------------------------------------------------
 
-    def _get_beat_characters(self, beat: dict) -> list:
-        ids = json.loads(beat.get("characters_present_ids") or "[]")
+    def _get_chapter_characters(self, chapter: dict) -> list:
+        ids = json.loads(chapter.get("characters_present_ids") or "[]")
         if not ids:
             return []
         conn = get_connection()
@@ -503,18 +418,24 @@ class NovelGen:
         conn.close()
         return characters
 
-    def _get_beat_location(self, beat: dict) -> dict | None:
-        location_id = beat.get("location_id")
-        if not location_id:
-            return None
+    def _get_chapter_locations(self, chapter: dict) -> list:
+        ids = json.loads(chapter.get("location_ids") or "[]")
+        if not ids:
+            return []
         conn = get_connection()
         cols = ["id", "name", "region", "description", "atmosphere"]
-        row = conn.execute(f"SELECT {', '.join(cols)} FROM locations WHERE id = ?", (location_id,)).fetchone()
+        locations = [
+            dict(zip(cols, row))
+            for lid in ids
+            for row in conn.execute(
+                f"SELECT {', '.join(cols)} FROM locations WHERE id = ?", (lid,)
+            ).fetchall()
+        ]
         conn.close()
-        return dict(zip(cols, row)) if row else None
+        return locations
 
-    def _get_beat_items(self, beat: dict) -> list:
-        ids = json.loads(beat.get("items_present_ids") or "[]")
+    def _get_chapter_items(self, chapter: dict) -> list:
+        ids = json.loads(chapter.get("items_present_ids") or "[]")
         if not ids:
             return []
         conn = get_connection()
@@ -529,8 +450,8 @@ class NovelGen:
         conn.close()
         return items
 
-    def _get_beat_organizations(self, beat: dict) -> list:
-        ids = json.loads(beat.get("organizations_involved") or "[]")
+    def _get_chapter_organizations(self, chapter: dict) -> list:
+        ids = json.loads(chapter.get("organizations_present_ids") or "[]")
         if not ids:
             return []
         conn = get_connection()
@@ -545,8 +466,8 @@ class NovelGen:
         conn.close()
         return orgs
 
-    def _get_beat_events(self, beat: dict) -> list:
-        ids = json.loads(beat.get("events_ids") or "[]")
+    def _get_chapter_events(self, chapter: dict) -> list:
+        ids = json.loads(chapter.get("events_present_ids") or "[]")
         if not ids:
             return []
         conn = get_connection()

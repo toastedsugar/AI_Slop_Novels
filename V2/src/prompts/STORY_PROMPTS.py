@@ -50,11 +50,6 @@ NURSE = "Write me a romance story between a World War 1 nurse and a wounded enem
 
 
 
-
-
-
-
-
 VILLAINESS = """
 
 A modern woman dies and wakes up inside a romance novel she read, inhabiting the body of the story's villainess — the cruel, spoiled noblewoman who exists solely to be humiliated and destroyed so the saintly heroine can have her happy ending. She knows the entire plot. She knows exactly how she dies: publicly disgraced, stripped of her title, exiled or executed. She is determined to avoid it.

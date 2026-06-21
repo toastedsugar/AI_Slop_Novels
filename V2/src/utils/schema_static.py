@@ -19,8 +19,8 @@ STATIC = {
         "author":            "Author name",
         "word_count":        5000,
         "premise":           "A full synopsis of the full story arc.",
-        "protagonist_stubs": ["Protagonist 1 paragraph stub", "Protagonist 2 paragraph stub"],
-        "antagonist_stubs":  ["Antagonist 1 paragraph stub", "Antagonist 2 paragraph stub"],
+        "protagonist_stubs": [{"main_protagonist": True, "stub": "Four paragraphs, one per section: (1) Who they are — physical presence, personality, how they move and are perceived. (2) What they want — at least one non-romantic goal with real stakes, plus any secondary drives. (3) What is blocking them — the flaw, wound, or false belief already active before the story starts. (4) Where they are probably going — arc trajectory and likely landing; for non-protagonist entries also name their structural relationship to the main protagonist. Exactly one entry must have main_protagonist: true."}, {"main_protagonist": False, "stub": "Four paragraphs covering the same sections for a secondary protagonist. Section 4 must name their structural role relative to the main protagonist (foil, parallel, mirror, counterweight) and what it puts pressure on."}],
+        "antagonist_stubs":  [{"main_antagonist": True, "stub": "Four paragraphs, one per section, written with the same depth as the protagonist stub: (1) Who they are. (2) What they want — their own non-romantic goal, not just opposition to the protagonist. (3) What is blocking them. (4) Where their arc is probably headed and how it is on a collision course with the protagonist's arc. Exactly one entry must have main_antagonist: true."}, {"main_antagonist": False, "stub": "Four paragraphs covering the same sections for a secondary antagonist. Section 4 must name their structural role relative to the main protagonist."}],
         "primary_genre":     "Romance",
         "sub_genres":        ["Romance", "Fantasy"],
         "tone":              "Overall tone of the story.",
@@ -43,14 +43,26 @@ STATIC = {
                 "forbidden_element_active": True,
                 "spice_arc_role": "tension-building | escalation | payoff | none",
                 "character_arcs": {
-                    "protagonist_name": {
+                    "<character's actual name>": {
                         "emotional_state": ["How they feel.", "A second emotional layer if present."],
                         "current_goal": ["Primary goal they are actively pursuing.", "Secondary goal if present."],
                         "flaw_active": True,
                         "flaw_note": "How the flaw is manifesting in this beat, if active.",
                         "relationships": [
                             {
-                                "character": "other_character_name",
+                                "character": "<other character's actual name>",
+                                "status": "Current relationship status and dynamic."
+                            }
+                        ]
+                    },
+                    "<second character's actual name>": {
+                        "emotional_state": ["How they feel.", "A second emotional layer if present."],
+                        "current_goal": ["Primary goal they are actively pursuing.", "Secondary goal if present."],
+                        "flaw_active": True,
+                        "flaw_note": "How the flaw is manifesting in this beat, if active.",
+                        "relationships": [
+                            {
+                                "character": "<other character's actual name>",
                                 "status": "Current relationship status and dynamic."
                             }
                         ]
@@ -142,37 +154,41 @@ STATIC = {
         "organizations_involved":   ["uuid-v4 of organization"],
         "narrative_salience":       8,
     },
-    "chapters": {
+    # Used by generate_chapter_list — the flat chapter skeleton only.
+    # No summary/emotional_arc/chapter_end_hook/beats: those are written later
+    # by generate_chapters, and including them here causes the list step to
+    # fill them in early despite prose instructions not to.
+    "chapter_list": {
         "id":                        "uuid-v4",
         "chapter_number":            1,
         "title":                     "Chapter title",
         "word_count":                2500,
-        "purpose":                   "One sentence: what this chapter must accomplish in the story arc.",
-        "summary":                   "Full narrative description of everything that happens in this chapter — multiple dense paragraphs. Covers all scenes, character actions, dialogue beats, emotional turns, and how the chapter closes. Detailed enough that a writer could produce the prose from this alone.",
-        "emotional_arc":             "Where the POV character starts emotionally and where they end by the close of the chapter.",
+        "purpose":                   "A brief paragraph of what this chapter must accomplish in the story arc.",
         "intimate_arc_role":         "tension-building | escalation | payoff | none",
-        "chapter_end_hook":          "The specific moment the chapter closes on — not a summary, the exact beat.",
         "characters_present_ids":    ["uuid-v4 of every character who appears in this chapter"],
         "location_ids":              ["uuid-v4 of every location used in this chapter"],
         "items_present_ids":         ["uuid-v4 of every item that appears in this chapter"],
         "organizations_present_ids": ["uuid-v4 of every organization active in this chapter"],
         "events_present_ids":        ["uuid-v4 of every story event that occurs or is triggered in this chapter"],
     },
-    "beats": {
-        "id":                       "uuid-v4",
-        "chapter_id":               "uuid-v4 of the chapter this beat belongs to",
-        "beat_number":              1,
-        "description":              "What happens in this beat and its narrative purpose.",
-        "pov":                      "uuid-v4 of the POV character",
-        "word_count":               500,
-        "location_id":              "uuid-v4 of the location",
-        "characters_present_ids":   ["uuid-v4 of character", "uuid-v4 of character"],
-        "items_present_ids":        ["uuid-v4 of item"],
-        "organizations_involved":   ["uuid-v4 of organization"],
-        "events_ids":               ["uuid-v4 of event this beat belongs to or triggers"],
-        "tension_level":            "low | medium | high | climax",
-        "heat_level":               "none | slow_burn | charged | explicit",
-        "key_events":               ["First event.", "Second event."],
+    # Used by generate_chapters — fills in the detail fields for one chapter
+    # row already created by generate_chapter_list. chapter_number identifies
+    # which skeleton chapter this detail belongs to.
+    "chapters": {
+        "chapter_number":            1,
+        "summary":                   "1-2 sentences capturing the dramatic premise of this chapter — what the chapter is about and what's at stake. Not a plot summary; the beats carry the plot detail.",
+        "emotional_arc":             "Where the POV character starts emotionally and where they end by the close of the chapter.",
+        "intimate_arc_role":         "tension-building | escalation | payoff | none",
+        "chapter_end_hook":          "The specific moment the chapter closes on — not a summary, the exact beat.",
+        "beats": [
+            {
+                "key_event":              "What concretely happens in this beat — one discrete event or shift. Include who is present, what is said or done, what changes as a result, and the emotional register of the moment.",
+                "word_count_pct":         30,
+                "character_states_after": {
+                    "<character name>": "Their physical and situational state at the end of this beat — location, physical condition, restraints, clothing, emotional disposition. Must be specific enough to catch continuity errors in the next beat."
+                },
+            }
+        ],
     },
 }
 
@@ -188,7 +204,7 @@ def schema_to_json(*tables: str) -> str:
     """
     import json
 
-    ARRAY_TABLES = {"characters", "locations", "items", "organizations", "events", "chapters", "beats"}
+    ARRAY_TABLES = {"characters", "locations", "items", "organizations", "events", "chapter_list"}
     # "novel" is intentionally excluded — it's a single object, not an array
 
     result = {}

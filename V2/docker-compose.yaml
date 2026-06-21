@@ -6,7 +6,7 @@ services:
       - .:/app
       - ./outputs:/app/outputs
     environment:
-      - ENV=nsfw-dev
+      - ENV=nsfw-test
     env_file:
       - .env
     command: python src/main.py

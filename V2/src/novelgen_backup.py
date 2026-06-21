@@ -54,7 +54,7 @@ class NovelGen:
         return []
 
     def generate_metadata(self):
-        config = self.routing["metadata"]
+        config = self.routing["novel"]
         print(f"Generating metadata using {config['provider']} / {config['model']}")
         text, input_tokens, output_tokens = generate_from_config(
             config,

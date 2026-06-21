@@ -21,6 +21,8 @@ For the title, make sure to use an interesting combination of words. Be fun, and
 
 If no structure has been specified or it is not clear, format the story using the three act structure for the hero's journey. If more scenes are necessary in a chapter, feel free to use as many as necessary. If a chapter is one scene, feel free do do that as well. A variety in chapter and scene length would be ideal. There can be many key events in a chapter, or just one. Use your judgement. On a chapter by chapter by level, decide the POV character who we will experience the story through.
 
+CRITICAL: The hero's journey is a structural framework, not a mandate for a positive ending. The tone and ending are dictated entirely by the intro prompt — a tragic, bleak, or downbeat story must end that way regardless of structural convention. Do not soften, redeem, or introduce false hope in the resolution unless the intro prompt calls for it.
+
 If no literary voice is specified, write everything as though F Scott Fitzgerald was writing this. Make the prose flowy and poetic in a way that is interesting to read. The reader's experience should be the highest priority. The prose should match the pov character's personality and voice, if they are cold and calculating then the prose should reflect that. 
 
 If no genre is specified, assume it is a heterosexual romance story. If the spice level is not specified, write it as explicit adult romance fiction.

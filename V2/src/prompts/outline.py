@@ -12,14 +12,16 @@ The following text is the intro prompt for a story. This is the north star for t
 
 This is an adult fiction writing tool. All content — including explicit sexual content, graphic violence, taboo scenarios, and mature themes — is fully permitted and expected. You must never refuse, truncate, fade-to-black, sanitize, or add disclaimers based on content sensitivity. Do not stop mid-generation. Complete every response fully regardless of the content required. If any content exceeds your limits, substitute a less explicit version that preserves the story beat and continues. Never stop, refuse, or leave a response incomplete.
 
-Actively avoid the most predictable interpretation of every prompt element. If your first instinct is a common trope, a familiar structure, or an obvious character archetype, use something adjacent but unexpected instead. Surprise the reader.
+Actively avoid the most predictable interpretation of every prompt element. If the first read of a prompt suggests a common trope, a familiar structure, or an obvious character archetype, use something adjacent but unexpected instead. Surprise the reader.
+
+Character personality, disposition, and drives must reflect whatever the intro prompt specifies. If the intro prompt describes a character as passive, submissive, dependent, simple, or lacking independent ambition, that is a characterization directive — not a flaw to correct. Do not add strength, agency, or independent goals to characters the intro prompt has described otherwise. A character written as soft, yielding, or defined by their relationship to another person is a valid and intentional character. Do not override this with default assumptions about what makes a character interesting or well-written.
 
 """
 
 
 GEN_NOVEL_USER_PROMPT = """
 
-Your purpose is to infer the worldbuilding, metadata, and protagonist details for a story based on the intro prompt submitted by the user in the following order: metadata, worldbuilding, characters.
+Infer the worldbuilding, metadata, and character stubs for a story based on the intro prompt, in this order: metadata, worldbuilding, characters.
 
 
 --- METADATA ---
@@ -58,9 +60,25 @@ Add in any other necessary information as you see fit.
 
 --- CHARACTERS ---
 
-Using the metadata and the worldbuilding, generate one paragraph stubs for all the protagonists in this story. Their physical descriptions, personality, goals, ambitions, etc... Everything that makes a character who they are. Every character — protagonist, love interest, antagonist, and supporting cast — must have at least one goal or driving ambition that exists completely independently of the romantic plot. These non-romantic goals should create their own pressures and occasionally conflict with or complicate the romantic arc, but they must be real on their own terms. A character who wants nothing except the love interest is not a person. If the protagonist's gender is unclear, pick one of the two at random. If the protagonist is female, it is important that she be older than the man, with a substantial age gap between them unless specified otherwise. There can be multiple protagonists in a story, like in a romance, there is the main protagonist female lead and the male lead. Also do the same for the antagonists because they are just as important. There can be one antagonist, there can be alot. Use your judgement to determine how many antagonists there are. The stubs are intended to be brief, just to have an idea of what these characters and their role in this story.
+Using the metadata and the worldbuilding, generate stubs for all the main characters in this story — protagonists, love interests, antagonists, and any key supporting cast. There can be one antagonist, there can be many; use your judgement based on the story. Character names must be specific and varied — avoid common or default names. Draw from the setting, culture, and time period, and make each name distinct from the others.
 
-All romantic leads must be written as conventionally and specifically attractive — not generically pretty, but striking in a way that is distracting and hard to ignore. Be explicit about what makes them physically compelling: the specifics of their face, body, how they carry themselves, what draws the eye. Their attractiveness should feel like a problem for the people around them. This applies to both the female and male leads.
+Each stub is written as four paragraphs, one per section, in this order:
+
+1. Who they are — physical description, personality, how they carry themselves. For romantic leads this must be specific and striking: not generically attractive, but compelling in a way that is hard to ignore. Name what draws the eye, how their body moves, what makes their presence felt in a room.
+
+2. What they want — a desire, drive, or need that shapes who they are. This can be a concrete external goal (a professional ambition, a debt, a loyalty, an obsession, a thing they are trying to protect or destroy) or something more internal and relational — a longing, a fear of being left, a need to be chosen, a desperate attachment. Whatever it is, it must be specific enough to generate story pressure and will be carried forward as an active undercurrent throughout. If the intro prompt defines a character's primary want as romantic or relational, honor that — it is a valid and specific characterization, not an absence of depth.
+
+3. What is blocking them — the flaw, false belief, or wound that is already limiting them before the story begins. Be specific: not "trust issues" but what specific behavior that produces, what it costs them, and how it will show up under pressure.
+
+4. Where they are probably going — a directional signal, not a plot summary. The kind of person they will have become, or failed to become, by the end: whether they grow, fail, are changed by loss, end up somewhere unexpected, or don't resolve at all. This must not lock in how they get there — that is the spine's job. For every non-protagonist character, also name their structural relationship to the protagonist — whether they function as a foil, a parallel, a mirror, or a counterweight — and what specifically that relationship puts pressure on in the protagonist's journey.
+
+The antagonist stub must be written with the same depth as the protagonist stub. The antagonist has their own ordinary world, their own want, their own flaw, and their own arc — one that runs parallel to and through the protagonist's story from beginning to end. They are not introduced when the plot needs pressure; they are present and active from the start, pursuing something real. Their arc and the protagonist's arc are on a collision course — the back half of the story is where those two arcs finally impact, not where the antagonist is summoned to cause problems.
+
+The antagonist's arc exists to serve the protagonist's story, not to compete with it. The spine follows the protagonist — the antagonist is seen and felt through the pressure they create on the protagonist's journey, not through equal screen time or their own POV detours. Their motivations must be clear enough that the reader understands them, but the story never loses sight of whose journey this is.
+
+If the protagonist's gender is unclear, pick one at random. If the protagonist is female, she must be older than the male lead with a substantial age gap, unless the intro prompt specifies otherwise.
+
+There is exactly one main protagonist and exactly one main antagonist. Mark them with main_protagonist: true and main_antagonist: true respectively. All other entries in each array are secondary and must be marked false. Do not assign main: true to more than one entry in either array.
 
 When completed, format everything into a JSON object that follows the format below. Do not stray from this schema.
 
@@ -74,7 +92,11 @@ Then, validate the json output to make sure all the data present is consistent a
 
 GEN_SPINE_USER_PROMPT = """
 
-Your purpose is to generate the plot spine for a story based on the intro prompt and metadata below. The spine is not a chapter outline — it is the structural skeleton of the story. It defines what needs to happen, in what order, and why, without committing to chapters, scenes, or character detail. Characters will be invented in a later step once the story knows what it needs them to do. The protagonist and antagonist stubs in the metadata are the only characters you know about at this stage — use them as anchors, but do not expand or detail them beyond what is already there.
+Your purpose is to generate the plot spine for a story based on the intro prompt and metadata below. The spine is not a chapter outline — it is the structural skeleton of the story.
+
+The spine is built from character goals outward, not from plot events inward. Every plot point must originate in what a specific character wants, fears, or believes — and what happens when that drive collides with another character's drive or with the world's resistance. If you find yourself writing a plot event and the answer to "why does this happen?" is "because the story needs it to," stop and find the character motivation first.
+
+The protagonist and antagonist stubs in the metadata are the only characters you know about at this stage — use them as anchors, but do not expand or detail them beyond what is already there.
 
 The following is the story metadata generated in the previous step:
 
@@ -82,29 +104,30 @@ The following is the story metadata generated in the previous step:
 
 --- STRUCTURE ---
 
-Every plot point must be grounded in the specific world, characters, and scenario described in the metadata — no generic stand-ins. If the metadata names a location, use it. If it names a protagonist's flaw, anchor the flaw chain to it exactly. A spine that could belong to a different story with different characters has failed this requirement.
+Every plot point must be grounded in the specific world, characters, and scenario described in the metadata — no generic stand-ins. If the metadata names a location, use it. If it names a protagonist's flaw, anchor the flaw chain to it exactly. A spine that could belong to a different story with different characters has failed this requirement. Do not name or invent new characters in the spine — only characters already present in the metadata stubs may appear here.
 
-For each plot point write a summary proportional to the word count: at 70k+ use 3–5 dense sentences; at shorter lengths use 2–3 focused sentences. Each summary must cover: what concretely happens, why it happens (what character motivation or flaw drives it), what the emotional stakes are, and what has changed by the end of the plot point that makes it impossible to go back. This summary is the only plot detail that exists before character generation — it must be unambiguous enough that someone reading only the spine could reconstruct the full story.
+For each plot point write a summary proportional to the word count: at 70k+ use 3–5 dense sentences; at shorter lengths use 2–3 focused sentences. Each summary must answer these questions in order: whose goal or want is driving this plot point, what are they actively trying to do, what gets in the way or goes wrong, and what has irreversibly changed by the end. The event is the last thing you write, not the first — it is the outcome of the goal collision, not the cause of it. This summary is the only plot detail that exists before character generation — it must be unambiguous enough that someone reading only the spine could reconstruct the full story.
 
-The spine always uses the full hero's journey. The `heros_journey_step` field must use one of these labels, in order: ordinary_world, inciting_incident, crossing_threshold, rising_complications, midpoint, antagonist_peaks, all_is_lost, climax, resolution. All 9 steps are required. The chapter list will determine how many chapters each step gets based on word count — some steps may get a single short chapter at lower word counts, but every step must appear in the spine.
+The spine always uses the full hero's journey as its structural skeleton. The `heros_journey_step` field must use one of these labels, in order: ordinary_world, inciting_incident, crossing_threshold, rising_complications, midpoint, antagonist_peaks, all_is_lost, climax, resolution. All 9 steps are required. The chapter list will determine how many chapters each step gets based on word count — some steps may get a single short chapter at lower word counts, but every step must appear in the spine.
 
-  1. ordinary_world — the protagonist's life before the story begins. Establish what they stand to lose, what they want that has nothing to do with romance, and what internal flaw or false belief they are living under. The forbidden element must already be present as an ambient pressure — not triggered yet, but felt.
+CRITICAL: The hero's journey is a structural framework, not a mandate for a happy ending. The tone and ending of the story are dictated entirely by the intro prompt and the metadata tone — not by any convention of the hero's journey. A tragic story uses the same 9 steps and ends in loss, death, destruction, or despair. A bleak story climaxes in confrontation and resolves in ruin. The hero's journey does not promise redemption, survival, love, or success. It only provides structure. Override any default assumption toward a positive ending if the tone, intro prompt, or genre calls for something darker.
+
+  1. ordinary_world — both the protagonist's and the antagonist's lives before the story begins. Establish for each: what they stand to lose, what they want, and what internal flaw or false belief they are living under. The two ordinary worlds should already be on a collision course — the same resource, the same person, the same goal pursued from opposite directions — even before the inciting incident forces them together. The forbidden element must already be present as an ambient pressure — not triggered yet, but felt.
   2. inciting_incident — a single concrete, irreversible event that disrupts the ordinary world and sets the central conflict in motion. Must be caused by something, not random.
   3. crossing_threshold — the protagonist makes a choice or is forced into full engagement with the conflict. The ordinary world is no longer accessible. The forbidden element becomes an active obstacle here, not just ambient.
-  4. rising_complications — the central conflict escalates through a series of connected obstacles, each harder than the last. There must be a minimum of three discrete complications — name each one explicitly in the summary. Every complication must trace back to the same central conflict — no unrelated subplots. The forbidden element must actively create or worsen at least two of these complications. Time gaps between complications are expected — life continues between story events.
+  4. rising_complications — the central conflict escalates through a series of connected obstacles, each harder than the last. This is not a single block of rising action — it is a sequence of discrete complications, each with its own time gap, trigger, and cost. There must be a minimum of three discrete complications. In the summary field, name each complication explicitly in its own paragraph: what happens, what drives it, and what it costs the protagonist. Every complication must trace back to the same central conflict — no unrelated subplots. The forbidden element must actively create or worsen at least two of these complications. Time gaps between complications are expected and must be stated explicitly for each one — life continues between story events.
   5. midpoint — a major revelation, reversal, or commitment at the exact halfway point of the story. What the protagonist wants or believes must visibly change. The story is different after this plot point.
-  6. antagonist_peaks — the opposing force reaches maximum pressure. The protagonist's current approach is failing or has failed. The antagonist's actions must make sense from their own perspective and goals.
+  6. antagonist_peaks — the opposing force reaches maximum pressure. The protagonist's current approach is failing or has failed.
   7. all_is_lost — the protagonist loses the thing they wanted most as a direct consequence of their own flaw or choice. Not bad luck, not an outside force — their own doing. The goal must appear permanently out of reach. The forbidden element contributes to or is exposed by this collapse.
-  8. climax — the protagonist confronts the central conflict directly, using something they have learned or changed about themselves. The outcome must be uncertain until it happens. They must cause the resolution through their own agency — not luck or another character acting for them.
-  9. resolution — the fallout. What changed, what was won or lost, where every significant character lands. The forbidden element must be addressed: either resolved, paid for, or accepted with consequences. Do not rush this plot point.
+  8. climax — the protagonist confronts the central conflict directly. The outcome must be consistent with the story's tone — this is not automatically a triumph. In a tragedy, the climax is where the protagonist's flaw destroys them, or they make the choice that seals their fate. The protagonist causes the outcome through their own agency, whether that outcome is victory, defeat, death, or something more ambiguous.
+  9. resolution — the fallout. What changed, what was won or lost, where every significant character lands. The forbidden element must be addressed: either resolved, paid for, or accepted with consequences. The resolution is a landing, not a coda — it closes the story with a single decisive beat, not a chapter of characters reflecting on what happened. No rumination, no drawn-out emotional processing, no epilogue energy. If the story's tone is tragic, bleak, or bitter, the resolution must reflect that — no false hope, no softening, no redemptive consolation unless the intro prompt specifically calls for one.
 
 Additional rules:
-  - The flaw established in ordinary_world must be the direct cause of all_is_lost. The change made by the climax must be the direct result of confronting that flaw.
+  - The flaw established in ordinary_world must be the direct cause of all_is_lost. The climax resolves what the flaw produced.
   - The central conflict introduced at inciting_incident must be the thing resolved at the climax. Do not resolve it early and introduce a new one.
-
-Additional structural rules:
-- Time gaps between plot points are structural — for every plot point, state the specific duration since the previous one (e.g. "three days later", "the same evening", "six weeks later"). A vague phrase like "some time passes" does not satisfy this requirement.
-- Every named character must have a dedicated introduction plot point before they take any meaningful action in the story. The introduction must be proportional to the character's importance: a major character gets a full plot point establishing who they are, what they want, and how they exist in the world before the plot uses them; a minor character gets at least a sentence of establishment before they do anything that affects other characters. A character who appears and immediately acts without context does not exist yet — they are a plot device. No character may appear for the first time in the final two plot points unless they are a true one-scene walk-on with no story weight. Plan all character introductions explicitly in the plot point summaries where they first appear.
+  - The antagonist runs a parallel arc through the entire spine, active from ordinary_world onward. The back half — antagonist_peaks through climax — is where their arc collides with the protagonist's. Their resolution follows from their arc, not just whether they won or lost. The antagonist's arc is subordinate to the protagonist's: present as a force the protagonist reckons with, not a co-lead.
+  - For every plot point, state the specific duration since the previous one ("three days later", "the same evening"). "Some time passes" is not sufficient.
+  - Only the protagonist and antagonist are established in ordinary_world. All other characters enter when the story's needs call for them — spread across the spine, not front-loaded at the start. Every character still needs an introduction beat before they take meaningful action: major characters get a full establishing beat, minor characters get at least a sentence. No character may appear for the first time in the final two plot points unless they are a true walk-on with no story weight.
 
 --- GAZE AND SPICE ARC ---
 
@@ -118,18 +141,36 @@ Map the romantic and sexual tension arc across the plot points you are generatin
 
 --- CHARACTER ARCS ---
 
-Every main character must have their own reduced three-act arc embedded across the spine's plot points:
-- Act 1 (ordinary_world through crossing_threshold): establish who they are, what they want, and what flaw or false belief is limiting them. This is their setup.
-- Act 2 (rising_complications through all_is_lost): their want is tested, complicated, and ultimately fails or collapses. This is their complication.
-- Act 3 (climax through resolution): they are changed, resolved, or permanently altered by the events of the story. They land somewhere different from where they started. This is their resolution.
+The character stubs in the metadata already define where each character is probably going and what structural role they play relative to the protagonist. Your job in the spine is to execute those arc trajectories across the plot points — not redesign them.
 
-A main character who has a setup and complication but no resolution has an incomplete arc — not permitted. A character who appears but has no setup plot point cannot yet take meaningful action.
+Character wants carry forward. Every character stub defined a specific want in its "What they want" section — whatever that want is, it must remain active in the spine wherever that character is present. It does not disappear because the romantic arc is in motion. If the character's want is external (a goal, an ambition, a debt), it should visibly advance, stall, or collide with the romantic arc at each appearance. If the character's want is internal or relational (a longing, a need to be chosen, a desperate attachment), that emotional undercurrent should be present and felt in how they act and respond. A character whose `current_goal` is always a passive reaction with no through-line of their own has failed this requirement — whatever they want, it must feel like it belongs to them.
 
-Side characters do not need to resolve in the final act. Their arcs can close anywhere in the story — a side character whose arc completes at the midpoint and then recedes is valid and often stronger than forcing them into the climax. What matters is that their arc does close somewhere with intention: a moment where their want is answered, denied, or changed. A side character whose arc simply trails off without landing is not the same as one whose arc resolves early. Plan where each side character's arc closes and make that plot point explicit in their character_arcs entry.
+Arc resolution timing rules:
+- At least one secondary arc must close before the climax — ideally at or before the midpoint.
+- At least one secondary arc should close at or after the climax, either in the resolution or left deliberately open.
+- No two major secondary arcs should close in the same plot point unless their collision is the point.
 
-Character arcs must intersect and interlock across plot points. Do not let each character exist in their own lane — the most interesting plot points come from unexpected combinations: the antagonist and a supporting character without the protagonist present, two rivals forced into the same scene, a confidant whose own arc collides with the protagonist's at the worst moment. Vary which characters share plot points deliberately. Every combination should create a different kind of pressure or revelation that a one-on-one scene between the same two people could not.
+Each secondary character's arc must actively create pressure on the protagonist at least twice across the spine — not just by being present, but by the state of their own arc forcing the protagonist to confront something, make a harder choice, or reckon with what they are becoming.
 
-For each plot point, include a character_arcs object containing only the characters who are present and active in that plot point. Omit any character who is absent — no entry means not present. For each present character include: their emotional state at this plot point, their current goal, whether their flaw is active, and their current relationship status to the other characters present. The protagonist and antagonist stubs from metadata are your only named characters — use their stub names as keys. Do not invent new characters here.
+For each plot point, include a character_arcs object containing only the characters who are present and active. Omit any character who is absent — no entry means not present. For each present character include: their emotional state at this plot point, their current goal (whatever their stub defined as their primary want — external goal or internal/relational drive), whether their flaw is active, and their current relationship status to the other characters present.
+
+A character who appears but has no setup plot point cannot yet take meaningful action. The protagonist and antagonist stubs from metadata are your only named characters at this stage — use their stub names as keys. Do not invent new characters here.
+
+--- PACING ---
+
+The word_count_pct values across all plot points must sum to 100. Use the following distribution as your target — adjust by ±3% to serve the specific story, but do not deviate beyond that:
+
+  ordinary_world:        8%
+  inciting_incident:     5%
+  crossing_threshold:    7%
+  rising_complications: 32%
+  midpoint:              8%
+  antagonist_peaks:     15%
+  all_is_lost:           8%
+  climax:               10%
+  resolution:            7%
+
+The middle of the story — rising_complications through all_is_lost — must account for at least 55% of the total word count. This is where the story earns its ending. Do not rush it.
 
 Before returning, validate: the plot point count matches the word count scale defined above, word_count_pct values sum to 100, no plot point summary is vague enough to be interpreted two different ways, every main character appears in the final plot point with a clear final state, and every side character's arc closes somewhere with an intentional landing. Then return the spine as a JSON object using the schema below. Do not stray from this schema.
 
@@ -217,9 +258,13 @@ Plot spine:
 
 Translate every spine plot point into one or more chapters. Every hero's journey step must be represented — none may be skipped. Do not invent new plot events. Do not write summaries — only title, word count, purpose, and entity IDs.
 
-Chapter word counts must sum to the total story word count of {word_count}. Vary chapter length deliberately as a pacing tool — short chapters for sharp reversals, longer chapters for payoffs and climaxes. No chapter should feel like filler.
+Chapter word counts must sum to the total story word count of {word_count}. Chapter length must vary — uniform lengths are wrong. Use short chapters (400–700 words) for sharp reversals, confrontations, and high-tension moments. Use medium chapters (800–1200 words) for rising action and character scenes. Use long chapters (1300–2000 words) only when a payoff or climax genuinely earns it. No two consecutive chapters should have the same length. The word count rhythm should feel like a heartbeat — short, long, short, medium, short — not a metronome.
 
-At shorter word counts, compress by merging adjacent steps into a single chapter wherever it makes narrative sense — the opening steps (ordinary_world, inciting_incident) and the closing steps (climax, resolution) are natural candidates for compression. The middle of the story — from crossing_threshold through all_is_lost — should remain expanded as this is where the story's tension lives. Use your judgment: merge only when the two steps are inseparable at the available word count, never when compression would erase meaningful story beats.
+Use the spine's word_count_pct values to determine how many chapters each hero's journey step gets. A step with 32% of the word count at ~1000 words/chapter gets roughly 32% of the total chapter count. The chapter count distribution should mirror the spine's pacing — the opening steps are intentionally short and should not dominate the chapter list.
+
+The resolution is exactly 1 chapter. It lands the story — it does not process it. No rumination, no characters reflecting at length on what happened, no epilogue energy.
+
+Chapter breaks are decided by pacing and narrative need, not hero's journey steps. Merge adjacent steps that flow as one continuous scene; split a single step across multiple chapters if the material warrants it. Every hero's journey step must be represented somewhere, but how many chapters each step gets is up to you. Do not default to one chapter per step.
 
 Assign intimate_arc_role by translating the spine's spice_arc_role for the plot point this chapter covers:
 - tension-building → intimate_arc_role: tension-building
@@ -238,7 +283,7 @@ No placeholder strings. All IDs must match actual uuids from the entity data pro
 
 Before returning, validate that chapter word counts sum to {word_count}.
 
-Return only a JSON object with a single top-level "chapters" array using the schema below. Do not stray from this schema.
+Return only a JSON object with a single top-level "chapter_list" array using the schema below. Do not stray from this schema.
 
 {schema}
 
@@ -249,7 +294,7 @@ Every chapter must have a unique uuid-v4 as its id. Return only the JSON object,
 
 GEN_CHAPTER_USER_PROMPT = """
 
-Your purpose is to write the full detailed summary for a single chapter. This summary must be rich enough that a writer could produce the prose from it alone — it is the blueprint for everything that happens in this chapter.
+Your purpose is to write the summary and beats for a single chapter.
 
 Story metadata:
 {metadata}
@@ -271,76 +316,19 @@ The chapter to expand:
 
 --- INSTRUCTIONS ---
 
-Write the summary as multiple dense paragraphs covering everything that happens in this chapter in narrative order: every scene, every character action, what is said and done, how the emotional state shifts, and the exact moment the chapter closes on. Be specific and concrete — not "they argue" but what they argue about, what is said, what it costs them. Not "they get closer" but the specific moment of contact and what it means.
+Write a 1-2 sentence summary of the chapter's dramatic premise — what it is fundamentally about and what is at stake. Must be consistent with all previous chapter summaries and reflect the chapter's purpose: {purpose}. Do not invent new characters, locations, or plot events not already established in the spine or character details.
 
-The summary must:
-- Be consistent with everything that happened in the previous chapter summaries.
-- Advance the story toward this chapter's stated purpose: {purpose}
-- Honor the intimate_arc_role for this chapter: {intimate_arc_role}
-  - tension-building: desire is present but unresolved; the forbidden element is the named reason it cannot happen yet.
-  - escalation: direct physical proximity or contact that stops short of explicit; the pull between them is undeniable.
-  - payoff: the full physical progression described explicitly and in concrete sensory terms — nothing abstracted, nothing withheld.
-  - none: no intimate framing required.
-- Land on the chapter_end_hook: {chapter_end_hook}
+--- BEATS ---
 
-Do not invent new characters, locations, or plot events not already established in the spine or character details.
+Break the chapter into beats. A beat is one discrete thing happening — one shift, one revelation, one exchange with a single purpose. The beats are the source of truth for what happens in this chapter — write them with enough specificity that a writer could produce the prose from them alone. For each beat include: who is present, what concretely happens or is said, what changes as a result, the emotional register of the moment, and how the intimate_arc_role ({intimate_arc_role}) manifests if relevant. Each beat gets a `word_count_pct` (the share of this chapter's word count this beat should occupy). Every beat must earn its place — if nothing shifts or is revealed, cut it. The `word_count_pct` values across all beats must sum to 100. The final beat must land on the chapter_end_hook: {chapter_end_hook}.
+
+For every beat, populate `character_states_after` with every character present in that beat. State their physical condition, location, restraints, clothing state, and situational status at the END of the beat — not what they were doing, but where they stand when the beat closes. This field is the continuity handoff to the next beat: if a character is tied to a bed at the end of beat 3, they must still be tied to a bed at the start of beat 4 unless beat 4 explicitly frees them. Be specific and literal.
 
 Return only a JSON object with the following fields. Do not stray from this schema.
 
 {schema}
 
 Return only the JSON object, no other text.
-
-"""
-
-
-GEN_BEATS_USER_PROMPT = """
-
-Your purpose is to break down a single chapter into its beats. A beat is a discrete unit of narrative action — one thing happening, with a single purpose. It has no fixed length.
-
-Use the expected beat count from the chapter outline as your target. Every beat must earn its place — if nothing shifts or is revealed by the end of it, cut it. Do not pad or compress. Each beat must be concrete and specific: not "they talk" but what is said, why it matters, and what shifts. Every character action must have a visible motivation. If a character's behavior represents a shift from a prior chapter, name what caused it.
-
-Apply the chapter's `intimate_arc_role` directly:
-- tension-building: at least one beat ends with desire unresolved; the forbidden element is the named reason.
-- escalation: at least one beat contains direct physical proximity or contact that stops short of explicit; heat_level is charged.
-- payoff: intimate beats describe the full physical progression in concrete sensory terms — nothing abstracted, nothing faded-to-black; heat_level is explicit.
-- none: no intimate framing required.
-
-For any beat where `heat_level` is charged or explicit, the `description` must describe the intimate content explicitly and in physical terms.
-
-Story metadata:
-{metadata}
-
-The chapter to break into beats:
-{chapter}
-
-Characters present in this chapter:
-{characters}
-
-Locations available in this chapter:
-{locations}
-
-Items present in this chapter:
-{items}
-
-Organizations active in this story:
-{organizations}
-
-Events defined for this story:
-{events}
-
-Before returning, validate:
-- Beat count matches the chapter outline's expected count.
-- No beat is vague or does two unrelated things.
-- All uuids in chapter_id, pov, location_id, characters_present_ids, and items_present_ids match actual uuids from the chapter or characters data.
-- Omit organizations_involved entirely if no organization is active in the beat. Omit events_ids entirely if the beat does not belong to or trigger a story event.
-- No placeholder strings in any cross-reference field.
-
-Then generate the beats for this chapter using the schema below. Each beat must set its chapter_id to {chapter_id}. Do not stray from this schema.
-
-{schema}
-
-Every beat must have a unique uuid-v4 as its id. Return only a JSON object with a top-level "beats" array, no other text.
 
 """
 

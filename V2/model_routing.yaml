@@ -202,35 +202,38 @@ models:
 
 # Standard slop generation
 prod:
-  metadata: qwen-3-7-max
+  novel: qwen-3-7-max
   spine: claude-sonnet
   characters: qwen-3-7-max
   outline: claude-sonnet
-  beats: qwen-3-7-max
   prose: claude-sonnet
 
 dev:
-  metadata: gpt-5-mini
+  novel: gpt-5-mini
   spine: gpt-5-mini
   characters: gpt-5-mini
   outline: gpt-5-mini
-  beats: gpt-5-mini
   prose: gpt-5-mini
 
 
 # NSFW slop generation
 nsfw-prod:
-  metadata: mistral-medium-3-5
+  novel: mistral-medium-3-5
   spine: claude-sonnet
   characters: qwen-3-7-max
   outline: qwen-3-7-max
-  beats: qwen-3-7-max
   prose: qwen-3-7-max
 
+nsfw-test:
+  novel: mistral-medium-3-5
+  spine: qwen-3-7-max
+  characters: mistral-small-4
+  outline: mistral-small-4
+  prose: mistral-small-4
+
 nsfw-dev:
-  metadata: mistral-small-4
+  novel: mistral-small-4
   spine: mistral-small-4
   characters: mistral-small-4
   outline: mistral-small-4
-  beats: mistral-small-4
   prose: mistral-small-4

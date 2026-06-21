@@ -150,17 +150,15 @@ def init_db():
             narrative_salience     INTEGER
         );
 
-        CREATE TABLE IF NOT EXISTS chapter (
+        -- Written by generate_chapter_list: the flat chapter list.
+        CREATE TABLE IF NOT EXISTS chapter_list (
             id                       TEXT PRIMARY KEY,
             novel_id                 TEXT NOT NULL REFERENCES novel(id),
             chapter_number           INTEGER,
             title                    TEXT,
             word_count               INTEGER,
             purpose                  TEXT,
-            summary                  TEXT,
-            emotional_arc            TEXT,
             intimate_arc_role        TEXT,
-            chapter_end_hook         TEXT,
             characters_present_ids   TEXT,
             location_ids             TEXT,
             items_present_ids        TEXT,
@@ -168,21 +166,14 @@ def init_db():
             events_present_ids       TEXT
         );
 
-        CREATE TABLE IF NOT EXISTS beats (
-            id                     TEXT PRIMARY KEY,
-            chapter_id             TEXT NOT NULL REFERENCES chapter(id),
-            beat_number            INTEGER,
-            description            TEXT,
-            pov                    TEXT,
-            word_count             INTEGER,
-            location_id            TEXT,
-            characters_present_ids TEXT,
-            items_present_ids      TEXT,
-            organizations_involved TEXT,
-            events_ids             TEXT,
-            tension_level          TEXT,
-            heat_level             TEXT,
-            key_events             TEXT
+        -- Written by generate_chapters: one row per chapter_list row,
+        -- filled in after the chapter list already exists.
+        CREATE TABLE IF NOT EXISTS chapter_detail (
+            chapter_id        TEXT PRIMARY KEY REFERENCES chapter_list(id),
+            summary           TEXT,
+            emotional_arc     TEXT,
+            chapter_end_hook  TEXT,
+            beats             TEXT
         );
 
         CREATE TABLE IF NOT EXISTS manuscripts (
@@ -598,20 +589,17 @@ def insert_chapter(novel_id: str, chapter: dict) -> str:
     chapter_id = chapter.get("id", str(uuid.uuid4()))
     conn = get_connection()
     conn.execute(
-        """INSERT INTO chapter
-           (id, novel_id, chapter_number, title, word_count, purpose, summary, emotional_arc, intimate_arc_role, chapter_end_hook,
+        """INSERT INTO chapter_list
+           (id, novel_id, chapter_number, title, word_count, purpose, intimate_arc_role,
             characters_present_ids, location_ids, items_present_ids, organizations_present_ids, events_present_ids)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             chapter_id, novel_id,
             chapter.get("chapter_number"),
             chapter.get("title"),
             chapter.get("word_count"),
             chapter.get("purpose"),
-            chapter.get("summary"),
-            chapter.get("emotional_arc"),
             chapter.get("intimate_arc_role"),
-            chapter.get("chapter_end_hook"),
             json.dumps(chapter.get("characters_present_ids", [])),
             json.dumps(chapter.get("location_ids", [])),
             json.dumps(chapter.get("items_present_ids", [])),
@@ -619,17 +607,20 @@ def insert_chapter(novel_id: str, chapter: dict) -> str:
             json.dumps(chapter.get("events_present_ids", [])),
         ),
     )
+    # chapter_id is a FK on chapter_detail, so the row must exist before update_chapter_summary runs.
+    conn.execute("INSERT INTO chapter_detail (chapter_id) VALUES (?)", (chapter_id,))
     conn.commit()
     conn.close()
     return chapter_id
 
 
-def update_chapter_summary(chapter_id: str, summary: str, emotional_arc: str, intimate_arc_role: str, chapter_end_hook: str):
+def update_chapter_summary(chapter_id: str, summary: str, emotional_arc: str, intimate_arc_role: str, chapter_end_hook: str, beats: list = None):
     conn = get_connection()
     conn.execute(
-        "UPDATE chapter SET summary = ?, emotional_arc = ?, intimate_arc_role = ?, chapter_end_hook = ? WHERE id = ?",
-        (summary, emotional_arc, intimate_arc_role, chapter_end_hook, chapter_id),
+        "UPDATE chapter_detail SET summary = ?, emotional_arc = ?, chapter_end_hook = ?, beats = ? WHERE chapter_id = ?",
+        (summary, emotional_arc, chapter_end_hook, json.dumps(beats or []), chapter_id),
     )
+    conn.execute("UPDATE chapter_list SET intimate_arc_role = ? WHERE id = ?", (intimate_arc_role, chapter_id))
     conn.commit()
     conn.close()
 
@@ -638,61 +629,21 @@ def get_chapters(novel_id: str, cols: list[str]) -> list[dict]:
     if not cols:
         raise ValueError("get_chapters: cols must not be empty")
     conn = get_connection()
-    rows = conn.execute(f"SELECT {', '.join(cols)} FROM chapter WHERE novel_id = ? ORDER BY chapter_number", (novel_id,)).fetchall()
+    rows = conn.execute(
+        f"""SELECT {', '.join(cols)} FROM chapter_list s
+            JOIN chapter_detail d ON d.chapter_id = s.id
+            WHERE s.novel_id = ? ORDER BY s.chapter_number""",
+        (novel_id,),
+    ).fetchall()
     conn.close()
     return [dict(zip(cols, row)) for row in rows]
 
 
 def delete_chapters(novel_id: str):
     conn = get_connection()
-    conn.execute("DELETE FROM chapter WHERE novel_id = ?", (novel_id,))
+    conn.execute("DELETE FROM chapter_detail WHERE chapter_id IN (SELECT id FROM chapter_list WHERE novel_id = ?)", (novel_id,))
+    conn.execute("DELETE FROM chapter_list WHERE novel_id = ?", (novel_id,))
     conn.commit()
     conn.close()
 
 
-# ---------------------------------------------------------------------------
-# beats
-# ---------------------------------------------------------------------------
-
-def insert_beat(chapter_id: str, beat: dict):
-    conn = get_connection()
-    conn.execute(
-        """INSERT INTO beats
-           (id, chapter_id, beat_number, description, pov, word_count, location_id,
-            characters_present_ids, items_present_ids, organizations_involved, events_ids,
-            tension_level, heat_level, key_events)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-        (
-            str(uuid.uuid4()), chapter_id,
-            beat.get("beat_number"),
-            beat.get("description"),
-            beat.get("pov"),
-            beat.get("word_count"),
-            beat.get("location_id"),
-            json.dumps(beat.get("characters_present_ids", [])),
-            json.dumps(beat.get("items_present_ids", [])),
-            json.dumps(beat.get("organizations_involved", [])),
-            json.dumps(beat.get("events_ids", [])),
-            beat.get("tension_level"),
-            beat.get("heat_level"),
-            json.dumps(beat.get("key_events", [])),
-        ),
-    )
-    conn.commit()
-    conn.close()
-
-
-def get_beats(chapter_id: str, cols: list[str]) -> list[dict]:
-    if not cols:
-        raise ValueError("get_beats: cols must not be empty")
-    conn = get_connection()
-    rows = conn.execute(f"SELECT {', '.join(cols)} FROM beats WHERE chapter_id = ? ORDER BY beat_number", (chapter_id,)).fetchall()
-    conn.close()
-    return [dict(zip(cols, row)) for row in rows]
-
-
-def delete_beats(chapter_id: str):
-    conn = get_connection()
-    conn.execute("DELETE FROM beats WHERE chapter_id = ?", (chapter_id,))
-    conn.commit()
-    conn.close()

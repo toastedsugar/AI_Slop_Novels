@@ -88,6 +88,8 @@ Emotional arc: {emotional_arc}
 Target word count: {chapter_word_count}
 End hook: {chapter_end_hook}
 
+The summary above is orientation — what this chapter is about. The beats below are the source of truth for what happens. Use the summary to set your compass, then let the beats drive every scene.
+
 --- BEATS (in order) ---
 
 {beats}
@@ -106,7 +108,7 @@ End hook: {chapter_end_hook}
 
 {optional_context}Open with a brief grounding sentence that establishes where we are and how the chapter begins — before the action starts. Do not start mid-action without context.
 
-Work through every beat in order. Each beat must be fully dramatized — the key events must happen on the page through dialogue and action, not summarized in narration. Close the chapter on the end hook above.
+Work through every beat in order. Each beat must be fully dramatized — its key event must happen on the page through dialogue and action, not summarized in narration. Use each beat's word count share as a pacing guide: a beat allotted a small share of the chapter should read as a quick, compressed moment, while a beat allotted a large share should slow down and breathe. Close the chapter on the end hook above.
 
 Before writing the prose, confirm: is every verb in {tense} tense? Is the perspective {perspective}? If not, correct it first.
 
