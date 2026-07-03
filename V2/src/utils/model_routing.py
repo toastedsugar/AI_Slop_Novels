@@ -30,7 +30,7 @@ def _extract_reasoning(config, provider):
 
 
 def generate_from_config(config, system_prompt, user_prompt):
-    """Returns (text, input_tokens, output_tokens)."""
+    """Returns (text, input_tokens, output_tokens, cache_read_tokens, cache_created_tokens)."""
     provider = config["provider"]
     model = config["model"]
     params = {k: v for k, v in config.items() if k not in ("provider", "model", "input_price_per_1m", "output_price_per_1m")}
@@ -39,9 +39,11 @@ def generate_from_config(config, system_prompt, user_prompt):
     if provider == "anthropic":
         return generate_claude(model, system_prompt, user_prompt, **params)
     elif provider == "openai":
-        return generate_openai(model, system_prompt, user_prompt, **params)
+        text, inp, out = generate_openai(model, system_prompt, user_prompt, **params)
+        return text, inp, out, 0, 0
     elif provider == "openrouter":
-        return generate_openrouter(model, system_prompt, user_prompt, **params)
+        text, inp, out = generate_openrouter(model, system_prompt, user_prompt, **params)
+        return text, inp, out, 0, 0
     else:
         raise ValueError(f"Unknown provider: {provider}")
 

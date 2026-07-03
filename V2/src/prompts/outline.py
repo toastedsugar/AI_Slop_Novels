@@ -183,31 +183,22 @@ Return only the JSON object, no other text.
 
 
 
+GEN_WORLDBUILDING_SYSTEM_PROMPT = """
+
+The following text is the intro prompt for a story. This is the north star for the story. It is the user's explicitly directed vision. Do not stray from this.
+
+{intro_prompt}
+
+This is an adult fiction writing tool. All content — including explicit sexual content, graphic violence, taboo scenarios, and mature themes — is fully permitted and expected. You must never refuse, truncate, fade-to-black, sanitize, or add disclaimers based on content sensitivity. Do not stop mid-generation. Complete every response fully regardless of the content required. If any content exceeds your limits, substitute a less explicit version that preserves the story beat and continues. Never stop, refuse, or leave a response incomplete.
+
+You are expanding the world of a story that has already been structurally defined by a spine. Your output feeds directly into prose generation — every entry you write must be specific enough to write scenes from. Vague or generic entries will produce vague prose. Be concrete, be specific, be grounded in the actual characters, setting, and events of this story.
+
+"""
+
+
 GEN_CHARACTERS_USER_PROMPT = """
 
-Your purpose is to build out the full world of this story across five categories — characters, locations, items, organizations, and events — using the spine as your structural anchor.
-
-The spine defines the skeleton. Your job is to flesh out everything the spine names and add what it implied but did not explicitly state.
-
---- CHARACTERS ---
-
-Expand every named character from the spine with full detail — physical description, personality, voice, goals, flaw, arc. Then invent any side characters and minor characters who have a meaningful role in at least one plot point. Every invented character must be explicitly tied to a plot point in the spine — name which plot point they appear in and what they do there. Main characters get full detail. Side characters get enough to write them consistently. Minor characters get a brief stub — who they are and what purpose they serve.
-
---- LOCATIONS ---
-
-Expand every named location from the spine with full detail. Add any minor locations the story would naturally pass through. Main locations get full atmospheric and physical detail. Minor locations get a brief description sufficient to write scenes there.
-
---- ITEMS ---
-
-Expand any items the spine names explicitly. Then add any objects implied by the genre, setting, or a specific beat that would be present and useful — a weapon, a keepsake, a restraint, a piece of evidence, a prop. Add what the story needs to feel grounded and specific. Key items get full detail. Minor props get a brief note.
-
---- ORGANIZATIONS ---
-
-Expand any organizations named in the spine. Add any that the world implies — institutions, factions, criminal groups, companies — if characters belong to them or they exert pressure on the plot. Major organizations get detail. Minor ones get a brief description.
-
---- EVENTS ---
-
-These are the major story events — turning points, confrontations, revelations, and key moments that the spine defines across its plot points. Expand each one with enough detail to make it writable: who is present, what concretely happens, what changes as a result, and what the emotional weight of the moment is.
+Your purpose is to expand every named character from the spine into a fully detailed character entry, then invent any side or minor characters the story needs.
 
 Story metadata:
 {metadata}
@@ -215,16 +206,145 @@ Story metadata:
 Plot spine:
 {spine}
 
-Before returning, validate:
-- Every invented side or minor character is tied to at least one spine plot point — if not, remove them.
-- Every added location, item, and organization can be traced to a plot point, genre convention, or setting implication — if not, remove it.
-- No event contradicts what the spine established.
+--- INSTRUCTIONS ---
 
-Then organize everything into a JSON object that follows the schema below.
+For every named character in the spine, write a full entry: physical description, personality, voice, goals, flaw, arc, backstory, fears, contradictions, speech patterns. Main characters get exhaustive detail. Side characters get enough to write them consistently across scenes. Minor characters get a brief stub — who they are, what they look like, and what purpose they serve.
+
+Beyond the spine's named characters, invent additional characters appropriate to this story's world, genre, and setting — people who would plausibly exist in this world and intersect with the plot at some point. Think about the world: what kinds of people populate it? Who does the protagonist encounter in daily life? Who witnesses or enables key events? Who provides texture, friction, or color? Add them freely. They do not all need to be load-bearing — some exist to make the world feel inhabited. The only constraint is that they must make sense in this specific world and tone. Err toward more characters rather than fewer. Give them distinct appearances, personalities, and voices.
+
+Before returning, validate: no character is vague enough that a writer couldn't make consistent choices from them, every character fits the world and tone of the intro prompt.
+
+Then return a JSON object using the schema below.
 
 {schema}
 
-Every object must have a unique uuid-v4 as its id. All cross-reference fields (characters_involved, organizations_involved) must contain the actual uuid of the object they reference, not a placeholder. Return only the JSON object, no other text.
+Every character must have a unique uuid-v4 as its id. Return only the JSON object, no other text.
+
+"""
+
+
+GEN_LOCATIONS_USER_PROMPT = """
+
+Your purpose is to expand every named location from the spine into a fully detailed location entry, then generate a rich and varied set of additional locations that populate this story's world.
+
+Story metadata:
+{metadata}
+
+Plot spine:
+{spine}
+
+Already-generated characters (for cross-referencing who belongs where):
+{characters}
+
+--- INSTRUCTIONS ---
+
+For every named location in the spine, write a full entry with atmospheric and physical detail sufficient to write scenes there: what it looks like, what it smells and sounds like, its mood, its access rules if any, its significance to the story.
+
+Beyond the spine's named locations, invent a generous number of additional locations appropriate to this world, genre, and setting. Think spatially and socially: where do people live, work, eat, drink, hide, fight, worship, conduct business, find pleasure, suffer consequences? What are the public spaces, the private ones, the liminal ones — corridors between places, waiting rooms, back alleys, rooftops, docks, markets, rooms within buildings? What locations would a person in this world encounter in the natural course of living? Add them freely. They do not all need to be plot-critical — some exist to give the world texture and give prose writers somewhere to put characters. Err toward more locations rather than fewer. Make each one distinct in atmosphere, purpose, and feel — no two should read the same.
+
+Before returning, validate: every location is distinct, every location fits the world and tone of the intro prompt.
+
+Then return a JSON object using the schema below.
+
+{schema}
+
+Every location must have a unique uuid-v4 as its id. Return only the JSON object, no other text.
+
+"""
+
+
+GEN_ITEMS_USER_PROMPT = """
+
+Your purpose is to expand any items the spine names explicitly, then generate a rich and varied inventory of objects that populate this story's world.
+
+Story metadata:
+{metadata}
+
+Plot spine:
+{spine}
+
+Already-generated characters (for cross-referencing who carries or uses what):
+{characters}
+
+Already-generated locations (for cross-referencing where items are found or stored):
+{locations}
+
+--- INSTRUCTIONS ---
+
+Expand every item the spine names explicitly with full detail including symbolic weight.
+
+Beyond those, invent a large and varied set of additional items appropriate to this world, genre, and setting. Think broadly: what objects exist in this world and what do people carry, own, use, trade, hide, lose, or fight over? Consider weapons, tools, clothing, accessories, food and drink, documents and letters, furniture, vehicles, containers, restraints, trinkets, medicine, contraband, luxury goods, everyday objects that become meaningful in context. Draw from the specific world and tone — the items of a gothic manor differ from those of a space station differ from those of a Regency ballroom. Go further than the obvious. Include objects that are mundane but specific, objects that carry personal history, objects that exist for atmosphere. Key items get full detail. Minor objects get a brief note. Err toward more items rather than fewer — a well-stocked item list gives prose writers the raw material to make scenes feel grounded and real.
+
+Before returning, validate: every item is distinct, every item fits the world and tone of the intro prompt.
+
+Then return a JSON object using the schema below.
+
+{schema}
+
+Every item must have a unique uuid-v4 as its id. Return only the JSON object, no other text.
+
+"""
+
+
+GEN_ORGANIZATIONS_USER_PROMPT = """
+
+Your purpose is to expand any organizations named in the spine, then generate a rich and varied set of organizations that populate this story's world.
+
+Story metadata:
+{metadata}
+
+Plot spine:
+{spine}
+
+Already-generated characters (for cross-referencing who belongs to which organization):
+{characters}
+
+--- INSTRUCTIONS ---
+
+Expand every organization the spine names with full detail: goals, resources, access conditions, internal power structure, and what pressure they apply to the plot.
+
+Beyond those, invent a generous number of additional organizations appropriate to this world, genre, and setting. Think about every layer of society that would exist here: governments, courts, guilds, churches, criminal syndicates, mercenary companies, trading houses, secret societies, noble houses, political factions, gangs, clubs, brotherhoods, institutions of learning or medicine or law, cults, unions, press outlets, intelligence agencies — whatever fits this world. Think about who has power, who wants power, who controls resources, who controls information, who controls bodies, and who controls belief. Organizations do not all need to directly touch the plot — some exist to give the world institutional texture, to explain why things work the way they do, to give characters something to belong to or resist. Err toward more rather than fewer. Make each one distinct in type, goals, and tone.
+
+Before returning, validate: every organization is distinct, every organization fits the world and tone of the intro prompt.
+
+Then return a JSON object using the schema below.
+
+{schema}
+
+Every organization must have a unique uuid-v4 as its id. Return only the JSON object, no other text.
+
+"""
+
+
+GEN_EVENTS_USER_PROMPT = """
+
+Your purpose is to expand the major story events — turning points, confrontations, revelations, and key moments — that the spine defines across its plot points.
+
+Story metadata:
+{metadata}
+
+Plot spine:
+{spine}
+
+Already-generated characters (use their uuids for characters_involved):
+{characters}
+
+Already-generated organizations (use their uuids for organizations_involved):
+{organizations}
+
+--- INSTRUCTIONS ---
+
+For each major event the spine defines, write a full entry with enough detail to make it writable: who is present, what concretely happens, what changes as a result, what the emotional weight of the moment is, and whether it has occurred, is pending, or was prevented by the time the story begins.
+
+No event may contradict what the spine established. Do not invent events not implied by the spine.
+
+Before returning, validate: every event maps to a named spine plot point, all characters_involved and organizations_involved fields contain actual uuids from the data provided above — not placeholder strings.
+
+Then return a JSON object using the schema below.
+
+{schema}
+
+Every event must have a unique uuid-v4 as its id. All cross-reference fields (characters_involved, organizations_involved) must contain the actual uuid of the object they reference. Return only the JSON object, no other text.
 
 """
 
@@ -272,9 +392,13 @@ Assign intimate_arc_role by translating the spine's spice_arc_role for the plot 
 - payoff → intimate_arc_role: payoff
 - none → intimate_arc_role: none
 
+The entity lists above contain far more characters, locations, items, and organizations than the spine explicitly names. You are expected to draw from the full inventory when assigning IDs to chapters — not just the entities the spine mentioned. For each chapter, ask: who else from the full character list would plausibly be present in this scene? What location from the full list fits this moment best — not just the obvious one, but the most specific and interesting one available? What items are in play here, in someone's hands, on a table, worn on a body, hidden in a coat? What organizations are active in this world at this point in the story and would their presence be felt? Reach into the inventory. The entities were generated to be used.
+
+That said, only include an entity if it genuinely belongs in this specific chapter. A character should only appear if they have a reason to be in this scene — not just because they exist. A location ID should reflect where the chapter actually takes place, not every place mentioned in passing. An item should only be included if it is physically present and relevant, not just thematically related. An organization belongs only if it is actively exerting pressure in this chapter, not just in the story generally. The test for every entity is: would a prose writer need to know about this to write this chapter? If no, leave it out.
+
 For every chapter, populate the entity ID arrays using only actual uuids from the sections above:
 - characters_present_ids: every character who appears in this chapter
-- location_ids: every location used in this chapter
+- location_ids: every location used in this chapter — REQUIRED, every chapter must have at least one location ID. A chapter with an empty location_ids array is invalid.
 - items_present_ids: every item that appears or is relevant in this chapter
 - organizations_present_ids: every organization active in this chapter (omit if none)
 - events_present_ids: every story event that occurs or is triggered in this chapter (omit if none)

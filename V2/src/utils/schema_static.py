@@ -107,7 +107,6 @@ STATIC = {
         "personality":              ["trait 1", "trait 2", "trait 3"],
         "arc":                      "How this character changes over the story.",
         "backstory":                "One or two sentences on where they came from and what shaped them.",
-        "goals":                    ["become an airplane pilot", "revitalize their business"],
         "fears":                    ["What they are running from or avoiding.", "The emotional wound driving their behaviour."],
         "flaws":                    ["The core character flaw that will create conflict or drive their arc."],
         "contradictions":           ["Presents as X but is actually Y."],
@@ -156,7 +155,7 @@ STATIC = {
     },
     # Used by generate_chapter_list — the flat chapter skeleton only.
     # No summary/emotional_arc/chapter_end_hook/beats: those are written later
-    # by generate_chapters, and including them here causes the list step to
+    # by generate_chapter_outline, and including them here causes the list step to
     # fill them in early despite prose instructions not to.
     "chapter_list": {
         "id":                        "uuid-v4",
@@ -171,7 +170,7 @@ STATIC = {
         "organizations_present_ids": ["uuid-v4 of every organization active in this chapter"],
         "events_present_ids":        ["uuid-v4 of every story event that occurs or is triggered in this chapter"],
     },
-    # Used by generate_chapters — fills in the detail fields for one chapter
+    # Used by generate_chapter_outline — fills in the detail fields for one chapter
     # row already created by generate_chapter_list. chapter_number identifies
     # which skeleton chapter this detail belongs to.
     "chapters": {

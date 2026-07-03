@@ -39,14 +39,16 @@ def init_db():
         );
 
         CREATE TABLE IF NOT EXISTS costs (
-            id            TEXT PRIMARY KEY,
-            novel_id      TEXT NOT NULL REFERENCES novel(id),
-            stage         TEXT NOT NULL,
-            model         TEXT,
-            input_tokens  INTEGER,
-            output_tokens INTEGER,
-            cost          REAL,
-            created_at    TEXT
+            id                   TEXT PRIMARY KEY,
+            novel_id             TEXT NOT NULL REFERENCES novel(id),
+            stage                TEXT NOT NULL,
+            model                TEXT,
+            input_tokens         INTEGER,
+            output_tokens        INTEGER,
+            cache_read_tokens    INTEGER DEFAULT 0,
+            cache_created_tokens INTEGER DEFAULT 0,
+            cost                 REAL,
+            created_at           TEXT
         );
 
         CREATE TABLE IF NOT EXISTS worldbuilding (
@@ -166,7 +168,7 @@ def init_db():
             events_present_ids       TEXT
         );
 
-        -- Written by generate_chapters: one row per chapter_list row,
+        -- Written by generate_chapter_outline: one row per chapter_list row,
         -- filled in after the chapter list already exists.
         CREATE TABLE IF NOT EXISTS chapter_detail (
             chapter_id        TEXT PRIMARY KEY REFERENCES chapter_list(id),
@@ -186,6 +188,58 @@ def init_db():
             prose          TEXT,
             word_count     INTEGER,
             created_at     TEXT
+        );
+    """)
+    conn.commit()
+    conn.close()
+
+
+def init_dynamic_db():
+    conn = get_connection()
+    conn.executescript("""
+        CREATE TABLE IF NOT EXISTS character_state (
+            id                  TEXT PRIMARY KEY,
+            character_id        TEXT REFERENCES characters(id),
+            chapter_id          TEXT,
+            chapter_number      INTEGER,
+            story_datetime      TEXT,
+            emotional_state     TEXT,
+            emotional_intensity INTEGER,
+            physical_state      TEXT,
+            current_location_id TEXT,
+            goals               TEXT,   -- JSON list
+            flaw_active         BOOLEAN,
+            flaw_note           TEXT,
+            knowledge_flags     TEXT,   -- JSON object
+            source              TEXT
+        );
+
+        CREATE TABLE IF NOT EXISTS character_relationships (
+            id                  TEXT PRIMARY KEY,
+            character_id        TEXT REFERENCES characters(id),
+            chapter_id          TEXT,
+            story_datetime      TEXT,
+            entity_type         TEXT,
+            entity_id           TEXT,
+            relationship_type   TEXT,
+            status              TEXT,
+            emotional_intensity INTEGER,
+            disposition         TEXT,
+            open_threads        TEXT,   -- JSON list
+            source              TEXT
+        );
+
+        CREATE TABLE IF NOT EXISTS item_state (
+            id                  TEXT PRIMARY KEY,
+            item_id             TEXT REFERENCES items(id),
+            chapter_id          TEXT,
+            story_datetime      TEXT,
+            holder_character_id TEXT,
+            location_id         TEXT,
+            condition           TEXT,
+            narrative_visibility TEXT,
+            narrative_salience  INTEGER,
+            source              TEXT
         );
     """)
     conn.commit()
@@ -253,19 +307,19 @@ def delete_novel(novel_id: str):
 # costs
 # ---------------------------------------------------------------------------
 
-def insert_cost(novel_id: str, stage: str, model: str, input_tokens: int, output_tokens: int, cost: float):
+def insert_cost(novel_id: str, stage: str, model: str, input_tokens: int, output_tokens: int, cost: float, cache_read_tokens: int = 0, cache_created_tokens: int = 0):
     from datetime import datetime, timezone
     conn = get_connection()
     conn.execute(
-        "INSERT INTO costs (id, novel_id, stage, model, input_tokens, output_tokens, cost, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-        (str(uuid.uuid4()), novel_id, stage, model, input_tokens, output_tokens, cost, datetime.now(timezone.utc).isoformat()),
+        "INSERT INTO costs (id, novel_id, stage, model, input_tokens, output_tokens, cache_read_tokens, cache_created_tokens, cost, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        (str(uuid.uuid4()), novel_id, stage, model, input_tokens, output_tokens, cache_read_tokens, cache_created_tokens, cost, datetime.now(timezone.utc).isoformat()),
     )
     conn.commit()
     conn.close()
 
 
 def get_costs(novel_id: str) -> list[dict]:
-    cols = ["stage", "model", "input_tokens", "output_tokens", "cost", "created_at"]
+    cols = ["stage", "model", "input_tokens", "output_tokens", "cache_read_tokens", "cache_created_tokens", "cost", "created_at"]
     conn = get_connection()
     rows = conn.execute(f"SELECT {', '.join(cols)} FROM costs WHERE novel_id = ? ORDER BY created_at", (novel_id,)).fetchall()
     conn.close()
@@ -586,7 +640,7 @@ def delete_events(novel_id: str):
 # ---------------------------------------------------------------------------
 
 def insert_chapter(novel_id: str, chapter: dict) -> str:
-    chapter_id = chapter.get("id", str(uuid.uuid4()))
+    chapter_id = str(uuid.uuid4())
     conn = get_connection()
     conn.execute(
         """INSERT INTO chapter_list
@@ -646,4 +700,224 @@ def delete_chapters(novel_id: str):
     conn.commit()
     conn.close()
 
+
+# ---------------------------------------------------------------------------
+# character_state
+# ---------------------------------------------------------------------------
+
+def insert_character_states(states: list[dict]):
+    init_dynamic_db()
+    conn = get_connection()
+    for s in states:
+        conn.execute(
+            """INSERT INTO character_state
+               (id, character_id, chapter_id, chapter_number, story_datetime,
+                emotional_state, emotional_intensity, physical_state,
+                current_location_id, goals, flaw_active, flaw_note,
+                knowledge_flags, source)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (
+                str(uuid.uuid4()),
+                s.get("character_id"),
+                s.get("chapter_id"),
+                s.get("chapter_number"),
+                s.get("story_datetime"),
+                s.get("emotional_state"),
+                s.get("emotional_intensity"),
+                s.get("physical_state"),
+                s.get("current_location_id"),
+                json.dumps(s.get("goals", [])),
+                s.get("flaw_active"),
+                s.get("flaw_note"),
+                json.dumps(s.get("knowledge_flags", {})),
+                s.get("source"),
+            ),
+        )
+    conn.commit()
+    conn.close()
+
+
+def get_character_state(character_id: str, as_of_chapter: int = None) -> dict:
+    """Returns the latest character_state row for this character.
+    If as_of_chapter is given, returns the most recent state at or before that chapter number.
+    """
+    conn = get_connection()
+    if as_of_chapter is not None:
+        row = conn.execute(
+            "SELECT * FROM character_state WHERE character_id = ? AND chapter_number <= ? ORDER BY chapter_number DESC LIMIT 1",
+            (character_id, as_of_chapter),
+        ).fetchone()
+    else:
+        row = conn.execute(
+            "SELECT * FROM character_state WHERE character_id = ? ORDER BY chapter_number DESC LIMIT 1",
+            (character_id,),
+        ).fetchone()
+    conn.close()
+    if not row:
+        return {}
+    cols = ["id", "character_id", "chapter_id", "chapter_number", "story_datetime",
+            "emotional_state", "emotional_intensity", "physical_state",
+            "current_location_id", "goals", "flaw_active", "flaw_note",
+            "knowledge_flags", "source"]
+    return dict(zip(cols, row))
+
+
+def get_character_states_for_chapter(character_ids: list[str], chapter_number: int) -> list[dict]:
+    """Returns the most recent state for each character as of the given chapter number.
+    Characters with no state at or before this chapter are omitted.
+    """
+    if not character_ids:
+        return []
+    results = []
+    for cid in character_ids:
+        state = get_character_state(cid, as_of_chapter=chapter_number)
+        if state:
+            results.append(state)
+    return results
+
+
+# ---------------------------------------------------------------------------
+# character_relationships
+# ---------------------------------------------------------------------------
+
+def insert_character_relationships(relationships: list[dict]):
+    init_dynamic_db()
+    conn = get_connection()
+    for r in relationships:
+        conn.execute(
+            """INSERT INTO character_relationships
+               (id, character_id, chapter_id, story_datetime,
+                entity_type, entity_id, relationship_type,
+                status, emotional_intensity, disposition, open_threads, source)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (
+                str(uuid.uuid4()),
+                r.get("character_id"),
+                r.get("chapter_id"),
+                r.get("story_datetime"),
+                r.get("entity_type"),
+                r.get("entity_id"),
+                r.get("relationship_type"),
+                r.get("status"),
+                r.get("emotional_intensity"),
+                r.get("disposition"),
+                json.dumps(r.get("open_threads", [])),
+                r.get("source"),
+            ),
+        )
+    conn.commit()
+    conn.close()
+
+
+def get_character_relationships(character_id: str, chapter_id: str = None) -> list[dict]:
+    """Returns the latest relationship row per (character_id, entity_type, entity_id).
+    If chapter_id is given, scoped to that chapter; otherwise most recent across all chapters.
+    """
+    conn = get_connection()
+    if chapter_id:
+        rows = conn.execute(
+            """SELECT * FROM character_relationships
+               WHERE character_id = ? AND chapter_id = ?
+               ORDER BY rowid DESC""",
+            (character_id, chapter_id),
+        ).fetchall()
+    else:
+        rows = conn.execute(
+            """SELECT * FROM character_relationships
+               WHERE character_id = ?
+               ORDER BY rowid DESC""",
+            (character_id,),
+        ).fetchall()
+    conn.close()
+    cols = ["id", "character_id", "chapter_id", "story_datetime",
+            "entity_type", "entity_id", "relationship_type",
+            "status", "emotional_intensity", "disposition", "open_threads", "source"]
+    # Deduplicate: keep only the latest row per (entity_type, entity_id)
+    seen = set()
+    result = []
+    for row in rows:
+        d = dict(zip(cols, row))
+        key = (d["entity_type"], d["entity_id"])
+        if key not in seen:
+            seen.add(key)
+            result.append(d)
+    return result
+
+
+# ---------------------------------------------------------------------------
+# item_state
+# ---------------------------------------------------------------------------
+
+def insert_item_states(states: list[dict]):
+    init_dynamic_db()
+    conn = get_connection()
+    for s in states:
+        conn.execute(
+            """INSERT INTO item_state
+               (id, item_id, chapter_id, story_datetime,
+                holder_character_id, location_id, condition,
+                narrative_visibility, narrative_salience, source)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (
+                str(uuid.uuid4()),
+                s.get("item_id"),
+                s.get("chapter_id"),
+                s.get("story_datetime"),
+                s.get("holder_character_id"),
+                s.get("location_id"),
+                s.get("condition"),
+                s.get("narrative_visibility"),
+                s.get("narrative_salience"),
+                s.get("source"),
+            ),
+        )
+    conn.commit()
+    conn.close()
+
+
+def get_item_state(item_id: str, chapter_id: str = None) -> dict:
+    """Returns the latest item_state row for this item."""
+    conn = get_connection()
+    if chapter_id:
+        row = conn.execute(
+            "SELECT * FROM item_state WHERE item_id = ? AND chapter_id = ? ORDER BY rowid DESC LIMIT 1",
+            (item_id, chapter_id),
+        ).fetchone()
+    else:
+        row = conn.execute(
+            "SELECT * FROM item_state WHERE item_id = ? ORDER BY rowid DESC LIMIT 1",
+            (item_id,),
+        ).fetchone()
+    conn.close()
+    if not row:
+        return {}
+    cols = ["id", "item_id", "chapter_id", "story_datetime",
+            "holder_character_id", "location_id", "condition",
+            "narrative_visibility", "narrative_salience", "source"]
+    return dict(zip(cols, row))
+
+
+def get_manuscript_summaries(novel_id: str, before_chapter: int) -> list[dict]:
+    """Returns chapter_number, title, summary for all manuscripts before the given chapter number."""
+    conn = get_connection()
+    rows = conn.execute(
+        "SELECT chapter_number, title, summary FROM manuscripts WHERE novel_id = ? AND chapter_number < ? ORDER BY chapter_number",
+        (novel_id, before_chapter),
+    ).fetchall()
+    conn.close()
+    return [{"chapter_number": r[0], "title": r[1], "summary": r[2]} for r in rows]
+
+
+def get_item_states_for_chapter(item_ids: list[str], chapter_id: str) -> list[dict]:
+    """Returns the latest state for each item_id as of the given chapter."""
+    if not item_ids:
+        return []
+    results = []
+    for iid in item_ids:
+        state = get_item_state(iid, chapter_id)
+        if not state:
+            state = get_item_state(iid)
+        if state:
+            results.append(state)
+    return results
 

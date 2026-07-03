@@ -205,35 +205,65 @@ prod:
   novel: qwen-3-7-max
   spine: claude-sonnet
   characters: qwen-3-7-max
-  outline: claude-sonnet
+  locations: qwen-3-7-max
+  items: qwen-3-7-max
+  organizations: qwen-3-7-max
+  events: qwen-3-7-max
+  chapter_list: claude-sonnet
+  chapter_outline: claude-sonnet
   prose: claude-sonnet
+  chapter_edit: mistral-small-4
 
 dev:
   novel: gpt-5-mini
   spine: gpt-5-mini
   characters: gpt-5-mini
-  outline: gpt-5-mini
+  locations: gpt-5-mini
+  items: gpt-5-mini
+  organizations: gpt-5-mini
+  events: gpt-5-mini
+  chapter_list: gpt-5-mini
+  chapter_outline: gpt-5-mini
   prose: gpt-5-mini
+  chapter_edit: mistral-small-4
 
 
 # NSFW slop generation
 nsfw-prod:
-  novel: mistral-medium-3-5
+  novel: claude-sonnet
   spine: claude-sonnet
   characters: qwen-3-7-max
-  outline: qwen-3-7-max
-  prose: qwen-3-7-max
+  locations: qwen-3-7-max
+  items: qwen-3-7-max
+  organizations: qwen-3-7-max
+  events: qwen-3-7-max
+  chapter_list: qwen-3-7-max
+  chapter_outline: qwen-3-7-max
+  prose: claude-sonnet
+  chapter_edit: mistral-small-4
 
 nsfw-test:
   novel: mistral-medium-3-5
-  spine: qwen-3-7-max
+  spine: claude-sonnet
   characters: mistral-small-4
-  outline: mistral-small-4
-  prose: mistral-small-4
+  locations: mistral-small-4
+  items: mistral-small-4
+  organizations: mistral-small-4
+  events: mistral-small-4
+  chapter_list: qwen-3-7-max
+  chapter_outline: qwen-3-7-max
+  prose: qwen-3-7-max
+  chapter_edit: claude-sonnet
 
 nsfw-dev:
   novel: mistral-small-4
   spine: mistral-small-4
   characters: mistral-small-4
-  outline: mistral-small-4
+  locations: mistral-small-4
+  items: mistral-small-4
+  organizations: mistral-small-4
+  events: mistral-small-4
+  chapter_list: mistral-small-4
+  chapter_outline: mistral-small-4
   prose: mistral-small-4
+  chapter_edit: mistral-small-4

@@ -18,16 +18,22 @@ from utils.db_helpers import (
     insert_organizations, get_organizations, delete_organizations,
     insert_events, get_events, delete_events,
     insert_chapter, update_chapter_summary, get_chapters, delete_chapters,
+    get_manuscript_summaries,
 )
 from prompts.outline import (
     GEN_OUTLINE_SYSTEM_PROMPT,
     GEN_NOVEL_USER_PROMPT,
     GEN_SPINE_USER_PROMPT,
+    GEN_WORLDBUILDING_SYSTEM_PROMPT,
     GEN_CHARACTERS_USER_PROMPT,
+    GEN_LOCATIONS_USER_PROMPT,
+    GEN_ITEMS_USER_PROMPT,
+    GEN_ORGANIZATIONS_USER_PROMPT,
+    GEN_EVENTS_USER_PROMPT,
     GEN_CHAPTER_LIST_USER_PROMPT,
     GEN_CHAPTER_USER_PROMPT,
 )
-from prompts.generation_chapter_by_chapter import GEN_CHAPTER_BY_CHAPTER_SYSTEM_PROMPT, GEN_CHAPTER_USER_PROMPT as GEN_PROSE_USER_PROMPT
+from prompts.generation_chapter_by_chapter import GEN_CHAPTER_BY_CHAPTER_SYSTEM_PROMPT, GEN_CHAPTER_USER_PROMPT as GEN_PROSE_USER_PROMPT, EDIT_CHAPTER_SYSTEM_PROMPT, EDIT_CHAPTER_USER_PROMPT
 
 
 # Cascade delete order — each stage wipes itself and everything downstream (upstream → downstream).
@@ -75,14 +81,14 @@ class NovelGen:
             _DELETE[stage](novel_id)
 
     # ---------------------------------------------------------------------------
-    # generate_novel
+    # gen_novel
     # Generates novel metadata + worldbuilding, inserts everything, returns novel_id.
     # ---------------------------------------------------------------------------
 
-    def generate_novel(self, prompt: str, wordcount: int, authorial_voice: str = "") -> str:
+    def gen_novel(self, prompt: str, wordcount: int, authorial_voice: str = "") -> str:
         config = self.routing["novel"]
         print(f"Generating novel using {config['provider']} / {config['model']}")
-        text, input_tokens, output_tokens = generate_from_config(
+        text, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(
             config,
             GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=prompt),
             self._seed(GEN_NOVEL_USER_PROMPT.format(
@@ -101,20 +107,20 @@ class NovelGen:
             created_at=datetime.now(timezone.utc).isoformat(),
         )
         insert_worldbuilding(novel_id, data.get("worldbuilding", {}))
-        insert_cost(novel_id, "metadata", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens))
+        insert_cost(novel_id, "metadata", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens), cache_read, cache_created)
         return novel_id
 
     # ---------------------------------------------------------------------------
-    # generate_spine
+    # gen_spine
     # ---------------------------------------------------------------------------
 
-    def generate_spine(self, novel_id: str, regenerate: bool = False):
-        if not regenerate:
+    def gen_spine(self, novel_id: str, regen: bool = False):
+        if not regen:
             if get_spine(novel_id, ["word_count"]):
                 print("--- Spine already exists ---")
                 return
 
-        if regenerate:
+        if regen:
             self._cascade_delete(novel_id, "spine")
 
         novel = get_novel(novel_id, ["prompt", "title", "summary", "word_count", "target_word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element", "authorial_voice", "protagonist_stubs", "antagonist_stubs"])
@@ -122,7 +128,7 @@ class NovelGen:
 
         config = self.routing["spine"]
         print(f"Generating spine using {config['provider']} / {config['model']}")
-        text, input_tokens, output_tokens = generate_from_config(
+        text, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(
             config,
             GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
             self._seed(GEN_SPINE_USER_PROMPT.format(
@@ -134,19 +140,19 @@ class NovelGen:
         print(text)
         data = self._parse_json(text)
         insert_spine(novel_id, data.get("spine", data))
-        insert_cost(novel_id, "spine", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens))
+        insert_cost(novel_id, "spine", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens), cache_read, cache_created)
 
     # ---------------------------------------------------------------------------
-    # generate_characters
-    # Generates characters, locations, items, organizations, and events in one call.
+    # gen_characters
     # ---------------------------------------------------------------------------
 
-    def generate_characters(self, novel_id: str, regenerate: bool = False):
-        if not regenerate:
+    def gen_characters(self, novel_id: str, regen: bool = False):
+        if not regen:
             if get_characters(novel_id, ["id"]):
+                print("--- Characters already exist ---")
                 return
 
-        if regenerate:
+        if regen:
             self._cascade_delete(novel_id, "characters")
 
         novel = get_novel(novel_id, ["prompt", "title", "summary", "word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element"])
@@ -155,38 +161,165 @@ class NovelGen:
 
         config = self.routing["characters"]
         print(f"Generating characters using {config['provider']} / {config['model']}")
-        text, input_tokens, output_tokens = generate_from_config(
+        text, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(
             config,
-            GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
+            GEN_WORLDBUILDING_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
             self._seed(GEN_CHARACTERS_USER_PROMPT.format(
                 metadata=json.dumps({**novel, **world}, indent=2),
-                spine=spine.get("narrative_structure", ""),
-                schema=schema_to_json("characters", "locations", "items", "organizations", "events"),
+                spine=json.dumps(spine.get("narrative_structure", ""), indent=2),
+                schema=schema_to_json("characters"),
             )),
         )
         print(text)
         data = self._parse_json(text)
-
         insert_characters(novel_id, self._ensure_list(data.get("characters", [])))
-        insert_locations(novel_id, self._ensure_list(data.get("locations", [])))
-        insert_items(novel_id, self._ensure_list(data.get("items", [])))
-        insert_organizations(novel_id, self._ensure_list(data.get("organizations", [])))
-        insert_events(novel_id, self._ensure_list(data.get("events", [])))
-        insert_cost(novel_id, "characters", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens))
+        insert_cost(novel_id, "characters", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens), cache_read, cache_created)
 
     # ---------------------------------------------------------------------------
-    # generate_chapter_list
+    # gen_locations
+    # ---------------------------------------------------------------------------
+
+    def gen_locations(self, novel_id: str, regen: bool = False):
+        if not regen:
+            if get_locations(novel_id, ["id"]):
+                print("--- Locations already exist ---")
+                return
+
+        novel = get_novel(novel_id, ["prompt", "title", "summary", "word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element"])
+        world = get_worldbuilding(novel_id, ["story_type", "time_period", "anchor_location", "social_hierarchy", "constraints"])
+        spine = get_spine(novel_id, ["word_count", "narrative_structure"])
+        characters = get_characters(novel_id, ["id", "name", "role"])
+
+        config = self.routing["locations"]
+        print(f"Generating locations using {config['provider']} / {config['model']}")
+        text, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(
+            config,
+            GEN_WORLDBUILDING_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
+            self._seed(GEN_LOCATIONS_USER_PROMPT.format(
+                metadata=json.dumps({**novel, **world}, indent=2),
+                spine=json.dumps(spine.get("narrative_structure", ""), indent=2),
+                characters=json.dumps(characters, indent=2),
+                schema=schema_to_json("locations"),
+            )),
+        )
+        print(text)
+        data = self._parse_json(text)
+        insert_locations(novel_id, self._ensure_list(data.get("locations", [])))
+        insert_cost(novel_id, "locations", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens), cache_read, cache_created)
+
+    # ---------------------------------------------------------------------------
+    # gen_items
+    # ---------------------------------------------------------------------------
+
+    def gen_items(self, novel_id: str, regen: bool = False):
+        if not regen:
+            if get_items(novel_id, ["id"]):
+                print("--- Items already exist ---")
+                return
+
+        novel = get_novel(novel_id, ["prompt", "title", "summary", "word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element"])
+        world = get_worldbuilding(novel_id, ["story_type", "time_period", "anchor_location", "social_hierarchy", "constraints"])
+        spine = get_spine(novel_id, ["word_count", "narrative_structure"])
+        characters = get_characters(novel_id, ["id", "name", "role"])
+        locations = get_locations(novel_id, ["id", "name"])
+
+        config = self.routing["items"]
+        print(f"Generating items using {config['provider']} / {config['model']}")
+        text, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(
+            config,
+            GEN_WORLDBUILDING_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
+            self._seed(GEN_ITEMS_USER_PROMPT.format(
+                metadata=json.dumps({**novel, **world}, indent=2),
+                spine=json.dumps(spine.get("narrative_structure", ""), indent=2),
+                characters=json.dumps(characters, indent=2),
+                locations=json.dumps(locations, indent=2),
+                schema=schema_to_json("items"),
+            )),
+        )
+        print(text)
+        data = self._parse_json(text)
+        insert_items(novel_id, self._ensure_list(data.get("items", [])))
+        insert_cost(novel_id, "items", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens), cache_read, cache_created)
+
+    # ---------------------------------------------------------------------------
+    # gen_organizations
+    # ---------------------------------------------------------------------------
+
+    def gen_organizations(self, novel_id: str, regen: bool = False):
+        if not regen:
+            if get_organizations(novel_id, ["id"]):
+                print("--- Organizations already exist ---")
+                return
+
+        novel = get_novel(novel_id, ["prompt", "title", "summary", "word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element"])
+        world = get_worldbuilding(novel_id, ["story_type", "time_period", "anchor_location", "social_hierarchy", "constraints"])
+        spine = get_spine(novel_id, ["word_count", "narrative_structure"])
+        characters = get_characters(novel_id, ["id", "name", "role", "occupation"])
+
+        config = self.routing["organizations"]
+        print(f"Generating organizations using {config['provider']} / {config['model']}")
+        text, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(
+            config,
+            GEN_WORLDBUILDING_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
+            self._seed(GEN_ORGANIZATIONS_USER_PROMPT.format(
+                metadata=json.dumps({**novel, **world}, indent=2),
+                spine=json.dumps(spine.get("narrative_structure", ""), indent=2),
+                characters=json.dumps(characters, indent=2),
+                schema=schema_to_json("organizations"),
+            )),
+        )
+        print(text)
+        data = self._parse_json(text)
+        insert_organizations(novel_id, self._ensure_list(data.get("organizations", [])))
+        insert_cost(novel_id, "organizations", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens), cache_read, cache_created)
+
+    # ---------------------------------------------------------------------------
+    # gen_events
+    # ---------------------------------------------------------------------------
+
+    def gen_events(self, novel_id: str, regen: bool = False):
+        if not regen:
+            if get_events(novel_id, ["id"]):
+                print("--- Events already exist ---")
+                return
+
+        novel = get_novel(novel_id, ["prompt", "title", "summary", "word_count", "premise", "primary_genre", "tone", "spice_level", "literary_voice", "tense", "perspective", "forbidden_element"])
+        world = get_worldbuilding(novel_id, ["story_type", "time_period", "anchor_location", "social_hierarchy", "constraints"])
+        spine = get_spine(novel_id, ["word_count", "narrative_structure"])
+        characters = get_characters(novel_id, ["id", "name", "role"])
+        organizations = get_organizations(novel_id, ["id", "name"])
+
+        config = self.routing["events"]
+        print(f"Generating events using {config['provider']} / {config['model']}")
+        text, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(
+            config,
+            GEN_WORLDBUILDING_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
+            self._seed(GEN_EVENTS_USER_PROMPT.format(
+                metadata=json.dumps({**novel, **world}, indent=2),
+                spine=json.dumps(spine.get("narrative_structure", ""), indent=2),
+                characters=json.dumps(characters, indent=2),
+                organizations=json.dumps(organizations, indent=2),
+                schema=schema_to_json("events"),
+            )),
+        )
+        print(text)
+        data = self._parse_json(text)
+        insert_events(novel_id, self._ensure_list(data.get("events", [])))
+        insert_cost(novel_id, "events", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens), cache_read, cache_created)
+
+    # ---------------------------------------------------------------------------
+    # gen_chapter_list
     # Spine → flat chapter list: title, word_count, purpose, intimate_arc_role.
     # One call. No summaries yet.
     # ---------------------------------------------------------------------------
 
-    def generate_chapter_list(self, novel_id: str, regenerate: bool = False):
-        if not regenerate:
+    def gen_chapter_list(self, novel_id: str, regen: bool = False):
+        if not regen:
             if get_chapters(novel_id, ["id"]):
                 print("--- Chapter list already exists ---")
                 return
 
-        if regenerate:
+        if regen:
             self._cascade_delete(novel_id, "chapters")
 
         novel = get_novel(novel_id, ["prompt", "title", "summary", "word_count", "target_word_count", "premise", "primary_genre", "tone", "spice_level", "tense", "perspective", "forbidden_element"])
@@ -197,9 +330,9 @@ class NovelGen:
         organizations = get_organizations(novel_id, ["id", "name", "type", "goals"])
         events = get_events(novel_id, ["id", "title", "description", "status", "narrative_salience"])
 
-        config = self.routing["outline"]
+        config = self.routing["chapter_list"]
         print(f"Generating chapter list using {config['provider']} / {config['model']}")
-        text, input_tokens, output_tokens = generate_from_config(
+        text, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(
             config,
             GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
             self._seed(GEN_CHAPTER_LIST_USER_PROMPT.format(
@@ -218,24 +351,35 @@ class NovelGen:
         data = self._parse_json(text)
         chapters = self._ensure_list(data.get("chapter_list") or data.get("chapters", []))
         if not chapters:
-            raise RuntimeError(f"generate_chapter_list: no chapters found in response. Top-level keys: {list(data.keys())}")
+            raise RuntimeError(f"gen_chapter_list: no chapters found in response. Top-level keys: {list(data.keys())}")
         for chapter in chapters:
             insert_chapter(novel_id, chapter)
-        insert_cost(novel_id, "chapter_list", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens))
+        insert_cost(novel_id, "chapter_list", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens), cache_read, cache_created)
+
+
 
     # ---------------------------------------------------------------------------
-    # generate_chapters
+    # gen_chapter_outline
+    # Generates one chapter
+    # ---------------------------------------------------------------------------
+
+    #def gen_chapter_outline(self, chapter_numner:int):
+        
+        
+        
+    # ---------------------------------------------------------------------------
+    # gen_chapter_outline
     # Loops over chapter list, one LLM call per chapter to write the full
     # detailed summary. Passes all previous summaries for continuity.
     # ---------------------------------------------------------------------------
 
-    def generate_chapters(self, novel_id: str, regenerate: bool = False):
+    def gen_chapter_outline(self, novel_id: str, regen: bool = False):
         chapters = get_chapters(novel_id, ["id", "chapter_number", "title", "word_count", "purpose", "summary", "intimate_arc_role", "chapter_end_hook"])
 
         if not chapters:
-            raise RuntimeError("generate_chapters: no chapter list found — run generate_chapter_list first")
+            raise RuntimeError("gen_chapter_outline: no chapter list found — run gen_chapter_list first")
 
-        if regenerate:
+        if regen:
             # Clear only the summary fields, keep the chapter list rows
             for chapter in chapters:
                 update_chapter_summary(chapter["id"], None, None, chapter.get("intimate_arc_role"), chapter.get("chapter_end_hook"), [])
@@ -246,19 +390,19 @@ class NovelGen:
         locations = get_locations(novel_id, ["id", "name", "description", "atmosphere"])
         items = get_items(novel_id, ["id", "name", "description"])
 
-        config = self.routing["outline"]
+        config = self.routing["chapter_outline"]
 
         # Chapter list skeleton sent to every call for forward continuity
         chapter_list = [{"chapter_number": c["chapter_number"], "title": c["title"], "word_count": c["word_count"], "purpose": c["purpose"]} for c in chapters]
 
         previous_summaries = ""
         for chapter in chapters:
-            if not regenerate and chapter.get("summary"):
+            if not regen and chapter.get("summary"):
                 previous_summaries += f"\nChapter {chapter['chapter_number']} — {chapter['title']}:\n{chapter['summary']}\n"
                 continue
 
             print(f"Generating chapter {chapter['chapter_number']} summary using {config['provider']} / {config['model']}")
-            text, input_tokens, output_tokens = generate_from_config(
+            text, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(
                 config,
                 GEN_OUTLINE_SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", novel.get("summary", ""))),
                 self._seed(GEN_CHAPTER_USER_PROMPT.format(
@@ -281,7 +425,7 @@ class NovelGen:
             if isinstance(detail, list):
                 detail = detail[0] if detail else {}
             if not detail.get("summary"):
-                raise RuntimeError(f"generate_chapters: no summary in response for chapter {chapter['chapter_number']}. Top-level keys: {list(data.keys())}")
+                raise RuntimeError(f"gen_chapter_outline: no summary in response for chapter {chapter['chapter_number']}. Top-level keys: {list(data.keys())}")
             update_chapter_summary(
                 chapter["id"],
                 detail.get("summary", ""),
@@ -291,26 +435,208 @@ class NovelGen:
                 self._ensure_list(detail.get("beats", [])),
             )
             previous_summaries += f"\nChapter {chapter['chapter_number']} — {chapter['title']}:\n{data.get('summary', '')}\n"
-            insert_cost(novel_id, f"chapter_{chapter['chapter_number']}", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens))
+            insert_cost(novel_id, f"chapter_{chapter['chapter_number']}", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens), cache_read, cache_created)
 
     # ---------------------------------------------------------------------------
-    # generate_outline
+    # gen_outline
     # Runs all outline stages in order. Safe to re-run — skips completed stages.
     # ---------------------------------------------------------------------------
 
-    def generate_outline(self, prompt: str, wordcount: int, authorial_voice: str = "") -> str:
-        novel_id = self.generate_novel(prompt, wordcount, authorial_voice)
-        self.generate_spine(novel_id)
-        self.generate_characters(novel_id)
-        self.generate_chapter_list(novel_id)
-        self.generate_chapters(novel_id)
+    def gen_outline(self, prompt: str, wordcount: int, authorial_voice: str = "") -> str:
+        novel_id = self.gen_novel(prompt, wordcount, authorial_voice)
+        self.gen_spine(novel_id)
+        self.gen_characters(novel_id)
+        self.gen_locations(novel_id)
+        self.gen_items(novel_id)
+        self.gen_organizations(novel_id)
+        self.gen_events(novel_id)
+        self.gen_chapter_list(novel_id)
+        self.gen_chapter_outline(novel_id)
         return novel_id
 
+
     # ---------------------------------------------------------------------------
-    # generate_story
+    # Generates prose for a single chapter using spine information the chapter list.
+    # Builds running_summary from all previously written manuscript chapters.
+    # No outline/beats stage — single API call direct to prose.
+    # ---------------------------------------------------------------------------
+    def gen_chapter_raw(self, novel_id: str, chapter_number: int):
+        chapters = get_chapters(novel_id, ["id", "chapter_number", "title", "word_count", "purpose", "chapter_end_hook", "characters_present_ids", "location_ids", "items_present_ids", "organizations_present_ids", "events_present_ids"])
+        chapter = next((c for c in chapters if c["chapter_number"] == chapter_number), None)
+        if not chapter:
+            raise RuntimeError(f"gen_chapter_raw: chapter {chapter_number} not found")
+
+        prior = get_manuscript_summaries(novel_id, before_chapter=chapter_number)
+        running_summary = "".join(
+            f"\nChapter {r['chapter_number']} — {r['title']}:\n{r['summary']}\n"
+            for r in prior
+        ) or "None — this is the first chapter."
+
+        novel_meta = get_novel(novel_id, ["tense", "perspective", "authorial_voice"])
+        tense = novel_meta.get("tense", "past")
+        perspective = novel_meta.get("perspective", "third_person_limited")
+        config = self.routing["prose"]
+
+        characters    = self._get_chapter_characters(chapter)
+        locations     = self._get_chapter_locations(chapter)
+        items         = self._get_chapter_items(chapter)
+        organizations = self._get_chapter_organizations(chapter)
+        events        = self._get_chapter_events(chapter)
+
+        optional_context = ""
+        if organizations:
+            optional_context += f"Organizations involved:\n{json.dumps(organizations, indent=2)}\n\n"
+        if events:
+            optional_context += f"Active events:\n{json.dumps(events, indent=2)}\n\n"
+
+        system_prompt = GEN_CHAPTER_BY_CHAPTER_SYSTEM_PROMPT.format(tense=tense, perspective=perspective)
+        user_prompt = GEN_PROSE_USER_PROMPT.format(
+            running_summary=running_summary,
+            chapter_number=chapter_number,
+            total_chapters=len(chapters),
+            chapter_title=chapter["title"],
+            chapter_summary=chapter.get("purpose", ""),
+            emotional_arc="",
+            chapter_word_count=chapter["word_count"],
+            chapter_end_hook=chapter.get("chapter_end_hook", ""),
+            beats="No beats — write the chapter using the summary and end hook as your guide.",
+            characters=json.dumps(characters, indent=2),
+            locations=json.dumps(locations, indent=2),
+            items=json.dumps(items, indent=2),
+            optional_context=optional_context,
+            tense=tense,
+            perspective=perspective,
+        )
+
+        print(f"Generating raw prose for chapter {chapter_number} using {config['provider']} / {config['model']}")
+        raw, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(config, system_prompt, self._seed(user_prompt))
+        result = self._parse_json(raw)
+
+        prose = result.get("prose", "")
+        chapter_summary = result.get("summary", "")
+        print(f"  Generated {result.get('word_count', '?')} words for chapter {chapter_number}")
+
+        insert_cost(novel_id, f"prose_raw_ch{chapter_number}", config["model"], input_tokens, output_tokens, calculate_cost(config, input_tokens, output_tokens), cache_read, cache_created)
+
+        edit_config = self.routing["chapter_edit"]
+        print(f"Editing raw prose for chapter {chapter_number} using {edit_config['provider']} / {edit_config['model']}")
+        edit_user_prompt = EDIT_CHAPTER_USER_PROMPT.format(
+            characters=json.dumps(characters, indent=2),
+            chapter_number=chapter_number,
+            chapter_title=chapter["title"],
+            chapter_summary=chapter.get("purpose", ""),
+            emotional_arc="",
+            chapter_end_hook=chapter.get("chapter_end_hook", ""),
+            beats="No beats — use the chapter summary and end hook as your structural guide.",
+            prose=prose,
+        )
+        edited_prose, edit_input_tokens, edit_output_tokens, edit_cache_read, edit_cache_created = generate_from_config(edit_config, EDIT_CHAPTER_SYSTEM_PROMPT, edit_user_prompt)
+        insert_cost(novel_id, f"prose_raw_edit_ch{chapter_number}", edit_config["model"], edit_input_tokens, edit_output_tokens, calculate_cost(edit_config, edit_input_tokens, edit_output_tokens), edit_cache_read, edit_cache_created)
+
+        self._insert_chapter_manuscript(novel_id, chapter, edited_prose, chapter_summary)
+        print(edited_prose)
+
+
+
+    # ---------------------------------------------------------------------------
+    # gen_chapter_from_outline
+    # Generates prose for a single chapter. Builds running_summary from all
+    # previously written manuscript chapters.
+    # ---------------------------------------------------------------------------
+    def gen_chapter_from_outline(self, novel_id: str, chapter_number: int):
+        chapters = get_chapters(novel_id, ["id", "chapter_number", "title", "summary", "emotional_arc", "intimate_arc_role", "chapter_end_hook", "word_count", "beats", "characters_present_ids", "location_ids", "items_present_ids", "organizations_present_ids", "events_present_ids"])
+        chapter = next((c for c in chapters if c["chapter_number"] == chapter_number), None)
+        if not chapter:
+            raise RuntimeError(f"gen_chapter_from_outline: chapter {chapter_number} not found")
+
+        prior = get_manuscript_summaries(novel_id, before_chapter=chapter_number)
+        running_summary = "".join(
+            f"\nChapter {r['chapter_number']} — {r['title']}:\n{r['summary']}\n"
+            for r in prior
+        ) or "None — this is the first chapter."
+
+        novel_meta = get_novel(novel_id, ["tense", "perspective", "authorial_voice"])
+        tense = novel_meta.get("tense", "past")
+        perspective = novel_meta.get("perspective", "third_person_limited")
+        config = self.routing["prose"]
+
+        characters    = self._get_chapter_characters(chapter)
+        locations     = self._get_chapter_locations(chapter)
+        items         = self._get_chapter_items(chapter)
+        organizations = self._get_chapter_organizations(chapter)
+        events        = self._get_chapter_events(chapter)
+
+        beats = self._ensure_list(json.loads(chapter.get("beats") or "[]"))
+        beats_block = ""
+        for i, beat in enumerate(beats, start=1):
+            beats_block += f"Beat {i} | Word count share: {beat.get('word_count_pct')}%\nKey event: {beat.get('key_event')}\n"
+            states = beat.get("character_states_after", {})
+            if states:
+                beats_block += "Character states entering next beat: " + "; ".join(f"{name}: {state}" for name, state in states.items()) + "\n"
+            beats_block += "\n"
+
+        optional_context = ""
+        if organizations:
+            optional_context += f"Organizations involved:\n{json.dumps(organizations, indent=2)}\n\n"
+        if events:
+            optional_context += f"Active events:\n{json.dumps(events, indent=2)}\n\n"
+
+        system_prompt = GEN_CHAPTER_BY_CHAPTER_SYSTEM_PROMPT.format(tense=tense, perspective=perspective)
+        user_prompt = GEN_PROSE_USER_PROMPT.format(
+            running_summary=running_summary,
+            chapter_number=chapter_number,
+            total_chapters=len(chapters),
+            chapter_title=chapter["title"],
+            chapter_summary=chapter["summary"],
+            emotional_arc=chapter["emotional_arc"],
+            chapter_word_count=chapter["word_count"],
+            chapter_end_hook=chapter.get("chapter_end_hook", ""),
+            beats=beats_block,
+            characters=json.dumps(characters, indent=2),
+            locations=json.dumps(locations, indent=2),
+            items=json.dumps(items, indent=2),
+            optional_context=optional_context,
+            tense=tense,
+            perspective=perspective,
+        )
+
+        print(f"Generating prose for chapter {chapter_number} using {config['provider']} / {config['model']}")
+        raw, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(config, system_prompt, self._seed(user_prompt))
+        result = self._parse_json(raw)
+        
+        prose = result.get("prose", "")
+        chapter_summary = result.get("summary", "")
+        print(f"  Generated {result.get('word_count', '?')} words for chapter {chapter_number}")
+
+        cost = calculate_cost(config, input_tokens, output_tokens)
+        insert_cost(novel_id, f"prose_ch{chapter_number}", config["model"], input_tokens, output_tokens, cost, cache_read, cache_created)
+
+        edit_config = self.routing["chapter_edit"]
+        print(f"Editing prose for chapter {chapter_number} using {edit_config['provider']} / {edit_config['model']}")
+        edit_user_prompt = EDIT_CHAPTER_USER_PROMPT.format(
+            characters=json.dumps(characters, indent=2),
+            chapter_number=chapter_number,
+            chapter_title=chapter["title"],
+            chapter_summary=chapter["summary"],
+            emotional_arc=chapter["emotional_arc"],
+            chapter_end_hook=chapter.get("chapter_end_hook", ""),
+            beats=beats_block,
+            prose=prose,
+        )
+        edited_prose, edit_input_tokens, edit_output_tokens, edit_cache_read, edit_cache_created = generate_from_config(edit_config, EDIT_CHAPTER_SYSTEM_PROMPT, edit_user_prompt)
+        edit_cost = calculate_cost(edit_config, edit_input_tokens, edit_output_tokens)
+        insert_cost(novel_id, f"prose_edit_ch{chapter_number}", edit_config["model"], edit_input_tokens, edit_output_tokens, edit_cost, edit_cache_read, edit_cache_created)
+
+        self._insert_chapter_manuscript(novel_id, chapter, edited_prose, chapter_summary)
+        print(edited_prose)
+
+
+
+    # ---------------------------------------------------------------------------
+    # gen_story
     # ---------------------------------------------------------------------------
 
-    def generate_story(self, novel_id: str, limit: int = None):
+    def gen_story(self, novel_id: str, limit: int = None):
         config = self.routing["prose"]
         print(f"Generating prose using {config['provider']} / {config['model']}")
 
@@ -371,7 +697,7 @@ class NovelGen:
             )
 
             try:
-                raw, input_tokens, output_tokens = generate_from_config(config, system_prompt, self._seed(user_prompt))
+                raw, input_tokens, output_tokens, cache_read, cache_created = generate_from_config(config, system_prompt, self._seed(user_prompt))
             except Exception as e:
                 print(f"  ERROR: API call failed for chapter {chapter_number}: {e}")
                 raise
@@ -392,7 +718,7 @@ class NovelGen:
             running_summary += f"\n\nChapter {chapter_number} — {chapter['title']}:\n{chapter_summary}"
             story_so_far += f"\n\n{'='*60}\nCHAPTER {chapter_number}: {chapter['title']}\n{'='*60}\n\n{prose}"
 
-            insert_cost(novel_id, f"prose_ch{chapter_number}", config["model"], input_tokens, output_tokens, cost)
+            insert_cost(novel_id, f"prose_ch{chapter_number}", config["model"], input_tokens, output_tokens, cost, cache_read, cache_created)
             self._insert_chapter_manuscript(novel_id, chapter, prose, chapter_summary, story_so_far)
             print(f"  Chapter {chapter_number} saved to manuscripts.")
             print(f"\n{'='*60}\nCHAPTER {chapter_number}: {chapter['title']}\n{'='*60}")
@@ -482,14 +808,14 @@ class NovelGen:
         conn.close()
         return events
 
-    def _insert_chapter_manuscript(self, novel_id: str, chapter: dict, prose: str, summary: str, story_so_far: str):
+    def _insert_chapter_manuscript(self, novel_id: str, chapter: dict, prose: str, summary: str, story_so_far: str = None):
         conn = get_connection()
         conn.execute(
-            """INSERT INTO manuscripts
+            """INSERT OR REPLACE INTO manuscripts
                (id, novel_id, chapter_number, title, summary, story_so_far, prose, word_count, created_at)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
-                str(uuid.uuid4()), novel_id,
+                str(uuid.uuid5(uuid.NAMESPACE_URL, f"{novel_id}/{chapter['chapter_number']}")), novel_id,
                 chapter["chapter_number"],
                 chapter["title"],
                 summary,

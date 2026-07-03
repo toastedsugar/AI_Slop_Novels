@@ -73,13 +73,15 @@ def generate_claude(
         response = client.messages.create(
             model=model,
             max_tokens=max_tokens,
-            system=system_prompt,
+            system=[{"type": "text", "text": system_prompt, "cache_control": {"type": "ephemeral"}}],
             messages=[{"role": "user", "content": user_prompt}],
             **kwargs,
         )
         usage = response.usage
         text = next(b.text for b in response.content if b.type == "text")
-        return text, usage.input_tokens, usage.output_tokens
+        cache_read = getattr(usage, "cache_read_input_tokens", 0) or 0
+        cache_created = getattr(usage, "cache_creation_input_tokens", 0) or 0
+        return text, usage.input_tokens, usage.output_tokens, cache_read, cache_created
 
     except Exception as e:
         raise RuntimeError(f"Anthropic API Error: {e}") from e
