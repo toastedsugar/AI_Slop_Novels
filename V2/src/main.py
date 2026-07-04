@@ -12,7 +12,7 @@ novel = novelgen.NovelGen()
 
 
 # Pulling a story and spine
-novel.gen_spine(novel.gen_novel(prompt=ASTRO, wordcount=25000, authorial_voice="An imitation of F Scott Fitzgerald mixed with Hemmingway."), regen=True)
+novel.gen_spine(novel.gen_novel(prompt=MOMMY, wordcount=45000, authorial_voice="An imitation of F Scott Fitzgerald mixed with Hemmingway."), regen=True)
 
 
 #novel.gen_novel(MOMMY, 50000, authorial_voice="An imitation of F Scott Fitzgerald mixed with Hemmingway.")

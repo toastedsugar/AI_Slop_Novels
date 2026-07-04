@@ -243,8 +243,8 @@ nsfw-prod:
   chapter_edit: mistral-small-4
 
 nsfw-test:
-  novel: mistral-medium-3-5
-  spine: claude-sonnet
+  novel: qwen-3-7-max
+  spine: qwen-3-7-max
   characters: mistral-small-4
   locations: mistral-small-4
   items: mistral-small-4
