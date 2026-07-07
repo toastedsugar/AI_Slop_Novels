@@ -20,7 +20,7 @@ models:
   claude-sonnet:
     provider: anthropic
     model: claude-sonnet-4-5
-    max_tokens: 16000
+    max_tokens: 24000
     temperature: [0.8, 1.0]
     input_price_per_1m: 3.00
     output_price_per_1m: 15.00
@@ -129,7 +129,7 @@ models:
   llama4-maverick:
     provider: openrouter
     model: meta-llama/llama-4-maverick
-    max_tokens: 8192
+    max_tokens: 16000
     temperature: [0.8, 1.0]
     input_price_per_1m: 0.50
     output_price_per_1m: 1.50
@@ -179,23 +179,13 @@ models:
       enabled: false
 
   # Grok models
-  grok-3:
+  grok-4.3:
     provider: openrouter
-    model: x-ai/grok-3
+    model: x-ai/grok-4.3
     max_tokens: 8192
     temperature: [0.8, 1.0]
-    input_price_per_1m: 3.00
-    output_price_per_1m: 15.00
-    reasoning:
-      enabled: false
-
-  grok-3-mini:
-    provider: openrouter
-    model: x-ai/grok-3-mini
-    max_tokens: 8192
-    temperature: [0.8, 1.0]
-    input_price_per_1m: 0.30
-    output_price_per_1m: 0.50
+    input_price_per_1m: 1.25
+    output_price_per_1m: 2.50
     reasoning:
       enabled: false
 

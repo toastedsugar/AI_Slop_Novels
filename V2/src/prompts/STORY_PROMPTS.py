@@ -14,17 +14,11 @@ Book one of the Darkmoon saga. A dark romantasy story about a woman who finds he
 """
 
 
+INSIDE_JOB = """
 
+A man travels back in time to stop 911, but someone from a different future has travelled back in time to stop him and make sure 911 happens, but another guy has time travelled to stop that guy and over and over again to the point where the plane is full of like 100 guys fighting over if the plane will hit the towers or not.
 
-
-
-
-
-
-
-
-
-
+"""
 
 
 

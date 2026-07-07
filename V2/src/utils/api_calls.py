@@ -38,6 +38,11 @@ def generate_openai(
         )
         if response.output_text is None:
             raise RuntimeError(f"OpenAI API returned None output_text for model {model}")
+        if getattr(response, "status", None) == "incomplete":
+            reason = getattr(response.incomplete_details, "reason", None)
+            raise RuntimeError(
+                f"OpenAI response for model {model} was truncated (incomplete, reason={reason!r})"
+            )
         usage = response.usage
         return response.output_text, usage.input_tokens, usage.output_tokens
     except Exception as e:
@@ -70,13 +75,21 @@ def generate_claude(
         kwargs["stop_sequences"] = stop_sequences
 
     try:
-        response = client.messages.create(
+        # Streamed because max_tokens is high enough that a non-streaming call
+        # risks exceeding the SDK's 10-minute request timeout.
+        with client.messages.stream(
             model=model,
             max_tokens=max_tokens,
             system=[{"type": "text", "text": system_prompt, "cache_control": {"type": "ephemeral"}}],
             messages=[{"role": "user", "content": user_prompt}],
             **kwargs,
-        )
+        ) as stream:
+            response = stream.get_final_message()
+        if response.stop_reason == "max_tokens":
+            raise RuntimeError(
+                f"Anthropic response for model {model} was truncated (stop_reason='max_tokens', "
+                f"max_tokens={max_tokens}). Increase max_tokens in model_routing.yaml."
+            )
         usage = response.usage
         text = next(b.text for b in response.content if b.type == "text")
         cache_read = getattr(usage, "cache_read_input_tokens", 0) or 0
@@ -116,6 +129,12 @@ def generate_gemini(
             contents=user_prompt,
             config=config,
         )
+        finish_reason = response.candidates[0].finish_reason
+        if finish_reason == types.FinishReason.MAX_TOKENS:
+            raise RuntimeError(
+                f"Gemini response for model {model} was truncated (finish_reason='MAX_TOKENS', "
+                f"max_output_tokens={max_output_tokens}). Increase max_output_tokens in model_routing.yaml."
+            )
         usage = response.usage_metadata
         return response.text, usage.prompt_token_count, usage.candidates_token_count
 
@@ -164,6 +183,11 @@ def generate_openrouter(
             raise RuntimeError(
                 f"OpenRouter API returned None content for model {model} "
                 f"(finish_reason={finish_reason!r}, refusal={refusal!r})"
+            )
+        if choice.finish_reason == "length":
+            raise RuntimeError(
+                f"OpenRouter response for model {model} was truncated (finish_reason='length', "
+                f"max_tokens={max_tokens}). Increase max_tokens in model_routing.yaml."
             )
         usage = response.usage
         return content, usage.prompt_tokens, usage.completion_tokens
