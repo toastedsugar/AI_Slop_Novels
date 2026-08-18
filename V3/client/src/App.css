@@ -1,0 +1,42 @@
+#app-window {
+  width: 60vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  zoom: 1.5;
+}
+
+#app-window .window-body {
+  flex: 1;
+  overflow: auto;
+}
+
+.app-body {
+  display: flex;
+  gap: 8px;
+}
+
+.app-nav {
+  width: 180px;
+  flex-shrink: 0;
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  a.active {
+    background: navy;
+    color: white;
+  }
+}
+
+.app-content {
+  flex: 1;
+  padding: 8px;
+  overflow: auto;
+}
