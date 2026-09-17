@@ -1,0 +1,78 @@
+# OpenRouter models only, ported from V2's model_routing.yaml (Anthropic/OpenAI
+# direct-API entries dropped — this app only calls out via OPENROUTER_API_KEY).
+#
+# max_tokens is the everyday budget a step gets by default.
+# max_tokens_ceiling is the hard limit a large step (e.g. init_outline) may
+# raise to by passing its own max_tokens — never exceeded. Omit it when the
+# model cannot usefully emit more than its max_tokens.
+models:
+  qwen-3-5-9b:
+    model: qwen/qwen3.5-9b
+    max_tokens: 16000
+    max_tokens_ceiling: 32000
+    temperature: [0.8, 1.0]
+
+  qwen-3-5-flash:
+    model: qwen/qwen3.5-flash-02-23
+    max_tokens: 16000
+    max_tokens_ceiling: 32000
+    temperature: [0.8, 1.0]
+
+  qwen-3-7-max:
+    model: qwen/qwen3.7-max
+    max_tokens: 16000
+    max_tokens_ceiling: 32000
+    temperature: [0.8, 1.0]
+
+  llama3.3:
+    model: meta-llama/llama-3.3-70b-instruct
+    max_tokens: 16000
+    temperature: [0.8, 1.0]
+
+  llama4-scout:
+    model: meta-llama/llama-4-scout
+    max_tokens: 16000
+    temperature: [0.8, 1.0]
+
+  llama4-maverick:
+    model: meta-llama/llama-4-maverick
+    max_tokens: 16000
+    temperature: [0.8, 1.0]
+
+  deepseek-v4-flash:
+    model: deepseek/deepseek-v4-flash
+    max_tokens: 8192
+    temperature: [0.8, 1.0]
+
+  deepseek-v4-pro:
+    model: deepseek/deepseek-v4-pro
+    max_tokens: 8192
+    temperature: [0.8, 1.0]
+
+  mistral-medium:
+    model: mistralai/mistral-medium-3-5
+    max_tokens: 16000
+    max_tokens_ceiling: 32000
+    temperature: [0.8, 1.0]
+
+  mistral-small:
+    model: mistralai/mistral-small-2603
+    max_tokens: 16000
+    max_tokens_ceiling: 32000
+    temperature: [0.8, 1.0]
+
+  grok-4.3:
+    model: x-ai/grok-4.3
+    max_tokens: 8192
+    temperature: [0.8, 1.0]
+
+# Default model alias per pipeline step, used when the client doesn't specify one.
+defaults:
+  metadata: qwen-3-7-max
+  characters: qwen-3-7-max
+  worldbuilding: qwen-3-7-max
+  primary_thread: qwen-3-7-max
+  secondary_arcs: qwen-3-7-max
+  outline: qwen-3-7-max
+  entities: qwen-3-7-max
+  initial_state: qwen-3-7-max

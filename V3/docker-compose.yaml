@@ -4,6 +4,8 @@ services:
     working_dir: /app
     volumes:
       - ./server/app:/app/app
+      - ./server/db:/app/db
+      - ./server/model_routing.yaml:/app/model_routing.yaml
     env_file:
       - ./.env
     ports:
