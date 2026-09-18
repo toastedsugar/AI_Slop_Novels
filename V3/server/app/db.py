@@ -199,10 +199,15 @@ def init_db() -> None:
                 word_count_pct INTEGER,
                 time_gap_before TEXT,
                 forbidden_element_active INTEGER,
-                intimate_arc_role TEXT
+                intimate_arc_role TEXT,
+                intimate_entry_mode TEXT
             )
             """
         )
+        # Migrate existing dbs created before this column was added.
+        spine_columns = {row[1] for row in conn.execute("PRAGMA table_info(spine_beats)")}
+        if "intimate_entry_mode" not in spine_columns:
+            conn.execute("ALTER TABLE spine_beats ADD COLUMN intimate_entry_mode TEXT")
 
         # Internal generation input — one row per plot point of a
         # secondary_thread's arc from init_secondary_arcs, in order. Not

@@ -454,8 +454,9 @@ def create_novel(body: NovelCreate) -> NovelCreateResponse:
             conn.execute(
                 """INSERT INTO spine_beats
                    (id, novel_id, sort_order, heros_journey_step, summary, word_count_pct,
-                    time_gap_before, forbidden_element_active, intimate_arc_role)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                    time_gap_before, forbidden_element_active, intimate_arc_role,
+                    intimate_entry_mode)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 (
                     str(uuid.uuid4()),
                     new_id,
@@ -466,6 +467,7 @@ def create_novel(body: NovelCreate) -> NovelCreateResponse:
                     beat.get("time_gap_before"),
                     1 if beat.get("forbidden_element_active") else 0,
                     beat.get("intimate_arc_role"),
+                    beat.get("intimate_entry_mode"),
                 ),
             )
         conn.commit()
@@ -473,7 +475,8 @@ def create_novel(body: NovelCreate) -> NovelCreateResponse:
             dict(row)
             for row in conn.execute(
                 """SELECT id, novel_id, sort_order, heros_journey_step, summary, word_count_pct,
-                          time_gap_before, forbidden_element_active, intimate_arc_role
+                          time_gap_before, forbidden_element_active, intimate_arc_role,
+                          intimate_entry_mode
                    FROM spine_beats WHERE novel_id = ? ORDER BY sort_order""",
                 (new_id,),
             ).fetchall()
