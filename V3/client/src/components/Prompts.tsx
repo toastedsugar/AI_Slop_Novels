@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import CopyDialog from './CopyDialog'
-import PromptForm, { toNovelCreatePayload, type DraftSecondaryThread, type PromptFormValues } from './PromptForm'
+import PromptForm, {
+  toNovelCreatePayload,
+  type DraftCharacterSeed,
+  type DraftSecondaryThread,
+  type PromptFormValues,
+} from './PromptForm'
 
 interface PromptsProps {
   novelId: string
@@ -9,10 +14,14 @@ interface PromptsProps {
   premise: string
   toneNotes: string
   charactersNotes: string
+  worldbuildingNotes: string
+  characterGenerationNotes: string
   primaryThread: string
   romanceContent: string
   secondaryThreads: DraftSecondaryThread[]
   primaryGenre: string
+  region: string
+  characterSeeds: DraftCharacterSeed[]
   author: string
   themes: string
   metadataModel: string
@@ -21,6 +30,7 @@ interface PromptsProps {
   primaryThreadModel: string
   secondaryArcsModel: string
   outlineModel: string
+  outlineAuditModel: string
   entitiesModel: string
   initialStateModel: string
   metadataReasoning: boolean
@@ -29,9 +39,13 @@ interface PromptsProps {
   primaryThreadReasoning: boolean
   secondaryArcsReasoning: boolean
   outlineReasoning: boolean
+  outlineAuditReasoning: boolean
   entitiesReasoning: boolean
   initialStateReasoning: boolean
   onRegenerated: (newId: string) => void
+  // Called after a per-step "Regenerate from here" (Worldbuilding/Outline)
+  // succeeds, so Novel.tsx can refresh whatever tabs the cascade touched.
+  onStepRegenerated: (step: 'worldbuilding' | 'outline') => void
 }
 
 // The "Prompts" tab: the exact same PromptForm used to create a novel,
@@ -44,10 +58,14 @@ function Prompts({
   premise,
   toneNotes,
   charactersNotes,
+  worldbuildingNotes,
+  characterGenerationNotes,
   primaryThread,
   romanceContent,
   secondaryThreads,
   primaryGenre,
+  region,
+  characterSeeds,
   author,
   themes,
   metadataModel,
@@ -56,6 +74,7 @@ function Prompts({
   primaryThreadModel,
   secondaryArcsModel,
   outlineModel,
+  outlineAuditModel,
   entitiesModel,
   initialStateModel,
   metadataReasoning,
@@ -64,9 +83,11 @@ function Prompts({
   primaryThreadReasoning,
   secondaryArcsReasoning,
   outlineReasoning,
+  outlineAuditReasoning,
   entitiesReasoning,
   initialStateReasoning,
   onRegenerated,
+  onStepRegenerated,
 }: PromptsProps) {
   const [regenerating, setRegenerating] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -77,10 +98,14 @@ function Prompts({
     premise,
     toneNotes,
     charactersNotes,
+    worldbuildingNotes,
+    characterGenerationNotes,
     primaryThread,
     romanceContent,
     secondaryThreads,
     primaryGenre,
+    region,
+    characterSeeds,
     author,
     themes,
     metadataModel,
@@ -89,6 +114,7 @@ function Prompts({
     primaryThreadModel,
     secondaryArcsModel,
     outlineModel,
+    outlineAuditModel,
     entitiesModel,
     initialStateModel,
     metadataReasoning,
@@ -97,6 +123,7 @@ function Prompts({
     primaryThreadReasoning,
     secondaryArcsReasoning,
     outlineReasoning,
+    outlineAuditReasoning,
     entitiesReasoning,
     initialStateReasoning,
   }
@@ -137,6 +164,8 @@ function Prompts({
         requireDirty
         confirmTitle="Regenerate Novel"
         confirmMessage="This will permanently delete everything generated for this novel (characters, outline, worldbuilding, etc.) and generate it all again from scratch using the prompt below. This cannot be undone."
+        novelId={novelId}
+        onNovelRegenerated={onStepRegenerated}
       />
     </>
   )

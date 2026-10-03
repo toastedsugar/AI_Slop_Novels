@@ -8,18 +8,24 @@ interface EntityCardProps<T> {
     entity: T,
     updateField: <K extends keyof T>(field: K, value: T[K]) => void,
   ) => React.ReactNode
+  // When true, hides the Save button — used once a novel is locked (see
+  // Novel.tsx), since the server rejects these PATCHes with 423 at that
+  // point anyway. Fields still render via renderFields; only saving is
+  // disabled, so the caller doesn't need a separate read-only field layout.
+  readOnly?: boolean
 }
 
 // A generic editable card: renders whatever fields the caller wants via
 // renderFields, tracks local edits against the last-saved entity, and PATCHes
 // only the changed entity to patchUrl on Save. Used for characters, locations,
-// items, organizations, and events, which all follow the same edit/save shape
+// items, groups, and events, which all follow the same edit/save shape
 // but have different fields.
 function EntityCard<T extends { id: string }>({
   entity,
   patchUrl,
   onSaved,
   renderFields,
+  readOnly = false,
 }: EntityCardProps<T>) {
   const [draft, setDraft] = useState<T>(entity)
   const [saved, setSaved] = useState<T>(entity)
@@ -63,13 +69,15 @@ function EntityCard<T extends { id: string }>({
   return (
     <div className="novel-character-card">
       {renderFields(draft, updateField)}
-      <div className="novel-character-card-actions">
-        {saveError && <span className="novels-error">{saveError}</span>}
-        {justSaved && !saveError && <span className="novel-detail-saved">Saved.</span>}
-        <button type="button" disabled={saving || !isDirty} onClick={handleSave}>
-          {saving ? 'Saving...' : 'Save'}
-        </button>
-      </div>
+      {!readOnly && (
+        <div className="novel-character-card-actions">
+          {saveError && <span className="novels-error">{saveError}</span>}
+          {justSaved && !saveError && <span className="novel-detail-saved">Saved.</span>}
+          <button type="button" disabled={saving || !isDirty} onClick={handleSave}>
+            {saving ? 'Saving...' : 'Save'}
+          </button>
+        </div>
+      )}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import AutoGrowTextarea from './AutoGrowTextarea'
+import Chapters from './Chapters'
 import CopyDialog from './CopyDialog'
 import EntityCard from './EntityCard'
 import Prompts from './Prompts'
@@ -13,6 +14,8 @@ interface NovelDetail {
   word_count: number | null
   premise: string
   primary_genre: string | null
+  region: string | null
+  character_seeds: { name: string; notes: string }[]
   sub_genres: string[]
   tone: string | null
   themes: string[]
@@ -21,13 +24,10 @@ interface NovelDetail {
   tense: string | null
   perspective: string | null
   forbidden_element: string | null
-  story_type: string | null
-  time_period: string | null
-  anchor_location: string | null
-  anchor_location_description: string | null
-  constraints: string[]
   tone_notes: string | null
   characters_notes: string | null
+  worldbuilding_notes: string | null
+  character_generation_notes: string | null
   primary_thread: string | null
   romance_content: string | null
   primary_word_count: number | null
@@ -37,6 +37,7 @@ interface NovelDetail {
   primary_thread_model: string | null
   secondary_arcs_model: string | null
   outline_model: string | null
+  outline_audit_model: string | null
   entities_model: string | null
   initial_state_model: string | null
   metadata_reasoning: boolean
@@ -45,8 +46,11 @@ interface NovelDetail {
   primary_thread_reasoning: boolean
   secondary_arcs_reasoning: boolean
   outline_reasoning: boolean
+  outline_audit_reasoning: boolean
   entities_reasoning: boolean
   initial_state_reasoning: boolean
+  locked: boolean
+  locked_at: string | null
 }
 
 interface SecondaryThread {
@@ -59,12 +63,40 @@ interface SecondaryThread {
   word_count: number | null
 }
 
+interface WorldbuildingFact {
+  id: string
+  novel_id: string
+  sort_order: number
+  category: string
+  title: string | null
+  description: string | null
+}
+
+interface Worldbuilding {
+  id: string
+  novel_id: string
+  story_type: string | null
+  time_period: string | null
+  anchor_location: string | null
+  anchor_location_description: string | null
+  facts: WorldbuildingFact[]
+}
+
 interface OutlineBeat {
   id: string
   novel_id: string
   sort_order: number
   content: string
   word_count: number | null
+  title: string | null
+  pov_character: string | null
+  pov_voice_note: string | null
+  tone: string | null
+  characters_present: string[]
+  items_present: string[]
+  locations_present: string[]
+  groups_present: string[]
+  worldbuilding_facts_present: string[]
 }
 
 interface Character {
@@ -103,11 +135,12 @@ interface Item {
   description: string | null
 }
 
-interface Organization {
+interface Group {
   id: string
   novel_id: string
   name: string
   description: string | null
+  associated_characters: string[]
 }
 
 interface StoryEvent {
@@ -116,7 +149,7 @@ interface StoryEvent {
   title: string
   description: string | null
   characters_involved: string[]
-  organizations_involved: string[]
+  groups_involved: string[]
 }
 
 interface NovelProps {
@@ -125,8 +158,11 @@ interface NovelProps {
   onSelectNovel: (id: string | null) => void
 }
 
-const TABS = ['Prompts', 'Metadata', 'Characters', 'Outline', 'Locations', 'Items', 'Organizations', 'Events'] as const
+const TABS = ['Prompts', 'Metadata', 'Worldbuilding', 'Characters', 'Outline', 'Locations', 'Items', 'Groups', 'Events', 'Chapters'] as const
 type Tab = (typeof TABS)[number]
+
+// Display order for the world fact categories; mirrors the generation prompt.
+const WORLDBUILDING_CATEGORIES = ['society', 'physical', 'systems', 'intimate'] as const
 
 function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
   const [novel, setNovel] = useState<NovelDetail | null>(null)
@@ -136,18 +172,30 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
   const [saveError, setSaveError] = useState<string | null>(null)
   const [justSaved, setJustSaved] = useState(false)
   const [activeTab, setActiveTab] = useState<Tab>('Prompts')
+  // Bumped after a "Regenerate from here" (Worldbuilding/Outline) succeeds —
+  // included in the load-everything effect's deps below so it re-fetches
+  // whatever tabs the cascade touched, without hoisting those load functions
+  // out of the effect.
+  const [refreshKey, setRefreshKey] = useState(0)
 
   const [secondaryThreads, setSecondaryThreads] = useState<SecondaryThread[] | null>(null)
 
   const [characters, setCharacters] = useState<Character[] | null>(null)
   const [charactersError, setCharactersError] = useState<string | null>(null)
 
+  const [worldbuilding, setWorldbuilding] = useState<Worldbuilding | null>(null)
+  const [worldbuildingError, setWorldbuildingError] = useState<string | null>(null)
+  const [savedWorldbuilding, setSavedWorldbuilding] = useState<Worldbuilding | null>(null)
+  const [savingWorldbuilding, setSavingWorldbuilding] = useState(false)
+  const [worldbuildingSaveError, setWorldbuildingSaveError] = useState<string | null>(null)
+  const [worldbuildingJustSaved, setWorldbuildingJustSaved] = useState(false)
+
   const [outline, setOutline] = useState<OutlineBeat[] | null>(null)
   const [outlineError, setOutlineError] = useState<string | null>(null)
 
   const [locations, setLocations] = useState<Location[] | null>(null)
   const [items, setItems] = useState<Item[] | null>(null)
-  const [organizations, setOrganizations] = useState<Organization[] | null>(null)
+  const [groups, setGroups] = useState<Group[] | null>(null)
   const [events, setEvents] = useState<StoryEvent[] | null>(null)
   const [worldError, setWorldError] = useState<string | null>(null)
 
@@ -198,6 +246,25 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
       }
     }
 
+    async function loadWorldbuilding() {
+      setWorldbuilding(null)
+      setWorldbuildingError(null)
+      try {
+        const res = await fetch(`/api/v1/novel/${id}/worldbuilding`)
+        // 404 just means this novel predates the worldbuilding step.
+        if (res.status === 404) return
+        if (!res.ok) throw new Error(`GET /api/v1/novel/${id}/worldbuilding failed: ${res.status}`)
+        const data = await res.json()
+        if (!cancelled) {
+          setWorldbuilding(data)
+          setSavedWorldbuilding(data)
+        }
+      } catch (err) {
+        console.error(err)
+        if (!cancelled) setWorldbuildingError('Failed to load worldbuilding.')
+      }
+    }
+
     async function loadOutline() {
       setOutline(null)
       setOutlineError(null)
@@ -215,29 +282,29 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
     async function loadWorld() {
       setLocations(null)
       setItems(null)
-      setOrganizations(null)
+      setGroups(null)
       setEvents(null)
       setWorldError(null)
       try {
-        const [locationsRes, itemsRes, organizationsRes, eventsRes] = await Promise.all([
+        const [locationsRes, itemsRes, groupsRes, eventsRes] = await Promise.all([
           fetch(`/api/v1/novel/${id}/locations`),
           fetch(`/api/v1/novel/${id}/items`),
-          fetch(`/api/v1/novel/${id}/organizations`),
+          fetch(`/api/v1/novel/${id}/groups`),
           fetch(`/api/v1/novel/${id}/events`),
         ])
-        if (!locationsRes.ok || !itemsRes.ok || !organizationsRes.ok || !eventsRes.ok) {
-          throw new Error(`GET /api/v1/novel/${id}/{locations,items,organizations,events} failed`)
+        if (!locationsRes.ok || !itemsRes.ok || !groupsRes.ok || !eventsRes.ok) {
+          throw new Error(`GET /api/v1/novel/${id}/{locations,items,groups,events} failed`)
         }
-        const [locationsData, itemsData, organizationsData, eventsData] = await Promise.all([
+        const [locationsData, itemsData, groupsData, eventsData] = await Promise.all([
           locationsRes.json(),
           itemsRes.json(),
-          organizationsRes.json(),
+          groupsRes.json(),
           eventsRes.json(),
         ])
         if (!cancelled) {
           setLocations(locationsData)
           setItems(itemsData)
-          setOrganizations(organizationsData)
+          setGroups(groupsData)
           setEvents(eventsData)
         }
       } catch (err) {
@@ -248,13 +315,14 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
 
     loadNovel()
     loadSecondaryThreads()
+    loadWorldbuilding()
     loadCharacters()
     loadOutline()
     loadWorld()
     return () => {
       cancelled = true
     }
-  }, [id])
+  }, [id, refreshKey])
 
   function updateField<K extends keyof NovelDetail>(field: K, value: NovelDetail[K]) {
     setNovel((prev) => (prev ? { ...prev, [field]: value } : prev))
@@ -262,6 +330,55 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
   }
 
   const isDirty = novel != null && saved != null && JSON.stringify(novel) !== JSON.stringify(saved)
+
+  // Re-runs only the outline step. Everything upstream (characters, worldbuilding,
+  // spine, entities) is reused as-is, so a failure here leaves the novel intact.
+  // Core worldbuilding fields only — the facts save individually via EntityCard.
+  const worldbuildingDirty =
+    worldbuilding != null &&
+    savedWorldbuilding != null &&
+    (worldbuilding.story_type !== savedWorldbuilding.story_type ||
+      worldbuilding.time_period !== savedWorldbuilding.time_period ||
+      worldbuilding.anchor_location !== savedWorldbuilding.anchor_location ||
+      worldbuilding.anchor_location_description !==
+        savedWorldbuilding.anchor_location_description)
+
+  function updateWorldbuildingField<K extends keyof Worldbuilding>(
+    field: K,
+    value: Worldbuilding[K],
+  ) {
+    setWorldbuilding((prev) => (prev ? { ...prev, [field]: value } : prev))
+    setWorldbuildingJustSaved(false)
+  }
+
+  async function handleWorldbuildingSubmit() {
+    if (!worldbuilding || !worldbuildingDirty) return
+    setSavingWorldbuilding(true)
+    setWorldbuildingSaveError(null)
+    setWorldbuildingJustSaved(false)
+    try {
+      const res = await fetch(`/api/v1/novel/${id}/worldbuilding`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          story_type: worldbuilding.story_type,
+          time_period: worldbuilding.time_period,
+          anchor_location: worldbuilding.anchor_location,
+          anchor_location_description: worldbuilding.anchor_location_description,
+        }),
+      })
+      if (!res.ok) throw new Error(`PATCH worldbuilding failed: ${res.status}`)
+      const data = await res.json()
+      setWorldbuilding(data)
+      setSavedWorldbuilding(data)
+      setWorldbuildingJustSaved(true)
+    } catch (err) {
+      console.error(err)
+      setWorldbuildingSaveError('Failed to save. Please try again.')
+    } finally {
+      setSavingWorldbuilding(false)
+    }
+  }
 
   async function handleSubmit() {
     if (!novel || !isDirty) return
@@ -287,11 +404,6 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
           tense: novel.tense,
           perspective: novel.perspective,
           forbidden_element: novel.forbidden_element,
-          story_type: novel.story_type,
-          time_period: novel.time_period,
-          anchor_location: novel.anchor_location,
-          anchor_location_description: novel.anchor_location_description,
-          constraints: novel.constraints,
         }),
       })
       if (!res.ok) throw new Error(`PATCH /api/v1/novel/${id} failed: ${res.status}`)
@@ -481,62 +593,6 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
               </div>
 
               <div className="novel-field">
-                <label htmlFor="field-story-type">Story Type</label>
-                <input
-                  id="field-story-type"
-                  type="text"
-                  value={novel.story_type ?? ''}
-                  onChange={(e) => updateField('story_type', e.target.value)}
-                />
-              </div>
-
-              <div className="novel-field">
-                <label htmlFor="field-time-period">Time Period</label>
-                <input
-                  id="field-time-period"
-                  type="text"
-                  value={novel.time_period ?? ''}
-                  onChange={(e) => updateField('time_period', e.target.value)}
-                />
-              </div>
-
-              <div className="novel-field">
-                <label htmlFor="field-anchor-location">Anchor Location</label>
-                <input
-                  id="field-anchor-location"
-                  type="text"
-                  value={novel.anchor_location ?? ''}
-                  onChange={(e) => updateField('anchor_location', e.target.value)}
-                />
-              </div>
-
-              <div className="novel-field">
-                <label htmlFor="field-anchor-location-description">Anchor Location Description</label>
-                <AutoGrowTextarea
-                  id="field-anchor-location-description"
-                  value={novel.anchor_location_description ?? ''}
-                  onChange={(e) => updateField('anchor_location_description', e.target.value)}
-                />
-              </div>
-
-              <div className="novel-field">
-                <label htmlFor="field-constraints">Constraints</label>
-                <AutoGrowTextarea
-                  id="field-constraints"
-                  value={novel.constraints.join(', ')}
-                  onChange={(e) =>
-                    updateField(
-                      'constraints',
-                      e.target.value
-                        .split(',')
-                        .map((s) => s.trim())
-                        .filter(Boolean),
-                    )
-                  }
-                />
-              </div>
-
-              <div className="novel-field">
                 <label htmlFor="field-primary-word-count">Primary Word Count</label>
                 <input
                   id="field-primary-word-count"
@@ -544,7 +600,7 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
                   readOnly
                   value={
                     novel.primary_word_count != null
-                      ? `${novel.primary_word_count} words (target word count plus secondary thread bonuses)`
+                      ? `${novel.primary_word_count} words (total target minus the secondary threads' share)`
                       : 'Not yet generated'
                   }
                 />
@@ -553,7 +609,7 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
               <div className="novel-character-card-actions">
                 {saveError && <span className="novels-error">{saveError}</span>}
                 {justSaved && !saveError && <span className="novel-detail-saved">Saved.</span>}
-                <button type="button" disabled={saving || !isDirty} onClick={handleSubmit}>
+                <button type="button" disabled={saving || !isDirty || novel.locked} onClick={handleSubmit}>
                   {saving ? 'Saving...' : 'Update'}
                 </button>
               </div>
@@ -568,6 +624,8 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
               premise={novel.premise}
               toneNotes={novel.tone_notes ?? ''}
               charactersNotes={novel.characters_notes ?? ''}
+              worldbuildingNotes={novel.worldbuilding_notes ?? ''}
+              characterGenerationNotes={novel.character_generation_notes ?? ''}
               primaryThread={novel.primary_thread ?? ''}
               romanceContent={novel.romance_content ?? ''}
               secondaryThreads={(secondaryThreads ?? []).map((t) => ({
@@ -577,6 +635,8 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
                 heat: t.heat,
               }))}
               primaryGenre={novel.primary_genre ?? ''}
+              region={novel.region ?? 'Italy'}
+              characterSeeds={novel.character_seeds ?? []}
               author={novel.author ?? ''}
               themes={novel.themes.join(', ')}
               metadataModel={novel.metadata_model ?? ''}
@@ -585,6 +645,7 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
               primaryThreadModel={novel.primary_thread_model ?? ''}
               secondaryArcsModel={novel.secondary_arcs_model ?? ''}
               outlineModel={novel.outline_model ?? ''}
+              outlineAuditModel={novel.outline_audit_model ?? ''}
               entitiesModel={novel.entities_model ?? ''}
               initialStateModel={novel.initial_state_model ?? ''}
               metadataReasoning={novel.metadata_reasoning}
@@ -593,13 +654,142 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
               primaryThreadReasoning={novel.primary_thread_reasoning}
               secondaryArcsReasoning={novel.secondary_arcs_reasoning}
               outlineReasoning={novel.outline_reasoning}
+              outlineAuditReasoning={novel.outline_audit_reasoning}
               entitiesReasoning={novel.entities_reasoning}
               initialStateReasoning={novel.initial_state_reasoning}
               onRegenerated={(newId) => {
                 onNovelCreated()
                 onSelectNovel(newId)
               }}
+              onStepRegenerated={(step) => {
+                setRefreshKey((k) => k + 1)
+                setActiveTab(step === 'worldbuilding' ? 'Worldbuilding' : 'Outline')
+              }}
             />
+          )}
+
+          {activeTab === 'Worldbuilding' && (
+            <>
+              {worldbuildingError && <p className="novels-error">{worldbuildingError}</p>}
+              {!worldbuildingError && worldbuilding === null && (
+                <p>No worldbuilding generated yet.</p>
+              )}
+              {!worldbuildingError && worldbuilding !== null && (
+                <>
+                  <div className="novel-field">
+                    <label htmlFor="wb-story-type">Story Type</label>
+                    <input
+                      id="wb-story-type"
+                      type="text"
+                      value={worldbuilding.story_type ?? ''}
+                      onChange={(e) => updateWorldbuildingField('story_type', e.target.value)}
+                    />
+                  </div>
+
+                  <div className="novel-field">
+                    <label htmlFor="wb-time-period">Time Period</label>
+                    <input
+                      id="wb-time-period"
+                      type="text"
+                      value={worldbuilding.time_period ?? ''}
+                      onChange={(e) => updateWorldbuildingField('time_period', e.target.value)}
+                    />
+                  </div>
+
+                  <div className="novel-field">
+                    <label htmlFor="wb-anchor-location">Anchor Location</label>
+                    <input
+                      id="wb-anchor-location"
+                      type="text"
+                      value={worldbuilding.anchor_location ?? ''}
+                      onChange={(e) => updateWorldbuildingField('anchor_location', e.target.value)}
+                    />
+                  </div>
+
+                  <div className="novel-field">
+                    <label htmlFor="wb-anchor-description">Anchor Location Description</label>
+                    <AutoGrowTextarea
+                      id="wb-anchor-description"
+                      value={worldbuilding.anchor_location_description ?? ''}
+                      onChange={(e) =>
+                        updateWorldbuildingField('anchor_location_description', e.target.value)
+                      }
+                    />
+                  </div>
+
+                  <div className="novel-character-card-actions">
+                    {worldbuildingSaveError && (
+                      <span className="novels-error">{worldbuildingSaveError}</span>
+                    )}
+                    {worldbuildingJustSaved && !worldbuildingSaveError && (
+                      <span className="novel-detail-saved">Saved.</span>
+                    )}
+                    <button
+                      type="button"
+                      disabled={savingWorldbuilding || !worldbuildingDirty || novel.locked}
+                      onClick={handleWorldbuildingSubmit}
+                    >
+                      {savingWorldbuilding ? 'Saving...' : 'Update'}
+                    </button>
+                  </div>
+
+                  {WORLDBUILDING_CATEGORIES.map((category) => {
+                    const facts = worldbuilding.facts.filter((f) => f.category === category)
+                    if (facts.length === 0) return null
+                    return (
+                      <div key={category}>
+                        <h3 className="novel-worldbuilding-category">{category}</h3>
+                        <div className="novel-characters-list">
+                          {facts.map((fact) => (
+                            <EntityCard
+                              key={fact.id}
+                              readOnly={novel.locked}
+                              entity={fact}
+                              patchUrl={`/api/v1/novel/${id}/worldbuilding-facts/${fact.id}`}
+                              onSaved={(updated) =>
+                                setWorldbuilding((prev) =>
+                                  prev
+                                    ? {
+                                        ...prev,
+                                        facts: prev.facts.map((f) =>
+                                          f.id === updated.id ? updated : f,
+                                        ),
+                                      }
+                                    : prev,
+                                )
+                              }
+                              renderFields={(draft, updateField) => (
+                                <>
+                                  <div className="novel-field">
+                                    <label htmlFor={`fact-title-${draft.id}`}>Title</label>
+                                    <input
+                                      id={`fact-title-${draft.id}`}
+                                      type="text"
+                                      value={draft.title ?? ''}
+                                      onChange={(e) => updateField('title', e.target.value)}
+                                    />
+                                  </div>
+                                  <div className="novel-field">
+                                    <label htmlFor={`fact-description-${draft.id}`}>
+                                      Description
+                                    </label>
+                                    <AutoGrowTextarea
+                                      id={`fact-description-${draft.id}`}
+                                      value={draft.description ?? ''}
+                                      onChange={(e) => updateField('description', e.target.value)}
+                                    />
+                                  </div>
+                                </>
+                              )}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )
+                  })}
+                </>
+              )}
+            </>
           )}
 
           {activeTab === 'Characters' && (
@@ -614,6 +804,7 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
                   {characters.map((character) => (
                     <EntityCard
                       key={character.id}
+                      readOnly={novel.locked}
                       entity={character}
                       patchUrl={`/api/v1/novel/${id}/characters/${character.id}`}
                       onSaved={(updated) =>
@@ -815,6 +1006,7 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
                   {outline.map((beat, index) => (
                     <EntityCard
                       key={beat.id}
+                      readOnly={novel.locked}
                       entity={beat}
                       patchUrl={`/api/v1/novel/${id}/outline-beats/${beat.id}`}
                       onSaved={(updated) =>
@@ -825,7 +1017,17 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
                       renderFields={(draft, updateField) => (
                         <>
                           <div className="novel-field">
-                            <label>Beat {index + 1}</label>
+                            <label>Chapter {index + 1}</label>
+                          </div>
+
+                          <div className="novel-field">
+                            <label htmlFor={`beat-title-${draft.id}`}>Title</label>
+                            <input
+                              id={`beat-title-${draft.id}`}
+                              type="text"
+                              value={draft.title ?? ''}
+                              onChange={(e) => updateField('title', e.target.value)}
+                            />
                           </div>
 
                           <div className="novel-field">
@@ -834,6 +1036,35 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
                               id={`beat-content-${draft.id}`}
                               value={draft.content}
                               onChange={(e) => updateField('content', e.target.value)}
+                            />
+                          </div>
+
+                          <div className="novel-field">
+                            <label htmlFor={`beat-pov-character-${draft.id}`}>POV Character</label>
+                            <input
+                              id={`beat-pov-character-${draft.id}`}
+                              type="text"
+                              value={draft.pov_character ?? ''}
+                              onChange={(e) => updateField('pov_character', e.target.value)}
+                            />
+                          </div>
+
+                          <div className="novel-field">
+                            <label htmlFor={`beat-pov-voice-note-${draft.id}`}>POV Voice Note</label>
+                            <AutoGrowTextarea
+                              id={`beat-pov-voice-note-${draft.id}`}
+                              value={draft.pov_voice_note ?? ''}
+                              onChange={(e) => updateField('pov_voice_note', e.target.value)}
+                            />
+                          </div>
+
+                          <div className="novel-field">
+                            <label htmlFor={`beat-tone-${draft.id}`}>Tone</label>
+                            <input
+                              id={`beat-tone-${draft.id}`}
+                              type="text"
+                              value={draft.tone ?? ''}
+                              onChange={(e) => updateField('tone', e.target.value)}
                             />
                           </div>
 
@@ -872,6 +1103,7 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
                   {locations.map((location) => (
                     <EntityCard
                       key={location.id}
+                      readOnly={novel.locked}
                       entity={location}
                       patchUrl={`/api/v1/novel/${id}/locations/${location.id}`}
                       onSaved={(updated) =>
@@ -917,6 +1149,7 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
                   {items.map((item) => (
                     <EntityCard
                       key={item.id}
+                      readOnly={novel.locked}
                       entity={item}
                       patchUrl={`/api/v1/novel/${id}/items/${item.id}`}
                       onSaved={(updated) =>
@@ -952,42 +1185,62 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
             </>
           )}
 
-          {activeTab === 'Organizations' && (
+          {activeTab === 'Groups' && (
             <>
               {worldError && <p className="novels-error">{worldError}</p>}
-              {!worldError && organizations === null && <p>Loading organizations...</p>}
-              {!worldError && organizations !== null && organizations.length === 0 && (
-                <p>No organizations generated yet.</p>
+              {!worldError && groups === null && <p>Loading groups...</p>}
+              {!worldError && groups !== null && groups.length === 0 && (
+                <p>No groups generated yet.</p>
               )}
-              {!worldError && organizations !== null && organizations.length > 0 && (
+              {!worldError && groups !== null && groups.length > 0 && (
                 <div className="novel-characters-list">
-                  {organizations.map((organization) => (
+                  {groups.map((group) => (
                     <EntityCard
-                      key={organization.id}
-                      entity={organization}
-                      patchUrl={`/api/v1/novel/${id}/organizations/${organization.id}`}
+                      key={group.id}
+                      readOnly={novel.locked}
+                      entity={group}
+                      patchUrl={`/api/v1/novel/${id}/groups/${group.id}`}
                       onSaved={(updated) =>
-                        setOrganizations((prev) =>
-                          prev ? prev.map((o) => (o.id === updated.id ? updated : o)) : prev,
+                        setGroups((prev) =>
+                          prev ? prev.map((g) => (g.id === updated.id ? updated : g)) : prev,
                         )
                       }
                       renderFields={(draft, updateField) => (
                         <>
                           <div className="novel-field">
-                            <label htmlFor={`org-name-${draft.id}`}>Name</label>
+                            <label htmlFor={`group-name-${draft.id}`}>Name</label>
                             <input
-                              id={`org-name-${draft.id}`}
+                              id={`group-name-${draft.id}`}
                               type="text"
                               value={draft.name}
                               onChange={(e) => updateField('name', e.target.value)}
                             />
                           </div>
                           <div className="novel-field">
-                            <label htmlFor={`org-description-${draft.id}`}>Description</label>
+                            <label htmlFor={`group-description-${draft.id}`}>Description</label>
                             <AutoGrowTextarea
-                              id={`org-description-${draft.id}`}
+                              id={`group-description-${draft.id}`}
                               value={draft.description ?? ''}
                               onChange={(e) => updateField('description', e.target.value)}
+                            />
+                          </div>
+                          <div className="novel-field">
+                            <label htmlFor={`group-characters-${draft.id}`}>
+                              Associated Characters
+                            </label>
+                            <input
+                              id={`group-characters-${draft.id}`}
+                              type="text"
+                              value={draft.associated_characters.join(', ')}
+                              onChange={(e) =>
+                                updateField(
+                                  'associated_characters',
+                                  e.target.value
+                                    .split(',')
+                                    .map((s) => s.trim())
+                                    .filter(Boolean),
+                                )
+                              }
                             />
                           </div>
                         </>
@@ -1009,6 +1262,7 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
                   {events.map((event) => (
                     <EntityCard
                       key={event.id}
+                      readOnly={novel.locked}
                       entity={event}
                       patchUrl={`/api/v1/novel/${id}/events/${event.id}`}
                       onSaved={(updated) =>
@@ -1053,16 +1307,16 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
                             />
                           </div>
                           <div className="novel-field">
-                            <label htmlFor={`event-organizations-${draft.id}`}>
-                              Organizations Involved
+                            <label htmlFor={`event-groups-${draft.id}`}>
+                              Groups Involved
                             </label>
                             <input
-                              id={`event-organizations-${draft.id}`}
+                              id={`event-groups-${draft.id}`}
                               type="text"
-                              value={draft.organizations_involved.join(', ')}
+                              value={draft.groups_involved.join(', ')}
                               onChange={(e) =>
                                 updateField(
-                                  'organizations_involved',
+                                  'groups_involved',
                                   e.target.value
                                     .split(',')
                                     .map((s) => s.trim())
@@ -1078,6 +1332,16 @@ function Novel({ name: id, onNovelCreated, onSelectNovel }: NovelProps) {
                 </div>
               )}
             </>
+          )}
+
+          {activeTab === 'Chapters' && (
+            <Chapters
+              novelId={id}
+              outlineBeats={outline ?? []}
+              chaptersPrepared={(outline ?? []).some((b) => b.characters_present.length > 0)}
+              locked={novel.locked}
+              onLockChanged={() => setRefreshKey((k) => k + 1)}
+            />
           )}
         </div>
       </div>

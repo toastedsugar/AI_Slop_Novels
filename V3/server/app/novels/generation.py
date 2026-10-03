@@ -3,7 +3,8 @@ import math
 import re
 
 from app.model_routing import DEFAULTS, call_model
-from app.prompts import outline_prompts
+from app.novels.names import DEFAULT_REGION, build_name_pool
+from app.prompts import outline_editing_prompts, outline_prompts
 
 # User-supplied target word count is capped here rather than trusting the
 # client — this is the ceiling for the *base* count the primary thread is
@@ -25,18 +26,24 @@ DEFAULT_WORD_COUNT_WEIGHTS = {
 
 # Per-step max_tokens overrides, passed to call_model instead of the model's
 # own default cap (see model_routing.yaml). Steps that return one bounded
-# object (init_novel, init_worldbuilding, init_entities, init_relationships)
-# are fine on the model's default and aren't listed here. Steps listed below
-# return many long, per-item passages (multiple characters each with several
-# paragraph-level fields; 9 dense primary-thread beats; 2-4 beats per
-# secondary thread; 20-30+ dense outline beats) whose total output regularly
-# exceeds a model's default budget once combined with JSON structural
-# overhead — each has been truncated in practice (finish_reason='length') at
-# the default 16000 before getting its own larger budget here.
-CHARACTERS_MAX_TOKENS = 24000
+# object (init_novel, init_worldbuilding) are fine on the model's default and
+# aren't listed here. Steps listed below return many long, per-item passages
+# (multiple characters each with several paragraph-level fields; 9 dense
+# primary-thread beats; 2-4 beats per secondary thread; 20-30+ dense outline
+# beats; a relationship graph spanning every character/group against every
+# other character, item, location, group, and worldbuilding fact; side
+# characters plus locations, items, groups, and events all in one call) whose
+# total output regularly exceeds a model's default budget once combined with
+# JSON structural overhead — each has been truncated in practice
+# (finish_reason='length') at the default 16000 before getting its own larger
+# budget here.
+CHARACTERS_MAX_TOKENS = 40000
 PRIMARY_THREAD_MAX_TOKENS = 24000
 SECONDARY_ARCS_MAX_TOKENS = 24000
 OUTLINE_MAX_TOKENS = 32000
+OUTLINE_AUDIT_MAX_TOKENS = 32000
+RELATIONSHIPS_MAX_TOKENS = 24000
+ENTITIES_MAX_TOKENS = 32000
 
 # Computes the primary thread's target word count from the user's requested
 # base word count plus a bonus for every secondary thread attached to the
@@ -89,6 +96,35 @@ def truncate_secondary_arc(plot_points: list[dict], length_pct: int) -> list[dic
     return plot_points[:keep_count]
 
 
+# Calls a model and parses its JSON, retrying once if the response comes back
+# malformed. Models occasionally emit a truncated or subtly broken object — an
+# unescaped quote, a trailing comma — and with no retry a single bad response
+# kills an entire novel generation partway through. The retry is unconditional
+# rather than correction-guided: the prompt was already correct, the response
+# just landed badly, so asking again is the whole fix.
+#
+# Steps with their own richer retry (init_secondary_arcs' correction pass,
+# init_outline's truncation pass) layer on top of this.
+def _call_and_parse(
+    model: str,
+    system_prompt: str,
+    user_prompt: str,
+    reasoning: bool = False,
+    max_tokens: int | None = None,
+) -> dict:
+    for attempt in (1, 2):
+        text = call_model(
+            model, system_prompt, user_prompt, reasoning=reasoning, max_tokens=max_tokens
+        )
+        try:
+            return _extract_json(text, model)
+        except RuntimeError:
+            if attempt == 2:
+                raise
+            print(f"[{model}] malformed JSON, retrying once", flush=True)
+    raise RuntimeError(f"unreachable: {model}")  # pragma: no cover
+
+
 # Pulls the first {...} JSON object out of a model response.
 def _extract_json(text: str, label: str) -> dict:
     match = re.search(r"\{.*\}", text, flags=re.DOTALL)
@@ -115,6 +151,7 @@ def _build_intro_prompt(
     premise: str,
     tone_notes: str | None,
     characters_notes: str | None,
+    worldbuilding_notes: str | None,
     primary_thread: str | None,
     romance_content: str | None,
     secondary_threads: list[dict] | None,
@@ -126,6 +163,8 @@ def _build_intro_prompt(
         sections.append(f"--- Tone ---\n{tone_notes}")
     if include_characters_notes and characters_notes:
         sections.append(f"--- Characters ---\n{characters_notes}")
+    if worldbuilding_notes:
+        sections.append(f"--- Worldbuilding ---\n{worldbuilding_notes}")
     if primary_thread:
         sections.append(f"--- Story Structure ---\n{primary_thread}")
     if romance_content:
@@ -167,12 +206,42 @@ def _post_characters_prompt(
         novel.get("premise", ""),
         novel.get("tone_notes"),
         novel.get("characters_notes"),
+        novel.get("worldbuilding_notes"),
         novel.get("primary_thread"),
         novel.get("romance_content"),
         secondary_threads,
         include_characters_notes=False,
         include_secondary_threads=include_secondary_threads,
     )
+
+
+# Builds the intro prompt seen by init_worldbuilding — title, setting_context,
+# tone, characters_notes, and the user's own worldbuilding_notes. Deliberately
+# NOT built via _build_intro_prompt, which always renders a "--- Premise ---"
+# section unconditionally: worldbuilding must never see the premise, primary
+# thread, or romance content, since those describe concrete plot events, and
+# a worldbuilding pass that sees them tends to invent "facts" that just
+# rationalize what the story already describes rather than independently
+# deriving rules the story is then built to obey.
+#
+# setting_context (generated by init_novel — see INIT_NOVEL_SCHEMA) is the
+# deliberate exception: it is a plot-free description of the world/environment
+# only (occupation, institution, location type — e.g. "a corporate office
+# running an internal audit team"), extracted specifically so worldbuilding
+# can reflect the kind of place the story is set in without ever seeing what
+# happens there. characters_notes and worldbuilding_notes are included for the
+# same reason — they are concepts/setting descriptions, not plot events.
+def _worldbuilding_prompt(novel: dict) -> str:
+    sections = [f"Title: {novel.get('title', '')}"]
+    if novel.get("setting_context"):
+        sections.append(f"--- Setting ---\n{novel['setting_context']}")
+    if novel.get("tone_notes"):
+        sections.append(f"--- Tone ---\n{novel['tone_notes']}")
+    if novel.get("characters_notes"):
+        sections.append(f"--- Characters ---\n{novel['characters_notes']}")
+    if novel.get("worldbuilding_notes"):
+        sections.append(f"--- Worldbuilding ---\n{novel['worldbuilding_notes']}")
+    return "\n\n".join(sections)
 
 
 # Calls the LLM to generate the novel metadata from the title and the five
@@ -187,17 +256,27 @@ def init_novel(
     word_count: int,
     tone_notes: str | None = None,
     characters_notes: str | None = None,
+    worldbuilding_notes: str | None = None,
     primary_thread: str | None = None,
     romance_content: str | None = None,
     secondary_threads: list[dict] | None = None,
     primary_genre: str | None = None,
     author: str | None = None,
     themes: list[str] | None = None,
+    tense: str | None = None,
+    perspective: str | None = None,
     model: str = DEFAULTS["metadata"],
     reasoning: bool = False,
 ) -> dict:
     intro_prompt = _build_intro_prompt(
-        title, premise, tone_notes, characters_notes, primary_thread, romance_content, secondary_threads
+        title,
+        premise,
+        tone_notes,
+        characters_notes,
+        worldbuilding_notes,
+        primary_thread,
+        romance_content,
+        secondary_threads,
     )
     system_prompt = outline_prompts.SYSTEM_PROMPT.format(intro_prompt=intro_prompt)
     user_prompt = outline_prompts.INIT_NOVEL_USER_PROMPT.format(
@@ -209,6 +288,8 @@ def init_novel(
         "primary_genre": primary_genre,
         "author": author,
         "themes": themes or None,
+        "tense": tense,
+        "perspective": perspective,
     }
     overrides = {k: v for k, v in overrides.items() if v}
     if overrides:
@@ -216,55 +297,77 @@ def init_novel(
             overrides=json.dumps(overrides, indent=2)
         )
 
-    text = call_model(model, system_prompt, user_prompt, reasoning=reasoning)
-    data = _extract_json(text, model)
+    data = _call_and_parse(model, system_prompt, user_prompt, reasoning=reasoning)
 
     novel = data.get("novel", {})
     novel["prompt"] = intro_prompt
     return novel
 
 
-# Calls the LLM to generate the character list from the novel's metadata.
-# Runs right after init_novel, before worldbuilding exists yet — the cast is
-# meant to shape the world, not the other way around.
+# Serializes the worldbuilding block for a prompt. Every step that sends
+# worldbuilding MUST go through this: prompt caching keys on an exact prefix
+# match, so a difference in key order or indentation between two steps costs
+# the cache hit. sort_keys pins the ordering regardless of how the dict was
+# built (model output vs rebuilt from the database).
+def _worldbuilding_json(worldbuilding: dict) -> str:
+    return json.dumps(worldbuilding, indent=2, sort_keys=True)
+
+
+# Calls the LLM to generate the character list from the novel's metadata and
+# the already-generated world. Runs after init_worldbuilding so the cast is
+# built to fit a world that is already fixed — occupation, class, belief and
+# assumptions about privacy all follow from it.
 def init_characters(
     novel: dict,
+    worldbuilding: dict,
+    name_pool: dict | None = None,
     model: str = DEFAULTS["characters"],
     reasoning: bool = False,
 ) -> dict:
     system_prompt = outline_prompts.SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", ""))
+    seeds = novel.get("character_seeds") or []
+    generation_notes = novel.get("character_generation_notes")
     user_prompt = outline_prompts.INIT_CHARACTERS_USER_PROMPT.format(
+        name_pool=json.dumps(name_pool or build_name_pool(novel.get("region")), indent=2),
+        character_seeds=(
+            json.dumps(seeds, indent=2) if seeds else "None — name the whole cast from the pool."
+        ),
+        generation_notes_clause=(
+            outline_prompts.CHARACTER_GENERATION_NOTES_CLAUSE.format(notes=generation_notes)
+            if generation_notes
+            else ""
+        ),
+        worldbuilding=_worldbuilding_json(worldbuilding),
         novel_metadata=json.dumps(novel, indent=2),
         schema=json.dumps(outline_prompts.INIT_CHARACTERS_SCHEMA, indent=2),
     )
 
-    text = call_model(
+    data = _call_and_parse(
         model, system_prompt, user_prompt, reasoning=reasoning, max_tokens=CHARACTERS_MAX_TOKENS
     )
-    data = _extract_json(text, model)
     return data.get("characters", [])
 
 
-# Calls the LLM to generate the rules of the world — story type, time period,
-# anchor location, and constraints (genre conventions, magic systems,
-# technology) — from the novel's metadata and the already-generated cast, so
-# the world is built consistent with who's in it.
+# Calls the LLM to generate the world — story type, time period, anchor
+# location, plus a detailed list of facts across society/physical/systems/
+# intimate. Runs FIRST, before the cast exists, so every later step (characters
+# included) is built to fit a world that is already fixed.
+#
+# Returns the full {story_type, ..., facts: [...]} dict, not just the core.
 def init_worldbuilding(
     novel: dict,
-    characters: list[dict],
     model: str = DEFAULTS["worldbuilding"],
     reasoning: bool = False,
 ) -> dict:
-    system_prompt = outline_prompts.SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", ""))
+    system_prompt = outline_prompts.SYSTEM_PROMPT.format(intro_prompt=_worldbuilding_prompt(novel))
     user_prompt = outline_prompts.INIT_WORLDBUILDING_USER_PROMPT.format(
+        region=novel.get("region") or DEFAULT_REGION,
         novel_metadata=json.dumps(novel, indent=2),
-        characters=json.dumps(characters, indent=2),
         schema=json.dumps(outline_prompts.INIT_WORLDBUILDING_SCHEMA, indent=2),
     )
 
-    text = call_model(model, system_prompt, user_prompt, reasoning=reasoning)
-    data = _extract_json(text, model)
-    return data.get("worldbuilding", {})
+    data = _call_and_parse(model, system_prompt, user_prompt, reasoning=reasoning)
+    return {**data.get("worldbuilding", {}), "facts": data.get("facts", [])}
 
 
 # Calls the LLM to generate the protagonist's full hero's-journey primary
@@ -287,16 +390,15 @@ def init_primary_thread(
     system_prompt = outline_prompts.SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", ""))
     user_prompt = outline_prompts.INIT_PRIMARY_THREAD_USER_PROMPT.format(
         novel_metadata=json.dumps(novel, indent=2),
-        worldbuilding=json.dumps(worldbuilding, indent=2),
+        worldbuilding=_worldbuilding_json(worldbuilding),
         characters=json.dumps(characters, indent=2),
         word_count=novel.get("word_count"),
         schema=json.dumps(outline_prompts.INIT_PRIMARY_THREAD_SCHEMA, indent=2),
     )
 
-    text = call_model(
+    data = _call_and_parse(
         model, system_prompt, user_prompt, reasoning=reasoning, max_tokens=PRIMARY_THREAD_MAX_TOKENS
     )
-    data = _extract_json(text, model)
     return data.get("primary_thread", [])
 
 
@@ -320,7 +422,7 @@ def init_secondary_arcs(
     system_prompt = outline_prompts.SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", ""))
     user_prompt = outline_prompts.INIT_SECONDARY_ARCS_USER_PROMPT.format(
         novel_metadata=json.dumps(novel, indent=2),
-        worldbuilding=json.dumps(worldbuilding, indent=2),
+        worldbuilding=_worldbuilding_json(worldbuilding),
         characters=json.dumps(characters, indent=2),
         primary_thread=json.dumps(primary_thread, indent=2),
         secondary_threads=json.dumps(secondary_threads, indent=2),
@@ -332,10 +434,9 @@ def init_secondary_arcs(
             problems=correction
         )
 
-    text = call_model(
+    data = _call_and_parse(
         model, system_prompt, user_prompt, reasoning=reasoning, max_tokens=SECONDARY_ARCS_MAX_TOKENS
     )
-    data = _extract_json(text, model)
     return data.get("secondary_arcs", [])
 
 
@@ -345,76 +446,146 @@ def init_secondary_arcs(
 # output is actually persisted as something the user reads and edits;
 # init_primary_thread and init_secondary_arcs are internal inputs to it.
 # Runs after both — its job is to combine and narrate, not invent new plot.
+# Name-only projections of the cast/entities, shared by init_outline and
+# init_outline_audit — both need the same CAST/LOCATIONS/GROUPS/ITEMS/
+# WORLDBUILDING FACTS name lists to place people and things in scenes and to
+# validate beats' entity-presence lists against, so this stays in one place
+# rather than being duplicated between the two prompts' call sites.
+def _outline_entity_names(characters: list[dict], worldbuilding: dict, entities: dict) -> dict:
+    return {
+        "characters": [
+            {"name": c.get("name"), "role": c.get("role"), "occupation": c.get("occupation")}
+            for c in characters
+        ],
+        "locations": [e.get("name") for e in entities.get("locations", [])],
+        "groups": [e.get("name") for e in entities.get("groups", [])],
+        "items": [e.get("name") for e in entities.get("items", [])],
+        "worldbuilding_facts": [f.get("title") for f in worldbuilding.get("facts", [])],
+    }
+
+
+# Step 1 of 2: a rough outline in one continuous pass. Not the final
+# result — init_outline_audit reviews it afterward for the structural and
+# continuity issues a single unbroken generation reliably misses at this
+# length (timeline order, entity-list exactness, pacing math, POV rules,
+# secondary-thread distribution). This step's own prompt asks for real,
+# concrete, well-imagined content rather than self-checking every rule, since
+# that's what the second pass is for.
 def init_outline(
     novel: dict,
+    worldbuilding: dict,
     primary_thread: list[dict],
     secondary_arcs: list[dict],
+    characters: list[dict],
+    entities: dict,
     model: str = DEFAULTS["outline"],
     reasoning: bool = False,
 ) -> list[dict]:
     system_prompt = outline_prompts.SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", ""))
+    names = _outline_entity_names(characters, worldbuilding, entities)
     user_prompt = outline_prompts.INIT_OUTLINE_USER_PROMPT.format(
+        worldbuilding=_worldbuilding_json(worldbuilding),
         primary_thread=json.dumps(primary_thread, indent=2),
         secondary_arcs=json.dumps(secondary_arcs, indent=2),
+        characters=json.dumps(names["characters"], indent=2),
+        locations=json.dumps(names["locations"], indent=2),
+        groups=json.dumps(names["groups"], indent=2),
+        items=json.dumps(names["items"], indent=2),
+        worldbuilding_facts=json.dumps(names["worldbuilding_facts"], indent=2),
         word_count=novel.get("word_count"),
         schema=json.dumps(outline_prompts.INIT_OUTLINE_SCHEMA, indent=2),
     )
 
-    # The outline is the largest single response in the pipeline — roughly one
-    # 200-400 word beat per primary beat and per secondary plot point, so a
-    # multi-thread story can genuinely exceed a model's output ceiling. If it
-    # truncates, retry once asking for the same beats at the shorter end of
-    # the range rather than failing the whole run; a tighter outline is worth
-    # more than no outline.
-    try:
-        text = call_model(
-            model, system_prompt, user_prompt, reasoning=reasoning, max_tokens=OUTLINE_MAX_TOKENS
-        )
-    except RuntimeError as e:
-        if "truncated" not in str(e):
-            raise
-        text = call_model(
-            model,
-            system_prompt,
-            user_prompt + outline_prompts.INIT_OUTLINE_LENGTH_CORRECTION,
-            reasoning=reasoning,
-            max_tokens=OUTLINE_MAX_TOKENS,
-        )
-    data = _extract_json(text, model)
+    data = _call_and_parse(
+        model, system_prompt, user_prompt, reasoning=reasoning, max_tokens=OUTLINE_MAX_TOKENS
+    )
     return data.get("outline", [])
 
 
-# Calls the LLM to generate locations, items, organizations, and events in a
-# single call from the novel's metadata, worldbuilding rules, characters, and
-# primary thread — events are expected to map onto real primary thread plot
-# points rather than being invented independently.
+# Step 2 of 2: reviews init_outline's rough result against the structural
+# checklist that used to be crammed into init_outline's own "before
+# returning, validate" paragraph — timeline/continuity, character
+# positioning, opening conventions, secondary-thread merging, chapter-level
+# pacing/POV/title rules, and entity-presence-list exactness. Returns a full
+# replacement chapter list in the same schema, not a diff, since a beat that
+# needs re-cutting across a chapter boundary can't be expressed as an edit to
+# one chapter in isolation.
+def init_outline_audit(
+    novel: dict,
+    worldbuilding: dict,
+    primary_thread: list[dict],
+    secondary_arcs: list[dict],
+    characters: list[dict],
+    entities: dict,
+    rough_outline: list[dict],
+    model: str = DEFAULTS["outline_audit"],
+    reasoning: bool = False,
+) -> list[dict]:
+    system_prompt = outline_prompts.SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", ""))
+    names = _outline_entity_names(characters, worldbuilding, entities)
+    user_prompt = outline_editing_prompts.INIT_OUTLINE_AUDIT_USER_PROMPT.format(
+        worldbuilding=_worldbuilding_json(worldbuilding),
+        primary_thread=json.dumps(primary_thread, indent=2),
+        secondary_arcs=json.dumps(secondary_arcs, indent=2),
+        characters=json.dumps(names["characters"], indent=2),
+        locations=json.dumps(names["locations"], indent=2),
+        groups=json.dumps(names["groups"], indent=2),
+        items=json.dumps(names["items"], indent=2),
+        worldbuilding_facts=json.dumps(names["worldbuilding_facts"], indent=2),
+        word_count=novel.get("word_count"),
+        rough_outline=json.dumps(rough_outline, indent=2),
+        schema=json.dumps(outline_prompts.INIT_OUTLINE_SCHEMA, indent=2),
+    )
+
+    data = _call_and_parse(
+        model, system_prompt, user_prompt, reasoning=reasoning, max_tokens=OUTLINE_AUDIT_MAX_TOKENS
+    )
+    return data.get("outline", [])
+
+
+# Calls the LLM to generate side characters, locations, items, groups, and
+# events in a single call from the novel's metadata, worldbuilding rules,
+# characters, primary thread, and secondary arcs — side characters are drawn
+# from what the threads actually need, and events are expected to map onto
+# real primary thread plot points rather than being invented independently.
 def init_entities(
     novel: dict,
     worldbuilding: dict,
     characters: list[dict],
     primary_thread: list[dict],
+    secondary_arcs: list[dict],
     model: str = DEFAULTS["entities"],
     reasoning: bool = False,
 ) -> dict:
     system_prompt = outline_prompts.SYSTEM_PROMPT.format(intro_prompt=novel.get("prompt", ""))
+    # Roughly one side character per 2500 words, computed here rather than left
+    # to the model to work out from the metadata. Clamped to 2-8: a very short
+    # story still needs a couple of people, and past 8 the reader loses track.
+    word_count = novel.get("word_count") or 0
+    side_character_target = max(2, min(8, round(word_count / 2500)))
     user_prompt = outline_prompts.INIT_ENTITIES_USER_PROMPT.format(
         novel_metadata=json.dumps(novel, indent=2),
-        worldbuilding=json.dumps(worldbuilding, indent=2),
+        worldbuilding=_worldbuilding_json(worldbuilding),
         characters=json.dumps(characters, indent=2),
         primary_thread=json.dumps(primary_thread, indent=2),
+        secondary_arcs=json.dumps(secondary_arcs, indent=2),
+        word_count=word_count,
+        side_character_target=side_character_target,
         schema=json.dumps(outline_prompts.INIT_ENTITIES_SCHEMA, indent=2),
     )
 
-    text = call_model(model, system_prompt, user_prompt, reasoning=reasoning)
-    return _extract_json(text, model)
+    return _call_and_parse(
+        model, system_prompt, user_prompt, reasoning=reasoning, max_tokens=ENTITIES_MAX_TOKENS
+    )
 
 
-# Calls the LLM to generate the starting relationship graph — character to
-# character, and character to item/location — from everything generated so
-# far. Runs last, since it needs entities (locations/items/organizations)
-# to exist first. Only relationships that actually exist at story-start are
-# emitted; see outline_prompts.INIT_RELATIONSHIPS_USER_PROMPT for the
-# asymmetry rules.
+# Calls the LLM to generate the starting relationship graph — character/group
+# to character, item, location, group, or worldbuilding fact — from
+# everything generated so far. Runs last, since it needs entities
+# (locations/items/groups/worldbuilding_facts) to exist first. Only
+# relationships that actually exist at story-start are emitted; see
+# outline_prompts.INIT_RELATIONSHIPS_USER_PROMPT for the asymmetry and
+# character-vs-group priority rules.
 def init_relationships(
     novel: dict,
     characters: list[dict],
@@ -428,10 +599,12 @@ def init_relationships(
         characters=json.dumps(characters, indent=2),
         locations=json.dumps(worldbuilding.get("locations", []), indent=2),
         items=json.dumps(worldbuilding.get("items", []), indent=2),
-        organizations=json.dumps(worldbuilding.get("organizations", []), indent=2),
+        groups=json.dumps(worldbuilding.get("groups", []), indent=2),
+        worldbuilding_facts=json.dumps(worldbuilding.get("worldbuilding_facts", []), indent=2),
         events=json.dumps(worldbuilding.get("events", []), indent=2),
         schema=json.dumps(outline_prompts.INIT_RELATIONSHIPS_SCHEMA, indent=2),
     )
 
-    text = call_model(model, system_prompt, user_prompt, reasoning=reasoning)
-    return _extract_json(text, model)
+    return _call_and_parse(
+        model, system_prompt, user_prompt, reasoning=reasoning, max_tokens=RELATIONSHIPS_MAX_TOKENS
+    )
