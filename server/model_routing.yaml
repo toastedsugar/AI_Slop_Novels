@@ -1,0 +1,162 @@
+# Anthropic models call the first-party API directly via ANTHROPIC_API_KEY
+# (see app/model_routing.py). Everything else routes through OpenRouter via
+# OPENROUTER_API_KEY.
+#
+# max_tokens is the everyday budget a step gets by default — deliberately
+# conservative, since most steps return one bounded object.
+# max_tokens_ceiling is the hard limit a large step (e.g. init_outline) may
+# raise to by passing its own max_tokens; call_model never exceeds it. These
+# are the providers' real max_completion_tokens values, read from OpenRouter's
+# /models endpoint (or Anthropic's docs) — not estimates. Re-read them there
+# if a model is swapped.
+models:
+  # Anthropic — provider: anthropic routes call_model to the Anthropic SDK
+  # instead of OpenRouter. Latest models per shared/model-migration.md.
+  claude-fable:
+    provider: anthropic
+    model: claude-fable-5
+    max_tokens: 32000
+    max_tokens_ceiling: 128000
+    temperature: [0.8, 1.0]
+
+  claude-opus:
+    provider: anthropic
+    model: claude-opus-5
+    max_tokens: 16000
+    max_tokens_ceiling: 128000
+    temperature: [0.8, 1.0]
+
+  claude-sonnet:
+    provider: anthropic
+    model: claude-sonnet-5
+    max_tokens: 16000
+    max_tokens_ceiling: 128000
+    temperature: [0.8, 1.0]
+
+  claude-sonnet-4-6:
+    provider: anthropic
+    model: claude-sonnet-4-6
+    max_tokens: 16000
+    max_tokens_ceiling: 128000
+    temperature: [0.8, 1.0]
+
+  claude-haiku:
+    provider: anthropic
+    model: claude-haiku-4-5
+    max_tokens: 8192
+    max_tokens_ceiling: 64000
+    temperature: [0.8, 1.0]
+
+  qwen-3-7-max:
+    model: qwen/qwen3.7-max
+    max_tokens: 16000
+    max_tokens_ceiling: 131072
+    temperature: [0.8, 1.0]
+
+  llama3.3:
+    model: meta-llama/llama-3.3-70b-instruct
+    max_tokens: 16000
+    max_tokens_ceiling: 16384
+    temperature: [0.8, 1.0]
+
+  llama4-scout:
+    model: meta-llama/llama-4-scout
+    max_tokens: 16000
+    max_tokens_ceiling: 16384
+    temperature: [0.8, 1.0]
+
+  llama4-maverick:
+    model: meta-llama/llama-4-maverick
+    max_tokens: 16000
+    max_tokens_ceiling: 16384
+    temperature: [0.8, 1.0]
+
+  # Context length/max output tokens below are an unverified placeholder —
+  # could not confirm OpenRouter's real published numbers for this model
+  # through available tools. Correct max_tokens_ceiling from OpenRouter's
+  # own model page before relying on this for a large step (e.g. outline).
+  kimi-k3:
+    model: moonshotai/kimi-k3
+    max_tokens: 16000
+    max_tokens_ceiling: 131072
+    temperature: [0.8, 1.0]
+
+  mistral-medium:
+    model: mistralai/mistral-medium-3-5
+    max_tokens: 16000
+    max_tokens_ceiling: 209715
+    temperature: [0.8, 1.0]
+
+  mistral-small:
+    model: mistralai/mistral-small-2603
+    max_tokens: 16000
+    max_tokens_ceiling: 209715
+    temperature: [0.8, 1.0]
+
+  # xAI. 500k context; ceiling set to what the largest step (init_outline)
+  # actually needs, not the provider's much higher output limit.
+  grok-4.7:
+    model: x-ai/grok-4.7
+    max_tokens: 16000
+    max_tokens_ceiling: 450000
+    temperature: [0.8, 1.0]
+
+  # AionLabs multi-model roleplaying/storytelling system (GLM-family). 262k
+  # context, 32768 max_completion_tokens — both from OpenRouter's /models
+  # endpoint. Reasoning is mandatory on this model regardless of the
+  # reasoning= flag passed to call_model.
+  aion-3.5:
+    model: aion-labs/aion-3.5
+    max_tokens: 16000
+    max_tokens_ceiling: 32768
+    temperature: [0.8, 1.0]
+
+  # Z.ai. 1M context; ceiling set to what the largest step (init_outline)
+  # actually needs, not the provider's much higher (943718) output limit.
+  # Reasoning is mandatory on this model, default effort "max" — its mandatory
+  # reasoning tokens share the same max_tokens budget as the completion, so
+  # the shared 16000 default other models use was truncating routinely (seen
+  # retrying 32000 -> 64000 -> 128000 and still truncating on ordinary steps).
+  # Raised well above the shared default so a typical call doesn't need the
+  # doubling retry at all; max_tokens_ceiling still allows growing further for
+  # the largest steps (init_outline).
+  glm-5.3:
+    model: z-ai/glm-5.3
+    max_tokens: 96000
+    max_tokens_ceiling: 450000
+    temperature: [0.8, 1.0]
+
+  # Meta Superintelligence Labs. 131072 context, 16384 max_completion_tokens
+  # — both from OpenRouter's /models endpoint. Reasoning is mandatory on this
+  # model, default effort "medium".
+  muse-glimmer-30b:
+    model: meta/muse-glimmer-30b
+    max_tokens: 16000
+    max_tokens_ceiling: 16384
+    temperature: [0.8, 1.0]
+
+  # Xiaomi. 1M context; ceiling set to what the largest step (init_outline)
+  # actually needs, not the provider's much higher (131072 max_completion_
+  # tokens is already within reach, so this one isn't capped down). Reasoning
+  # is optional on this model — only enabled when reasoning=True is passed.
+  mimo-v2.6-pro:
+    model: xiaomi/mimo-v2.6-pro
+    max_tokens: 16000
+    max_tokens_ceiling: 131072
+    temperature: [0.8, 1.0]
+
+# Default model alias per pipeline step, used when the client doesn't specify one.
+defaults:
+  metadata: mistral-medium
+  genre_conventions: mistral-medium
+  characters: mistral-medium
+  worldbuilding: mistral-medium
+  primary_thread: mistral-medium
+  secondary_arcs: mistral-medium
+  outline: mistral-medium
+  outline_audit: mistral-medium
+  entities: mistral-medium
+  initial_state: mistral-medium
+  generate: qwen-3-7-max
+  edit: grok-4.7
+  state: mistral-medium
